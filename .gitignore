@@ -1,0 +1,19 @@
+# ============================================================
+# .gitignore - Jurideazor (RCR project)
+# Rule of thumb: secrets, big data and machine-specific files stay OUT of Git.
+# ============================================================
+ 
+# Secrets: never commit
+.env
+
+# Data stays in the shared folder, not in Git
+data/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
