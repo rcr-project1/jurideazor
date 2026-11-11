@@ -38,11 +38,27 @@ cd jurideazor
 pip install -r requirements.txt
 ```
 
-Créer un fichier `.env` avec votre clé personnelle (ne jamais la pousser sur Git) :
+## Modèle de langage et clé API
+
+Selon la consigne mise à jour par l'enseignant, le modèle imposé est
+`openai/gpt-oss-120b`, accessible via l'API Groq. Le nom contient `openai/`,
+mais les requêtes passent par Groq, pas par l'API OpenAI.
+
+Chaque membre crée sa propre clé gratuite sur
+[Groq Console](https://console.groq.com/keys). Ne partagez pas votre clé et
+n'ajoutez aucun moyen de paiement.
+
+Pour un développement local, définissez la variable d'environnement
+`GROQ_API_KEY`. Si vous utilisez un fichier `.env`, gardez-le uniquement sur
+votre machine et ne le poussez jamais sur Git :
 
 ```
-GEMINI_API_KEY=votre_cle_ici
+GROQ_API_KEY=votre_cle_ici
 ```
+
+Le cahier des charges initial mentionne Gemini ; cette consigne est remplacée
+par l'annonce plus récente de l'enseignant. Le modèle de secours
+`openai/gpt-oss-20b` ne doit être utilisé que si l'enseignant l'annonce.
 
 ## Équipe
 
