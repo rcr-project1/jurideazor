@@ -288,12 +288,12 @@ git commit -m "search: add BM25 baseline" -m "Co-authored-by: Name <his-email-on
 
 ## 5. ملف `.env` والمفاتيح السرية
 
-**ما هو `.env`؟** ملف نصي عندكم في جهازكم فقط، فيه الأسرار (مثل مفتاح Gemini):
+**ما هو `.env`؟** ملف نصي عندكم في جهازكم فقط، فيه الأسرار (مثل مفتاح Groq):
 
 <div dir="ltr">
 
 ```text
-GEMINI_API_KEY=your_key_here
+GROQ_API_KEY=your_key_here
 ```
 
 </div>
