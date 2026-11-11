@@ -73,8 +73,8 @@ ssh -T git@github.com
 <div dir="ltr">
 
 ```bash
-git clone git@github.com:rcr-project1/a-legal-knowledge-base-and-developing-a-reasoning-platform-on-Algerian-labor-law.git
-cd a-legal-knowledge-base-and-developing-a-reasoning-platform-on-Algerian-labor-law
+git clone git@github.com:rcr-project1/jurideazor.git
+cd jurideazor
 ```
 
 </div>
