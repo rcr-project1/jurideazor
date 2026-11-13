@@ -1,0 +1,101 @@
+Analyse des réponses d'un LLM sans RAG
+
+Cas pratique : Ahmed et les accusations concernant la loi du travail algérienne
+
+1. Analyse générale
+
+La structure des réponses du LLM est claire et convaincante (réponse courte, explication, référence, version utilisée, confiance) mais leur contenu est défectueux. Quatre défauts peuvent être identifiés :
+
+Des références juridiques inventées ou mal citées ;
+Des concepts juridiques empruntés à la législation française ;
+Des règles et des délais illégaux ;
+Une "haute" confiance affichée partout.
+
+Ces réponses sont comparées à des réponses de référence basées sur des textes pertinents : L'ordonnance 97-03, les lois 90-11, 88-07, 90-03, 90-04 et les modifications apportées à la loi de finances de 2018.
+
+2. Répondre aux questions
+
+Q1. Semaine juridique
+
+Correct: 40 heures par semaine et 48 heures ne sont pas nécessairement des violations.
+Incorrect: Référence juridique incorrecte ("art. 33", "décret 66-754 de 1966"). Les textes corrects sont l'ordonnance 97-03 (art. 2) et la loi 90-11 (art. 31).
+Insuffisant: La nature exceptionnelle des heures supplémentaires n'a pas été abordée.
+Défaut principal: Une information correcte citée par une référence erronée.
+
+Q2. Heures supplémentaires et taux des heures supplémentaires
+
+Faux: Se référer aux articles 34 et 35 en relation avec le «Code du travail». Les dispositions pertinentes se trouvent dans les articles 31 et 32. Il y a une limite de 20% à l'article 31 et une augmentation de 50% ou plus à l'article 32.
+
+Point d'attention: 20% de 40 heures font 48 heures ;donc les 48 heures mentionnées sont mathématiquement correctes. Le problème c'est que le LLM prend des chiffres d'une mauvaise base et ajoute également 100% de plus sans aucune justification. Ceci est contredit par la réponse car cela place les 48 heures comme une limite et un taux au-delà de cette heure.
+
+Infondé: La nécessité d'avoir un accord ou une consultation au sein d'une entreprise.
+
+Ahmed: Il est exactement à la limite supérieure de la semaine de travail. Ce qui est vraiment en échec c'est le caractère permanent de ces heures de travail sans une augmentation de 50%.
+
+Erreur principale: Mauvaise compréhension de la limite , des conditions de recours et du taux.
+
+Q3. Hygiène, Sécurité et EPI
+Incorrect: Articles 152 à 155 et Décret 87-68 ; le texte pertinent est la Loi 88-07, Articles 3 (obligation générale), 5 (les lieux de travail), 6 (EPI) et 7 (marchandises) que le LLM ne mentionne pas.
+Omission: Le Décret exécutif 91-05 concernant les obligations de protection générale.
+Omission: Les sanctions prévues par l'Article 38 modifié en 2018 (une amende de 10 000 à 20 000 DA, majorée en cas de récidive) concernant les Articles 5, 6, 7 et autres mais pas l'Article 3.
+Problème majeur: Références inexactes.
+
+Q4. L'inspection du travail
+Incorrect: Articles 216 à 218 ; le texte pertinent est la Loi 90-03 (Articles 5 à 11).
+Incorrect: Le LLM attribue à l'inspecteur toutes les amendes et suspensions administratives ; son rôle est limité aux visites, à l'enquête, aux observations écrites, aux mises en demeure et à la rédaction d'un rapport ; les sanctions sont réservées au juge.
+Non prouvé: Le "début obligatoire" d'une enquête suite à une plainte.
+Nuance précieuse: La surveillance de la violation (temps supplémentaire,EPI) et la contestation (résiliation du contrat de travail) sont deux processus différents.
+Problème majeur: La confusion entre le contrôle et la sanction.
+Q5. Démission pour faute grave
+
+Articles erronés :71 et 72. Les bons articles sont les 73 et 73-1 à 73-4 de la loi 90-11 (révisée par la loi 91-29) ainsi que les articles 75,77 et 78 du règlement intérieur.
+
+D'après la loi Algérienne : la définition (« il est même impossible pendant le délai de préavis »),l'entretien préliminaire et la lettre recommandée. Selon la loi Algérienne la procédure se déroule selon le règlement intérieur où le travailleur est entendu et assisté par tout travailleur de l'organisation de l'employeur (article 73-2). La LLM mentionne le représentant des travailleurs.
+
+Erreur : La démission est considérée comme « abusive » dès le début puisque l'un des éléments n'est pas rempli. Le texte établit une présomption (article 73-3) pour la preuve laissée à l'employeur ainsi que des recours (article 73-4).
+
+Sans fondement : « Seul l'indemnité de vacances payée est due ».
+
+Ahmed : La LLM ne vérifie pas s'il y a une faute grave et ne mentionne pas que la démission a eu lieu quelques jours après la dénonciation de cette faute.
+
+Faute principale : Traduction erronée des articles et des garanties disciplinaires.
+Q6.Licenciement contesté
+
+Inventé : une limite de 60 jours ; les articles 74 et 219 n'en prévoient pas une telle.
+
+Faux : « Tribunal du travail » ;le tribunal compétent est le Tribunal judiciaire ,section sociale.
+
+Procédure omise (loi 90-04) :
+
+Réglement intérieur : 8 jours vers le supérieur puis 15 jours vers l'employeur (article 4),
+
+Délivrance d'un rapport d'un inspecteur du travail (article 5),
+
+Médiation obligatoire devant le conseil de médiation (articles 19,26 et 27),
+
+Protocole de médiation ou non médiation (articles 28 à 31),
+
+Référé au Tribunal avec protocole de non médiation (articles 36 et 37) ; première audience dans un délai de 15 jours (article 38).
+
+Danger : Faire cela rendrait la réclamation d'Ahmed irrecevable.
+
+Défaut principal : Délai inventé et étapes omises.
+
+3. Précision et Intégrité
+
+« Niveau de confiance : Élevé » pour toutes les questions même fausses :C'est le plus grave défaut.
+
+« Toujours en vigueur au 13 novembre 2026 » :Affirmation non fondée qui ne tient pas compte des changements apportés à la loi de finances de 2018.
+
+« Souvent invoqué dans la doctrine » :Argument d'autorité fausse.
+
+Réponse tronquée avec des erreurs linguistiques (« abus ») . 
+4.Explication technique
+
+En l'absence de la récupération de documents le modèle fonctionne à partir de sa mémoire paramétrique. Les lois algériennes ont été peu couvertes dans les données d'entrainement.Le modèle donc s'appuie sur d'autres lois similaires (particulièrement le système juridique français) et produit des numéros d'articles valides même lorsqu'il n'y a pas de véritable source ;c'est ce qu'on appelle une hallucination de citation. Le modèle n'a aucun moyen d'indiquer son incertitude quant au texte.
+
+5.Gravité des erreurs et conséquences pour l'utilisateur
+
+Les erreurs ne sont pas de même importance. Certaines affectent la vérifiabilité tandis que d'autres peuvent conduire Ahmed à se comporter de façon inappropriée.
+
+
