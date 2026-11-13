@@ -1,4 +1,4 @@
-Cas pratique : Ahmed et les infractions présumées au droit du travail algérien
+Cas pratique : Ahmed et les infractions présumées au droit du travail algérien:
 
 Situation :
 
