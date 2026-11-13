@@ -70,6 +70,7 @@ benzerafa rania halima
 bougoffa malak
 ]
 
+
 ## Documentation
 
 ### 1. Présentation du projet
@@ -79,6 +80,7 @@ bougoffa malak
 - [Questions de test](docs/project/docs/evaluation/question-test.md)
 
 ### 3. Évaluation du LLM sans RAG
-- [Analyse critique des réponses du LLM](docs/project/docs/evaluation/Analyse%20des%20réponses%20d'un%20LLM%20sans%20RAG.md)
-- [Réponses du LLM avec sources et références](docs/project/docs/evaluation/Réponses%20avec%20sources%20et%20références.md)
-- [Réponses du LLM sans RAG](docs/project/docs/evaluation/réponses%20de%20LLM%20sans%20RAG.md)
+- [Analyse des réponses d'un LLM sans RAG](docs/project/docs/evaluation/Analyse%20des%20réponses%20d'un%20LLM%20sans%20RAG)
+- [Réponses avec sources et références](docs/project/docs/evaluation/Réponses%20avec%20sources%20et%20références)
+- [Réponses de LLM sans RAG](docs/project/docs/evaluation/réponses%20de%20LLM%20sans%20RAG)
+
