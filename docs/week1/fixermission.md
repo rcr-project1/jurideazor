@@ -22,6 +22,6 @@ Jurideazor est un outil d’information et d’aide à la recherche juridique ; 
 
 Il se limite au droit du travail algérien. La jurisprudence, la doctrine, les conventions collectives propres aux entreprises et le droit étranger sont hors périmètre. Lorsque les textes disponibles dans le corpus ne permettent pas de justifier une réponse, il le signale explicitement plutôt que de produire une information incertaine ou inventée.
 5. Phrase de mission
- Jurideazor a pour mission de rendre le droit du travail algérien plus accessible en fournissant des réponses compréhensibles, traçables et fondées sur les textes juridiques pertinents, en respectant leur hiérarchie et leur version applicable à la date concernée, tout en indiquant un niveau de confiance pour chaque réponse ou en reconnaissant clairement lorsque les sources disponibles ne permettent pas de répondre.
+ Jurideazor a pour mission de rendre le droit du travail algérien plus accessible en fournissant des réponses compréhensibles, traçables et fondées sur les textes juridiques pertinents, en respectant leur hiérarchie et leur version applicable à la date concernée, tout en indiquant un niveau de confiance pour chaque réponse ou en reconnaissant clairement lorsque les sources disponibles ne permettent pas de répondre
 
 
