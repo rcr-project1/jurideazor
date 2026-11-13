@@ -69,3 +69,18 @@ boukhalfa hadil
 benzerafa rania halima
 bougoffa malak
 ]
+
+
+## Documentation
+
+### 1. Présentation du projet
+- [Mission du projet](docs/week1/fixermission.md)
+
+### 2. Cas pratique et questions de test
+- [Questions de test](docs/week1/evaluation/question-test.md)
+
+### 3. Évaluation du LLM sans RAG
+- [Analyse des réponses d'un LLM sans RAG](docs/week1/evaluation/Analyse%20des%20réponses%20d'un%20LLM%20sans%20RAG)
+- [Réponses avec sources et références](docs/week1/evaluation/Réponses%20avec%20sources%20et%20références)
+- [Réponses de LLM sans RAG](docs/week1/evaluation/réponses%20de%20LLM%20sans%20RAG)
+
