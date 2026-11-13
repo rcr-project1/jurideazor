@@ -123,7 +123,14 @@ for i, l in enumerate(body):
             cur = {"key": key, "article": label, "lines": [rest], **{k: v for k, v in ctx.items() if k != "livre"}}
             articles.append(cur)
         continue
+        
     p = parse(l)
+    
+    # --- FIX: Ignorer les faux débuts d'articles (ex: "Art. 9-" au milieu de l'Art 7) ---
+    if p and i not in acc:
+        continue
+    # -------------------------------------------------------------------------------------
+
     if p and not p[3] and not p[2]:           # "Art. 5" seul sur la ligne
         if next_accepted_key(i) == p[0]:
             if not (cur and cur["key"] == p[0]):
