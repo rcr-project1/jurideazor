@@ -9,11 +9,11 @@
 | `robots.txt` (root) | `https://joradp.dz/robots.txt` | **HTTP 404 — File or directory not found** |
 | `robots.txt` (`www` host) | `https://www.joradp.dz/robots.txt` | 404 |
 | `robots.txt` (http) | `http://www.joradp.dz/robots.txt` | 404 |
-| Legal notice | `joradp.dz` home page | *(to be completed)* |
+| Legal notice | `joradp.dz` home page | **[À COMPLÉTER PAR NOUHA : consultées le JJ/MM, trouvées à <url> / introuvables]** |
 | Ministry of Commerce `robots.txt` | *(site concerned)* | **disallows automated access → not crawled** |
 | UpGrowth dataset page | `https://www.upgrowth.dz/datasets/journal-officiel-1962-2026` | reachable, files free under CC BY 4.0 |
 
-**Evidence:** screenshot of the 404 response (`docs/week2/`), dated 2026-11-16.
+**Evidence:** screenshot of the 404 response, `docs/week2/robots_404_2026-11-16.png`, dated 2026-11-16.
 
 ## 2. Sources table
 

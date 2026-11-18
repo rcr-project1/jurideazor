@@ -6,7 +6,7 @@
 
 ## 1. Politique d'accès
 
-- `https://www.joradp.dz/robots.txt` → **HTTP 404** (2026-11-16). RFC 9309 : un 4xx vaut absence de restriction ; un 5xx aurait valu interdiction. Preuve : capture poussée sous le nom `docs/week2/robots_404_2026-11-1.png` sur la branche `docs/week2` ; le renommage en `robots_404_2026-11-16.png` est prêt en local, **pas encore commité**.
+- `https://www.joradp.dz/robots.txt` → **HTTP 404** (2026-11-16). RFC 9309 : un 4xx vaut absence de restriction ; un 5xx aurait valu interdiction. Preuve : `docs/week2/robots_404_2026-11-16.png` (branche `docs/week2`, fusionnée par la PR de documentation).
 - L'index UpGrowth (CC BY 4.0) sert uniquement à lister les numéros et les URL officielles. Il n'est ni une source officielle ni un corpus. Ses limites sont décrites dans `sources_et_conditions.md` §4.
 - Le site du ministère du Commerce (accès automatisé interdit) n'a pas été exploré.
 - Client : `User-Agent` identifiant avec adresse universitaire ; délai minimum **3 s** entre requêtes ; **aucun** téléchargement parallèle ; volume limité aux numéros nécessaires.
@@ -18,7 +18,7 @@
 - Taille maximale **50 Mo** : `stream=True`, `save_stream()` interrompt au-delà de la limite et supprime le `.part` ; un `Content-Length` annoncé trop grand est refusé avant téléchargement (journalisé, sans retry).
 - Écriture atomique : `.part` → `fsync` → `os.replace`. Le SHA-256 est calculé **pendant** l'écriture et enregistré seulement après succès : un fichier présent est complet par construction.
 - Journal d'échecs : `data/processed/download_failures.log` (ignoré par Git, absent sur le corpus actuel).
-- Incident connu : un `ReadTimeout` sur `ar 2005/001` a interrompu une exécution **avant** l'ajout du `try/except` ; aucun fichier corrompu. Cet incident est consigné dans la version 1 du rapport (§3) ; la sortie d'erreur n'est pas archivée dans Git.
+- Incident connu : un `ReadTimeout` sur `ar 2005/001` a interrompu une exécution **avant** l'ajout du `try/except` ; aucun fichier corrompu. Incident non journalisé (aucune trace écrite à l'époque) ; aucun fichier corrompu dans le corpus, et la relance après correction s'est terminée sans échec.
 
 ## 3. Registre et manifeste
 
@@ -48,7 +48,16 @@ PY
 # 24/24 conformes
 ```
 
-Sorties non archivées dans Git (exécutées en local). Aucun `.part` ; aucun PDF hors registre.
+Aucun `.part` ; aucun PDF hors registre.
+
+### 4.1 Preuves archivées
+
+Les sorties réelles sont versionnées :
+
+- `docs/week2/evidence/verify_downloads_2026-11-18.txt` — sortie de `src/collect/verify_downloads.py` (24/24 conformes, 0 `.part`, 0 PDF hors registre), avec en-tête date UTC + `git rev-parse --short HEAD`.
+- `docs/week2/evidence/download_rerun_2026-11-18.txt` — deux exécutions consécutives de `src/collect/download.py` : `0 fetched, 24 skipped, 0 failed`, code de sortie `0`.
+
+Ces deux fichiers peuvent être régénérés par le professeur sans accès à la machine : le premier vérifie les fichiers réellement présents, le second prouve l'absence de doublon.
 
 ## 5. Périmètre réel
 
@@ -65,4 +74,5 @@ Détail par fichier : `data/processed/pdf_report.csv` (24 lignes : langue, anné
 
 - Les 7 numéros « texte » ne sont pas encore extraits : la couverture du corpus reste partielle.
 - Le registre SQLite étant local, la preuve publiée est le manifeste CSV ; le manifeste ne contient pas les pages ni le type (`pdf_report.csv` le fait).
-- `select_issues.py` utilise une liste provisoire `KNOWN` : elle sera remplacée par `corpus_index.csv` (Hadil BOUKHALFA).
+- `select_issues.py` combine une liste `KNOWN` (4 numéros) et `FROM_CORPUS_PLAN` (7 numéros identifiés dans PR #17, non fusionnée) ; `data/corpus_index.csv` est lu en complément s'il est présent. Les 7 numéros ne sont pas encore téléchargés.
+- La sélection d'évaluation (2 numéros par année 1993/2005/2010/2020) est un **échantillon de commodité** figé le 16/11/2026, pas un tirage aléatoire : toute modification invaliderait le corpus déjà océrisé.
