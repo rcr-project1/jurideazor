@@ -1,0 +1,22 @@
+doc_id,source,title,is_labor,annotator,note
+L-88-07,https://www.joradp.dz/FTP/Jo-Francais/1988/F1988004.pdf,"Law 88-07 on hygiene, safety and occupational medicine",true,Hadil,Labor law; Gazette issue 4 of 1988
+L-90-03,https://www.joradp.dz/FTP/Jo-Francais/1990/F1990006.pdf,"Law 90-03 on labour inspection",true,Hadil,Labor law; Gazette issue 6 of 1990
+L-90-11,https://www.joradp.dz/FTP/Jo-Francais/1990/F1990017.pdf,"Law 90-11 on labour relations",true,Hadil,Core labor law; Gazette issue 17 of 1990
+L-91-29,https://www.joradp.dz/FTP/Jo-Francais/1991/F1991068.pdf,"Law 91-29 amending and supplementing Law 90-11",true,Hadil,Amends Article 73 and adds Articles 73-1 to 73-6; Gazette issue 68 of 1991
+D-94-03,https://www.joradp.dz/FTP/jo-francais/1994/F1994020.PDF,"Legislative Decree 94-03 supplementing Law 90-11",true,Hadil,Adds Article 87 bis; Gazette issue 20 of 1994
+O-96-21,https://www.joradp.dz/FTP/Jo-Francais/1996/F1996043.pdf,"Ordinance 96-21 amending and supplementing Law 90-11",true,Hadil,Amends and supplements labor-law provisions; Gazette issue 43 of 1996
+O-97-02,https://www.joradp.dz/FTP/Jo-Francais/1997/F1997003.pdf,"Ordinance 97-02 supplementing Law 90-11",true,Hadil,Adds Articles 52 bis to 52 quater; Gazette issue 3 of 1997
+O-15-01,https://www.joradp.dz/FTP/jo-francais/2015/F2015040.pdf,"Ordinance 15-01 supplementary finance law for 2015",true,Hadil,Article 54 amends Articles 140 and 149 of Law 90-11; Gazette issue 40 of 2015
+L-17-11,https://www.joradp.dz/FTP/JO-FRANCAIS/2017/F2017076.pdf,"Law 17-11 finance law for 2018",true,Hadil,Articles 98 and 99 amend occupational safety and labor-law provisions; Gazette issue 76 of 2017
+L-22-16,https://www.joradp.dz/FTP/jo-francais/2022/F2022049.pdf,"Law 22-16 supplementing Law 90-11",true,Hadil,Adds Articles 56 bis to 56 bis 6 on leave or part-time work to create a business; Gazette issue 49 of 2022
+SAMPLE-NEG-002,https://www.joradp.dz/FTP/jo-francais/1990/F1990052.pdf,"Law 90-29 on planning and urban development",false,Hadil,Urban planning; Gazette issue 52 of 1990
+SAMPLE-NEG-003,https://www.joradp.dz/FTP/Jo-Francais/1998/F1998044.pdf,"Law 98-04 on the protection of cultural heritage",false,Hadil,Cultural heritage; Gazette issue 44 of 1998
+SAMPLE-NEG-004,https://www.joradp.dz/FTP/JO-FRANCAIS/1999/F1999024.pdf?znjo=24,"Law 99-05 on higher education",false,Hadil,Higher education; Gazette issue 24 of 1999
+SAMPLE-NEG-005,https://www.joradp.dz/JO2000/2003/043/Fp6.pdf,"Law 03-10 on environmental protection and sustainable development",false,Hadil,Environmental protection; Gazette issue 43 of 2003
+SAMPLE-NEG-001,https://www.joradp.dz/FTP/JO-FRANCAIS/1993/F1993050.pdf?znjo=50,"Executive decree appointing the director of the National School of Administration",false,Hadil,Individual appointment unrelated to labor law; Gazette issue 50 of 1993
+SAMPLE-NEG-006,https://www.joradp.dz/JO2000/2004/051/FP14.pdf,"Presidential decree appointing an assistant commander of the First Military Region",false,Hadil,Individual appointment unrelated to labor law; Gazette issue 51 of 2004
+SAMPLE-NEG-007,https://www.joradp.dz/FTP/jo-francais/2004/F2004084.PDF,"Law 04-20 on major-risk prevention and disaster management",false,Hadil,Disaster prevention; Gazette issue 84 of 2004
+SAMPLE-NEG-008,https://www.joradp.dz/FTP/jo-francais/2005/F2005060.pdf?znjo=60,"Presidential decree appointing members of the Constitutional Council",false,Hadil,Individual appointments unrelated to labor law; Gazette issue 60 of 2005
+SAMPLE-NEG-009,https://www.joradp.dz/FTP/jo-francais/2011/F2011037.pdf,"Law 11-10 on the municipality",false,Hadil,Local government; Gazette issue 37 of 2011
+SAMPLE-NEG-010,https://www.joradp.dz/FTP/jo-francais/2016/F2016014.pdf,"Law 16-01 revising the Constitution",false,Hadil,Constitutional revision; Gazette issue 14 of 2016
+
