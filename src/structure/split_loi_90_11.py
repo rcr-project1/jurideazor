@@ -18,6 +18,10 @@ import re
 from collections import Counter
 from pathlib import Path
 
+SIGNATURE_RE = re.compile(
+    r"\s*Fait\s+à\s+Alger,\s+le\s+21\s+avril\s+1990\b[\s\S]*$",
+    re.IGNORECASE,
+)
 
 # ============================================================
 # 0. CHEMINS ET CONFIGURATION
@@ -622,6 +626,9 @@ def finish(article):
     content = merge_lines(article.pop("lines"))
     content = apply_ocr_fixes(content)
 
+    if str(article.get("article")) == "158":
+        content = SIGNATURE_RE.sub("", content).strip()
+
     # Certains débuts d’articles sont en minuscule dans l’OCR (ex. article 130).
     if content:
         content = content[0].upper() + content[1:]
@@ -630,7 +637,6 @@ def finish(article):
     article.pop("key", None)
 
     return article
-
 
 records = []
 
