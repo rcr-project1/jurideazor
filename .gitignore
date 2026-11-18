@@ -20,7 +20,10 @@ venv/
 data/raw/joradp/pdf/
 *.zip
 *.tar.gz
-data/backup/*.tar.gz
+data/backup/
+
+# 4b. OCR v1 text (superseded by text_v2; kept in the local tar.gz backup)
+data/raw/joradp/text/
 
 # 5. Databases & Caches (Binary files that change often)
 *.sqlite
@@ -36,3 +39,7 @@ data/processed/llm_cache.sqlite
 *.log
 *.part
 data/processed/download_failures.log
+
+# 8. Test / packaging caches
+.pytest_cache/
+*.egg-info/
