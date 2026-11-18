@@ -1,31 +1,63 @@
-Articles de la loi 90-11 trouvés : 172 (numéros distincts : 158)
+========== RAPPORT DE DECOUPAGE ==========
+
+Articles de la loi 90-11 trouvés : 172
+Numéros distincts : 158
 Numéros manquants entre 1 et 158 : []
-Articles avec suffixe (bis, ter, -1...) : ['12 bis', '52 bis', '52 ter', '52 quater', '73-1', '73-2', '73-3', '73-4', '73-5', '73-6', '87 bis', '93 bis', '143 bis', '146 bis']
+Articles avec suffixe : ['12 bis', '52 bis', '52 ter', '52 quater', '73-1', '73-2', '73-3', '73-4', '73-5', '73-6', '87 bis', '93 bis', '143 bis', '146 bis']
 Extraits de la Constitution : ['54', '55', '56', '57', '58', '59']
-Articles très courts (< 60 caractères) à relire : ['34']
-Mots coupés recollés automatiquement : 94
 
-Débuts d'article ignorés (numéro hors ordre = erreur de scan, à vérifier) :
-  ligne 42: Art. 9- contribuer aux efforts de l’organisme employeur en vue d’améliorer l’or
-  ligne 193: Art. 32- prévenir des accidents imminents ou réparer les dommages résultant
-  ligne 396: Art. 73- au travail à temps partiel tel que défini dans la présente loi,- à la procédure d
-  ligne 425: Art. 73-1- divulgue des informations d’ordre professionnel relatives aux techniques,
+---------- CORRECTIONS ----------
+Mots recollés automatiquement : 94
+Corrections OCR chargées depuis le CSV : 73
+Corrections OCR supplémentaires sûres : 15
+Faux titres retirés : 4
+  - Art. 9- contribuer aux efforts de l’organisme employeur en vue d’améliorer l’or
+  - Art. 32- prévenir des accidents imminents ou réparer les dommages résultant
+  - Art. 73- au travail à temps partiel tel que défini dans la présente loi,- à la procédure de mise à la retraite conformément à la législation en
+  - Art. 73-1- divulgue des informations d’ordre professionnel relatives aux techniques,
 
-Lignes 'Art. N' seules ignorées :
-  ligne 100: Art. 20
-  ligne 163: Art. 31
-  ligne 221: Art. 45
-  ligne 283: Art. 54
-  ligne 346: Art. 65
-  ligne 457: Art. 76
-  ligne 519: Art. 87 bis
-  ligne 577: Art. 94
-  ligne 637: Art. 100
-  ligne 706: Art. 113
-  ligne 777: Art. 120
-  ligne 842: Art. 132
-  ligne 906: Art. 145
-  ligne 981: Art. 157
+---------- ALERTES À VÉRIFIER DANS LA SOURCE ----------
+  - Article 3 : se termine sans ponctuation finale (« …latives et réglementaires particulières, ») ; fragment de titre ou texte coupé ?
+  - Article 108 : se termine sans ponctuation finale (« … d’heures visé à l’article 106 ci-dessus ») ; fragment de titre ou texte coupé ?
 
-Mots rares (apparaissent une seule fois, possibles mots coupés ou fautes de scan) :
-  abrogées, absences, accepte, adhè, admi, afférents, algérienne, alloués, appartenant, approba, art, ascendants, aspects, associations, auto, autorisés, avenant, bendjedid, blis, bénéficient, calendaires, car, cassation, catégorie, cer, cernent, chadli, cificités, cinquante, circonci, cisées, civiques, com, commandées, compensation, comédiens, con, concernées, concurrente, conforme, considéra, consignataire, consommateurs, consta, consul, consulter, contenu, contrôles, convenances, convoquée, convoquées, correspondants, couverts, crit, cré, deman, demeu, der, derniers, desdits, dessous, devenue, diques, direct, discipline, dits, double, drapeaux, décidée, décisions, définitive, dénommée, dénoncé, dénoncée, dépas, déposé, déroge, dérogé, déter, d’ac, d’accidents, d’actualiser, d’administration, d’adopter, d’affaires, d’amen, d’ap, d’autre, d’exploitation, d’inactivité, d’organiser, elle, ement, emploi, engagés, enregistrement, exceptionnel, exer, exercent, exper, exprimer, fixer, for, fractionnement, féminins, gants, gendrer, gers, gravité, général, gérer, identique, impé, impérieux, informer, informé, insa, jeune, jouissant, lablement, lesdits, lesquelles, libre, lier, limiteraient, lubres, l’annulation, l’au, l’augmen, l’avance, l’emporte, l’expiration, l’ordre, l’égalité, machines, magistrats, maison, majoritaire, malités, mance, mandatés, matrimoniale, men, mensuell, ment, ments, mettre, minées, mis, moné
+---------- ARTICLES COURTS ----------
+Articles de moins de 60 caractères : ['34']
+
+---------- CANDIDATS REJETÉS ----------
+
+---------- MARQUEURS SEULS ----------
+Rappels de page « Art. N » ignorés (la suite du texte reste dans l'article précédent) :
+  - ligne 25: Art. 5
+  - ligne 68: Art. 10
+  - ligne 99: Art. 20
+  - ligne 134: Art. 21
+  - ligne 162: Art. 31
+  - ligne 220: Art. 45
+  - ligne 255: Art. 46
+  - ligne 282: Art. 54
+  - ligne 313: Art. 55
+  - ligne 345: Art. 65
+  - ligne 368: Art. 66
+  - ligne 456: Art. 76
+  - ligne 489: Art. 77
+  - ligne 518: Art. 87 bis
+  - ligne 545: Art. 88
+  - ligne 576: Art. 94
+  - ligne 601: Art. 95
+  - ligne 636: Art. 100
+  - ligne 669: Art. 101
+  - ligne 705: Art. 113
+  - ligne 741: Art. 114
+  - ligne 776: Art. 120
+  - ligne 812: Art. 121
+  - ligne 841: Art. 132
+  - ligne 873: Art. 133
+  - ligne 905: Art. 145
+  - ligne 942: Art. 146
+  - ligne 980: Art. 157
+  - ligne 1016: Art. 158
+
+---------- MOTS RARES À VÉRIFIER ----------
+abrogées, absences, accepte, adhèrent, administrations, afférents, algérienne, alloués, appartenant, approbation, ascendants, aspects, associations, autorisation, autorisés, avenant, bénéficient, calendaires, carrière, cassation, catégorie, cinquante, circoncision, civiques, commandées, commis, compensation, comédiens, concernent, concernées, concurrente, conforme, considération, consignataire, consommateurs, constatée, consulter, consultés, contenu, contrôles, convenances, convoquée, convoquées, correspondants, couverts, crédits, demander, demeurent, derniers, dernières, desdits, dessous, devenue, direct, discipline, double, drapeaux, décidée, décisions, définitive, dénommée, dénoncé, dénoncée, dépasser, déposé, déroge, dérogé, déterminées, d’accidents, d’acquérir, d’actualiser, d’administration, d’adopter, d’affaires, d’amen, d’apporter, d’autre, d’engendrer, d’exploitation, d’inactivité, d’organiser, elle, emploi, engagés, enregistrement, exceptionnel, exercent, exercer, expertises, exprimer, fixer, formalités, fractionnement, féminins, gravité, général, gérer, identique, impérieuses, impérieux, informer, informé, insalubres, jeune, jouissant, lesdits, lesquelles, libre, limiteraient, l’annulation, l’augmentation, l’autorise, l’avance, l’emporte, l’expiration, l’ordre, l’égalité, machines, magistrats, maison, majoritaire, mandatés, matrimoniale, mensuelle, mensuellement, mettre, monétaires, moralité, moyennant, médicaux, métier, nationales, navigants, nouveaux, nécessité, ordonnance, organisées, ouvrages, parole, patronales, performance, perte, pertes, populaire, porte, poursuivi, préalablement, précisé, précisées, préférence
+
+========== FIN DU RAPPORT ==========
