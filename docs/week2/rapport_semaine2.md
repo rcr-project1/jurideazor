@@ -1,192 +1,94 @@
-# Rapport — Semaine 2 : collecte automatisée du Journal officiel
+# Rapport de la semaine 2
 
-**Statut :** en cours (sections 4 remplie ; 5–7 à compléter)
-**Dépôt :** `rcr-project1/jurideazor`
-**Date :** 2026-11-17
+**Date :** 18/11/2026. **Dépôt :** `rcr-project1/jurideazor`.
+**Référence :** `main` = `5bb3c1b` (fusion PR #11). 5 branches poussées, **non fusionnées** (`git ls-tree <branche> -- <chemin>`).
 
-## 1. Objectif de la semaine
+## 1. Résumé
 
-Mettre en place la **collecte automatisée** des textes du Journal officiel algérien (JORADP), mesurer la qualité des fichiers obtenus, et préparer le découpage en textes puis le filtrage « droit du travail ». La recherche sémantique (BM25 / E5) vient ensuite, sur un corpus propre.
+La semaine 2 devait corriger les manques de la semaine 1, puis collecter, océriser et découper.
+**Fait :** 12 numéros collectés (24 PDF), OCR v2 sur 258 pages, 71 textes FR, 67 textes AR, 178 articles découpés (fusionné).
+**Non fait :** plan de corpus, filtrage, 8–10 questions avec cache, BM25/E5. Limites : §9.
 
-## 2. Sources et conditions d'utilisation
+## 2. Corrections du rapport de la semaine 1
 
-Détail complet : [`docs/week2/sources_et_conditions.md`](sources_et_conditions.md).
+Le rapport de la semaine 1 est inchangé ; ces corrections comptent pour la semaine 2.
 
-- `https://www.joradp.dz/robots.txt` → **HTTP 404** (2026-11-16). Selon la RFC 9309, un 4xx signifie qu'aucune restriction n'est déclarée ; un 5xx aurait été interprété comme une interdiction totale. Capture conservée dans `docs/week2/`.
-- Site du **ministère du Commerce** : accès automatisé interdit → **non exploré**.
-- Liste des numéros et URL : index ouvert **UpGrowth** (CC BY 4.0), utilisé uniquement comme index. Empreintes enregistrées :
-  - `journal-officiel-archive.csv` — 752 103 B — `5732e90e…5fc063ae`
-  - `jo-ref-index.json` — 860 626 B — `f90b6d28…308c17f94`
-- **Loi 90-11** : texte de départ = **WIPO Lex** (version consolidée 1997), source **temporaire** (miroir non officiel) ; la source officielle finale reste la JORADP (numéro du 21 avril 1990). Provenance : `data/raw/PROVENANCE.md` ; PDF : `data/processed/downloads_manifest.csv` (URL + SHA-256).
-- Collecte polie : `User-Agent` identifié (adresse universitaire), délai ≥ 3 s, aucun téléchargement parallèle, volume limité aux numéros nécessaires.
-
-## 3. Collecte
-
-| Élément | Valeur |
-|---|---|
-| Numéros sélectionnés (`issues_selected.csv`) | **12** (4 numéros portant des textes modificatifs + 8 pour l'échantillon) |
-| PDF téléchargés | **24** (12 numéros × éditions FR et AR) |
-| Registre `data/raw/joradp/downloads.sqlite` | **24 lignes** (url, sha256, taille, date, numéro, édition) |
-| Fichiers antérieurs au registre | **5** (`1991/68` FR+AR, `1993/1` FR+AR, `1993/2` FR) → empreinte à compléter |
-
-- **Non-duplication :** les exécutions suivantes n'ont rien retéléchargé ; toutes les lignes ressortent en `skipped` (registre + existence du fichier).
-- **Incident connu :** un `ReadTimeout` sur `ar 2005/001` a interrompu une exécution **avant l'ajout du `try/except`**. Aucun fichier corrompu : l'écriture n'a lieu qu'après réception complète. Robustesse implémentée : 3 tentatives avec attente croissante, délais séparés connexion/lecture `(10, 300)`, écriture atomique `.part` → `fsync` → `os.replace`, empreinte SHA-256 du fichier, journal d'échecs `download_failures.log`.
-- **Détail par fichier :** `data/processed/pdf_report.csv` (24 lignes : langue, année, fichier, pages, caractères, `text`/`scan`).
-
-- **Robustesse du téléchargement :** 3 tentatives par fichier avec attente croissante (3 s, 6 s), délais séparés connexion/lecture `(10, 300)`, aucune nouvelle tentative sur les erreurs 4xx définitives, `Retry-After` respecté pour les 429.
-- **Intégrité :** écriture atomique (`X.pdf.part` → `fsync` → `os.replace`), empreinte SHA-256 calculée **sur le fichier** et enregistrée après succès seulement. Un fichier présent est donc complet par construction.
-- **Bornage et métadonnées :** taille maximale de 50 Mo (téléchargement interrompu au-delà, `.part` supprimé) ; le registre porte désormais `issue` et `edition` en colonnes explicites (24/24 lignes avec `issue`/`edition`).
-- **Journal d'échecs :** `data/processed/download_failures.log` (vide sur le corpus actuel).
-- **Vérification :** `0 fetched, 24 skipped, 0 failed` ; **24/24** empreintes vérifiées (SHA-256 + taille + en-tête `%PDF-`), 0 anomalie, 0 fichier `.part`.
-## 4. Qualité de l'OCR
-
-### 4.1 Périmètre
-
-Tous les numéros antérieurs à 2002 sont des **images scannées** (0 caractère extractible). OCR appliqué uniquement à ces fichiers (`src/collect/ocr.py`), avec Tesseract (`fra`, `ara`), 300 dpi.
-
-| Éditions scannées | Numéros | Pages | Résultat |
+| Remarque | Ce qui a été fait | Preuve | Statut |
 |---|---|---|---|
-| FR + AR | 1991/068, 1993/001, 1993/002, 1994/020, 1997/003 | **258** | 10 fichiers, **aucun échec** |
+| 1. Contributions, noms complets, lignes vides | Noms complets ; 4 tâches vides | `docs/What_you_did.md`, `e3cb909` | Partiel |
+| 2. Une seule question citée | 6 questions avec réponses et analyse ; 8–10 questions et erreurs détaillées non faites | `question-test.md` `7d2abc1` ; `Réponses avec sources et références` `0114da6` ; `réponses de LLM sans RAG` `3ce6238` ; `Analyse…` `08fb2e3` (sous `docs/week1/evaluation/`) | Partiel |
+| 3. Textes modificatifs par script | 12 numéros collectés, 4 modificatifs ; 96-21, 22-16, 88-07, 90-03, 90-04, LFC 2018 absents | `src/collect/download.py`, `issues_selected.csv` — `feat/collect-hardening` `bdc2af9` | Partiel |
+| 4. Numérotation, mots cassés, noms de fichiers | 172 articles = 158 + 14 bis ; 74 corrections OCR ; `gitkeep.ipynb` non renommé | `articles.json`, `ocr_fix_map.csv`, `tests/test_split.py` — `main` `5bb3c1b` | Partiel |
 
-Registre : `data/processed/ocr_report.csv` (pages, caractères, statut, durée). Sorties : `data/raw/joradp/text/<lang>/<année>/*.txt`. Le nombre de pages de chaque fichier texte **égale** celui du PDF correspondant.
+Question hors corpus : la question 6 cite la loi 90-04, absente des deux index (`grep -c "90-04"` = 0).
 
-### 4.2 Contrôle manuel sur 3 pages (comparaison avec l'image)
+## 3. État des objectifs
 
-| # | Fichier / page | Vérifié | Résultat |
+| Objectif | Statut | Preuve | Chiffre |
 |---|---|---|---|
-| 1 | `F1991068` p.7 | `Loi 91-29`, `Art. 73`, `73-1` à `73-6`, dates | ✅ numéros d'articles et dates corrects ; ❌ `53 → 58`, `66-156 → g6-136` (références du préambule) |
-| 2 | `F1997003` p.6 | `Ordonnance 97-03`, `articles 22 à 26 et 157 alinéa 2`, `52 bis/ter/quater` | ✅ contenu juridique correct ; ❌ `1990 → 1996` (**une seule** occurrence, l. 323 ; ses deux jumelles l. 169 et 394 sont correctes), `11 → IT`, `Vu Ja loi`, `Article ler`, `travaiHeurs` |
-| 3 | `F1991068` p.19 | deux tableaux (prix minima, semences) | ✅ tous les montants corrects ; ❌ `Article 1er → 17`, `786,50 → 78650`, `1299,20 → 129920`, `999 ‰ → 999 %`, colonne `R2 à R3` détachée |
+| Collecte automatisée | Partiel | `feat/collect-hardening` `bdc2af9` | 12 numéros, 24 PDF |
+| OCR + qualité | Fait (CER à refaire) | `feat/ocr-v2` `673701b` | 258 pages |
+| Découpage + corrections OCR | Fait | `main` `5bb3c1b` | 178 articles, 9/9 |
+| Plan de corpus (Hadil BOUKHALFA) | Non fait | aucun commit | — |
+| Filtrage Precision/Recall | Non fait | — | — |
+| Cache + 8–10 questions (Rania Halima BENZERAFA) | Non fait | aucun fichier | 6 (semaine 1) |
+| BM25 vs E5 (Malak ALIOUAT) | Non fait | — | — |
 
-**Conclusion mesurée :** les **numéros d'articles et les montants du corps des textes sont fiables** ; les **dates de référence et les décimales ne le sont pas** et doivent être vérifiées à la source. Aucun `Art. 73` erroné détecté.
+## 4. Collecte automatisée
 
-### 4.3 Défaut structurel identifié
+`robots.txt` de la JORADP : **HTTP 404** (capture du 2026-11-16, poussée sous l'ancien nom de fichier ; `collection.md` §1). RFC 9309 : un 4xx vaut absence de restriction. L'index UpGrowth (CC BY 4.0) ne donne que les numéros et URL. Client identifié, délai ≥ 3 s, pas de parallélisme. 12 numéros (4 modificatifs + 8 échantillon), 24 PDF. Relance : tout en `skipped`.
+Détails : [`collection.md`](collection.md).
 
-Les pages sont imprimées en **deux colonnes** ; l'OCR (`--psm 4`, page entière) lisait ligne par ligne sur toute la largeur et **entrelaçait** les deux colonnes : chaque ligne contenait la fin de la colonne gauche et le début de la colonne droite. Le texte n'était donc **pas découpable en l'état**.
+## 5. Qualité de l'OCR
 
-### 4.4 Correction appliquée (v2)
+Avant 2002 : 10 fichiers scannés, 258 pages. Défaut v1 : colonnes entrelacées. La v2 reconstruit l'ordre de lecture : 191/258 pages à deux colonnes, 656 444 caractères. Contrôle manuel : **3 pages** ; arabe : **1 extrait de 520 caractères** — échantillons trop petits pour généraliser.
+Détails : [`ocr_quality.md`](ocr_quality.md).
 
-`src/collect/ocr_columns.py` — aucune modification des fichiers v1, sortie dans `text_v2/` :
+## 6. Découpage et filtrage
 
-- **Français :** segmentation normale (`--psm 3`), puis reconstruction de l'ordre de lecture à partir des coordonnées : titre pleine largeur → colonne gauche → colonne droite → pied de page.
-- **Arabe :** détection du blanc « gouttière » puis `--psm 4` sur chaque moitié d'image (colonne de droite d'abord), l'arabe donnant 226 mots contre 266 avec cette méthode sur une page témoin de 270 mots visibles.
-- Détection de la gouttière limitée au corps de page (20–85 % de la hauteur) pour ignorer les bandeaux pleine largeur.
+PR #11 (Malak ALIOUAT) fusionnée (`5bb3c1b`) : 178 articles (172 loi 90-11 + 6 Constitution), 9/9 tests, relance sans modification. Provenance : WIPO Lex consolidé 1997, **temporaire** ; source finale JORADP (`data/raw/PROVENANCE.md`). Filtrage non commencé.
 
-| Mesure | v1 (`text/`) | v2 (`text_v2/`) |
-|---|---|---|
-| Fichiers traités | 10 | **10** |
-| Pages | 258 | **258** |
-| Caractères | 671 391 | 656 444 (**0.978**) |
-| Pages reconnues sur deux colonnes | — | **191 / 258** |
-| Débuts d'article en début de ligne | 560 | **844 (+51 %)** |
-| Durée | — | 24,3 min |
+## 7. Évaluation du LLM et recherche
 
-Le gain utile n'est pas le volume de caractères (v1 en produisait davantage en recopiant le texte à travers la gouttière) mais le nombre de **débuts d'articles détectables**, condition du découpage. Les fichiers v1 et v2 sont conservés ; la promotion (`text_v2` → `text`) reste à faire après validation par l'équipe.
+Non livré à ce jour. Aucun cache, aucune table d'erreurs par question, aucune mesure Hit@3. Seules les réponses de la semaine 1 existent (§2).
 
-Limites qui subsistent : dates de référence et décimales non fiables (vérification à la source), tableaux non exploitables (numéros d'articles agricoles hors périmètre), erreurs de caractères en arabe (`الثاتجة`, `المائدة`).
+## 8. Contributions
 
-### 4.5 Langue arabe : mesure et décision
+| Membre | Tâches | Fichiers | Commits | Statut |
+|---|---|---|---|---|
+| Nouha HAROUDI | Collecte, OCR, extraction FR/AR, rapport | `src/collect/`, `src/structure/`, `src/eval/`, `docs/week2/` | `bdc2af9`, `673701b`, `94864fc`, `b00fb37`, `7d13b40` | Livré, non fusionné |
+| Malak ALIOUAT | Découpage, corrections OCR, provenance | `split_loi_90_11.py`, `ocr_fix_map.csv`, `tests/test_split.py`, `PROVENANCE.md` | `a6b020d`, `63380eb`, `5bb3c1b` | Livré, fusionné |
+| Hadil BOUKHALFA | Plan de corpus | — | — | **Non livré à ce jour (18/11)** |
+| Rania Halima BENZERAFA | Cache, questions, table d'erreurs | — | — | **Non livré à ce jour (18/11)** |
+| Malak BOUGOFFA | Aucune trace | — | — | Sans contact depuis [À COMPLÉTER] ; tentatives : [À COMPLÉTER] |
 
-Un extrait de la page 6 de `A1997003` (articles 14 à 17 + clôture) a été saisi manuellement comme référence, puis comparé au texte OCR aligné sur le même intervalle (`src/eval/cer.py`, distance de Levenshtein après normalisation : diacritiques, tatweel, chiffres arabo-indiens → ASCII).
+Nouha HAROUDI a deux identités Git (`Naho Chan`, `haroudinouha`, même adresse) ; voir `git shortlog -sne --all`.
 
-| Mesure | Résultat |
-|---|---|
-| CER (caractères) | **0,0250** (13 erreurs / 520 caractères) |
-| Substitutions / suppressions / insertions | 6 / 4 / 3 |
-| Chiffres faux | **1 / 19 (5,3 %)** |
-| Années (4 chiffres) exactes | **2 / 2** |
+## 9. Limites et risques
 
-Contrôle structurel complémentaire (`src/eval/digit_check.py`, comparaison des nombres à 4 chiffres entre les éditions FR et AR des 5 mêmes numéros) : sur 910 nombres arabes, 122 (13,4 %) sont absents de l'édition française, mais **tous les cas inspectés sont des numéros d'articles ou des montants** (`2585`, `2638`, `2438`, `2011`), pas des dates. Aucun `3000` dans l'ensemble du corpus arabe ; les 59 occurrences de `1996` dans `A1997003` sont des décrets légitimement datés de décembre 1996.
+1. 12 numéros collectés, **5 exploités** (1991/068, 1993/001, 1993/002, 1994/020, 1997/003) ; 14 PDF « texte » non convertis (dont 2015/40).
+2. 96-21, 22-16, 88-07, 90-03, 90-04, LFC 2018 absents du corpus.
+3. Ordonnance 97-02 absente en FR, présente en AR ; idem `loi-91-27`, `loi-91-31`.
+4. CER arabe 0,0250 (13/520) **non reproductible** (`src/eval/cer.py`) : non utilisé comme preuve.
+5. Aucune `version` ni date : `date_status = "non établie"` (178 articles). `PROVENANCE.md` dit « 1 à 158 » ; la sortie en compte 172.
+6. Branches et `docs/week2/` non fusionnées : présents sur GitHub, pas sur `main`.
 
-**Décision :** pas de ré-océrisation (`tessdata_best`), pas de correction par LLM. Les dates et numéros cités dans une réponse arabe sont **recopiés depuis l'édition française** de la même disposition ; seules les dispositions utilisées par les 5 questions arabes sont corrigées manuellement à partir de l'image. Une carte de correction de caractères (`ديسمير`→`ديسمبر` 59×, `سئة`→`سنة` 52×) reste disponible mais **facultative** (gain cosmétique, aucun effet sur les chiffres).
+## 10. Notre calendrier
 
-#### 4.5.1 Nettoyage — `src/structure/clean_ar.py`
-
-5 fichiers, 148 pages, **290 093 → 284 668 caractères (98,1 % conservé)**. Supprimés : en-têtes courants (40 en 1991), bandeaux (2–7), lignes de couverture (3–7), lignes de sommaire à points (6), lignes de ponctuation seules. Règles strictes : **jamais un chiffre supprimé** (les lignes de chiffres seuls sont conservées : 9–54 par fichier), **jamais de jointure de mots** (l'arabe se coupe par espaces).
-
-Cas limite corrigé avant livraison : « toute ligne contenant `الجريدة الرسمية` dans les 3 premières lignes = en-tête » supprimait du texte réel (`… ينشر هذا القرار فى الجريدة الرسمية`, art. 5, `A1994020` p24). Garde ajoutée (pas de `المادة`/`ينشر`/`في الجريدة` + ligne ≤ 120 car.). Contrôle : nombre de `المادة` inchangé (84 → 84 ; les +2/+3 viennent de l'écrasement des espaces).
-
-#### 4.5.2 Extraction — `src/structure/extract_texts_ar.py`
-
-**67 textes** (39 numérotés, 28 nominations sans article écartées), 38 numéros lisibles, **111 blocs sommaire/annonces écartés**, 0 doublon. En-têtes tolérants aux diacritiques (`مؤرّخ`, `مؤدخ`, `موؤرخ`) et aux numéros coupés/renversés (`7 9- 02` → `97-02`). Aucun numéro corrigé : `num_raw` conservé, `num_ok` explicite, identifiant temporaire sinon (`decret-1991-p24-1`).
-
-#### 4.5.3 Croisement AR/FR — 33 identifiants numérotés communs
-
-| Mesure | Résultat |
-|---|---|
-| Longueur médiane AR/FR | **0,81** |
-| Textes dans ±30 % | **21 / 33** |
-| Rappel des marqueurs d'article (AR strict) | **64,1 %** (67,3 % large, +71 citations) |
-
-Écarts expliqués par preuve : tables budgétaires présentes seulement en FR (`decret-91-509`), contamination AR (`decret-94-76`, `decret-1997-p18-1`), contamination FR (`decret-93-05` : `Art. 6` deux fois, l.67 et l.394). Les écarts de dénombrement sont eux aussi expliqués : `loi-91-27/31`, `decret-93-06` et **`ordonnance-97-02`** existent en AR mais n'ont pas été extraits en FR ; `decret-91-514/518/521` et `decret-94-77` ont des numéros illisibles en AR.
-
-Ancrage juridique vérifié en arabe : art. 2 = « **أربعين (40) ساعة** », art. 8 = « المواد من 22 إلى 26 من القانون رقم 11-90 » (le `157 al. 2` figure dans les visas FR et AR, pas dans l'art. 8). Point à vérifier sur l'image : l'art. 9 AR affiche `(2) اعتبارا من تاريخ نشره` sans « après deux (2) mois », et le marqueur `المادة 9` est perdu.
-
-#### 4.5.4 Décision finale
-
-Indexation des articles : **FR uniquement** (71 textes, marqueurs `Art. N`). L'arabe (67 textes) sert à la **vérification croisée** des nombres/dates et, plus tard, à une recherche plein texte ; aucune correction automatique de chiffre, les 5 questions arabes se corrigent sur l'image du PDF.
-
----
-
-## 5. Découpage en textes et filtrage — *à compléter*
-
-- Méthode : repérage des en-têtes (`LOI`, `ORDONNANCE`, `DECRET`, `ARRETE`…) + sommaire ; découpage par colonne.
-- Filtrage en trois étapes : mots-clés du titre → modèle pour les cas ambigus → mesure sur échantillon annoté.
-- Dépendance : `data/corpus_index.csv` et `eval/relevance_sample.csv` (en cours, Hadil) ; les métriques **Precision / Recall** seront ajoutées ici.
-
-## 6. Recherche (BM25 vs E5) — *à compléter*
-
-- BM25 (baseline) et E5 (`intfloat/multilingual-e5-base`, FAISS) sur le même jeu de questions.
-- Métrique : **Hit@3**, plus analyse de 5 erreurs.
-- Tableau `Méthode | Hit@3` à insérer.
-
-## 7. Évaluation du LLM (sans RAG / avec sources) — *à compléter*
-
-- Cache SQLite des appels Groq (`src/llm/cached_llm.py`), compteur `real`/`cached`.
-- 10 questions minimum (`eval/questions.csv`), dont 1 hors corpus et 2 datées.
-- Tableau des erreurs (références inventées, textes incomplets, refus manquants).
-
-## 8. Limites et risques
-
-1. Tout numéro antérieur à 2002 exige un OCR ; les dates OCR ne sont pas fiables sans vérification.
-2. L'index UpGrowth est figé au **numéro 57/2026** et n'est pas une source officielle.
-3. 5 PDF ne sont pas encore enregistrés dans le registre (pas d'empreinte).
-4. L'OCR v2 n'est pas encore promu en version de référence (`text_v2` → `text`).
-5. Le corpus actuel reste la seule loi 90-11 (version consolidée 1997) tant que les textes modificatifs ne sont pas intégrés.
-
-## 9. Artefacts et preuves
-
-| Fichier | Contenu |
-|---|---|
-| `src/collect/select_issues.py` | génère `issues_selected.csv` |
-| `src/collect/download.py` | téléchargement poli + registre |
-| `src/collect/inspect_pdfs.py` | `pdf_report.csv` (text/scan) |
-| `src/collect/ocr.py` | OCR des seuls scans + `ocr_report.csv` |
-| `data/processed/issues_selected.csv` | numéros retenus et justification |
-| `data/processed/pdf_report.csv` | 24 lignes : pages, caractères, type |
-| `src/collect/ocr_columns.py` | OCR v2 : ordre de lecture par colonnes, AR/FR |
-| `data/processed/ocr_report.csv` | 10 lignes : pages, caractères, statut (v1) |
-| `data/processed/ocr_report_v2.csv` | idem pour v2 |
-| `data/processed/ocr_pages_v2.csv` | 258 lignes : une par page (caractères, colonnes, lignes) |
-| `data/processed/ocr_manifest_v2.csv` | SHA-256 de chaque fichier `.txt` |
-| `docs/week2/sources_et_conditions.md` | robots, licences, empreintes, mesures de politesse |
-
-## 10. Contributions
-
-| Membre | Tâche | Fichiers | Commit |
-|---|---|---|---|
-| Nouha HAROUDI | collecte, robots, politique de sources | `src/collect/*`, `sources_et_conditions.md` | *à compléter* |
-| Hadil BOUKHALFA | plan de corpus, index, échantillon | `corpus_index.csv`, `relevance_sample.csv` | *à compléter* |
-| Malak ALIOUAT | correction découpage, OCR, baseline | `ocr.py`, `split_loi_90_11.py` | *à compléter* |
-| Rania Halima BENZERAFA | cache LLM, questions, tableau d'erreurs | `cached_llm.py`, `questions.csv` | *à compléter* |
+La plateforme place la recherche en semaine 2. Choix assumé ici : la semaine 1 étant partielle, la semaine 2 corrige, collecte, océrise et découpe ; BM25/E5 et l'arabe passent en semaine 3. Points 1–3 et 6 faits ou partiels ; 4–5 non livrés ; 7 non commencé.
 
 ## 11. Usage de l'IA
 
-Voir `AI_USAGE.md`. Les outils d'IA ont servi à la rédaction et à la vérification ; toute affirmation du présent rapport renvoie à un fichier ou un commit.
+Scripts écrits avec un agent de code (OpenCode ; modèle `opencode/deepseek-v4.1-flash-free`), relus et testés par l'équipe. Décisions juridiques et chiffres manuels. Nombres recalculés depuis le dépôt. Claude : relecture et planification.
 
-## 12. Prochaines étapes
+## 12. Question et prochaines étapes
 
-1. ✅ *Fait le 18/11* — les 5 PDF antérieurs au registre (68/1991, 1/1993, 2/1993) ont été re-téléchargés : SHA-256 **identiques** au serveur, lignes ajoutées, registre **24/24**.
-2. Promouvoir `text_v2` puis découper en textes et filtrer.
-3. Intégrer `corpus_index.csv` (Hadil) et remplacer la liste provisoire des 12 numéros.
-4. Baseline BM25 / E5 (Hit@3) et évaluation du LLM avec cache.
+**Question :** recherche (BM25/E5) d'abord, ou textes modificatifs et filtrage ?
+
+| Qui | Quoi |
+|---|---|
+| Nouha HAROUDI | PDF « texte » (dont 2015/40), CER, fusion des branches |
+| Hadil BOUKHALFA | `corpus_index.csv`, échantillon annoté |
+| Rania Halima BENZERAFA | cache, 8–10 questions, table d'erreurs |
+| Malak ALIOUAT | BM25 vs E5, Hit@3 |
+| Malak BOUGOFFA | statut à clarifier |

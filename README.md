@@ -86,5 +86,4 @@ bougoffa malak
 
 ### 4. Semaine 2 — collecte automatisée
 - [Rapport de la semaine 2](docs/week2/rapport_semaine2.md)
-- [Plan de la semaine 2](docs/week2/plan_semaine2_ar.md)
 - [Sources et conditions d'utilisation](docs/week2/sources_et_conditions.md)
