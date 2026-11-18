@@ -1,205 +1,912 @@
-"""structure: nettoyage + découpage de la loi 90-11 en articles.
+"""Nettoyage et découpage de la loi 90-11 en articles.
 
-Entrée  : data/raw/loi_90_11.txt
-Sorties : data/processed/loi_90_11_clean.txt
-          data/processed/articles.json
-          data/processed/rapport_decoupage.txt   (à relire à la main)
-Lancer depuis la racine du projet : python src/structure/split_loi_90_11.py
+Entrée :
+    data/raw/loi_90_11.txt
+
+Fichiers de sortie :
+    data/processed/articles.json
+    data/processed/loi_90_11_clean.txt
+    data/processed/rapport_decoupage.txt
+
+Lancement depuis la racine du projet :
+    python src/structure/split_loi_90_11.py
 """
+
+import csv
 import json
 import re
 from collections import Counter
 from pathlib import Path
 
+
+# ============================================================
+# 0. CHEMINS ET CONFIGURATION
+# ============================================================
+
 RAW = Path("data/raw/loi_90_11.txt")
 OUT = Path("data/processed")
+OCR_MAP = Path("src/structure/ocr_fix_map.csv")
+
 SOURCE_URL = "https://www.wipo.int/wipolex/fr/legislation/details/14834"
 
-# ---------- 1. lecture + bruit de pages ----------
-text = RAW.read_text(encoding="utf-8").replace("\r\n", "\n").replace("\r", "\n")
-lines = [l.strip() for l in text.split("\n")]
-start = next(i for i, l in enumerate(lines) if l.startswith("LIVRE PREMIER"))
-NOISE = re.compile(r"^(\d{1,3}|Relations de travaill?|Loi n° 90-11 du 21/04/1990)$")
-pre = [l for l in lines[:start] if l and not NOISE.match(l)]
-body = [l for l in lines[start:] if l and not NOISE.match(l)]
 
-# ---------- 2. mots coupés en fin de ligne ----------
-def tokens(s):
-    return re.findall(r"[A-Za-zÀ-ÿ’']+", s.lower())
+# ============================================================
+# 1. LECTURE DU FICHIER SOURCE
+# ============================================================
 
-# mots "entiers" = ceux qui apparaissent au milieu d'une ligne (ni premier ni dernier mot,
-# qui peuvent être des morceaux de mots coupés)
-inline = Counter(t for l in body for t in tokens(l)[1:-1])
+if not RAW.exists():
+    raise FileNotFoundError(
+        f"Fichier source introuvable : {RAW}"
+    )
+
+text = RAW.read_text(encoding="utf-8")
+text = text.replace("\r\n", "\n").replace("\r", "\n")
+
+lines = [line.strip() for line in text.split("\n")]
+
+# Chercher le début de la loi.
+try:
+    start = next(
+        i for i, line in enumerate(lines)
+        if line.startswith("LIVRE PREMIER")
+    )
+except StopIteration:
+    raise ValueError(
+        "Le début de la loi 'LIVRE PREMIER' est introuvable."
+    )
+
+# Supprimer les numéros de page et les en-têtes répétitifs.
+NOISE = re.compile(
+    r"^(\d{1,3}|Relations de travaill?|"
+    r"Loi n° 90-11 du 21/04/1990)$",
+    re.IGNORECASE
+)
+
+pre = [
+    line for line in lines[:start]
+    if line and not NOISE.match(line)
+]
+
+body = [
+    line for line in lines[start:]
+    if line and not NOISE.match(line)
+]
+
+
+# ============================================================
+# 2. FONCTIONS DE NETTOYAGE OCR
+# ============================================================
+
+def tokens(sentence):
+    """Extraire les mots d'un texte."""
+    return re.findall(
+        r"[A-Za-zÀ-ÿ’']+",
+        sentence.lower()
+    )
+
+
+# Les mots qui apparaissent au milieu des lignes
+# servent à reconnaître certains mots coupés.
+inline = Counter(
+    token
+    for line in body
+    for token in tokens(line)[1:-1]
+)
+
 joined_words = []
 
-def merge_lines(ls):
-    """Colle les lignes ; recolle un mot coupé si le mot entier existe ailleurs."""
-    out = ""
-    for l in ls:
-        if not out:
-            out = l
+
+def merge_lines(lines_to_merge):
+    """
+    Joindre les lignes et recoller certains mots
+    coupés à la fin d'une ligne.
+    """
+
+    result = ""
+
+    for line in lines_to_merge:
+
+        if not result:
+            result = line
             continue
-        a = tokens(out)[-1:] or [""]
-        b = tokens(l)[:1] or [""]
-        a, b = a[0], b[0]
-        if (a and b and out[-1].isalpha() and l[0].islower()
-                and inline[a + b] >= 1 and inline[a] == 0):
-            out += l
-            joined_words.append(a + b)
+
+        previous_tokens = tokens(result)
+        current_tokens = tokens(line)
+
+        previous_word = (
+            previous_tokens[-1]
+            if previous_tokens else ""
+        )
+
+        current_word = (
+            current_tokens[0]
+            if current_tokens else ""
+        )
+
+        should_join = (
+            previous_word
+            and current_word
+            and result[-1].isalpha()
+            and line[0].islower()
+            and inline[previous_word + current_word] >= 1
+            and inline[previous_word] == 0
+        )
+
+        if should_join:
+            result += line
+            joined_words.append(
+                previous_word + current_word
+            )
         else:
-            out += " " + l
-    out = re.sub(r"\s+", " ", out).strip()
-    return re.sub(r"\bl er\b", "1er", out)   # faute de scan : "l er" = "1er"
+            result += " " + line
 
-# ---------- 3. repérer les débuts d'article ----------
-ART = re.compile(r"^Art(?:icle)?\.?\s*(\d+|ler|1er)(?:-(\d+))?\s*(bis|ter|quater)?\.?\s*([-–—])?\s*(.*)$", re.I)
-RANK = {"": 0, "bis": 1, "ter": 2, "quater": 3}
+    result = re.sub(r"\s+", " ", result).strip()
 
-def parse(l):
-    m = ART.match(l)
-    if not m:
+    # Correction d'une erreur OCR fréquente.
+    result = re.sub(
+        r"\bl er\b",
+        "1er",
+        result,
+        flags=re.IGNORECASE
+    )
+
+    return result
+
+
+# ============================================================
+# 3. CHARGEMENT DU DICTIONNAIRE OCR
+# ============================================================
+
+def load_ocr_fixes():
+    """
+    Lire les corrections depuis ocr_fix_map.csv.
+
+    Le fichier doit contenir deux colonnes :
+        broken,fixed
+    """
+
+    if not OCR_MAP.exists():
+        raise FileNotFoundError(
+            f"Fichier OCR introuvable : {OCR_MAP}\n"
+            "Crée d'abord le fichier ocr_fix_map.csv."
+        )
+
+    fixes = []
+
+    with OCR_MAP.open(
+        "r",
+        encoding="utf-8-sig",
+        newline=""
+    ) as file:
+
+        reader = csv.DictReader(file)
+
+        if not reader.fieldnames or not {
+            "broken", "fixed"
+        }.issubset(reader.fieldnames):
+            raise ValueError(
+                "Le CSV doit contenir les colonnes "
+                "'broken' et 'fixed'."
+            )
+
+        for row in reader:
+            broken = (row.get("broken") or "").strip()
+            fixed = (row.get("fixed") or "").strip()
+
+            if broken and fixed:
+                fixes.append((broken, fixed))
+
+    return fixes
+
+
+OCR_FIXES = load_ocr_fixes()
+
+
+# Corrections supplémentaires observées pendant l'audit du découpage.
+# Les corrections incertaines ne sont ajoutées ici que si elles sont validées.
+EXTRA_OCR_FIXES = [
+    ("auto risation", "autorisation"),
+    ("insa lubres", "insalubres"),
+    ("étran gers", "étrangers"),
+    ("augmen tation", "augmentation"),
+    ("dépas ser", "dépasser"),
+    ("déter minées", "déterminées"),
+    ("car rière", "carrière"),
+    ("dcs parties", "des parties"),
+    ("règle ments", "règlements"),
+    ("profession nels", "professionnels"),
+    ("approba tion", "approbation"),
+    ("consta tée", "constatée"),
+    ("en gendrer", "engendrer"),
+    ("consul tés", "consultés"),
+    ("l’au torise", "l'autorise"),
+]
+
+
+def apply_ocr_fixes(sentence):
+    """Appliquer les corrections OCR du CSV puis les corrections sûres."""
+
+    all_fixes = OCR_FIXES + EXTRA_OCR_FIXES
+
+    for broken, fixed in all_fixes:
+
+        pattern = (
+            r"(?<!\w)"
+            + re.escape(broken)
+            + r"(?!\w)"
+        )
+
+        sentence = re.sub(
+            pattern,
+            lambda match, fixed=fixed: (
+                fixed[0].upper() + fixed[1:]
+                if match.group(0)[0].isupper()
+                else fixed
+            ),
+            sentence,
+            flags=re.IGNORECASE
+        )
+
+    return sentence
+
+
+# ============================================================
+# 4. RECONNAISSANCE DES ARTICLES
+# ============================================================
+
+ART = re.compile(
+    r"^Art(?:icle)?\.?\s*"
+    r"(\d+|ler|1er)"
+    r"(?:-(\d+))?"
+    r"\s*(bis|ter|quater)?\.?"
+    r"\s*([-–—])?\s*(.*)$",
+    re.IGNORECASE
+)
+
+RANK = {
+    "": 0,
+    "bis": 1,
+    "ter": 2,
+    "quater": 3
+}
+
+
+def parse(line):
+    """Analyser une ligne qui pourrait commencer un article."""
+
+    match = ART.match(line)
+
+    if not match:
         return None
-    n = 1 if m.group(1).lower() in ("ler", "1er") else int(m.group(1))
-    k = int(m.group(2)) if m.group(2) else RANK[(m.group(3) or "").lower()]
-    label = str(n) + (f"-{m.group(2)}" if m.group(2) else "") + (f" {m.group(3).lower()}" if m.group(3) else "")
-    spaced = bool(re.match(r"^Art(?:icle)?\.?\s*[\w-]+(?:\s+\w+\.?)?\s[-–—]\s", l))
-    return (n, k), label, m.group(5), m.group(4) is not None, spaced
 
-cands = []  # (index ligne, clé, label, texte restant, avec tiret, tiret espacé)
-for i, l in enumerate(body):
-    p = parse(l)
-    if p and p[3]:
-        cands.append((i, p[0], p[1], p[2], p[4]))
+    number_text = match.group(1).lower()
 
-# plus longue suite croissante (les numéros hors ordre = erreurs de scan)
-best, prev = [], [-1] * len(cands)
-for j, c in enumerate(cands):
-    best.append(1 + 0.5 * c[4])
+    number = (
+        1
+        if number_text in ("ler", "1er")
+        else int(number_text)
+    )
+
+    suffix_number = (
+        int(match.group(2))
+        if match.group(2)
+        else RANK[(match.group(3) or "").lower()]
+    )
+
+    label = str(number)
+
+    if match.group(2):
+        label += f"-{match.group(2)}"
+
+    if match.group(3):
+        label += f" {match.group(3).lower()}"
+
+    spaced_dash = bool(
+        re.match(
+            r"^Art(?:icle)?\.?\s*"
+            r"[\w-]+(?:\s+\w+\.?)?\s[-–—]\s",
+            line,
+            re.IGNORECASE
+        )
+    )
+
+    return (
+        (number, suffix_number),
+        label,
+        match.group(5),
+        match.group(4) is not None,
+        spaced_dash
+    )
+
+
+# ============================================================
+# 5. IDENTIFICATION DES FAUX DÉBUTS D'ARTICLES
+# ============================================================
+
+# Ces lignes sont des faux titres confirmés dans le guide.
+# On retire uniquement le faux titre et on garde le texte après.
+FALSE_HEADS = [
+    re.compile(
+        r"^Art(?:icle)?\.?\s*9\s*[-–—]\s*contribuer\b",
+        re.IGNORECASE
+    ),
+    re.compile(
+        r"^Art(?:icle)?\.?\s*32\s*[-–—]\s*prévenir\b",
+        re.IGNORECASE
+    ),
+    re.compile(
+        r"^Art(?:icle)?\.?\s*73\s*[-–—]\s*au travail "
+        r"à temps partiel\b",
+        re.IGNORECASE
+    ),
+    # Faux titre dans la liste des fautes graves de l'article 73.
+    # Le texte après ce marqueur reste dans l'article 73.
+    re.compile(
+        r"^Art(?:icle)?\.?\s*73-1\s*[-–—]\s*divulgue\b",
+        re.IGNORECASE
+    ),
+]
+
+
+def is_false_head(line):
+    return any(
+        pattern.match(line)
+        for pattern in FALSE_HEADS
+    )
+
+
+# ============================================================
+# 6. SÉLECTION DES VRAIS DÉBUTS D'ARTICLES
+# ============================================================
+
+candidates = []
+
+for i, line in enumerate(body):
+
+    # Ne pas considérer les faux titres comme des articles.
+    if is_false_head(line):
+        continue
+
+    parsed = parse(line)
+
+    if parsed and parsed[3]:
+        candidates.append(
+            (
+                i,
+                parsed[0],
+                parsed[1],
+                parsed[2],
+                parsed[4]
+            )
+        )
+
+
+# Plus longue suite croissante des numéros d'articles.
+best = []
+previous = [-1] * len(candidates)
+
+for j, candidate in enumerate(candidates):
+
+    best.append(1 + 0.5 * candidate[4])
+
     for i in range(j):
-        if cands[i][1] < c[1] and best[i] + 1 + 0.5 * c[4] > best[j]:
-            best[j], prev[j] = best[i] + 1 + 0.5 * c[4], i
-j = max(range(len(cands)), key=lambda x: best[x])
+
+        if candidates[i][1] < candidate[1]:
+
+            score = (
+                best[i]
+                + 1
+                + 0.5 * candidate[4]
+            )
+
+            if score > best[j]:
+                best[j] = score
+                previous[j] = i
+
+
 accepted = []
-while j != -1:
-    accepted.append(j)
-    j = prev[j]
-accepted = [cands[j] for j in reversed(accepted)]
-acc = {c[0]: c for c in accepted}
-rejected = [(i, body[i]) for (i, *_rest) in cands if i not in acc]
 
-# ---------- 4. découpage ----------
-HEAD = re.compile(r"^(LIVRE|TITRE|Chapitre|Section)\s+([IVX\d]+|PREMIER|ler)\s*$", re.I)
-ctx = {"livre": "", "titre": "", "chapitre": "", "section": ""}
-articles, cur, markers_used, markers_dropped = [], None, [], []
+if candidates:
+
+    j = max(
+        range(len(candidates)),
+        key=lambda x: best[x]
+    )
+
+    while j != -1:
+        accepted.append(j)
+        j = previous[j]
+
+    accepted = [
+        candidates[j]
+        for j in reversed(accepted)
+    ]
+
+
+acc = {
+    candidate[0]: candidate
+    for candidate in accepted
+}
+
+rejected = [
+    (i, body[i])
+    for i, *_rest in candidates
+    if i not in acc
+]
+
+
+# ============================================================
+# 7. DÉCOUPAGE DES ARTICLES
+# ============================================================
+
+HEAD = re.compile(
+    r"^(LIVRE|TITRE|Chapitre|Section)\s+"
+    r"([IVX\d]+|PREMIER|ler)\s*$",
+    re.IGNORECASE
+)
+
+context = {
+    "livre": "",
+    "titre": "",
+    "chapitre": "",
+    "section": ""
+}
+
+articles = []
+current = None
+
+markers_used = []
+markers_dropped = []
+false_heads_removed = []
+
 want_title = None
-acc_idx = sorted(acc)
+title_lines = 0
+accepted_indices = sorted(acc)
 
-def next_accepted_key(i):
-    for a in acc_idx:
-        if a > i:
-            return acc[a][1]
+
+def next_accepted_key(index):
+    """Retourner le prochain numéro d'article accepté."""
+
+    for accepted_index in accepted_indices:
+
+        if accepted_index > index:
+            return acc[accepted_index][1]
+
     return None
 
-for i, l in enumerate(body):
-    h = HEAD.match(l)
-    if h:
-        kind = h.group(1).lower()
-        ctx[kind] = l
-        for lower in {"livre": ["titre", "chapitre", "section"], "titre": ["chapitre", "section"],
-                      "chapitre": ["section"], "section": []}[kind]:
-            ctx[lower] = ""
+
+for i, line in enumerate(body):
+
+    # --------------------------------------------------------
+    # A. Détecter les titres, chapitres et sections.
+    # --------------------------------------------------------
+
+    heading = HEAD.match(line)
+
+    if heading:
+
+        kind = heading.group(1).lower()
+        context[kind] = line
+
+        reset_fields = {
+            "livre": ["titre", "chapitre", "section"],
+            "titre": ["chapitre", "section"],
+            "chapitre": ["section"],
+            "section": []
+        }
+
+        for field in reset_fields[kind]:
+            context[field] = ""
+
         want_title = kind
+        title_lines = 0
         continue
-    if want_title and not ART.match(l):
-        ctx[want_title] += " – " + l
-        want_title = None
+
+    # Ajouter le texte du titre qui se trouve sur la ligne suivante.
+    if want_title and not ART.match(line):
+
+        # Un titre peut occuper jusqu'à 3 lignes ; sinon la fin du titre
+        # se retrouve à tort à la fin de l'article précédent.
+        context[want_title] += (" – " if title_lines == 0 else " ") + line
+        title_lines += 1
+
+        if title_lines >= 3:
+            want_title = None
+
         continue
+
     want_title = None
+
+    # --------------------------------------------------------
+    # B. Traiter les faux titres confirmés.
+    # --------------------------------------------------------
+
+    if is_false_head(line):
+
+        parsed = parse(line)
+
+        if parsed and current:
+
+            remaining_text = parsed[2].strip()
+
+            if remaining_text:
+                current["lines"].append(remaining_text)
+
+            false_heads_removed.append(line)
+
+        continue
+
+    # --------------------------------------------------------
+    # C. Traiter les vrais débuts d'articles acceptés.
+    # --------------------------------------------------------
+
     if i in acc:
+
         _, key, label, rest, _ = acc[i]
-        if cur and cur["key"] == key:
-            cur["lines"].append(rest)
-        else:
-            cur = {"key": key, "article": label, "lines": [rest], **{k: v for k, v in ctx.items() if k != "livre"}}
-            articles.append(cur)
-        continue
-    p = parse(l)
-    if p and not p[3] and not p[2]:           # "Art. 5" seul sur la ligne
-        if next_accepted_key(i) == p[0]:
-            if not (cur and cur["key"] == p[0]):
-                cur = {"key": p[0], "article": p[1], "lines": [], **{k: v for k, v in ctx.items() if k != "livre"}}
-                articles.append(cur)
-            markers_used.append(l)
-        else:
-            markers_dropped.append(f"ligne {i}: {l}")
-        continue
-    if cur:
-        cur["lines"].append(l)
 
-# ---------- 5. Constitution (extraits avant la loi) ----------
-const = []
-cc = None
-for l in pre:
-    p = parse(l)
-    if p and p[3]:
-        cc = {"article": p[1], "lines": [p[2]]}
-        const.append(cc)
-    elif cc:
-        cc["lines"].append(l)
+        if current and current["key"] == key:
 
-# ---------- 6. sorties ----------
-def finish(a):
-    a["texte"] = merge_lines(a.pop("lines"))
-    a.pop("key", None)
-    return a
+            current["lines"].append(rest)
+
+        else:
+
+            current = {
+                "key": key,
+                "article": label,
+                "lines": [rest],
+                **{
+                    k: v
+                    for k, v in context.items()
+                    if k != "livre"
+                }
+            }
+
+            articles.append(current)
+
+        continue
+
+    # --------------------------------------------------------
+    # D. Rappels de page : "Art. 5" seul sur une ligne.
+    # --------------------------------------------------------
+    # En haut d'une page, le texte d'origine répète le numéro de l'article
+    # qui commence plus bas sur la page. Ce n'est PAS un début d'article :
+    # le texte qui suit est la suite de l'article précédent.
+
+    parsed = parse(line)
+
+    if parsed and not parsed[3] and not parsed[2]:
+
+        markers_dropped.append(f"ligne {i}: {line}")
+        continue
+
+    # --------------------------------------------------------
+    # E. Garder les autres lignes dans l'article courant.
+    # --------------------------------------------------------
+
+    if current:
+        current["lines"].append(line)
+
+
+# ============================================================
+# 8. EXTRACTION DES EXTRAITS DE LA CONSTITUTION
+# ============================================================
+
+constitution = []
+current_constitution = None
+
+for line in pre:
+
+    parsed = parse(line)
+
+    if parsed and parsed[3]:
+
+        current_constitution = {
+            "article": parsed[1],
+            "lines": [parsed[2]]
+        }
+
+        constitution.append(current_constitution)
+
+    elif current_constitution:
+
+        current_constitution["lines"].append(line)
+
+
+# ============================================================
+# 9. FINALISATION DES TEXTES
+# ============================================================
+
+def finish(article):
+    """Joindre les lignes et appliquer les corrections OCR."""
+
+    content = merge_lines(article.pop("lines"))
+    content = apply_ocr_fixes(content)
+
+    # Certains débuts d’articles sont en minuscule dans l’OCR (ex. article 130).
+    if content:
+        content = content[0].upper() + content[1:]
+
+    article["texte"] = content
+    article.pop("key", None)
+
+    return article
+
 
 records = []
-for a in articles:
-    a = finish(a)
+
+# Articles de la loi 90-11.
+for article in articles:
+
+    article = finish(article)
+
     records.append({
-        "texte_id": "loi-90-11", "article": a["article"], "titre": a["titre"],
-        "chapitre": a["chapitre"], "section": a["section"], "contenu": a["texte"],
-        "version": "1997", "date_debut": "1990-04-21", "date_fin": None, "source_url": SOURCE_URL,
-    })
-for c in const:
-    records.append({
-        "texte_id": "constitution-1996-extraits", "article": c["article"], "titre": "", "chapitre": "",
-        "section": "", "contenu": merge_lines(c["lines"]), "version": "1996", "date_debut": None,
-        "date_fin": None, "source_url": SOURCE_URL,
+        "texte_id": "loi-90-11",
+        "article": article["article"],
+        "titre": apply_ocr_fixes(article["titre"]),
+        "chapitre": apply_ocr_fixes(article["chapitre"]),
+        "section": apply_ocr_fixes(article["section"]),
+        "contenu": article["texte"],
+
+        # Le texte est une version consolidée de 1997.
+        "version": "consolidée 1997 (WIPO)",
+        "date_debut": None,
+        "date_status": "non établie",
+        "date_fin": None,
+
+        "source_url": SOURCE_URL
     })
 
-OUT.mkdir(parents=True, exist_ok=True)
-(OUT / "articles.json").write_text(json.dumps(records, ensure_ascii=False, indent=2), encoding="utf-8")
-(OUT / "loi_90_11_clean.txt").write_text(
-    "\n\n".join(f"Art. {r['article']} - {r['contenu']}" for r in records if r["texte_id"] == "loi-90-11"),
-    encoding="utf-8")
 
-loi = [r for r in records if r["texte_id"] == "loi-90-11"]
-nums = sorted({int(re.match(r"\d+", r["article"]).group()) for r in loi})
-short = [r["article"] for r in loi if len(r["contenu"]) < 60]
-rare = Counter()
-for r in loi:
-    for t in tokens(r["contenu"]):
-        if inline[t] == 0 and len(t) >= 3:
-            rare[t] += 1
+# Extraits de la Constitution.
+for constitution_article in constitution:
+
+    content = merge_lines(
+        constitution_article["lines"]
+    )
+
+    content = apply_ocr_fixes(content)
+
+    records.append({
+        "texte_id": "constitution-1996-extraits",
+        "article": constitution_article["article"],
+        "titre": "",
+        "chapitre": "",
+        "section": "",
+        "contenu": content,
+        "version": "1996",
+        "date_debut": None,
+        "date_status": "non établie",
+        "date_fin": None,
+        "source_url": SOURCE_URL
+    })
+
+
+# ============================================================
+# 10. CRÉATION DES FICHIERS DE SORTIE
+# ============================================================
+
+
+# Les frontières entre articles sont gérées par les règles A et D (section 7).
+
+OUT.mkdir(
+    parents=True,
+    exist_ok=True
+)
+
+# Fichier JSON.
+json_path = OUT / "articles.json"
+
+json_path.write_text(
+    json.dumps(
+        records,
+        ensure_ascii=False,
+        indent=2
+    ),
+    encoding="utf-8"
+)
+
+
+# Fichier texte propre.
+clean_path = OUT / "loi_90_11_clean.txt"
+
+law_records = [
+    record
+    for record in records
+    if record["texte_id"] == "loi-90-11"
+]
+
+clean_content = "\n\n".join(
+    f"Art. {record['article']} - {record['contenu']}"
+    for record in law_records
+)
+
+clean_path.write_text(
+    clean_content,
+    encoding="utf-8"
+)
+
+
+# ============================================================
+# 11. GÉNÉRATION DU RAPPORT
+# ============================================================
+
+numbers = sorted({
+    int(re.match(r"\d+", record["article"]).group())
+    for record in law_records
+})
+
+short_articles = [
+    record["article"]
+    for record in law_records
+    if len(record["contenu"]) < 60
+]
+
+rare_words = Counter()
+
+for record in law_records:
+
+    for token in tokens(record["contenu"]):
+
+        if inline[token] == 0 and len(token) >= 3:
+            rare_words[token] += 1
+
+
+missing_numbers = sorted(
+    set(range(1, 159)) - set(numbers)
+)
+
+suffix_articles = [
+    record["article"]
+    for record in law_records
+    if not record["article"].isdigit()
+]
+
+constitution_articles = [
+    record["article"]
+    for record in records
+    if record["texte_id"].startswith("constitution")
+]
+
+
+# Alertes de contrôle : elles signalent des cas à comparer au texte source.
+# Le script ne modifie pas automatiquement ces passages, car leur correction
+# exige de vérifier la version originale de la loi.
+audit_warnings = []
+END_OK = (".", ";", ":", "!", "?", "»", ")")
+
+for record in law_records:
+    content = record["contenu"].rstrip()
+    label = record["article"]
+
+    if content and not content.endswith(END_OK):
+        audit_warnings.append(
+            f"Article {label} : se termine sans ponctuation finale "
+            f"(« …{content[-40:]} ») ; fragment de titre ou texte coupé ?"
+        )
+
+    if content and content[0].islower():
+        audit_warnings.append(
+            f"Article {label} : commence par une minuscule "
+            f"(« {content[:40]}… ») ; continuation de l'article précédent ?"
+        )
 
 report = [
-    f"Articles de la loi 90-11 trouvés : {len(loi)} (numéros distincts : {len(nums)})",
-    f"Numéros manquants entre 1 et 158 : {sorted(set(range(1, 159)) - set(nums))}",
-    f"Articles avec suffixe (bis, ter, -1...) : {[r['article'] for r in loi if not r['article'].isdigit()]}",
-    f"Extraits de la Constitution : {[r['article'] for r in records if r['texte_id'].startswith('constitution')]}",
-    f"Articles très courts (< 60 caractères) à relire : {short}",
-    f"Mots coupés recollés automatiquement : {len(joined_words)}",
+
+    "========== RAPPORT DE DECOUPAGE ==========",
+
     "",
-    "Débuts d'article ignorés (numéro hors ordre = erreur de scan, à vérifier) :",
-    *[f"  ligne {i}: {t[:90]}" for i, t in rejected],
+
+    f"Articles de la loi 90-11 trouvés : {len(law_records)}",
+
+    f"Numéros distincts : {len(numbers)}",
+
+    f"Numéros manquants entre 1 et 158 : {missing_numbers}",
+
+    f"Articles avec suffixe : {suffix_articles}",
+
+    f"Extraits de la Constitution : {constitution_articles}",
+
     "",
-    "Lignes 'Art. N' seules ignorées :",
-    *[f"  {m}" for m in markers_dropped],
+
+    "---------- CORRECTIONS ----------",
+
+    f"Mots recollés automatiquement : {len(joined_words)}",
+
+    f"Corrections OCR chargées depuis le CSV : {len(OCR_FIXES)}",
+    f"Corrections OCR supplémentaires sûres : {len(EXTRA_OCR_FIXES)}",
+
+    f"Faux titres retirés : {len(false_heads_removed)}",
+
+    *[
+        f"  - {line}"
+        for line in false_heads_removed
+    ],
+
     "",
-    "Mots rares (apparaissent une seule fois, possibles mots coupés ou fautes de scan) :",
-    "  " + ", ".join(sorted(rare)[:150]),
+
+    "---------- ALERTES À VÉRIFIER DANS LA SOURCE ----------",
+    *[
+        f"  - {warning}"
+        for warning in audit_warnings
+    ],
+    "",
+    "---------- ARTICLES COURTS ----------",
+
+    f"Articles de moins de 60 caractères : {short_articles}",
+
+    "",
+
+    "---------- CANDIDATS REJETÉS ----------",
+
+    *[
+        f"  ligne {i}: {line[:120]}"
+        for i, line in rejected
+    ],
+
+    "",
+
+    "---------- MARQUEURS SEULS ----------",
+
+    "Rappels de page « Art. N » ignorés "
+    "(la suite du texte reste dans l'article précédent) :",
+
+    *[
+        f"  - {marker}"
+        for marker in markers_dropped
+    ],
+
+    "",
+
+    "---------- MOTS RARES À VÉRIFIER ----------",
+
+    ", ".join(sorted(rare_words)[:150]),
+
+    "",
+
+    "========== FIN DU RAPPORT =========="
 ]
-(OUT / "rapport_decoupage.txt").write_text("\n".join(report), encoding="utf-8")
-print("\n".join(report[:7]))
-print("Fichiers écrits dans", OUT)
+
+
+report_path = OUT / "rapport_decoupage.txt"
+
+report_path.write_text(
+    "\n".join(report),
+    encoding="utf-8"
+)
+
+
+# ============================================================
+# 12. AFFICHAGE DU RÉSULTAT
+# ============================================================
+
+print("\n========== TERMINÉ ==========")
+
+print(
+    f"Articles de la loi trouvés : {len(law_records)}"
+)
+
+print(
+    f"Numéros manquants : {missing_numbers}"
+)
+
+print(
+    f"Faux titres retirés : {len(false_heads_removed)}"
+)
+
+print(
+    f"Corrections OCR chargées : {len(OCR_FIXES)} "
+    f"(+ {len(EXTRA_OCR_FIXES)} corrections supplémentaires)"
+)
+
+if audit_warnings:
+    print("\nALERTES : vérifier ces passages dans le texte source :")
+    for warning in audit_warnings:
+        print(f"- {warning}")
+
+print("\nFichiers générés :")
+
+print(f"- {json_path}")
+print(f"- {clean_path}")
+print(f"- {report_path}")
+
+print("\nVérifie le rapport et le contenu des articles.")
