@@ -33,16 +33,22 @@ def main() -> int:
     if not DB.exists():
         print(f"registry absent: {DB}")
         return 1
-    with DB.open("rb") as fh:
-        rows = sqlite3.connect(f"file:{DB}?mode=ro", uri=True).execute(
-            "select k, url, sha256, bytes, fetched_at, path from downloads order by k"
+    con = sqlite3.connect(f"file:{DB}?mode=ro", uri=True)
+    try:
+        rows = con.execute(
+            "select k, url, sha256, bytes, fetched_at, path, issue, edition "
+            "from downloads order by k"
         ).fetchall()
+    finally:
+        con.close()
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with OUT.open("w", encoding="utf-8", newline="") as fh:
         w = csv.writer(fh)
-        w.writerow(["k", "url", "sha256", "bytes", "fetched_at", "path"])
-        for k, url, sha, nbytes, when, path in rows:
-            w.writerow([k, url, sha, nbytes, when, portable(path)])
+        w.writerow(
+            ["k", "url", "sha256", "bytes", "fetched_at", "path", "issue", "edition"]
+        )
+        for k, url, sha, nbytes, when, path, issue, edition in rows:
+            w.writerow([k, url, sha, nbytes, when, portable(path), issue, edition])
     print(f"{len(rows)} lignes -> {OUT.relative_to(ROOT)}")
     return 0
 

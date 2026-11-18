@@ -1,3 +1,14 @@
+"""Download JORADP issues listed in data/processed/issues_selected.csv.
+
+Writes one PDF per (language, year, issue) into data/raw/joradp/pdf/ and
+registers URL, SHA-256 and byte size in data/raw/joradp/downloads.sqlite.
+Downloads are sequential, delayed, retried and size-limited; files are
+written atomically and only registered after a %PDF- header check.
+
+Usage:
+    python src/collect/download.py
+"""
+
 from pathlib import Path
 import hashlib, os, sqlite3, time
 
@@ -44,33 +55,16 @@ def init() -> sqlite3.Connection:
     con.commit()
     return con
 
-def get_with_retries(url: str):
-    for attempt in range(1, ATTEMPTS + 1):
-        try:
-            r = requests.get(url, headers={"User-Agent": UA}, timeout=TIMEOUT, stream=True)
-            r.raise_for_status()
-            return r
-        except requests.HTTPError as exc:
-            status = exc.response.status_code if exc.response is not None else 0
-            if status == 429:
-                ra = exc.response.headers.get("Retry-After", "")
-                wait = int(ra) if ra.isdigit() else DELAY * attempt
-            elif 400 <= status < 500:
-                print(f"  ERROR HTTP {status} (définitif, pas de nouvelle tentative)")
-                return None
-            else:
-                wait = DELAY * attempt
-            print(f"  WARN tentative {attempt}/{ATTEMPTS} : HTTP {status}, attente {wait}s")
-        except requests.RequestException as exc:
-            wait = DELAY * attempt
-            print(f"  WARN tentative {attempt}/{ATTEMPTS} : {type(exc).__name__}, attente {wait}s")
-        if attempt < ATTEMPTS:
-            time.sleep(wait)
-    print(f"  ERROR {ATTEMPTS} tentatives épuisées")
-    return None
-
 class DownloadError(Exception):
     pass
+
+
+def sha256_file(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as fh:
+        for chunk in iter(lambda: fh.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
 
 
 def save_stream(resp, p: Path, max_bytes: int = MAX_BYTES) -> tuple[str, int]:
@@ -94,6 +88,10 @@ def save_stream(resp, p: Path, max_bytes: int = MAX_BYTES) -> tuple[str, int]:
             os.fsync(fh.fileno())
         if size < MIN_BYTES:
             raise DownloadError(f"réponse trop petite ({size} octets)")
+        with tmp.open("rb") as fh:
+            head = fh.read(5)
+        if head != b"%PDF-":
+            raise DownloadError(f"not a PDF (starts with {head!r})")
         os.replace(tmp, p)
         return h.hexdigest(), size
     finally:
@@ -108,40 +106,80 @@ def log_failure(k: str, url: str, reason: str) -> None:
             fh.write("# horodatage\tcle\turl\traison\n")
         fh.write(f"{time.strftime('%Y-%m-%dT%H:%M:%S')}\t{k}\t{url}\t{reason}\n")
 
+
+INSERT = (
+    "INSERT INTO downloads(k,url,sha256,path,bytes,fetched_at,issue,edition) "
+    "VALUES (?,?,?,?,?,datetime('now'),?,?)"
+)
+
+
 def fetch(con, lang: str, year: int, issue: int, url: str) -> str:
     k = key(lang, year, issue)
     if con.execute("SELECT 1 FROM downloads WHERE k=?", (k,)).fetchone():
         return "skipped"
     p = dest(lang, year, issue)
     if p.exists():
-        return "skipped"
-    try:
-        r = get_with_retries(url)
-        if r is None:
-            raise DownloadError("réseau : tentatives épuisées")
-        announced = r.headers.get("Content-Length", "")
-        if announced.isdigit() and int(announced) > MAX_BYTES:
-            r.close()
-            raise DownloadError(f"taille annoncée {announced} > limite {MAX_BYTES}")
-        try:
-            digest, size = save_stream(r, p)
-        finally:
-            r.close()
-    except (DownloadError, OSError) as exc:
-        log_failure(k, url, str(exc))
-        print(f"  FAILED {k} -> {exc} (voir download_failures.log)")
-        time.sleep(DELAY)
-        return "failed"
-    con.execute("INSERT INTO downloads VALUES (?,?,?,?,?,datetime('now'),?,?)",
-                (k, url, digest, str(p), size, issue, lang))
-    con.commit()
-    time.sleep(DELAY)
-    return "fetched"
+        with p.open("rb") as fh:
+            head = fh.read(5)
+        if head != b"%PDF-":
+            log_failure(k, url, "file on disk is not a PDF")
+            print(f"  FAILED {k} -> file on disk is not a PDF")
+            return "failed"
+        digest, size = sha256_file(p), p.stat().st_size
+        con.execute(INSERT, (k, url, digest, str(p), size, issue, lang))
+        con.commit()
+        return "adopted"
 
-def main() -> None:
+    last = "unknown"
+    for attempt in range(1, ATTEMPTS + 1):
+        wait = DELAY * attempt
+        try:
+            with requests.get(
+                url, headers={"User-Agent": UA}, timeout=TIMEOUT, stream=True
+            ) as r:
+                if r.status_code == 429:
+                    ra = r.headers.get("Retry-After", "")
+                    wait = int(ra) if ra.isdigit() else DELAY * attempt
+                    last = "HTTP 429"
+                    print(f"  WARN tentative {attempt}/{ATTEMPTS} : HTTP 429, attente {wait}s")
+                elif 400 <= r.status_code < 500:
+                    reason = f"HTTP {r.status_code} (définitif, pas de nouvelle tentative)"
+                    log_failure(k, url, reason)
+                    print(f"  FAILED {k} -> {reason}")
+                    return "failed"
+                else:
+                    r.raise_for_status()
+                    announced = r.headers.get("Content-Length", "")
+                    if announced.isdigit() and int(announced) > MAX_BYTES:
+                        raise DownloadError(
+                            f"taille annoncée {announced} > limite {MAX_BYTES}"
+                        )
+                    digest, size = save_stream(r, p)
+                    con.execute(INSERT, (k, url, digest, str(p), size, issue, lang))
+                    con.commit()
+                    time.sleep(DELAY)
+                    return "fetched"
+        except DownloadError as exc:
+            log_failure(k, url, str(exc))
+            print(f"  FAILED {k} -> {exc} (voir download_failures.log)")
+            time.sleep(DELAY)
+            return "failed"
+        except requests.RequestException as exc:
+            last = type(exc).__name__
+            print(f"  WARN tentative {attempt}/{ATTEMPTS} : {last}, attente {wait}s")
+        if attempt < ATTEMPTS:
+            time.sleep(wait)
+    reason = f"{ATTEMPTS} tentatives épuisées (dernière : {last})"
+    log_failure(k, url, reason)
+    print(f"  FAILED {k} -> {reason}")
+    time.sleep(DELAY)
+    return "failed"
+
+
+def main() -> int:
     sel = pd.read_csv(INDEX)
     con = init()
-    counts = {"fetched": 0, "skipped": 0, "failed": 0}
+    counts = {"fetched": 0, "skipped": 0, "adopted": 0, "failed": 0}
     for row in sel.itertuples():
         jobs = []
         if row.edition_fr == 1 and isinstance(row.url_fr, str):
@@ -152,6 +190,12 @@ def main() -> None:
             res = fetch(con, lang, row.year, row.issue, url)
             counts[res] = counts.get(res, 0) + 1
             print(f"{res:8} {lang} {row.year}/{row.issue:03d}")
-    print(f"\n{counts['fetched']} fetched, {counts['skipped']} skipped, {counts['failed']} failed")
+    print(
+        f"\n{counts['fetched']} fetched, {counts['skipped']} skipped, "
+        f"{counts['adopted']} adopted, {counts['failed']} failed"
+    )
+    return 1 if counts["failed"] else 0
+
+
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
