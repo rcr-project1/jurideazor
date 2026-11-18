@@ -56,7 +56,7 @@ Non livré à ce jour. Aucun cache, aucune table d'erreurs par question, aucune 
 
 | Membre | Tâches | Fichiers | Commits | Statut |
 |---|---|---|---|---|
-| Nouha HAROUDI | Collecte, OCR, extraction FR/AR, rapport | `src/collect/`, `src/structure/`, `src/eval/`, `docs/week2/` | `bdc2af9`, `673701b`, `94864fc`, `b00fb37`, `7d13b40` | Livré, non fusionné |
+| Nouha HAROUDI | Collecte, OCR, extraction FR/AR, rapport | `src/collect/`, `src/structure/`, `src/eval/`, `docs/week2/` | `bdc2af9`, `673701b`, `94864fc`, `b00fb37`, `cdd3748` | Livré, non fusionné |
 | Malak ALIOUAT | Découpage, corrections OCR, provenance | `split_loi_90_11.py`, `ocr_fix_map.csv`, `tests/test_split.py`, `PROVENANCE.md` | `a6b020d`, `63380eb`, `5bb3c1b` | Livré, fusionné |
 | Hadil BOUKHALFA | Plan de corpus | — | — | **Non livré à ce jour (18/11)** |
 | Rania Halima BENZERAFA | Cache, questions, table d'erreurs | — | — | **Non livré à ce jour (18/11)** |
