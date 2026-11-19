@@ -1,4 +1,0 @@
-# verify_downloads — 2026-11-18T21:36:28Z — commit bdc2af9
-$ .venv/bin/python src/collect/verify_downloads.py
-24/24 conformes | bad=[] | .part=0 | unregistered_pdf=0
-exit=0

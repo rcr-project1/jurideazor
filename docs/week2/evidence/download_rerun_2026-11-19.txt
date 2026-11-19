@@ -1,0 +1,41 @@
+# download_rerun — 2026-11-19T17:40:21Z — commit 2231cad
+$ .venv/bin/python src/collect/download.py
+skipped  fr 1988/004
+skipped  ar 1988/004
+skipped  fr 1990/006
+skipped  ar 1990/006
+skipped  fr 1990/017
+skipped  ar 1990/017
+skipped  fr 1991/068
+skipped  ar 1991/068
+skipped  fr 1993/001
+skipped  ar 1993/001
+skipped  fr 1993/002
+skipped  ar 1993/002
+skipped  fr 1994/020
+skipped  ar 1994/020
+skipped  fr 1996/043
+skipped  ar 1996/043
+skipped  fr 1997/003
+skipped  ar 1997/003
+skipped  fr 2005/001
+skipped  ar 2005/001
+skipped  fr 2005/002
+skipped  ar 2005/002
+skipped  fr 2010/001
+skipped  ar 2010/001
+skipped  fr 2010/002
+skipped  ar 2010/002
+skipped  fr 2015/040
+skipped  ar 2015/040
+skipped  fr 2017/076
+skipped  ar 2017/076
+skipped  fr 2020/001
+skipped  ar 2020/001
+skipped  fr 2020/002
+skipped  ar 2020/002
+skipped  fr 2022/049
+skipped  ar 2022/049
+
+0 fetched, 36 skipped, 0 adopted, 0 failed
+exit=0
