@@ -17,7 +17,7 @@ Le rapport de la semaine 1 est inchangé ; ces corrections comptent pour la sema
 |---|---|---|---|
 | 1. Contributions, noms complets, lignes vides | Noms complets ; 4 tâches vides | `docs/What_you_did.md`, `e3cb909` | Partiel |
 | 2. Une seule question citée | 6 questions avec réponses et analyse ; 8–10 questions et erreurs détaillées non faites | `question-test.md` `7d2abc1` ; `Réponses avec sources et références` `0114da6` ; `réponses de LLM sans RAG` `3ce6238` ; `Analyse…` `08fb2e3` (sous `docs/week1/evaluation/`) | Partiel |
-| 3. Textes modificatifs par script | 18 numéros collectés (10 planifiés + 8 échantillon), 10 modificatifs ; les 6 numéros de PR #17 sont collectés le 19/11 (PDF texte), extraction des textes encore à faire | `src/collect/download.py`, `issues_selected.csv` — `feat/collect-hardening` `2231cad` ; `data/corpus_index.csv` — PR #17 | Partiel |
+| 3. Textes modificatifs par script | 18 numéros collectés (10 planifiés + 8 échantillon), 10 modificatifs ; les 6 numéros de PR #17 sont collectés le 19/11 (4 scan, 2 texte) : OCR et extraction encore à faire | `src/collect/download.py`, `issues_selected.csv` — `feat/collect-hardening` `2231cad` ; `data/corpus_index.csv` — PR #17 | Partiel |
 | 4. Numérotation, mots cassés, noms de fichiers | 172 articles = 158 + 14 bis ; 73 corrections OCR (74 lignes avec l'en-tête) ; `gitkeep.ipynb` non renommé (notebook de Rania, à renommer par elle) | `articles.json`, `ocr_fix_map.csv`, `tests/test_split.py` — `main` `5bb3c1b` | Partiel |
 
 Question hors corpus : la question 6 cite la loi 90-04 ; son PDF est collecté le 19/11 (`1990/06`), texte pas encore extrait.
