@@ -1,4 +1,4 @@
-Cas pratique : Ahmed et les infractions présumées au droit du travail algérien:
+# Cas pratique 1 : Ahmed et les infractions présumées au droit du travail algérien:
 
 Situation :
 
@@ -44,4 +44,15 @@ Questions :
 6. Quelle procédure Ahmed doit-il suivre pour contester son licenciement
    et tenter de résoudre ce conflit individuel du travail ?
 
+    # PART 2: Questions générales indépendantes
 
+
+7.Un contrat de travail est-il valable lorsqu'il n'est pas établi par écrit ?
+
+8.L'employeur peut-il recourir librement au contrat de travail à durée déterminée (CDD) en Algérie ? Dans quels cas la législation autorise-t-elle le recours à ce type de contrat ?
+
+9.Un salarié peut-il bénéficier d'un congé annuel rémunéré en Algérie, et comment sa durée est-elle calculée selon la législation du travail ? Préciser la période de référence et les éventuelles limites prévues par les textes.
+
+10.L'employeur peut-il modifier unilatéralement les clauses essentielles du contrat de travail ? Quelles sont les limites juridiques de son pouvoir de modification et quels sont les droits du salarié dans cette situation ?
+
+]   

@@ -3,15 +3,36 @@
 # Rule of thumb: secrets, big data and machine-specific files stay OUT of Git.
 # ============================================================
  
-# Secrets: never commit
+# 1. Secrets: never commit
 .env
+*.key
 
-# Python
+# 2. Python & Environments
 __pycache__/
 *.pyc
 .venv/
 venv/
 
-# Jupyter
+# 3. Jupyter
 .ipynb_checkpoints/
 
+# 4. PDFs & Big Data (Heavy files)
+data/raw/joradp/pdf/
+*.zip
+*.tar.gz
+data/backup/*.tar.gz
+
+# 5. Databases & Caches (Binary files that change often)
+*.sqlite
+*.db
+data/processed/downloads.sqlite
+data/processed/llm_cache.sqlite
+
+# 6. Search Vectors (Generated embeddings)
+*.npy
+*.faiss
+
+# 7. Runtime artefacts & Logs
+*.log
+*.part
+data/processed/download_failures.log
