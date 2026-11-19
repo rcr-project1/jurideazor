@@ -14,12 +14,15 @@ import hashlib, os, sqlite3, time
 
 import pandas as pd
 import requests
+from dotenv import load_dotenv
 
 ROOT = Path(__file__).resolve().parents[2]
+load_dotenv(ROOT / ".env")
 INDEX = ROOT / "data/processed/issues_selected.csv"
 RAW = ROOT / "data/raw/joradp"
 DB = RAW / "downloads.sqlite"
-UA = "RCR-jurideazor (student project; contact: nouha.haroudi@univ-constantine2.dz)"
+CONTACT = os.environ.get("CONTACT_EMAIL", "https://github.com/rcr-project1/jurideazor")
+UA = f"RCR-jurideazor (student project; contact: {CONTACT})"
 DELAY = 3.0
 ATTEMPTS = 3
 TIMEOUT = (10, 300)
