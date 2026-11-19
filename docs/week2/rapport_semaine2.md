@@ -6,7 +6,7 @@
 ## 1. Résumé
 
 La semaine 2 devait corriger les manques de la semaine 1, puis collecter, océriser et découper.
-**Fait :** 18 numéros collectés (36 PDF : 10 scan, 26 texte), OCR v2 sur 258 pages (5 numéros scan), 71 textes FR, 67 textes AR, 178 articles découpés (fusionné).
+**Fait :** 18 numéros collectés (36 PDF : 18 scan, 18 texte), OCR v2 sur 258 pages (5 premiers numéros scan), 71 textes FR, 67 textes AR, 178 articles découpés (fusionné).
 **Non fait :** filtrage, 8–10 questions avec cache, BM25/E5. **Livré, non fusionné :** plan de corpus (Hadil, PR #17). Limites : §9.
 
 ## 2. Corrections du rapport de la semaine 1
@@ -26,7 +26,7 @@ Question hors corpus : la question 6 cite la loi 90-04 ; son PDF est collecté l
 
 | Objectif | Statut | Preuve | Chiffre |
 |---|---|---|---|
-| Collecte automatisée | Partiel | `feat/collect-hardening` `2231cad` | 18 numéros, 36 PDF (10 scan, 26 texte) |
+| Collecte automatisée | Partiel | `feat/collect-hardening` `2231cad` | 18 numéros, 36 PDF (18 scan, 18 texte) |
 | OCR + qualité | Fait (CER à refaire) | `feat/ocr-v2` `673701b` | 258 pages |
 | Découpage + corrections OCR | Fait | `main` `5bb3c1b` | 178 articles, 9/9 |
 | Plan de corpus (Hadil BOUKHALFA) | Livré, non fusionné ; corrections demandées | PR #17 `b26afee` | 12 textes, 20 documents |
@@ -36,7 +36,7 @@ Question hors corpus : la question 6 cite la loi 90-04 ; son PDF est collecté l
 
 ## 4. Collecte automatisée
 
-`robots.txt` de la JORADP : **HTTP 404** (capture du 2026-11-16, `docs/week2/robots_404_2026-11-16.png` ; `collection.md` §1). RFC 9309 : un 4xx vaut absence de restriction. L'index UpGrowth (CC BY 4.0) ne donne que les numéros et URL. Client identifié, délai ≥ 3 s, pas de parallélisme. 18 numéros (10 planifiés + 8 échantillon), 36 PDF (10 scan, 26 texte). Relance : tout en `skipped`.
+`robots.txt` de la JORADP : **HTTP 404** (capture du 2026-11-16, `docs/week2/robots_404_2026-11-16.png` ; `collection.md` §1). RFC 9309 : un 4xx vaut absence de restriction. L'index UpGrowth (CC BY 4.0) ne donne que les numéros et URL. Client identifié, délai ≥ 3 s, pas de parallélisme. 18 numéros (10 planifiés + 8 échantillon), 36 PDF (18 scan, 18 texte). Relance : tout en `skipped`.
 Détails : [`collection.md`](collection.md).
 
 ## 5. Qualité de l'OCR
@@ -66,7 +66,7 @@ Nouha HAROUDI a deux identités Git (`Naho Chan`, `haroudinouha`, même adresse)
 
 ## 9. Limites et risques
 
-1. 18 numéros collectés, **5 exploités** (1991/068, 1993/001, 1993/002, 1994/020, 1997/003) ; 26 PDF « texte » non convertis (13 numéros, dont 2015/40 et les 6 numéros ajoutés le 19/11).
+1. 18 numéros collectés, **5 exploités** (1991/068, 1993/001, 1993/002, 1994/020, 1997/003) ; 18 PDF « texte » non convertis (9 numéros, dont 2015/40 et 2017/76, 2022/49 ajoutés le 19/11) ; 4 nouveaux numéros scan non océrisés.
 2. 96-21, 22-16, 88-07, 90-03, 90-04, LFC 2018 : PDF collectés le 19/11 via PR #17 (`corpus_index.csv`) ; textes pas encore extraits.
 3. Ordonnance 97-02 absente en FR, présente en AR ; idem `loi-91-27`, `loi-91-31`.
 4. CER arabe 0,0250 (13/520) **non reproductible** (`src/eval/cer.py`) : non utilisé comme preuve.

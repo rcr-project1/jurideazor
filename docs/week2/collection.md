@@ -55,14 +55,14 @@ Ces deux fichiers peuvent être régénérés par le professeur sans accès à l
 |---|---|
 | Numéros sélectionnés | 18 (10 planifiés + 8 échantillon) |
 | PDF téléchargés | 36 (18 numéros × FR/AR) |
-| PDF « scan » (OCR nécessaire) | 10 (5 numéros) |
-| PDF « texte » non convertis | 26 (13 numéros, dont 2015/40 et les 6 numéros ajoutés le 19/11) |
+| PDF « scan » (OCR nécessaire) | 18 (9 numéros ; 5 océrisés, 4 nouveaux en attente) |
+| PDF « texte » non convertis | 18 (9 numéros, dont 2015/40 et 2017/76, 2022/49 ajoutés le 19/11) |
 
 Détail par fichier : `data/processed/pdf_report.csv` (36 lignes : langue, année, pages, caractères, `text`/`scan`).
 
 ## 6. Limites
 
-- Les 13 numéros « texte » ne sont pas encore extraits : la couverture du corpus reste partielle (les nouveaux PDF sont présents, pas leurs textes).
+- Les 9 numéros « texte » ne sont pas encore extraits : la couverture du corpus reste partielle (les nouveaux PDF sont présents, pas leurs textes).
 - Le registre SQLite étant local, la preuve publiée est le manifeste CSV ; le manifeste ne contient pas les pages ni le type (`pdf_report.csv` le fait).
 - `select_issues.py` combine une liste `KNOWN` (4 numéros) et `FROM_CORPUS_PLAN` (6 numéros / 7 textes identifiés dans PR #17, non fusionnée) ; `data/corpus_index.csv` est lu en complément s'il est présent. Ces 6 numéros sont collectés le 19/11 (PDF texte), extraction à faire.
 - La sélection d'évaluation (2 numéros par année 1993/2005/2010/2020) est un **échantillon de commodité** figé le 16/11/2026, pas un tirage aléatoire : toute modification invaliderait le corpus déjà océrisé.
