@@ -17,8 +17,8 @@ Le rapport de la semaine 1 est inchangé ; ces corrections comptent pour la sema
 |---|---|---|---|
 | 1. Contributions, noms complets, lignes vides | Noms complets ; 4 tâches vides | `docs/What_you_did.md`, `e3cb909` | Partiel |
 | 2. Une seule question citée | 6 questions avec réponses et analyse ; 8–10 questions et erreurs détaillées non faites | `question-test.md` `7d2abc1` ; `Réponses avec sources et références` `0114da6` ; `réponses de LLM sans RAG` `3ce6238` ; `Analyse…` `08fb2e3` (sous `docs/week1/evaluation/`) | Partiel |
-| 3. Textes modificatifs par script | 12 numéros collectés, 4 modificatifs ; 96-21, 22-16, 88-07, 90-03, 90-04, LFC 2018 absents ; 7 numéros identifiés dans PR #17 (`b26afee`), non collectés | `src/collect/download.py`, `issues_selected.csv` — `feat/collect-hardening` `bdc2af9` ; `data/corpus_index.csv` — PR #17 | Partiel |
-| 4. Numérotation, mots cassés, noms de fichiers | 172 articles = 158 + 14 bis ; 73 corrections OCR (74 lignes avec l'en-tête) ; `gitkeep.ipynb` non renommé | `articles.json`, `ocr_fix_map.csv`, `tests/test_split.py` — `main` `5bb3c1b` | Partiel |
+| 3. Textes modificatifs par script | 12 numéros collectés, 4 modificatifs ; 96-21, 22-16, 88-07, 90-03, 90-04, LFC 2018 absents ; 6 numéros (7 textes) identifiés dans PR #17 (`b26afee`), non collectés | `src/collect/download.py`, `issues_selected.csv` — `feat/collect-hardening` `bdc2af9` ; `data/corpus_index.csv` — PR #17 | Partiel |
+| 4. Numérotation, mots cassés, noms de fichiers | 172 articles = 158 + 14 bis ; 73 corrections OCR (74 lignes avec l'en-tête) ; `gitkeep.ipynb` non renommé (notebook de Rania, à renommer par elle) | `articles.json`, `ocr_fix_map.csv`, `tests/test_split.py` — `main` `5bb3c1b` | Partiel |
 
 Question hors corpus : la question 6 cite la loi 90-04, absente de nos index au 18/11 ; elle figure dans `data/corpus_index.csv` de PR #17 (`L-90-04`, non fusionnée), texte pas encore collecté.
 
@@ -60,7 +60,7 @@ Non livré à ce jour. Aucun cache, aucune table d'erreurs par question, aucune 
 | Malak ALIOUAT | Découpage, corrections OCR, provenance | `split_loi_90_11.py`, `ocr_fix_map.csv`, `tests/test_split.py`, `PROVENANCE.md` | `a6b020d`, `63380eb`, `5bb3c1b` | Livré, fusionné |
 | Hadil BOUKHALFA | Plan de corpus, index, échantillon | `data/corpus_index.csv`, `docs/week2/corpus_plan.md`, `eval/relevance_sample.csv` | `b26afee` | Livré (PR #17), non fusionné ; corrections demandées le 18/11 |
 | Rania Halima BENZERAFA | Cache, questions, table d'erreurs | — | — | **Non livré à ce jour (18/11)** |
-| Malak BOUGOFFA | Aucune trace | — | — | Sans contact depuis [À COMPLÉTER] ; tentatives : [À COMPLÉTER] |
+| Malak BOUGOFFA | Retirée du groupe à sa demande | — | — | Retrait demandé le 18/11/2026 (appel) ; enseignant informé le 18/11/2026, retrait effectué par l'enseignant |
 
 Nouha HAROUDI a deux identités Git (`Naho Chan`, `haroudinouha`, même adresse) ; voir `git shortlog -sne --all`.
 
@@ -88,7 +88,6 @@ Scripts écrits avec un agent de code (OpenCode ; modèle `opencode/deepseek-v4.
 | Qui | Quoi |
 |---|---|
 | Nouha HAROUDI | PDF « texte » (dont 2015/40), CER, fusion des branches |
-| Hadil BOUKHALFA | Corriger PR #17 (12 textes, échantillon 20→22) ; collecte des 7 numéros identifiés |
+| Hadil BOUKHALFA | Corriger PR #17 (12 textes, échantillon 20→22) ; collecte des 6 numéros (7 textes) identifiés |
 | Rania Halima BENZERAFA | cache, 8–10 questions, table d'erreurs |
 | Malak ALIOUAT | BM25 vs E5, Hit@3 |
-| Malak BOUGOFFA | statut à clarifier |

@@ -9,7 +9,7 @@
 - `https://www.joradp.dz/robots.txt` → **HTTP 404** (2026-11-16). RFC 9309 : un 4xx vaut absence de restriction ; un 5xx aurait valu interdiction. Preuve : `docs/week2/robots_404_2026-11-16.png` (branche `docs/week2`, fusionnée par la PR de documentation).
 - L'index UpGrowth (CC BY 4.0) sert uniquement à lister les numéros et les URL officielles. Il n'est ni une source officielle ni un corpus. Ses limites sont décrites dans `sources_et_conditions.md` §4.
 - Le site du ministère du Commerce (accès automatisé interdit) n'a pas été exploré.
-- Client : `User-Agent` identifiant avec adresse universitaire ; délai minimum **3 s** entre requêtes ; **aucun** téléchargement parallèle ; volume limité aux numéros nécessaires.
+- Client : `User-Agent` nommant le projet et un contact optionnel (`CONTACT_EMAIL`, par défaut l'URL du dépôt) ; délai minimum **3 s** entre requêtes ; **aucun** téléchargement parallèle ; volume limité aux numéros nécessaires.
 
 ## 2. Robustesse (une seule fois, ici)
 
@@ -74,5 +74,5 @@ Détail par fichier : `data/processed/pdf_report.csv` (24 lignes : langue, anné
 
 - Les 7 numéros « texte » ne sont pas encore extraits : la couverture du corpus reste partielle.
 - Le registre SQLite étant local, la preuve publiée est le manifeste CSV ; le manifeste ne contient pas les pages ni le type (`pdf_report.csv` le fait).
-- `select_issues.py` combine une liste `KNOWN` (4 numéros) et `FROM_CORPUS_PLAN` (7 numéros identifiés dans PR #17, non fusionnée) ; `data/corpus_index.csv` est lu en complément s'il est présent. Les 7 numéros ne sont pas encore téléchargés.
+- `select_issues.py` combine une liste `KNOWN` (4 numéros) et `FROM_CORPUS_PLAN` (6 numéros / 7 textes identifiés dans PR #17, non fusionnée) ; `data/corpus_index.csv` est lu en complément s'il est présent. Ces 6 numéros ne sont pas encore téléchargés.
 - La sélection d'évaluation (2 numéros par année 1993/2005/2010/2020) est un **échantillon de commodité** figé le 16/11/2026, pas un tirage aléatoire : toute modification invaliderait le corpus déjà océrisé.
