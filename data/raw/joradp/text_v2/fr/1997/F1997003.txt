@@ -409,8 +409,8 @@ correspondant au 25 septembre 1995 relative à la gestion
 des capitaux marchands de l'Etat ;
 :
 
-JOURNAL OFFICIELLE
 | 3 Ramadhan tai
+JOURNAL OFFICIELLE
 12 janvier 1997
 Après adoption par le conseil national de transition,
 Promulgue l'ordonnance dont la teneur suit :
@@ -1310,6 +1310,7 @@ Président de la République sur la base de l'article 165,
 promulgation, sur la conformité des lois organiques à la
 Constitution dans les délais fixés en son article 167,
 alinéa ler.
+SEE
 Art. 2. — Lorsque le Conseil constitutionnel déclare
 qu'une disposition de la loi dont il est saisi, n'est pas
 conforme à la Constitution et qu'elle ne peut être séparée
@@ -1355,7 +1356,6 @@ Art. 7. — Dans le cadre des dispositions des articles 165
 et 166 de la Constitution, le Conseil constitutionnel est
 saisi par lettre adressée au président du Conseil
 constitutionnel.
-SEE
 
 Lorsqu'il s'agit de contrôle de constitutionnalité prévu à
 l'article 165, alinéa ler de la Constitution, il est précisé

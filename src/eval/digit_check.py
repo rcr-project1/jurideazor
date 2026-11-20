@@ -37,12 +37,11 @@ def gregorian(text: str) -> Counter:
 
 
 def context(text: str, value: str, width: int = 40) -> str:
-    m = YEAR_RE.search(text, 0)
     for m in YEAR_RE.finditer(text):
         if m.group(1) == value:
-            break
-    snip = text[max(0, m.start() - width) : m.end() + width]
-    return " ".join(snip.split())
+            snip = text[max(0, m.start() - width) : m.end() + width]
+            return " ".join(snip.split())
+    return ""
 
 
 def issue_pairs(root: Path) -> list[tuple[Path, Path]]:

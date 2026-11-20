@@ -91,8 +91,8 @@ MINISTERE DU TRAVAIL ET DE LA PROTECTION SOCIALE
 Arrêté du 21 Chaâbane 1414 correspondant au 2 février 1994 relatif à l'application des dispositions de l'article 160 du
 décret législatif n° 93-18 du 29 décembre 1993 portant loi de finances pour 1994
 
-Décret législatif: n° 94-03 du 30 Chaoual 1414 |
 \
+Décret législatif: n° 94-03 du 30 Chaoual 1414 |
 correspondant au 11 avril 1994 complétant
 la loi n° 90-11 du 21 avril 1990 relative
 aux relations de travail. |
@@ -100,7 +100,6 @@ aux relations de travail. |
 Vu la Constitution et notamment ses articles 52, 53,
 54, 113 et 115; |
 Vu la plate-forme portant consensus national sur la
-+
 période transitoire, notamment ses articles 5 et 42;
 - Vu Ia loi n° 90-11 du 21 avril 1990 modifiée et
 complétée, relative aux relations de travail;
@@ -350,7 +349,6 @@ Fait à Alger, le 28 Chaoual 1414 correspondant au 9
 avril 1994,
 Rédha MALEK.
 
-ANNEXE
 Montant en DA: | Montant en DA
 î ité Le de l'indemnité
 de indemnité Catégorie Section lémentaire d
@@ -418,6 +416,7 @@ i
 910
 910
 910
+ANNEXE
 850
 790
 790

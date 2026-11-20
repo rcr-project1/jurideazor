@@ -43,7 +43,6 @@ relative au règlement des conflits individuels de p. 2168.
 travail, p. 2166.
 
 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE
-SOMMAIRE (Suite)
 2162
 Loi n° 91-31 du 21 décembre 1991 portant approbation
 --. de la convention portant création de la Banque
@@ -95,6 +94,7 @@ performances dans le secteur de l’équipément et
 du logement, p. 2182.
 .""
 o 68 25 décembre 1991
+SOMMAIRE (Suite)
 Décret exécutif n° 91-517 du 22 décembre 1991
 instituant une indemnité pour services exception-
 nels en faveur de certains travailleurs relevant de
@@ -145,7 +145,6 @@ tion d’un sous-directeur au ministère de
 l’intérieur et des collectivités locales, p. 2188.
 
 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
-SOMMAIRE (Suite)
 25 décembre 1991
 D nat
 Décret exécutif du 11 novembre 1991 portant nomina-
@@ -195,6 +194,7 @@ tion du directeur des services financiers postaux au
 ministère des postes et télécommunications,
 p- 2190. 1
 2163
+SOMMAIRE (Suite)
 Décret exécutif du 11 novembre 1991 portant nomina-
 tion du directeur des produits et services des
 télécommunications au ministère des postes et
@@ -243,7 +243,6 @@ communication, p. 2191.
 EEE mm
 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
 re
-SOMMAIRE (Suite)
 2164
 Décret exécutif du 24 novembre 1991 mettant fin aux
 fonctions du directeur des transports urbains et de
@@ -290,6 +289,7 @@ réalisation à l’ex-ministère de l’aménagement du
 territoire, de l’urbanisme et de la construction,
 "p. 2193.
 25 décembre 1991
+SOMMAIRE (Suite)
 Décret exécutif du 1* décembre 1991 mettant fin aux
 fonctions du directeur de l'aménagement du terri-
 toire à l’ex-ministère de l'aménagement du terri-
@@ -334,11 +334,9 @@ pour la révision des prix dans les contrats de
 bâtiment et de travaux publics, p. 2198.
 
 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
-SOMMAIRE (Suite)
 ee —(( }}—————
-LOIS
-——((}} —
 25 décembre 1991
+SOMMAIRE (Suite)
 Arrêté du 1* décembre 1991 portant nomination d’un
 chargé d’études et de synthèse au cabinet du
 ministre délégué au Trésor, p. 2205.
@@ -358,6 +356,8 @@ Arrêté du 11 novembre 1991 portant nomination
 d’un chargé d’études et de synthèse au cabinet
 du ministre de l'équipement et du logement,
 _p. 2205.
+LOIS
+——((}} —
 Loi n° 91-27 du 21 décembre 1991 modifiant et
 complétant La loi n° 90-02 du 6 février 1990
 relative à la prévention et au réglement des
@@ -912,6 +912,8 @@ populaire. .
 Fait à Alger, le 21 décembre 1991.
 Chadli BENDJEDID.
 O——————————
+DECRETS
+a O)—
 Vu le décret exécutif n° 91-369 du 8 octobre 1991
 portant répartition des crédits ouverts, au titre du
 budget de fonctionnement, par ia loi de finances
@@ -931,8 +933,6 @@ officiel de la République algérienne démocratique et
 populaire.
 Fait à Alger, le 22 décembre 1991.
 Chadli BENDJEDID.
-DECRETS
-a O)—
 
 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
 Décret présidentiel n° 91-509 du 22 décembre 1991 { Décret présidentiel n° 91-510 du 22 décembre 1991
@@ -1818,10 +1818,11 @@ ment et dont la liste des bénéficiaires ainsi que les taux
 applicables au salaire de base du grade d’origine sont
 fixés conformément au tableau suivant :
 Taux par rapport
-au salairé de base
-10 %
 _ Gradës et emplois
+au salairé de base
 Subdivisionnaire 10 %
+10 %
+Agent d'entretien :
 —  Inspectecteur de l’urbanisme 10 %
 — Chef d'exploitation barrages 10 %
 — Chef de section 10%
@@ -1829,11 +1830,10 @@ Subdivisionnaire 10 %
 — Agent technique spécialisé 10 %
 — Agent technique 10 %
 — Agent de travaux
-Agent d'entretien :
 
 JOURNAL OFFICIEL DE LA RERUBLIQUE ALGERIENNE
-Art. 2. — L'attribution de l'indemnité prévue à |
 25 décembre 1991
+Art. 2. — L'attribution de l'indemnité prévue à |
 l’article 1er, ci-dessus est exclusive de toute prime et
 indemnité de même nature. .
 Art. 3. — Le présent décret qui prend effet à compter
@@ -2166,7 +2166,6 @@ dirigeants,
 — une déclaration attestant de la possession d’un
 local,
 À
-ae
 25 décembre 1991
 © Art. 4. — Les personnes physiques et les sociétés ou
 établissements de droit algérien doivent en outre
@@ -2243,6 +2242,7 @@ d'orientation sur les entreprises publiques économi-
 ques ;
 Vu la loi n° 88-02 du 12 janvier 1988, modifiée et |
 complétée, relative à la planification ;
+Vu la loi n° 88-03 du 12 janvier 1988 relative aux |.
 fonds de participation ;
 Vu la loi n° 90-10 du 15 avril 1990 relative à la
 monnaie et au crédit ;
@@ -2302,11 +2302,8 @@ Lire :
 après
 Dans ce cas, la correction est effectuée
 lhomologation.
-Vu la loi n° 88-03 du 12 janvier 1988 relative aux |.
 
 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
-O——————
-INDIVIDUELLES
 2188
 Page 1822, 2" colonne, article 120, 2°" alinéa,
 Au lieu de :
@@ -2363,6 +2360,9 @@ délivré par lorgane de contrôle externe a priori
 compétent,aux organes financiers, en vue de
 l'engagement de la dépense, avant sa mise en exécu-
 tion ».
+O——————
+INDIVIDUELLES
+O)—
 nation du directeur du centre national de forma-
 tion des cadres de l’éducation.
 Par décret exécutif du 11 novembre 1991, M. Brahim
@@ -2382,7 +2382,6 @@ fin aux fonctions de sous-directeur des transmissions
 par câbles et équipements des centres au ministère des
 postes et télécommunications, exercées par M. Brahim
 Ouarets, appelé à exercer une autre fonction.
-O)—
 Décret présidentiel du 13 novembre 1991 mettant | Décret exécutif du 11 novembre 1991 portant nomi-
 
 JOURNAL GFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
@@ -3036,7 +3035,6 @@ __ Omar Hattab 23 — Wilaya d’Annaba
 | __ Ahmed Belghit — Esseidh Zouaoui
 — Turki Medjereb lu .
 — Kheirredine Habbaz 25 — Wilaya de Constantine
-° | — Hadj Debache
 18 — Wilaya de Jijel — Abdesslem Lazreg
 — Amar Chérifi — Mohamed Tahar Boudouda
 — Mahmoud Chouchane :
@@ -3056,6 +3054,7 @@ er
 — Yazid Hamadat
 — Brahim Razibaoune
 24 — Wilaya de Guelma
+° | — Hadj Debache
 — Belkacem Bouchabou
 — Abdelaziz Lakehal
 — Ahmed Bessanane
@@ -3253,7 +3252,6 @@ Septembre 1990
 EH Menuiserie Fee 1,964 1) Coefficient «K» (utilisable pour les marchés
 — Electricité... 1,953 conclus entre le ler janvier 1975 et le 31 décembre
 — Peinture-Vitrerie.…....….......… 2,003 1982). |
-MAÇONNERIE
 a
 2. Coefficient de raccordement permettant de calcu-
 ler à partir des indices base 1000, en janvier 1983,
@@ -3268,6 +3266,7 @@ entre le 1er janvier 1975 et le 31 décembre 1982.
 Il) Un coefficient « K » des charges sociales à utiliser
 dans les contrats à prix révisables, conclus entre le ler
 janvier 1983 et le 31 mars 1985.
+MAÇONNERIE
 Il) Un coefficient « K » des charges sociales à utiliser
 dans les contrats à prix révisables, conclus postérieure-
 ment au 31 mars 1985.
@@ -3581,9 +3580,8 @@ Ec : électrode (baguette de soudure)
 Lv : matelas laine de verre
 Oxy : oxygène
 
-: \ “
-——————— F7
 25 décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 2205
+——————— F7
 Poi : pointes
 Sx : siporex
 Tn : panneau de tôle nervuré TN 40
@@ -3632,6 +3630,7 @@ Par arrêté du 11 novembre 1991 du ministre des
 postes et télécommunications, M. Bachir Mokrane est
 nommé chargé d’études et de synthèse au cabinet du
 ministre des postes et télécommunications.
+: \ “
 Par arrêté du 11 novembre 1991 du ministre des
 postes et télécommunications, M. El Kamel Yaker est
 nommé chargé d’études et de synthèse au cabinet du
