@@ -22,7 +22,50 @@
 - **Nouha HAROUDI:** 
 - **Hadil BOUKHALFA:**I completed and corrected the corpus plan, source register, corpus index, and relevance sample, including the legal-text metadata, relationships, and target articles, and add a rapport_hadil
 I checked the source links, verified the legal-text details.
-- **Rania Halima BENZERAFA:** 
+- **Rania Halima BENZERAFA:**
+- # Travail réalisé
+
+### 1. Préparation des questions de test
+
+Dans le fichier **`question-test.md`**, j'ai ajouté 10 nouvelles questions aux 6 questions initiales, afin d'obtenir un total de **16 questions de test**, réparties comme suit :
+
+- 4 questions indépendantes du thème du droit du travail algérien.
+- 4 questions en arabe élaborées à partir du corpus juridique préparé par Hadil.
+- 2 questions portant sur un autre thème, hors du domaine du droit du travail, afin de tester les limites du modèle.
+
+### 2. Réponses avec sources et références
+
+Dans le fichier **« Réponses avec sources et références »**, j'ai ajouté les réponses correspondant aux 10 nouvelles questions.
+
+Pour les 4 questions indépendantes du thème du droit du travail, j'ai renseigné les réponses attendues, les sources, les références juridiques ainsi que les statuts.
+
+Pour les 4 questions en arabe, élaborées à partir du corpus juridique préparé par Hadil, j'ai également identifié les réponses correspondantes, les sources, les références et les statuts présents dans le corpus.
+
+Enfin, pour les 2 questions hors contexte, j'ai renseigné les réponses, les sources, les références et les statuts afin de permettre la vérification des résultats.
+
+J'ai également converti le fichier du format **TXT au format CSV** afin de faciliter son exploitation.
+
+### 3. Expérimentation du LLM sans RAG
+
+Dans le fichier **`expérimentation_LLM_sans_RAG(3).ipynb`**, j'ai élaboré un prompt destiné à interroger le LLM sans utiliser de système RAG.
+
+J'ai ensuite généré les réponses aux 16 questions en utilisant une température égale à 0, un seed fixe et la fonction `generate()`. Cette configuration vise à assurer la reproductibilité de l'expérience et à permettre la comparaison des réponses dans les mêmes conditions.
+
+### 4. Analyse des réponses du LLM sans RAG
+
+Dans le fichier **`Analyse des réponses du LLM sans RAG.md`**, j'ai intégré les réponses générées par le LLM sans RAG et effectué une analyse des nouvelles questions ajoutées.
+
+Pour chaque question analysée, j'ai présenté :
+- La question posée.
+- La réponse générée par le LLM sans RAG.
+- L'article juridique cité par le LLM.
+- Les erreurs constatées, le cas échéant.
+- Le type d'erreur identifié.
+
+Cette analyse permet d'évaluer la capacité du LLM à répondre aux questions juridiques sans accès au corpus documentaire, ainsi qu'à identifier les erreurs, les références juridiques incorrectes et les éventuelles hallucinations produites par le modèle.
+### 5. Mise à jour de la documentation
+
+Enfin, j'ai rectifié et mis à jour le fichier README.md afin de refléter les modifications apportées, les nouveaux fichiers ajoutés et les différentes étapes de l'expérimentation.
 - **Malak BOUGOFFA:** 
 - **Malak ALIOUAT:** 
 
