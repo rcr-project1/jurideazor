@@ -87,6 +87,10 @@ ORPHAN = re.compile(r"^[|:—–\-.,;·/\\_=+*~^<>()\[\]{}\s]*$")
 # word- ⏎ word : the right-hand word is captured so we can decide with evidence
 HYPHEN_BREAK = re.compile(r"(?P<l>[^\W\d_]+)-[ \t]*\n(?P<r>[^\W\d_]+)", re.UNICODE)
 ART_COMMA = re.compile(r"\bArt,")
+# OCR reads superscript "er" as various glyphs: du 1" / 1* / 1° / 1” → du 1er
+ORDINAL_QUOTE = re.compile(r'\b(\d{1,2})["""“”*°]\s')
+# Stray braces from column-separator artifacts
+STRAY_BRACE = re.compile(r"(?<=[^\s{])(\s*[{}]\s*)(?=[^\s}])")
 WORD = re.compile(r"[^\W\d_]{3,}", re.UNICODE)
 HYPHENATED = re.compile(r"[^\W\d_]{2,}-[^\W\d_]{2,}", re.UNICODE)
 
@@ -180,6 +184,10 @@ def clean_french(
     counters["oe_ae_kept"] = sum(text.count(c) for c in "œŒæÆ")
     counters["art_commas_fixed"] = len(ART_COMMA.findall(text))
     text = ART_COMMA.sub("Art.", text)
+    counters["ordinal_quotes_fixed"] = len(ORDINAL_QUOTE.findall(text))
+    text = ORDINAL_QUOTE.sub(r"\1er ", text)
+    counters["stray_braces_fixed"] = len(STRAY_BRACE.findall(text))
+    text = STRAY_BRACE.sub(" ", text)
 
     plain, hyph = vocab if vocab is not None else build_vocab([text])
 
