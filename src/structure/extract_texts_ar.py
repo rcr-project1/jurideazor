@@ -28,13 +28,13 @@ from dataclasses import dataclass
 from pathlib import Path
 
 TYPE_WORD = r"(?:أمر|قانون|مرسوم|قرار|مقرر|منشور|نظام|ملحق)"
-QUALIFIER = r"(?:تنفيذي|رئاسي|وزاري|مشترك|داخلي|تكميلي)"
+QUALIFIER = r"(?:تنفيذي|رئاسي|وزاري|مشترك|داخلي|تكميلي|تشريعي|عضوي)"
 
 DIACRITICS = r"[\u064B-\u0652\u0640]{0,3}"          # harakat / tatweel
 BOUNDARY = re.compile(
     rf"^\s*[|:—–>*·.،؛\s]{{0,3}}(?P<type>{TYPE_WORD}){DIACRITICS}"
     rf"(?:\s+{QUALIFIER}{DIACRITICS})?\s+"
-    rf"(?:رقم\s*(?P<num>\d{{1,3}}(?:[\s.]+\d{{1,2}})?(?:[\s.]*[-–—][\s.]*\d{{1,3}})?)"
+    rf"(?:رقم\s*(?P<num>\d{{1,3}}(?:[\s.]+\d{{1,2}})?(?:[\s.]*[-–—+][\s.]*\d{{1,3}})?)"
     rf"|م[ؤو]{{1,2}}{DIACRITICS}ر{DIACRITICS}خ{DIACRITICS}\s*[:：]?\s*(?:في\s+)?"
     rf"(?P<day>\d{{1,2}})\s+(?P<month>[^\s]+)(?:\s+عام\s+(?P<year>\d{{3,4}}))?)",
     re.M,
@@ -101,9 +101,12 @@ def parse_number(raw: str | None, issue_year: str) -> tuple[bool, str | None]:
 
 
 def clean_title(lines: list[str]) -> str:
-    title = " ".join(lines[:2])
+    title = " ".join(lines[:4])
     title = " ".join(title.split())
-    return TRAILING_JUNK.sub("", title)[:300]
+    title = re.sub(r"(?<=.)\s*\|.*", "", title)
+    title = re.sub(r"^\s*\|\s*", "", title)
+    title = re.sub(r"\s*[{}]\s*", " ", title)
+    return TRAILING_JUNK.sub("", title).strip()[:300]
 
 
 def find_texts(text: str, issue_year: str, min_chars: int) -> list[Found]:
