@@ -1,0 +1,6 @@
+file,header_dropped,header_top_dropped,masthead_dropped,digit_lines_kept,hyphen_kept,leaders_dropped,orphan_dropped,hyphen_joined,hyphen_unresolved,art_commas_fixed,nfkc_changed,oe_ae_kept,ordinal_quotes_fixed,stray_braces_fixed,pages_kept,chars_before,chars_after
+F1991068.txt,37,37,0,27,5,4,19,34,33,2,25,7,103,24,45,145443,142324
+F1993001.txt,0,0,0,1,0,0,2,0,0,1,1,3,0,1,12,43064,43035
+F1993002.txt,0,0,0,2,0,1,0,1,1,2,2,3,6,3,16,59337,59214
+F1994020.txt,13,13,0,43,0,0,5,0,0,0,0,7,1,4,18,52498,52034
+F1997003.txt,22,18,4,2,1,9,2,0,0,1,7,3,2,0,19,72257,70453

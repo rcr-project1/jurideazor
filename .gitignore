@@ -2,7 +2,6 @@
 # .gitignore - Jurideazor (RCR project)
 # Rule of thumb: secrets, big data and machine-specific files stay OUT of Git.
 # ============================================================
- 
 # 1. Secrets: never commit
 .env
 *.key
@@ -43,3 +42,7 @@ data/processed/download_failures.log
 # 8. Test / packaging caches
 .pytest_cache/
 *.egg-info/
+
+# 9. Auto-generated (can be re-generated from code)
+data/processed/text_clean
+data/raw/joradp/text
