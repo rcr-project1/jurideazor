@@ -81,6 +81,6 @@ bougoffa malak
 
 ### 3. Évaluation du LLM sans RAG
 - [Analyse des réponses d'un LLM sans RAG](docs/week1/evaluation/Analyse%20des%20réponses%20d'un%20LLM%20sans%20RAG)
-- [Réponses avec sources et références](docs/week1/evaluation/Réponses%20avec%20sources%20et%20références)
+- [Réponses avec sources et références](docs/week1/evaluation/Réponses%20avec%20sources%20et%20références.csv)
 - [Réponses de LLM sans RAG](docs/week1/evaluation/réponses%20de%20LLM%20sans%20RAG)
 
