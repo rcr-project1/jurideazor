@@ -1,7 +1,8 @@
-"""Download JORADP issues listed in data/processed/issues_selected.csv.
+"""Download JORADP issues referenced by data/corpus_index.csv.
 
 Writes one PDF per (language, year, issue) into data/raw/joradp/pdf/ and
 registers URL, SHA-256 and byte size in data/raw/joradp/downloads.sqlite.
+Multiple legal texts in the same Gazette issue share a single download.
 Downloads are sequential, delayed, retried and size-limited; files are
 written atomically and only registered after a %PDF- header check.
 
@@ -10,15 +11,21 @@ Usage:
 """
 
 from pathlib import Path
-import hashlib, os, sqlite3, time
+import csv
+import hashlib
+import os
+import re
+import sqlite3
+import sys
+import time
+from urllib.parse import urlsplit
 
-import pandas as pd
 import requests
 from dotenv import load_dotenv
 
 ROOT = Path(__file__).resolve().parents[2]
 load_dotenv(ROOT / ".env")
-INDEX = ROOT / "data/processed/issues_selected.csv"
+INDEX = ROOT / "data/corpus_index.csv"
 RAW = ROOT / "data/raw/joradp"
 DB = RAW / "downloads.sqlite"
 CONTACT = os.environ.get("CONTACT_EMAIL", "https://github.com/rcr-project1/jurideazor")
@@ -29,6 +36,104 @@ TIMEOUT = (10, 300)
 MAX_BYTES = 50 * 1024 * 1024
 MIN_BYTES = 1000
 FAIL_LOG = ROOT / "data/processed/download_failures.log"
+INDEX_COLUMNS = {"jo_year", "jo_issue", "url_fr", "url_ar"}
+
+
+def issue_from_url(url: str) -> tuple[int, int] | None:
+    path = urlsplit(url).path
+    match = re.search(r"/[FA](\d{4})(\d{3})\.pdf$", path, re.IGNORECASE)
+    if match:
+        return int(match.group(1)), int(match.group(2))
+    match = re.search(r"/(\d{4})/(\d{3})/[^/]+\.pdf$", path, re.IGNORECASE)
+    return (int(match.group(1)), int(match.group(2))) if match else None
+
+
+def url_identity(url: str) -> tuple[str, str, str]:
+    parsed = urlsplit(url)
+    return (
+        parsed.scheme.casefold(),
+        (parsed.hostname or "").casefold(),
+        parsed.path.casefold(),
+    )
+
+
+def load_jobs(index: Path = INDEX) -> list[tuple[str, int, int, str]]:
+    if not index.is_file():
+        raise FileNotFoundError(
+            f"corpus index not found: {index}\n"
+            "Place the finalized corpus_index.csv at data/corpus_index.csv."
+        )
+
+    jobs: dict[tuple[str, int, int], str] = {}
+    with index.open(encoding="utf-8-sig", newline="") as fh:
+        reader = csv.DictReader(fh)
+        columns = set(reader.fieldnames or ())
+        missing = INDEX_COLUMNS - columns
+        if missing:
+            raise ValueError(
+                f"corpus index is missing required columns: {', '.join(sorted(missing))}"
+            )
+
+        for line, row in enumerate(reader, start=2):
+            try:
+                year = int(row["jo_year"])
+                issue = int(row["jo_issue"])
+            except (TypeError, ValueError) as exc:
+                raise ValueError(
+                    f"invalid jo_year or jo_issue on CSV line {line}"
+                ) from exc
+            if year < 1 or issue < 1:
+                raise ValueError(f"invalid Gazette issue on CSV line {line}")
+
+            found_language = False
+            for lang, column in (("fr", "url_fr"), ("ar", "url_ar")):
+                url = (row[column] or "").strip()
+                if not url:
+                    continue
+                found_language = True
+                parsed = urlsplit(url)
+                if parsed.scheme != "https" or parsed.hostname not in {
+                    "joradp.dz",
+                    "www.joradp.dz",
+                }:
+                    raise ValueError(
+                        f"expected an HTTPS JORADP URL in {column} on CSV line {line}"
+                    )
+                if issue_from_url(url) != (year, issue):
+                    raise ValueError(
+                        f"{column} URL does not match jo_year/jo_issue "
+                        f"on CSV line {line}: {url}"
+                    )
+
+                key = (lang, year, issue)
+                previous = jobs.get(key)
+                if (
+                    previous is not None
+                    and url_identity(previous) != url_identity(url)
+                ):
+                    raise ValueError(
+                        f"conflicting {lang} URLs for Gazette issue "
+                        f"{year}/{issue:03d} on CSV line {line}"
+                    )
+                jobs.setdefault(key, url)
+            if not found_language:
+                raise ValueError(
+                    f"no French or Arabic PDF URL on CSV line {line}"
+                )
+
+    if not jobs:
+        raise ValueError(f"corpus index contains no downloadable issues: {index}")
+    return [
+        (lang, year, issue, url)
+        for (lang, year, issue), url in sorted(
+            jobs.items(),
+            key=lambda item: (
+                item[0][1],
+                item[0][2],
+                0 if item[0][0] == "fr" else 1,
+            ),
+        )
+    ]
 
 def key(lang: str, year: int, issue: int) -> str:
     return f"{lang}-{year}-{issue:03d}"
@@ -68,6 +173,29 @@ def sha256_file(path: Path) -> str:
         for chunk in iter(lambda: fh.read(1 << 20), b""):
             h.update(chunk)
     return h.hexdigest()
+
+
+def validate_pdf_file(path: Path) -> tuple[str, int]:
+    size = path.stat().st_size
+    if size < MIN_BYTES:
+        raise DownloadError(f"response too small ({size} bytes)")
+    if size > MAX_BYTES:
+        raise DownloadError(f"size exceeds {MAX_BYTES}-byte limit")
+    with path.open("rb") as fh:
+        head = fh.read(5)
+    if head != b"%PDF-":
+        raise DownloadError(f"not a PDF (starts with {head!r})")
+    return sha256_file(path), size
+
+
+def valid_registered_file(path: Path, digest: str, size: int) -> bool:
+    if not path.is_file():
+        return False
+    try:
+        actual_digest, actual_size = validate_pdf_file(path)
+    except DownloadError:
+        return False
+    return actual_size == size and actual_digest == digest
 
 
 def save_stream(resp, p: Path, max_bytes: int = MAX_BYTES) -> tuple[str, int]:
@@ -111,24 +239,38 @@ def log_failure(k: str, url: str, reason: str) -> None:
 
 
 INSERT = (
-    "INSERT INTO downloads(k,url,sha256,path,bytes,fetched_at,issue,edition) "
+    "INSERT OR REPLACE INTO downloads(k,url,sha256,path,bytes,fetched_at,issue,edition) "
     "VALUES (?,?,?,?,?,datetime('now'),?,?)"
 )
 
 
 def fetch(con, lang: str, year: int, issue: int, url: str) -> str:
     k = key(lang, year, issue)
-    if con.execute("SELECT 1 FROM downloads WHERE k=?", (k,)).fetchone():
-        return "skipped"
+    record = con.execute(
+        "SELECT url, sha256, path, bytes FROM downloads WHERE k=?", (k,)
+    ).fetchone()
+    if record:
+        record_url, digest, path, size = record
+        registered_path = Path(path)
+        if not registered_path.is_absolute():
+            registered_path = ROOT / registered_path
+        if record_url == url and valid_registered_file(
+            registered_path, digest, size
+        ):
+            return "skipped"
+        print(
+            f"  WARN {k} -> registered file missing, changed or invalid; "
+            "downloading again"
+        )
+
     p = dest(lang, year, issue)
-    if p.exists():
-        with p.open("rb") as fh:
-            head = fh.read(5)
-        if head != b"%PDF-":
-            log_failure(k, url, "file on disk is not a PDF")
-            print(f"  FAILED {k} -> file on disk is not a PDF")
+    if p.exists() and not record:
+        try:
+            digest, size = validate_pdf_file(p)
+        except DownloadError as exc:
+            log_failure(k, url, str(exc))
+            print(f"  FAILED {k} -> {exc}")
             return "failed"
-        digest, size = sha256_file(p), p.stat().st_size
         con.execute(INSERT, (k, url, digest, str(p), size, issue, lang))
         con.commit()
         return "adopted"
@@ -180,19 +322,22 @@ def fetch(con, lang: str, year: int, issue: int, url: str) -> str:
 
 
 def main() -> int:
-    sel = pd.read_csv(INDEX)
+    try:
+        jobs = load_jobs()
+    except (FileNotFoundError, ValueError, csv.Error) as exc:
+        print(f"cannot load corpus index: {exc}", file=sys.stderr)
+        return 1
+
     con = init()
     counts = {"fetched": 0, "skipped": 0, "adopted": 0, "failed": 0}
-    for row in sel.itertuples():
-        jobs = []
-        if row.edition_fr == 1 and isinstance(row.url_fr, str):
-            jobs.append(("fr", row.url_fr))
-        if row.edition_ar == 1 and isinstance(row.url_ar, str):
-            jobs.append(("ar", row.url_ar))
-        for lang, url in jobs:
-            res = fetch(con, lang, row.year, row.issue, url)
+    try:
+        for lang, year, issue, url in jobs:
+            res = fetch(con, lang, year, issue, url)
             counts[res] = counts.get(res, 0) + 1
-            print(f"{res:8} {lang} {row.year}/{row.issue:03d}")
+            print(f"{res:8} {lang} {year}/{issue:03d}")
+    finally:
+        con.close()
+
     print(
         f"\n{counts['fetched']} fetched, {counts['skipped']} skipped, "
         f"{counts['adopted']} adopted, {counts['failed']} failed"
