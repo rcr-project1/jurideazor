@@ -12,11 +12,11 @@ I prepared a corpus plan describing the base law, Law 90-11 on Labour Relations,
 
 ### Corpus index
 
-I started `data/corpus_index.csv` to record the legal texts and their metadata, including text type and number, date, Official Gazette issue, language links, relationship to the base law, and target articles. The base law is included as the reference text; related amendment or supplementary texts are recorded separately. The four Ahmed-case texts also need entries in the index, alongside copies of their source PDFs in `data/raw`.
+I started `data/corpus_index.csv` to record the legal texts and their metadata, including text type and number, date, Official Gazette issue,jo_year, language links, relationship to the base law, and target articles. The base law is included as the reference text; related amendment or supplementary texts are recorded separately. The four Ahmed-case texts also need entries in the index, alongside copies of their source PDFs in `data/raw`.
 
 ### Relevance sample
 
-I prepared `eval/relevance_sample.csv` with 20 Gazette documents from different issues: 10 marked as relevant to labour and 10 marked as not relevant. The file follows the guide's columns: `doc_id`, `source`, `title`, `is_labor`, `annotator`, and `note`.
+I prepared `eval/relevance_sample.csv` with 22 Gazette documents from different issues: 12 marked as relevant to labour and 10 marked as not relevant. The file follows the guide's columns: `doc_id`, `source`, `title`, `is_labor`, `annotator`, and `note`.
 
 In this sample, `annotator` means the person who made the relevance judgment. The current entries use `Hadil` for that person; it does not refer to an official who classified the Gazette document. `is_labor` records my judgment about whether the document concerns labour.
 
@@ -28,6 +28,6 @@ I prepared `data/raw/sources.md` as a source register. It records WIPO Lex, JORA
 
 - Law 90-11 is treated as the base law for the project's labour-law corpus.
 - Texts that amend or supplement Law 90-11 are linked to it in the corpus metadata; separate laws needed for the Ahmed case are collected as supporting texts.
-- The relevance sample is balanced: 10 labour-related documents and 10 documents outside the labour-law topic.
+- The relevance sample is balanced: 12 labour-related documents and 10 documents outside the labour-law topic.
 
 

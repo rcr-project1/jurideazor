@@ -6,6 +6,11 @@ This plan identifies the legal texts Jurideazor needs, explains how they relate 
 
 The full text metadata and links are recorded in `data/corpus_index.csv`.
 
+## Metadata field definitions
+
+- `rank` records the text's level in the legal hierarchy: 1 = Constitution; 2 = law, ordinance, or legislative decree; 3 = decree; 4 = order; 5 = circular. Law 90-11 and Legislative Decree 94-03 are both assigned rank 2 because a legislative decree has the force of law.
+- `status` records whether the text's identity and source have been checked. Use `verified` only after opening the link and checking the text's number, title, and date. Checking whether the provisions relevant to the Ahmed case have been read is a separate task and should be recorded separately.
+- `relation` describes how a text relates to another legal text. Use `standalone` for supporting texts that do not amend Law 90-11, including L-88-07, L-90-03, and L-90-04. Leave `target_articles` empty for these texts.
 ## 1. Base law and related texts
 
 | Text ID | Text | Date | Official Gazette | Relationship and target articles | Status |
