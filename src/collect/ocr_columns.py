@@ -121,11 +121,15 @@ def reading_order(lines: list[dict], width: int, height: int, gutter: int | None
         ordered = sorted(lines, key=lambda l: (l["y0"], l["x0"]))
         return [l["text"] for l in ordered], 1
 
-    margin = width * 0.02
-    left = [l for l in lines if l["x1"] <= gutter + margin]
-    right = [l for l in lines if l["x0"] >= gutter - margin]
-    side = {id(l) for l in left} | {id(l) for l in right}
-    spanning = [l for l in lines if id(l) not in side]
+    margin = width * 0.08
+    left, right, spanning = [], [], []
+    for l in lines:
+        if l["x0"] < gutter - margin and l["x1"] > gutter + margin:
+            spanning.append(l)
+        elif l["cx"] < gutter:
+            left.append(l)
+        else:
+            right.append(l)
 
     two_columns = len(left) >= 2 and len(right) >= 2
     if not two_columns:
@@ -151,10 +155,11 @@ def ocr_page(img: Image.Image, tesseract_lang: str) -> tuple[str, int, int]:
         if gutter is None:
             text = pytesseract.image_to_string(img, lang=tesseract_lang, config="--psm 4")
             return text, 1, len([l for l in text.splitlines() if l.strip()])
+        pad = int(img.width * 0.01)
         right = pytesseract.image_to_string(
-            img.crop((gutter, 0, img.width, img.height)), lang=tesseract_lang, config="--psm 4")
+            img.crop((max(0, gutter - pad), 0, img.width, img.height)), lang=tesseract_lang, config="--psm 4")
         left = pytesseract.image_to_string(
-            img.crop((0, 0, gutter, img.height)), lang=tesseract_lang, config="--psm 4")
+            img.crop((0, 0, min(img.width, gutter + pad), img.height)), lang=tesseract_lang, config="--psm 4")
         text = right.strip() + "\n" + left.strip()
         return text, 2, len([l for l in text.splitlines() if l.strip()])
 
