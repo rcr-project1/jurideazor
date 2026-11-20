@@ -44,7 +44,7 @@ from pathlib import Path
 
 TYPE_WORD = r"(?:LOI|Loi|ORDONNANCE|Ordonnance|DECRET|Décret|ARRETE|Arrêté|DECISION|Décision|DELIBERATION|Délibération|AVIS|Avis)"
 PLURAL_WORD = r"(?:LOIS|Lois|ORDONNANCES|Ordonnances|DECRETS|Décrets|ARRETES|Arrêtés|DECISIONS|Décisions|AVIS)"
-QUALIFIER = r"(?:\s+(?:ex[ée]cutifs?|pr[ée]sidentiels?|minist[ée]riels?))?"
+QUALIFIER = r"(?:\s+(?:ex[ée]cutifs?|pr[ée]sidentiels?|minist[ée]riels?|l[ée]gislatifs?))?"
 
 # OCR junk that may sit in front of a heading. "!", "?", "{" and "}" were added
 # (a Délibération heading appeared as "! Délibération du 18 Chaâbane 1417").
@@ -75,6 +75,10 @@ SPLIT_HEAD = re.compile(
 # we only flag it. After clean_text strips stray braces, the separator may be gone.
 MERGED_HEADING = re.compile(
     rf"(?<=\w)\s+[{{|]?\s*(?:{TYPE_WORD}){QUALIFIER}\s+n[°o]\s*\d"
+)
+
+MID_LINE_HEADING = re.compile(
+    rf"(?<=\S)\s+(?={TYPE_WORD}{QUALIFIER}\s+(?:n[°o]|du)\s)"
 )
 
 ART = re.compile(r"(?m)^\s*(?:Art\.|Article\s+(?:\d|l[er]\b))")
@@ -144,6 +148,8 @@ def clean_title(lines: list[str]) -> str:
         if ART.match(ln):
             break
     title = re.sub(r"\s+", " ", " ".join(title_lines)).strip()
+    title = re.sub(r"(?<=.)\s*\|.*", "", title)
+    title = re.sub(r"^\s*\|\s*", "", title)
     title = re.sub(r"\s*[{}]\s*", " ", title)
     title = re.sub(r"[,;]?\s*p[-.]\s*\d+\.?\s*$", "", title)
     return title.strip()[:300]
@@ -160,6 +166,7 @@ def all_marks(text: str) -> list[re.Match]:
 def find_texts(text: str, min_chars: int) -> list[Found]:
     """Cut the issue at every heading. Nothing is skipped here: short chunks and
     unknown types are returned too, so that main() can log them."""
+    text = MID_LINE_HEADING.sub("\n", text)
     marks = all_marks(text)
     out: list[Found] = []
     for i, m in enumerate(marks):
@@ -219,6 +226,9 @@ def contamination(it: Found) -> list[str]:
     if MERGED_HEADING.search(" ".join(it.body.splitlines()[:2])):
         reasons.append("merged_heading")
     if INTERLEAVED_TITLE.search(it.title):
+        reasons.append("interleaved_columns")
+    body_pipes = sum(1 for ln in it.body.splitlines() if "|" in ln)
+    if body_pipes >= 3:
         reasons.append("interleaved_columns")
     return reasons
 
