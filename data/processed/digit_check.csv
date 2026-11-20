@@ -1,0 +1,6 @@
+issue,ar_gregorian,ar_absent_from_fr,ar_absent_pct,top_absent,fr_gregorian,fr_absent_from_ar,split_groups_fr,split_groups_ar
+F1991068.txt,474,112,23.6,2003x4 2657x4 2703x4 2004x3,687,326,157,359
+F1993001.txt,92,0,0.0,,141,49,6,19
+F1993002.txt,109,7,6.4,2585x1 2638x1 2438x1 2066x1,146,45,5,25
+F1994020.txt,112,1,0.9,2011x1,217,107,58,118
+F1997003.txt,123,2,1.6,1988x1 1869x1,174,53,16,71
