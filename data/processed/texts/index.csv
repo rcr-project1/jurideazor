@@ -1,156 +1,97 @@
 texte_id,type,num,numbered,issue_year,title,source_file,page_start,chars,contaminated,contam_reason,keep_reason,path
-loi-91-27,loi,91-27,1,1991,Loi n° 91-27 du 21 décembre 1991 modifiant et,F1991068.txt,5,1149,0,,body_no_article,data/processed/texts/1991/loi-91-27.txt
-arrete-1991-p05-1,arrete,,0,1991,"Arrêté du 1“ décembre 1991 portant nomination du chef de cabinet du ministre des droits de l’homme, p- 2205. Vu la loi n° 90-11 du 21 avril 1990 relative aux”",F1991068.txt,5,4636,1,promulgation,article,data/processed/texts/1991/arrete-1991-p05-1.txt
-loi-91-28,loi,91-28,1,1991,Loi n° 91-28 du 21 décembre 1991 modifiant et,F1991068.txt,6,967,0,,article,data/processed/texts/1991/loi-91-28.txt
-loi-91-29,loi,91-29,1,1991,Loi n° 91-29 du 21 décembre 1991 modifiant et,F1991068.txt,7,5825,0,,article,data/processed/texts/1991/loi-91-29.txt
-loi-91-30,loi,91-30,1,1991,Loi n° 91-30 du 21 décembre 1991 modifiant et,F1991068.txt,8,8842,0,,article,data/processed/texts/1991/loi-91-30.txt
-loi-91-31,loi,91-31,1,1991,Loi n° 91-31 du 21 décembre 1991 portant approbation de la convention portant création de la,F1991068.txt,10,381,0,,body_no_article,data/processed/texts/1991/loi-91-31.txt
-decret-91-508,decret,91-508,1,1991,Décret présidentiel n° 91-508 du 22 décembre 1991,F1991068.txt,10,2812,0,,article,data/processed/texts/1991/decret-91-508.txt
-decret-91-509,decret,91-509,1,1991,Décret présidentiel n° 91-509 du 22 décembre 1991 { Décret présidentiel n° 91-510 du 22 décembre 1991,F1991068.txt,10,4122,1,merged_heading,article,data/processed/texts/1991/decret-91-509.txt
-decret-91-511,decret,91-511,1,1991,Décret présidentiel n° 91-511 du 22 décembre 1991,F1991068.txt,12,2262,0,,article,data/processed/texts/1991/decret-91-511.txt
-decret-91-512,decret,91-512,1,1991,Décret exécutif n° 91-512 du 22 décembre 1991 fixant,F1991068.txt,13,16794,0,,article,data/processed/texts/1991/decret-91-512.txt
-decret-91-513,decret,91-513,1,1991,Décret exécutif n° 91-513 du 22 décembre 1991 fixant,F1991068.txt,18,5912,0,,article,data/processed/texts/1991/decret-91-513.txt
-decret-91-514,decret,91-514,1,1991,Décret exécutif n° 91-514 du 22 décembre 1991 relatif,F1991068.txt,20,2689,0,,article,data/processed/texts/1991/decret-91-514.txt
-decret-91-515,decret,91-515,1,1991,Décret exécutif n° 91-515 du 22 décembre 1991,F1991068.txt,20,3405,0,,article,data/processed/texts/1991/decret-91-515.txt
-decret-91-516,decret,91-516,1,1991,Décret exécutif n° 91-516 du 22 décembre 1991,F1991068.txt,22,2114,0,,article,data/processed/texts/1991/decret-91-516.txt
-decret-91-517,decret,91-517,1,1991,Décret exécutif n° 91-517 du 22 décembre 1991,F1991068.txt,22,1822,0,,article,data/processed/texts/1991/decret-91-517.txt
-decret-91-518,decret,91-518,1,1991,Décret exécutif n° 91-518 du 22 décembre 1991,F1991068.txt,23,1668,0,,article,data/processed/texts/1991/decret-91-518.txt
-decret-91-519,decret,91-519,1,1991,Décret exécutif n° 91-519 du 22 décembre 1991,F1991068.txt,23,2819,0,,article,data/processed/texts/1991/decret-91-519.txt
-decret-91-520,decret,91-520,1,1991,Décret exécutif n° 91-520 du 22 décembre 1991,F1991068.txt,24,4166,0,,article,data/processed/texts/1991/decret-91-520.txt
-decret-91-521,decret,91-521,1,1991,Décret exécutif n° 91-521 du 22 décembre 1991,F1991068.txt,25,1295,0,,article,data/processed/texts/1991/decret-91-521.txt
-decret-91-522,decret,91-522,1,1991,Décret exécutif n° 91-522 du 22 décembre 1991 fixant,F1991068.txt,25,4979,0,,article,data/processed/texts/1991/decret-91-522.txt
-decret-91-523,decret,91-523,1,1991,Décret exécutif n° 91-523 du 22 décembre 1991 relatif,F1991068.txt,27,2074,0,,article,data/processed/texts/1991/decret-91-523.txt
-decret-91-434,decret,91-434,1,1991,Décret exécutif n° 91-434 du 9 novembre 1991 portant,F1991068.txt,27,1241,0,,article,data/processed/texts/1991/decret-91-434.txt
-decret-1991-p28-1,decret,,0,1991,Décret présidentiel du 13 novembre 1991 portant,F1991068.txt,28,314,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p28-1.txt
-decret-1991-p28-2,decret,,0,1991,Décret exécutif du 2 novembre 1991 portant nomination d’un. sous-directeur au ministère de,F1991068.txt,28,1159,0,,article,data/processed/texts/1991/decret-1991-p28-2.txt
-decret-1991-p28-3,decret,,0,1991,Décrets exécutifs du 11 novembre 1991 mettant fin,F1991068.txt,28,641,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p28-3.txt
-decret-1991-p28-4,decret,,0,1991,Décret présidentiel du 13 novembre 1991 mettant | Décret exécutif du 11 novembre 1991 portant nomi-,F1991068.txt,28,897,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p28-4.txt
-decret-1991-p29-1,decret,,0,1991,Décret exécutif du 11 novembre 1991 mettant fin aux,F1991068.txt,29,367,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p29-1.txt
-decret-1991-p29-2,decret,,0,1991,Décret exécutif du 11 novembre 1991 mettant fin aux,F1991068.txt,29,812,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p29-2.txt
-decret-1991-p29-3,decret,,0,1991,Décret exécutif du 11 novembre 1991 mettant fin aux,F1991068.txt,29,368,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p29-3.txt
-decret-1991-p29-4,decret,,0,1991,Décret exécutif du 11 novembre 1991 mettant fin aux,F1991068.txt,29,395,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p29-4.txt
-decret-1991-p29-5,decret,,0,1991,Décret exécutif du 11 novembre 1991 mettant fin aux,F1991068.txt,29,361,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p29-5.txt
-decret-1991-p29-6,decret,,0,1991,Décret exécutif du 11 novembre 1991 portant nomination de linspecteur général technique au mi-nistère des postes et télécommunications.,F1991068.txt,29,298,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p29-6.txt
-decret-1991-p29-7,decret,,0,1991,Décret exécutif du 11 novembre 1991 portant nomination de l’inspecteur général du ministère des,F1991068.txt,29,271,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p29-7.txt
-decret-1991-p30-1,decret,,0,1991,Décrets exécutifs du 11 novembre 1991 portant,F1991068.txt,30,712,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p30-1.txt
-decret-1991-p30-2,decret,,0,1991,Décret exécutif du 11 novembre 1991 portant nomination du directeur de la logistique au ministère,F1991068.txt,30,282,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p30-2.txt
-decret-1991-p30-3,decret,,0,1991,Décret exécutif du 11 novembre 1991 portant nomi- .,F1991068.txt,30,306,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p30-3.txt
-decret-1991-p30-4,decret,,0,1991,Décret exécutif du 11 novembre 1991 portant nomination du directeur des produits et services des,F1991068.txt,30,354,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p30-4.txt
-decret-1991-p30-5,decret,,0,1991,Décret exécutif du 11 novembre 1991 portant nomination du directeur du budget annexe au ministère des postes et télécommunications.,F1991068.txt,30,285,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p30-5.txt
-decret-1991-p30-6,decret,,0,1991,Décret exécutif du 11 novembre 1991 portant nomination du directeur des services postaux au,F1991068.txt,30,281,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p30-6.txt
-decret-1991-p30-7,decret,,0,1991,"Décret exécutif du 11 novembre 1991 portant nomination du directeur des études, des programmes",F1991068.txt,30,356,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p30-7.txt
-decret-1991-p30-8,decret,,0,1991,Décret exécutif du 11 novembre 1991 mettant fin aux,F1991068.txt,30,327,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p30-8.txt
-decret-1991-p30-9,decret,,0,1991,Décret exécutif du 11 novembre 1991 mettant fin aux,F1991068.txt,30,1378,0,,article,data/processed/texts/1991/decret-1991-p30-9.txt
-decret-1991-p31-1,decret,,0,1991,Décret exécutif du 11 novembre 1991 mettant fin aux,F1991068.txt,31,512,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p31-1.txt
-decret-1991-p31-2,decret,,0,1991,Décret exécutif du 16 novembre 1991 mettant fin aux,F1991068.txt,31,344,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p31-2.txt
-decret-1991-p31-3,decret,,0,1991,Décret exécutif du 17 novembre 1991 portant nomi-,F1991068.txt,31,234,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p31-3.txt
-decret-1991-p31-4,decret,,0,1991,Décret exécutif du 24 novembre 1991 mettant fin aux,F1991068.txt,31,425,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p31-4.txt
-decret-1991-p31-5,decret,,0,1991,Décret exécutif du 24 novembre 1991 portant nomination du directeur de cabinet du ministre de la,F1991068.txt,31,223,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p31-5.txt
-decret-1991-p31-6,decret,,0,1991,Décret exécutif du 24 novembre 1991 mettant fin aux,F1991068.txt,31,334,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p31-6.txt
-decret-1991-p31-7,decret,,0,1991,Décret exécutif du 24 novembre 1991 portant nomination du directeur de cabinet du ministre de la,F1991068.txt,31,237,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p31-7.txt
-decret-1991-p31-8,decret,,0,1991,Décret exécutif du 24 novembre 1991 mettant fin aux,F1991068.txt,31,400,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p31-8.txt
-decret-1991-p32-1,decret,,0,1991,"Décret exécutif du 1"" décembre 1991 portant nomination d’un sous-directeur au ministère de la justice. Par décret exécutif du 1* décembre 1991, M. Djamel Khelil est nommé sous-directeur des personnels de la",F1991068.txt,32,264,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p32-1.txt
-decret-1991-p32-2,decret,,0,1991,"Décrets exécutifs du 1” décembre 1991 portant nomination d’inspecteurs régionaux des domaines et de la conservation foncière de wilayas. Par décret exécutif du 1* décembre 1991, M. Tahar Touati est nommé inspecteur régional des domaines et",F1991068.txt,32,723,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p32-2.txt
-decret-1991-p32-3,decret,,0,1991,"Décret exécutif du 1” décembre 1991 mettant fin aux fonctions d’un membre du conseil exécutif de la wilaya de Jijel, Chef de division. Par décret exécutif du 1* décembre 1991, il est mis fin",F1991068.txt,32,406,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p32-3.txt
-decret-1991-p32-4,decret,,0,1991,"Décret exécutif du 1” décembre 1991 mettant fin aux fonctions d’un sous-directeur au ministère des _ postes et télécommunications. Par décret exécutif du 1* décembre 1991, il est mis",F1991068.txt,32,400,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p32-4.txt
-decret-1991-p32-5,decret,,0,1991,"Décret exécutif du 1* décembre 1991 mettant fin aux fonctions du directeur du palais de la culture. Par décret exécutif du 1° décembre 1991, il est mis fin aux fonctions de directeur du palais de la culture,",F1991068.txt,32,1354,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p32-5.txt
-decret-1991-p32-6,decret,,0,1991,"Décret exécutif du 1“ décembre 1991 mettant fin aux fonctions du directeur des services agricoles de la wilaya d’Alger. Par décret exécutif du 1* décembre 1991, il est mis fin",F1991068.txt,32,325,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p32-6.txt
-decret-1991-p32-7,decret,,0,1991,"Décret exécutif du 1* décembre 1991 portant nomination d’un sous-directeur au ministère de Pagriculture. Par décret exécutif du 1* décembre 1991, M. Hocine Abdelghafour est nommé sous-directeur de l'évaluation",F1991068.txt,32,642,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p32-7.txt
-decret-1991-p33-1,decret,,0,1991,"Décret exécutif du 1” décembre 1991 mettant fin aux fonctions d’un inspecteur à l’ex-ministère de 2 lhydraulique, de Penvironnement et des forêts. Par décret exécutif du 1” décembre 1991, il est mis",F1991068.txt,33,389,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p33-1.txt
-decret-1991-p33-2,decret,,0,1991,"Décret exécutif du 1° décembre 1991 mettant fin aux fonctions d’un inspecteur à l’ex-ministère de l'aménagement du territoire, de l’urbanisme et de la construction.",F1991068.txt,33,455,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p33-2.txt
-decret-1991-p33-3,decret,,0,1991,Décret exécutif du 1 décembre 1991 mettant fin aux,F1991068.txt,33,499,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p33-3.txt
-decret-1991-p33-4,decret,,0,1991,"Décret exécutif du 1° décembre 1991 mettant fin aux :4 fonctions du directeur de l’aménagement du territoire à l’ex-ministère de l’aménagement du territoire, de l’urbanisme et de la construction.",F1991068.txt,33,474,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p33-4.txt
-decret-1991-p33-5,decret,,0,1991,"Décret exécutif du 1* décembre 1991 mettant fin aux fonctions d’un sous-directeur au ministère de l'équipement et du logement. Par décret exécutif du 1* décembre 1991, il est mis",F1991068.txt,33,817,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p33-5.txt
-decret-1991-p33-6,decret,,0,1991,Décrets exécutifs du 1” décembre 1991 mettant fin aux fonctions de délégués à lemploi des jeunes de wilayas. Par décret exécutif du 1‘ décembre 1991 il est mis fin,F1991068.txt,33,428,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p33-6.txt
-decret-1991-p33-7,decret,,0,1991,"Décrets exécutifs du 1” décembre 1991 portant nomination de directeurs de lemploi et de la formation professionnelle de wilayas. Par décret exécutif du 1% décembre 1991,",F1991068.txt,33,764,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p33-7.txt
-decret-1991-p34-1,decret,,0,1991,"Décrets exécutifs du 1” décembre 1991 portant nomination de sous-directeurs au ministère de l’emploi et de la formation professionnelle. Par décret exécutif du 1* décembre 1991,",F1991068.txt,34,1480,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p34-1.txt
-decret-1991-p34-2,decret,,0,1991,"Décret exécutif du 1° décembre 1991 portant nominàtion du directeur de la promotion de la jeunesse de la wilaya de Jijel. ” Par décret exécutif du 1° décembre 1991, M. Seddik Atamna est nommé directeur de la promotion de :la",F1991068.txt,34,720,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p34-2.txt
-decret-1991-p34-3,decret,,0,1991,"Décret exécutif du 1° décembre 1991 portant nomination d’un directeur d’études au Conseil national de planification. Par décret exécutif du 1“ décembre 1991, | M. Mohamed Chérif Banerbaiha est nommé directeur",F1991068.txt,34,261,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p34-3.txt
-decret-1991-p34-4,decret,,0,1991,Décret exécutif du 24 décembre 1991 mettant fin aux,F1991068.txt,34,318,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p34-4.txt
-decret-1991-p34-5,decret,,0,1991,"Décret exécutif du 24 décembre 1991 portant nomiPar décret exécutif du 24 décembre 1991, sont",F1991068.txt,34,6448,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p34-5.txt
-arrete-1991-p38-1,arrete,,0,1991,Arrêté du 6 mars 1991 portant homologation des,F1991068.txt,38,11257,0,,article,data/processed/texts/1991/arrete-1991-p38-1.txt
-arrete-1991-p45-1,arrete,,0,1991,Arrêté du 1” décembre 1991 portant nomination d’un chargé d’études et de synthèse au cabinet du - ministre délégué au Trésor. Par arrêté du 1“ décembre 1991 du ministre délégué,F1991068.txt,45,345,0,,nomination_no_article,data/processed/texts/1991/arrete-1991-p45-1.txt
-arrete-1991-p45-2,arrete,,0,1991,Arrêtés du 11 novembre 1991 mettant fin aux,F1991068.txt,45,691,0,,nomination_no_article,data/processed/texts/1991/arrete-1991-p45-2.txt
-arrete-1991-p45-3,arrete,,0,1991,Arrêtés du 11 novembre 1991 portant nomination de,F1991068.txt,45,572,0,,nomination_no_article,data/processed/texts/1991/arrete-1991-p45-3.txt
-arrete-1991-p45-4,arrete,,0,1991,Arrêté du 11 novembre 1991 portant nomination d’un,F1991068.txt,45,389,0,,nomination_no_article,data/processed/texts/1991/arrete-1991-p45-4.txt
-arrete-1991-p45-5,arrete,,0,1991,Arrêté du 1° décembre 1991 mettant fin aux fonctions du chef de cabinet de l’ex-ministre délégué à l'emploi. Par arrêté du 1“ décembre 1991 du ministre de,F1991068.txt,45,359,0,,nomination_no_article,data/processed/texts/1991/arrete-1991-p45-5.txt
-arrete-1991-p45-6,arrete,,0,1991,Arrêté du 1° décembre 1991 mettant fin aux fonctions d’un attaché de cabinet de l’ex-ministre délégué à l'emploi. Par arrêté du 1” décembre 1991 du ministre de,F1991068.txt,45,715,0,,nomination_no_article,data/processed/texts/1991/arrete-1991-p45-6.txt
-decret-93-01,decret,93-01,1,1993,"Décret exécutif n° 93-01 du 2 janvier 1993, modifiant",F1993001.txt,2,4202,0,,article,data/processed/texts/1993/decret-93-01.txt
-decret-93-02,decret,93-02,1,1993,Décret exécutif n° 93-02 du 2 janvier 1993 portant,F1993001.txt,3,1537,0,,article,data/processed/texts/1993/decret-93-02.txt
-decret-93-03,decret,93-03,1,1993,Décret exécutif n° 93-03 du 2 janvier 1993 modifiant et,F1993001.txt,4,3261,0,,article,data/processed/texts/1993/decret-93-03.txt
-decret-93-04,decret,93-04,1,1993,Décret exécutif n° 93-04 du 2 janvier 1993 portant,F1993001.txt,4,1034,0,,article,data/processed/texts/1993/decret-93-04.txt
-arrete-1993-p05-1,arrete,,0,1993,Arrêté du 17 juin 1992 fixant le barème de,F1993001.txt,5,3014,0,,article,data/processed/texts/1993/arrete-1993-p05-1.txt
-arrete-1993-p06-1,arrete,,0,1993,Arrêté du 5 septembre 1992 relatif à l'octroi d'une,F1993001.txt,6,1882,0,,article,data/processed/texts/1993/arrete-1993-p06-1.txt
-arrete-1993-p06-2,arrete,,0,1993,Arrêté du 5 septembre 1992 relatif à l'octroi d'une,F1993001.txt,6,1869,0,,article,data/processed/texts/1993/arrete-1993-p06-2.txt
-arrete-1993-p07-1,arrete,,0,1993,Arrêté du 5 septembre 1992 relatif à l'octroi d'une,F1993001.txt,7,1885,0,,article,data/processed/texts/1993/arrete-1993-p07-1.txt
-arrete-1993-p07-2,arrete,,0,1993,Arrêté du 5 septembre 1992 relatif à l'octroi d'une,F1993001.txt,7,2134,0,,article,data/processed/texts/1993/arrete-1993-p07-2.txt
-arrete-1993-p08-1,arrete,,0,1993,Arrêté du 5 septembre 1992 relatif à l'octroi d'une,F1993001.txt,8,2636,0,,article,data/processed/texts/1993/arrete-1993-p08-1.txt
-arrete-1993-p08-2,arrete,,0,1993,Arrêté du 5 septembre 1992 relatif à l'octroi d'une,F1993001.txt,8,2087,0,,article,data/processed/texts/1993/arrete-1993-p08-2.txt
-arrete-1993-p09-1,arrete,,0,1993,Arrêté du 5 septembre 1992 relatif à l'octroi d'une,F1993001.txt,9,2115,0,,article,data/processed/texts/1993/arrete-1993-p09-1.txt
-arrete-1993-p09-2,arrete,,0,1993,Arrêté du 5 septembre 1992 relatif à l'octroi d'une,F1993001.txt,9,2159,0,,article,data/processed/texts/1993/arrete-1993-p09-2.txt
-arrete-1993-p10-1,arrete,,0,1993,Arrêté du 5 septembre 1992 relatif à l'octroi,F1993001.txt,10,2261,0,,article,data/processed/texts/1993/arrete-1993-p10-1.txt
-arrete-1993-p10-2,arrete,,0,1993,Arrêté du 5 septembre 1992 relatif à l'octroi d'une,F1993001.txt,10,2081,0,,article,data/processed/texts/1993/arrete-1993-p10-2.txt
-arrete-1993-p11-1,arrete,,0,1993,Arrêté du 5 septembre 1992 relatif à l'octroi d'une,F1993001.txt,11,2043,0,,article,data/processed/texts/1993/arrete-1993-p11-1.txt
-arrete-1993-p11-2,arrete,,0,1993,Arrêté du 5 septembre 1992 relatif à l'octroi d'une,F1993001.txt,11,2253,0,,article,data/processed/texts/1993/arrete-1993-p11-2.txt
-decret-93-09,decret,93-09,1,1993,Décret présidentiel n° 93-09 du 5 janvier 1993 portant,F1993002.txt,3,3991,0,,article,data/processed/texts/1993/decret-93-09.txt
-decret-93-10,decret,93-10,1,1993,Décret présidentiel n° 93-10 du 5 janvier 1993 portant,F1993002.txt,4,1419,0,,article,data/processed/texts/1993/decret-93-10.txt
-decret-93-05,decret,93-05,1,1993,Décret exécutif n° 93-05 du 2 janvier 1993 portant,F1993002.txt,5,17109,0,,article,data/processed/texts/1993/decret-93-05.txt
-decret-93-07,decret,93-07,1,1993,Décret exécutif n° 93-07 du 2 janvier 1993 portant,F1993002.txt,8,10960,0,,article,data/processed/texts/1993/decret-93-07.txt
-decret-93-08,decret,93-08,1,1993,Décret exécutif n° 93-08 du 2 janvier 1993 modifiant et,F1993002.txt,11,5654,0,,article,data/processed/texts/1993/decret-93-08.txt
-decret-1993-p12-1,decret,,0,1993,Décret exécutif du 2 janvier 1993 portant nomination,F1993002.txt,12,395,0,,nomination_no_article,data/processed/texts/1993/decret-1993-p12-1.txt
-decret-1993-p13-1,decret,,0,1993,Décret exécutif du 2 janvier 1993 mettant fin aux,F1993002.txt,13,497,0,,nomination_no_article,data/processed/texts/1993/decret-1993-p13-1.txt
-decret-1993-p13-2,decret,,0,1993,Décret exécutif du 2 janvier 1993 mettant fin aux,F1993002.txt,13,563,0,,nomination_no_article,data/processed/texts/1993/decret-1993-p13-2.txt
-decision-1993-p13-3,decision,,0,1993,Décision du 2 janvier 1993 mettant fin aux fonctions,F1993002.txt,13,748,0,,nomination_no_article,data/processed/texts/1993/decision-1993-p13-3.txt
-decision-1993-p13-4,decision,,0,1993,Décision du 2 janvier 1993 mettant fin aux fonctions,F1993002.txt,13,1082,0,,article,data/processed/texts/1993/decision-1993-p13-4.txt
-arrete-1993-p13-5,arrete,,0,1993,Arrêté du 2 janvier 1993 portant nomination du chef,F1993002.txt,13,1301,0,,article,data/processed/texts/1993/arrete-1993-p13-5.txt
-arrete-1993-p14-1,arrete,,0,1993,Arrêté du 5 septembre 1992 relatif à l'octroi d'une,F1993002.txt,14,2314,0,,article,data/processed/texts/1993/arrete-1993-p14-1.txt
-arrete-1993-p14-2,arrete,,0,1993,Arrêté du 28 septembre 1992 relatif à l'octroi d'une -,F1993002.txt,14,1962,0,,article,data/processed/texts/1993/arrete-1993-p14-2.txt
-arrete-1993-p15-1,arrete,,0,1993,Arrêté du 27 octobre 1992 relatif à l'octroi à l'ORGM,F1993002.txt,15,1770,0,,article,data/processed/texts/1993/arrete-1993-p15-1.txt
-arrete-1993-p15-2,arrete,,0,1993,Arrêté du 27 octobre 1992 relatif à l'octroi à,F1993002.txt,15,1802,0,,article,data/processed/texts/1993/arrete-1993-p15-2.txt
-arrete-1993-p16-1,arrete,,0,1993,Arrêté du 27 octobre 1992 relatif à l'octroi à d'une,F1993002.txt,16,1652,0,,article,data/processed/texts/1993/arrete-1993-p16-1.txt
-arrete-1993-p16-2,arrete,,0,1993,Arrêté du 2 janvier 1993 mettant fin aux fonctions,F1993002.txt,16,460,0,,nomination_no_article,data/processed/texts/1993/arrete-1993-p16-2.txt
-arrete-1994-p04-1,arrete,,0,1994,Arrêté du 21 Chaâbane 1414 correspondant au 2 février 1994 relatif à l'application des dispositions de l'article 160 du,F1994020.txt,4,3613,0,,article,data/processed/texts/1994/arrete-1994-p04-1.txt
-decret-94-76,decret,94-76,1,1994,Décret présidentiel n° 94-76 du 21 Chaoual 1414 correspondant au 2 avril 1994 portant nomination d'un ministre conseiller auprès du Président de l'Etat.,F1994020.txt,6,616,0,,article,data/processed/texts/1994/decret-94-76.txt
-decret-94-77,decret,94-77,1,1994,Décret exécutif n° 94-77 du 28 Chaoual 1414,F1994020.txt,6,2388,0,,article,data/processed/texts/1994/decret-94-77.txt
-decret-94-78,decret,94-78,1,1994,Décret exécutif n° 94-78 du 28 Chaoual 1414,F1994020.txt,6,2193,0,,article,data/processed/texts/1994/decret-94-78.txt
-decret-94-79,decret,94-79,1,1994,Décret exécutif n° 94-79 du 28 Chaoual 1414,F1994020.txt,7,2284,0,,article,data/processed/texts/1994/decret-94-79.txt
-decret-1994-p08-1,decret,,0,1994,Décrets exécutifs du 19 Ramadhan 1414,F1994020.txt,8,452,0,,nomination_no_article,data/processed/texts/1994/decret-1994-p08-1.txt
-decret-1994-p09-1,decret,,0,1994,Décrets exécutifs du 19 Ramadhan 1414,F1994020.txt,9,1310,0,,nomination_no_article,data/processed/texts/1994/decret-1994-p09-1.txt
-decret-1994-p09-2,decret,,0,1994,Décrets exécutifs du 19 Ramadhan 1414,F1994020.txt,9,1308,0,,nomination_no_article,data/processed/texts/1994/decret-1994-p09-2.txt
-decret-1994-p09-3,decret,,0,1994,Décret exécutif du 19 Ramadhan 1414,F1994020.txt,9,293,0,,nomination_no_article,data/processed/texts/1994/decret-1994-p09-3.txt
-decret-1994-p09-4,decret,,0,1994,Décrets exécutifs du 19 Ramadhan 1414,F1994020.txt,9,7106,0,,article,data/processed/texts/1994/decret-1994-p09-4.txt
-arrete-1994-p11-1,arrete,,0,1994,Arrêtés du 19 Ramadhan 1414 correspondant au,F1994020.txt,11,1057,0,,nomination_no_article,data/processed/texts/1994/arrete-1994-p11-1.txt
-arrete-1994-p12-1,arrete,,0,1994,Arrêté du 11 Ramadhan 1414 correspondant au,F1994020.txt,12,1709,0,,article,data/processed/texts/1994/arrete-1994-p12-1.txt
-arrete-1994-p12-2,arrete,,0,1994,Arrêté du 12 Ramadhan 1414 correspondant au,F1994020.txt,12,500,0,,body_no_article,data/processed/texts/1994/arrete-1994-p12-2.txt
-arrete-1994-p12-3,arrete,,0,1994,Arrêté du 12 Ramadhan 1414 correspondant au,F1994020.txt,12,6883,0,,article,data/processed/texts/1994/arrete-1994-p12-3.txt
-arrete-1994-p14-1,arrete,,0,1994,Arrêté du 25 Chaâbane 1414 correspondant au 6,F1994020.txt,14,3323,0,,article,data/processed/texts/1994/arrete-1994-p14-1.txt
-arrete-1994-p15-1,arrete,,0,1994,Arrêté du 19 Ramadhan 1414 correspondant au,F1994020.txt,15,2551,0,,article,data/processed/texts/1994/arrete-1994-p15-1.txt
-arrete-1994-p16-1,arrete,,0,1994,Arrêté du 27 Rajab 1414 correspondant au 10,F1994020.txt,16,4735,0,,article,data/processed/texts/1994/arrete-1994-p16-1.txt
-arrete-1994-p17-1,arrete,,0,1994,Arrêté du 21 Chaâbane 1414 correspondant au 2,F1994020.txt,17,2909,0,,article,data/processed/texts/1994/arrete-1994-p17-1.txt
-ordonnance-97-01,ordonnance,97-01,1,1997,Ordonnance n° 97-01 du 2 Ramadhan 1417,F1997003.txt,4,7228,0,,article,data/processed/texts/1997/ordonnance-97-01.txt
-ordonnance-97-02,ordonnance,97-02,1,1997,Ordonnance :n° 97-02 du 2 Ramadhan 1417,F1997003.txt,5,3332,0,,article,data/processed/texts/1997/ordonnance-97-02.txt
-ordonnance-97-03,ordonnance,97-03,1,1997,Ordonnance n° 97-03 du 2 Ramadhan 1417,F1997003.txt,6,3906,0,,article,data/processed/texts/1997/ordonnance-97-03.txt
-ordonnance-97-04,ordonnance,97-04,1,1997,Ordonnance n° 97-04 du 2 Ramadhan 1417,F1997003.txt,7,7542,0,,article,data/processed/texts/1997/ordonnance-97-04.txt
-decret-97-03,decret,97-03,1,1997,Décret présidentiel n° 97-03 du 29 Chaâbane Art. 2. — Le présent décret sera publié au Journal,F1997003.txt,9,469,0,,article,data/processed/texts/1997/decret-97-03.txt
-decret-97-32,decret,97-32,1,1997,Décret exécutif n° 97-32 du 2 Ramadhan 1417,F1997003.txt,9,1990,0,,article,data/processed/texts/1997/decret-97-32.txt
-decret-97-33,decret,97-33,1,1997,Décret exécutif n° 97-33 du 2 Ramadhan 1417,F1997003.txt,10,12440,0,,article,data/processed/texts/1997/decret-97-33.txt
-decret-1997-p13-1,decret,,0,1997,Décret exécutif du 20 Rajab 1417,F1997003.txt,13,624,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p13-1.txt
-decret-1997-p13-2,decret,,0,1997,Décret exécutif du 20 Rajab 1417,F1997003.txt,13,430,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p13-2.txt
-decret-1997-p13-3,decret,,0,1997,Décret exécutif du 20 Rajab 1417,F1997003.txt,13,342,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p13-3.txt
-decret-1997-p13-4,decret,,0,1997,Décret exécutif du 20 Chaâbane 1417,F1997003.txt,13,620,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p13-4.txt
-decret-1997-p14-1,decret,,0,1997,Décret exécutif du 20 Rajab 1417,F1997003.txt,14,376,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p14-1.txt
-decret-1997-p14-2,decret,,0,1997,Décret exécutif du 20 Rajab 1417,F1997003.txt,14,875,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p14-2.txt
-decret-1997-p14-3,decret,,0,1997,Décret exécutif du 20 Rajab 1417,F1997003.txt,14,507,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p14-3.txt
-decret-1997-p14-4,decret,,0,1997,Décret exécutif du 20 Rajab 1417,F1997003.txt,14,421,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p14-4.txt
-decret-1997-p14-5,decret,,0,1997,Décret exécutif du 20 Chaâbane 1417,F1997003.txt,14,426,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p14-5.txt
-decret-1997-p14-6,decret,,0,1997,Décret exécutif du 20 Rajab 1417,F1997003.txt,14,479,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p14-6.txt
-decret-1997-p14-7,decret,,0,1997,Décret exécutif du 20 Chaâbane 1417,F1997003.txt,14,819,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p14-7.txt
-decret-1997-p15-1,decret,,0,1997,Décret exécutif du 20 Rajab 1417,F1997003.txt,15,320,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p15-1.txt
-decret-1997-p15-2,decret,,0,1997,Décret exécutif du 20 Rajab 1417,F1997003.txt,15,357,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p15-2.txt
-decret-1997-p15-3,decret,,0,1997,Décret exécutif du 11 Chaâbane 1417,F1997003.txt,15,277,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p15-3.txt
-decret-1997-p15-4,decret,,0,1997,Décret exécutif du 20 Rajab 1417,F1997003.txt,15,352,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p15-4.txt
-decret-1997-p15-5,decret,,0,1997,Décret exécutif du 20 Rajab 1417,F1997003.txt,15,414,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p15-5.txt
-decret-1997-p15-6,decret,,0,1997,Décret exécutif du 20 Rajab 1417,F1997003.txt,15,692,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p15-6.txt
-decret-1997-p15-7,decret,,0,1997,Décret exécutif du 20 Rajab 1417,F1997003.txt,15,400,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p15-7.txt
-decret-1997-p15-8,decret,,0,1997,| Décret exécutif du 20 Rajab 1417,F1997003.txt,15,449,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p15-8.txt
-deliberation-1997-p16-1,deliberation,,0,1997,Délibération du 18 Chaâbane 1417,F1997003.txt,16,15963,0,,article,data/processed/texts/1997/deliberation-1997-p16-1.txt
+loi-91-27,loi,91-27,1,1991,Loi n° 91-27 du 21 décembre 1991 modifiant et Vu la loi n° 90-11 du 21 avril 1990 relative aux”,F1991068.txt,5,4369,0,,article,data/processed/texts/1991/loi-91-27.txt
+loi-91-28,loi,91-28,1,1991,Loi n° 91-28 du 21 décembre 1991 modifiant et,F1991068.txt,6,2273,0,,article,data/processed/texts/1991/loi-91-28.txt
+loi-91-29,loi,91-29,1,1991,Loi n° 91-29 du 21 décembre 1991 modifiant et « Art. 73. — Le licenciement à caractère disciplinaire,F1991068.txt,7,7422,0,,article,data/processed/texts/1991/loi-91-29.txt
+loi-91-30,loi,91-30,1,1991,Loi n° 91-30 du 21 décembre 1991 modifiant et,F1991068.txt,8,8465,0,,article,data/processed/texts/1991/loi-91-30.txt
+loi-91-31,loi,91-31,1,1991,"Loi n° 91-31 du 21 décembre 1991 portant approba- | Etats de l'union du maghreb arabe, signée à Ras Lanouf",F1991068.txt,10,683,0,,body_no_article,data/processed/texts/1991/loi-91-31.txt
+decret-91-508,decret,91-508,1,1991,Décret présidentiel n° 91-508 du 22 décembre 1991 Vu le décret exécutif n° 91-369 du 8 octobre 1991,F1991068.txt,10,1628,0,,body_no_article,data/processed/texts/1991/decret-91-508.txt
+decret-91-509,decret,91-509,1,1991,Décret présidentiel n° 91-509 du 22 décembre 1991 Décret présidentiel n° 91-510 du 22 décembre 1991,F1991068.txt,10,4214,1,merged_heading,article,data/processed/texts/1991/decret-91-509.txt
+decret-91-511,decret,91-511,1,1991,Décret présidentiel n° 91-511 du 22 décembre 1991 Vu le décret exécutif n° 91-21 du 26 janvier 1991,F1991068.txt,12,3014,0,,article,data/processed/texts/1991/decret-91-511.txt
+decret-91-512,decret,91-512,1,1991,Décret exécutif n° 91-512 du 22 décembre 1991 fixant Art. 2. — La conformité du matériel vendu en,F1991068.txt,13,21851,0,,article,data/processed/texts/1991/decret-91-512.txt
+decret-91-514,decret,91-514,1,1991,"Décret exécutif n° 91-514 du 22 décembre 1991 relatif | Il peut, sous sa résponsabilité et par dérogation aux",F1991068.txt,19,1608,0,,body_no_article,data/processed/texts/1991/decret-91-514.txt
+decret-91-515,decret,91-515,1,1991,Décret exécutif n° 91-515 du 22 décembre 1991,F1991068.txt,20,4579,0,,article,data/processed/texts/1991/decret-91-515.txt
+decret-91-516,decret,91-516,1,1991,Décret exécutif n° 91-516 du 22 décembre 1991 | | Art. 4. — Le présent décret qui prend.effet à compter,F1991068.txt,21,627,0,,body_no_article,data/processed/texts/1991/decret-91-516.txt
+decret-91-517,decret,91-517,1,1991,Décret exécutif n° 91-517 du 22 décembre 1991,F1991068.txt,22,3624,0,,article,data/processed/texts/1991/decret-91-517.txt
+decret-91-518,decret,91-518,1,1991,Décret exécutif n° 91-518 du 22 décembre 1991 | 7 Cap Sigi,F1991068.txt,23,6660,0,,article,data/processed/texts/1991/decret-91-518.txt
+decret-91-520,decret,91-520,1,1991,Décret exécutif n° 91-520 du 22 décembre 1991,F1991068.txt,24,8636,0,,article,data/processed/texts/1991/decret-91-520.txt
+decret-91-523,decret,91-523,1,1991,Décret exécutif n° 91-523 du 22 décembre 1991 relatif | caractère industriel et commercial .,F1991068.txt,27,3476,0,,article,data/processed/texts/1991/decret-91-523.txt
+decret-1991-p28-1,decret,,0,1991,Décret présidentiel du 13 novembre 1991 mettant | Décret exécutif du 11 novembre 1991 portant nomi-,F1991068.txt,28,597,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p28-1.txt
+decret-1991-p28-2,decret,,0,1991,Décret présidentiel du 13 novembre 1991 portant,F1991068.txt,28,664,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p28-2.txt
+decret-1991-p28-3,decret,,0,1991,Décret exécutif du 2 novembre 1991 portant nomina- appelé à exercer une autre fonction.,F1991068.txt,28,1469,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p28-3.txt
+decret-1991-p29-1,decret,,0,1991,Décret exécutif du 11 novembre 1991 mettant fin aux,F1991068.txt,29,645,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p29-1.txt
+decret-1991-p29-2,decret,,0,1991,Décret exécutif du 11 novembre 1991 mettant fin aux,F1991068.txt,29,515,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p29-2.txt
+decret-1991-p29-3,decret,,0,1991,"Décret exécutif du 11 novembre 1991 mettant fin aux | par M. Boussad Aït Ouares, appelé à exercer une autre",F1991068.txt,29,1507,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p29-3.txt
+decret-1991-p30-1,decret,,0,1991,Décrets exécutifs du 11 novembre 1991 portant Décret exécutif du 11 novembre 1991 portant nomi-,F1991068.txt,30,561,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p30-1.txt
+decret-1991-p30-2,decret,,0,1991,Décret exécutif du 11 novembre 1991 portant nomi-,F1991068.txt,30,1079,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p30-2.txt
+decret-1991-p30-3,decret,,0,1991,——— Décret exécutif du 11 novembre 1991 mettant fin aux,F1991068.txt,30,455,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p30-3.txt
+decret-1991-p30-4,decret,,0,1991,"Décret exécutif du 11 novembre 1991 portant nomi- | ]4 Omar Guemari, admis à la retraite.",F1991068.txt,30,583,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p30-4.txt
+decret-1991-p30-5,decret,,0,1991,Décret exécutif du 11 novembre 1991 portant nomi- 53 : .,F1991068.txt,30,2194,0,,article,data/processed/texts/1991/decret-1991-p30-5.txt
+decret-1991-p31-1,decret,,0,1991,Décret exécutif du 11 novembre 1991 mettant fin aux fonctions a eenétare permanent de l’ex-conseil,F1991068.txt,31,913,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p31-1.txt
+decret-1991-p31-2,decret,,0,1991,Décret exécutif du 16 novembre 1991 mettant fin aux,F1991068.txt,31,1028,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p31-2.txt
+decret-1991-p32-1,decret,,0,1991,Décret exécutif du 1er décembre 1991 portant nomina- | Décret exécutif du 1‘ décembre 1991 mettant fin aux,F1991068.txt,32,661,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p32-1.txt
+decret-1991-p32-2,decret,,0,1991,Décrets exécutifs du 1er décembre 1991 portant,F1991068.txt,32,1597,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p32-2.txt
+decret-1991-p32-3,decret,,0,1991,"Décret exécutif du 1er décembre 1991 mettant fin aux | familiale à l’ex-ministère de la protection sociale,",F1991068.txt,32,2289,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p32-3.txt
+decret-1991-p33-1,decret,,0,1991,"Décret exécutif du 1er décembre 1991 mettant fin aux | fin, à compter du 20 avril 1991 aux fonctions de",F1991068.txt,33,814,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p33-1.txt
+decret-1991-p33-2,decret,,0,1991,Décret exécutif du 1er décembre 1991 mettant fin aux,F1991068.txt,33,1640,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p33-2.txt
+decret-1991-p33-3,decret,,0,1991,Décret exécutif du 1er décembre 1991 mettant fin aux | M. Mohamed Chérif Belkessam est nommé directeur de,F1991068.txt,33,1181,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p33-3.txt
+decret-1991-p34-1,decret,,0,1991,Décrets exécutifs du 1er décembre 1991 portant | Décrets exécutifs du 1er décembre 1991 mettant fin,F1991068.txt,34,1798,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p34-1.txt
+decret-1991-p34-2,decret,,0,1991,Décret exécutif du 24 décembre 1991 mettant fin aux,F1991068.txt,34,924,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p34-2.txt
+decret-1991-p35-1,decret,,0,1991,Décret exécutif du 24 décembre 1991 portant nomi- |,F1991068.txt,35,6289,0,,nomination_no_article,data/processed/texts/1991/decret-1991-p35-1.txt
+arrete-1991-p38-1,arrete,,0,1991,Arrêté du 6 mers 1901 portant homologation des Article 1%. — Sont homologués les indices salaires et,F1991068.txt,38,11239,0,,article,data/processed/texts/1991/arrete-1991-p38-1.txt
+arrete-1991-p45-1,arrete,,0,1991,Arrêté du 1er décembre 1991 portant nomination d’un,F1991068.txt,45,369,0,,nomination_no_article,data/processed/texts/1991/arrete-1991-p45-1.txt
+arrete-1991-p45-2,arrete,,0,1991,Arrêtés du 11 novembre 1991 mettant fin aux Par arrêté du 1er décembre 1991 du ministre de,F1991068.txt,45,685,0,,nomination_no_article,data/processed/texts/1991/arrete-1991-p45-2.txt
+arrete-1991-p45-3,arrete,,0,1991,Arrêté du 1er décembre 1991 mettant fin aux fonctions,F1991068.txt,45,688,0,,nomination_no_article,data/processed/texts/1991/arrete-1991-p45-3.txt
+arrete-1991-p45-4,arrete,,0,1991,Arrêtés du 11 novembre 1991 portant nomination de,F1991068.txt,45,661,0,,nomination_no_article,data/processed/texts/1991/arrete-1991-p45-4.txt
+decret-93-01,decret,93-01,1,1993,"Décret exécutif n° 93-01 du 2 janvier 1993, modifiant Art. 2. -— L'article [1 du décret exécutif n° 92-46 du 11",F1993001.txt,2,5814,0,,article,data/processed/texts/1993/decret-93-01.txt
+decret-93-03,decret,93-03,1,1993,Décret exécutif n° 93-03 du 2 janvier 1993 modifiant et,F1993001.txt,4,3341,0,,article,data/processed/texts/1993/decret-93-03.txt
+decret-93-04,decret,93-04,1,1993,Décret exécutif n° 93-04 du 2 janvier 1993 portant Décrète :,F1993001.txt,4,1022,0,,body_no_article,data/processed/texts/1993/decret-93-04.txt
+arrete-1993-p05-1,arrete,,0,1993,Arrêté du 17 juin 1992 fixant le barème de | CES SUPER P,F1993001.txt,5,3621,0,,article,data/processed/texts/1993/arrete-1993-p05-1.txt
+arrete-1993-p06-1,arrete,,0,1993,Arrêté du 5 septembre 1992 relatif à l'octroi d'une,F1993001.txt,6,3722,0,,article,data/processed/texts/1993/arrete-1993-p06-1.txt
+arrete-1993-p07-1,arrete,,0,1993,Arrêté du 5 septembre 1992 relatif à l'octroi d'une | autorisation d'exploitation de la carrière de,F1993001.txt,7,3765,0,,article,data/processed/texts/1993/arrete-1993-p07-1.txt
+arrete-1993-p08-1,arrete,,0,1993,Arrêté du 5 septembre 1992 relatif à l'octroi d'une K Y : 356.121: N Y : 356.294,F1993001.txt,8,1574,0,,body_no_article,data/processed/texts/1993/arrete-1993-p08-1.txt
+arrete-1993-p08-2,arrete,,0,1993,Arrêté du 5 septembre 1992 relatif à l'octroi d'une,F1993001.txt,8,4314,0,,article,data/processed/texts/1993/arrete-1993-p08-2.txt
+arrete-1993-p09-1,arrete,,0,1993,Arrêté du 5 septembre 1992 relatif à l'octroi d'une,F1993001.txt,9,4731,0,,article,data/processed/texts/1993/arrete-1993-p09-1.txt
+arrete-1993-p10-1,arrete,,0,1993,Arrêté du 5 septembre 1992 relatif à l'octroi Art. 5. — Le présent arrêté sera publié au Journal,F1993001.txt,10,600,1,interleaved_columns,body_no_article,data/processed/texts/1993/arrete-1993-p10-1.txt
+arrete-1993-p10-2,arrete,,0,1993,Arrêté du 5 septembre 1992 relatif à l'octroi d'une,F1993001.txt,10,2098,0,,article,data/processed/texts/1993/arrete-1993-p10-2.txt
+arrete-1993-p11-1,arrete,,0,1993,Arrêté du 5 septembre 1992 relatif à l'octroi d'une,F1993001.txt,11,2077,0,,article,data/processed/texts/1993/arrete-1993-p11-1.txt
+arrete-1993-p11-2,arrete,,0,1993,Arrêté du 5 septembre 1992 relatif à l'octroi d'une X : 635.640 X : 635.640,F1993001.txt,11,2268,0,,article,data/processed/texts/1993/arrete-1993-p11-2.txt
+decret-93-09,decret,93-09,1,1993,Décret présidentiel n° 93-09 du 5 janvier 1993 portant 2 — du tiers (1/3) du restant de lä xine lorsque celui-ci,F1993002.txt,3,6798,0,,article,data/processed/texts/1993/decret-93-09.txt
+decret-93-05,decret,93-05,1,1993,Décret exécutif n° 93-05 du 2 janvier 1993 portant Art. 5. — En matière d'information sanitaire et de,F1993002.txt,5,32992,0,,article,data/processed/texts/1993/decret-93-05.txt
+decret-1993-p12-1,decret,,0,1993,Décret exécutif du 2 janvier 1993 portant nomination Décret exécutif du 2 janvier 1993 portant nomination,F1993002.txt,12,461,0,,nomination_no_article,data/processed/texts/1993/decret-1993-p12-1.txt
+decret-1993-p12-2,decret,,0,1993,Décret exécutif du 2 janvier 1993 portant nomination Décret exécutif du 2 janvier 1993 mettant fin aux,F1993002.txt,12,606,0,,nomination_no_article,data/processed/texts/1993/decret-1993-p12-2.txt
+decret-1993-p13-1,decret,,0,1993,Décret exécutif du 2 janvier 199 3 mettant fin aux fonctions d'un chef de département contrôle à la fonctions du directeur de l'éducation de la wilaya cour des comptes d'Oran. _,F1993002.txt,13,569,0,,nomination_no_article,data/processed/texts/1993/decret-1993-p13-1.txt
+arrete-1993-p13-2,arrete,,0,1993,Arrêté du 11 novembre 1992 portant dissolution de,F1993002.txt,13,592,0,,nomination_no_article,data/processed/texts/1993/arrete-1993-p13-2.txt
+decision-1993-p13-3,decision,,0,1993,Décision du 2 janvier 1993 mettant fin aux fonctions les attributions du ministre de l'économie;,F1993002.txt,13,1079,0,,article,data/processed/texts/1993/decision-1993-p13-3.txt
+arrete-1993-p13-4,arrete,,0,1993,"Arrêté du 2 janvier 1993 portant nomination du chef Bel Abbès amendes, Sidi Bel Abbès taxe unique, Sidi Bel -",F1993002.txt,13,5815,0,,article,data/processed/texts/1993/arrete-1993-p13-4.txt
+arrete-1993-p15-1,arrete,,0,1993,Arrêté du 27 octobre 1992 relatif à l'octroi à l'ORGM,F1993002.txt,15,1782,0,,article,data/processed/texts/1993/arrete-1993-p15-1.txt
+arrete-1993-p15-2,arrete,,0,1993,Arrêté du 27 octobre 1992 relatif à l'octroi à,F1993002.txt,15,2424,0,,article,data/processed/texts/1993/arrete-1993-p15-2.txt
+arrete-1993-p16-1,arrete,,0,1993,Arrêté du 27 octobre 1992 relatif à l'octroi à d'une,F1993002.txt,16,806,0,,body_no_article,data/processed/texts/1993/arrete-1993-p16-1.txt
+arrete-1993-p16-2,arrete,,0,1993,Arrêté du 2 janvier 1993 mettant fin aux fonctions,F1993002.txt,16,727,0,,article,data/processed/texts/1993/arrete-1993-p16-2.txt
+arrete-1994-p04-1,arrete,,0,1994,Arrêté du 21 Chaâbane 1414 correspondant au 2 février 1994 relatif à l'application des dispositions de l'article 160 du,F1994020.txt,4,4039,0,,article,data/processed/texts/1994/arrete-1994-p04-1.txt
+decret-94-76,decret,94-76,1,1994,Décret présidentiel n° 94-76 du 21 Chaoual | Vu la loi n° 83-11 du 2 juillet 1983 relative aux,F1994020.txt,6,1651,0,,article,data/processed/texts/1994/decret-94-76.txt
+decret-94-77,decret,94-77,1,1994,Décret exécutif n° 94-77 du 28 Chaoual 1414 Décrète :,F1994020.txt,6,1151,0,,body_no_article,data/processed/texts/1994/decret-94-77.txt
+decret-94-78,decret,94-78,1,1994,Décret exécutif n° 94-78 du 28 Chaoual 1414 Décret exécutif n° 94-79 du 28 Chaoual 1414,F1994020.txt,6,4519,1,merged_heading,article,data/processed/texts/1994/decret-94-78.txt
+decret-1994-p08-1,decret,,0,1994,Décrets exécutifs du 19 Ramadhan 1414 Décrets exécutifs du 19 Ramadhan 1414,F1994020.txt,8,979,0,,nomination_no_article,data/processed/texts/1994/decret-1994-p08-1.txt
+decret-1994-p09-1,decret,,0,1994,Décrets exécutifs du 19 Ramadhan 1414 ministère des postes et télécommunications.,F1994020.txt,9,1980,0,,nomination_no_article,data/processed/texts/1994/decret-1994-p09-1.txt
+decret-1994-p09-2,decret,,0,1994,Décret exécutif du 19 Ramadhan 1414,F1994020.txt,9,478,0,,nomination_no_article,data/processed/texts/1994/decret-1994-p09-2.txt
+decret-1994-p09-3,decret,,0,1994,Décrets exécutifs du 19 Ramadhan 1414 Décret exécutif du ler avril 1993 portant,F1994020.txt,9,6716,0,,article,data/processed/texts/1994/decret-1994-p09-3.txt
+arrete-1994-p11-1,arrete,,0,1994,Arrêtés du 19 Ramadhan 1414 correspondant au,F1994020.txt,11,1880,0,,nomination_no_article,data/processed/texts/1994/arrete-1994-p11-1.txt
+arrete-1994-p12-1,arrete,,0,1994,Arrêté du 11 Ramadhan 1414 correspondant au Par arrêté du 12 Ramadhan 1414 correspondant au 22,F1994020.txt,12,7292,0,,article,data/processed/texts/1994/arrete-1994-p12-1.txt
+arrete-1994-p14-1,arrete,,0,1994,Arrêté du 25 Chaâbane 1414 correspondant au 6,F1994020.txt,14,4929,0,,article,data/processed/texts/1994/arrete-1994-p14-1.txt
+arrete-1994-p15-1,arrete,,0,1994,"Arrêté du 19 Ramadhan 1414 correspondant au . Vu Ja. loi n° 84-17 du 7 juillet 1984, modifiée et",F1994020.txt,15,10324,0,,article,data/processed/texts/1994/arrete-1994-p15-1.txt
+ordonnance-97-01,ordonnance,97-01,1,1997,"Ordonnance n° 97-01 du 2 Ramadhan 1417 Vu la loi n° 90-11 du 21 avril 1990, modifiée et",F1997003.txt,4,10751,0,,article,data/processed/texts/1997/ordonnance-97-01.txt
+ordonnance-97-03,ordonnance,97-03,1,1997,Ordonnance n° 97-03 du 2 Ramadhan 1417,F1997003.txt,6,11725,0,,article,data/processed/texts/1997/ordonnance-97-03.txt
+decret-97-03,decret,97-03,1,1997,"Décret présidentiel n° 97-03 du 29 Chaâbane Art. 2. — Le présent décret sera publié au Journal 1417 correspondant au 9 janvier 1997 officiel de la République algérienne démocratique et portant convocation du conseil national de populaire. transition pour la tenue d'une session Fait.à Alger, le 29 Ch",F1997003.txt,9,476,1,interleaved_columns,body_no_article,data/processed/texts/1997/decret-97-03.txt
+decret-97-32,decret,97-32,1,1997,Décret exécutif n° 97-32 du 2 Ramadhan 1417,F1997003.txt,9,3224,0,,article,data/processed/texts/1997/decret-97-32.txt
+decret-97-33,decret,97-33,1,1997,Décret exécutif n° 97-33 du 2 Ramadhan 1417 Art. 2. — Chaque commissaire-priseur doit tenir une,F1997003.txt,10,12660,0,,article,data/processed/texts/1997/decret-97-33.txt
+decret-1997-p13-1,decret,,0,1997,"Décret exécutif du 20 Rajab 1417 ler décembre 1996, il est mis fin aux fonctions de",F1997003.txt,13,346,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p13-1.txt
+decret-1997-p13-2,decret,,0,1997,Décret exécutif du 20 Chaâbane 1417,F1997003.txt,13,873,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p13-2.txt
+decret-1997-p14-1,decret,,0,1997,Décret exécutif du 20 Rajab 1417 correspondant au ler décembre 1996,F1997003.txt,14,766,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p14-1.txt
+decret-1997-p14-2,decret,,0,1997,Décret exécutif du 20 Rajab 1417 Décret exécutif du 20 Chaâbane 1417,F1997003.txt,14,1825,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p14-2.txt
+decret-1997-p14-3,decret,,0,1997,Décret exécutif du 20 Rajab 1417 correspondant au 31 décembre 1996,F1997003.txt,14,826,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p14-3.txt
+decret-1997-p15-1,decret,,0,1997,Décret exécutif du 20 Chaâbane 1417 Décret exécutif du 20 Rajab 1417,F1997003.txt,15,806,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p15-1.txt
+decret-1997-p15-2,decret,,0,1997,Décret exécutif du 20 Rajab 1417 Décret exécutif du 20 Rajab 1417 |,F1997003.txt,15,709,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p15-2.txt
+decret-1997-p15-3,decret,,0,1997,Décret exécutif du 20 Rajab 1417,F1997003.txt,15,693,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p15-3.txt
+decret-1997-p15-4,decret,,0,1997,Décret exécutif du 11 Chaâbane 1417 Décret exécutif du 20 Rajab 1417,F1997003.txt,15,725,0,,nomination_no_article,data/processed/texts/1997/decret-1997-p15-4.txt
+decret-1997-p15-5,decret,,0,1997,Décret exécutif du 20 Rajab 1417 ie ‘,F1997003.txt,15,865,0,,article,data/processed/texts/1997/decret-1997-p15-5.txt
+deliberation-1997-p16-1,deliberation,,0,1997,"Délibération du 18 Chaâbane 1417 des autres dispositions, la loi dont il s'agit ne peut être",F1997003.txt,16,16393,0,,article,data/processed/texts/1997/deliberation-1997-p16-1.txt

@@ -70,11 +70,11 @@ SPLIT_HEAD = re.compile(
     re.M,
 )
 
-# Two headings printed side by side on the same line ("... 91-509 du ... { Décret ... 91-510 ...").
+# Two headings printed side by side on the same line ("... 91-509 du ... Décret ... 91-510 ...").
 # The two bodies are then interleaved too, so the chunk cannot be split safely:
-# we only flag it.
+# we only flag it. After clean_text strips stray braces, the separator may be gone.
 MERGED_HEADING = re.compile(
-    rf"(?<=\w)\s+[{{|]\s*{TYPE_WORD}{QUALIFIER}\s+n[°o]\s*\d"
+    rf"(?<=\w)\s+[{{|]?\s*(?:{TYPE_WORD}){QUALIFIER}\s+n[°o]\s*\d"
 )
 
 ART = re.compile(r"(?m)^\s*(?:Art\.|Article\s+(?:\d|l[er]\b))")
@@ -144,7 +144,9 @@ def clean_title(lines: list[str]) -> str:
         if ART.match(ln):
             break
     title = re.sub(r"\s+", " ", " ".join(title_lines)).strip()
-    return re.sub(r"[,;]?\s*p\.\s*\d+\.?\s*$", "", title)[:300]
+    title = re.sub(r"\s*[{}]\s*", " ", title)
+    title = re.sub(r"[,;]?\s*p[-.]\s*\d+\.?\s*$", "", title)
+    return title.strip()[:300]
 
 
 def all_marks(text: str) -> list[re.Match]:
@@ -200,12 +202,24 @@ def classify(it: Found) -> tuple[bool, str]:
     return False, "toc"
 
 
+# Column-interleaved text: "Art. 2. — Le présent décret sera publié au Journal"
+# appearing in the title means left/right columns were merged.  A law that
+# amends "Art. 73" legitimately has that in the title, so we require the
+# publication formula or "Journal officiel" nearby.
+INTERLEAVED_TITLE = re.compile(
+    r"(?:sera\s+publi[ée]|Journal\s+officiel|pr[ée]sent\s+d[ée]cret\s+sera)",
+    re.I,
+)
+
+
 def contamination(it: Found) -> list[str]:
     reasons = []
     if PROMULGATION.search(it.body) and not it.numbered:
         reasons.append("promulgation")
     if MERGED_HEADING.search(" ".join(it.body.splitlines()[:2])):
         reasons.append("merged_heading")
+    if INTERLEAVED_TITLE.search(it.title):
+        reasons.append("interleaved_columns")
     return reasons
 
 
