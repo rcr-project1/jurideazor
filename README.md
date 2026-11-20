@@ -84,3 +84,6 @@ bougoffa malak
 - [Réponses avec sources et références](docs/week1/evaluation/Réponses%20avec%20sources%20et%20références.csv)
 - [Réponses de LLM sans RAG](docs/week1/evaluation/réponses%20de%20LLM%20sans%20RAG)
 
+### 4. Semaine 2 — collecte automatisée
+- [Rapport de la semaine 2](docs/week2/rapport_semaine2.md)
+- [Sources et conditions d'utilisation](docs/week2/sources_et_conditions.md)
