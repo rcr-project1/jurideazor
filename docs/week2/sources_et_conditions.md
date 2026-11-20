@@ -120,5 +120,5 @@ The SQLite registry stays local (git-ignored, binary); the CSV export is the por
 - [x] Index downloaded into `data/raw/joradp/index/` + hash recorded (2026-11-16, see §4.1).
 - [x] List of selected issues (68/1991, 20/1994, 3/1997, 40/2015 + sample + 6 numéros de PR #17, 1988/04 → 2022/49).
 - [x] `downloads.sqlite` registry + proof of duplicate-free re-run: `0 fetched, 36 skipped, 0 failed` (2026-11-19), 36 registered PDFs, `issue`/`edition` columns.
-- [x] OCR applied and measured on scanned issues (68/1991, 20/1994, 3/1997): OCR v2, 258 pages, plus digit audit (`src/eval/`).
+- [x] OCR applied and measured on all 9 scanned issues (18 files, 529 pages), v2 with column-fix (`15ceed1`), plus digit audit (`src/eval/`).
 - [ ] Precision/Recall table of filtering on an annotated sample.
