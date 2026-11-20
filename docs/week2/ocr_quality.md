@@ -1,17 +1,17 @@
 # Qualité de l'OCR et des textes — détails et preuves
 
-**Branches :** `feat/ocr-v2` (`673701b`), `feat/fr-pipeline` (`94864fc`), `feat/ar-pipeline` (`b00fb37`). Non fusionnées le 19/11/2026.
+**Branches :** `feat/ocr-v2` (`590c503`), `feat/fr-pipeline` (`997db23`), `feat/ar-pipeline` (`eaa0b96`). Non fusionnées le 20/11/2026.
 **Code :** `src/collect/ocr_columns.py`, `src/eval/cer.py`, `src/eval/digit_check.py`, `src/structure/clean_text.py`, `extract_texts.py`, `clean_ar.py`, `extract_texts_ar.py`.
 
 ## 1. Périmètre OCR
 
-Tous les numéros antérieurs à 2002 sont des images (0 caractère extractible). OCR appliqué à ces 10 fichiers seulement (5 numéros × FR/AR), Tesseract `fra`/`ara`, 300 dpi.
+Tous les numéros antérieurs à 2002 sont des images (0 caractère extractible). OCR appliqué à **18 fichiers** (9 numéros × FR/AR), Tesseract `fra`/`ara`, 300 dpi.
 
 | Éditions | Numéros | Pages | Résultat |
 |---|---|---|---|
-| FR + AR | 1991/068, 1993/001, 1993/002, 1994/020, 1997/003 | **258** | 10 fichiers, aucun échec |
+| FR + AR | 1988/004, 1990/006, 1990/017, 1991/068, 1993/001, 1993/002, 1994/020, 1996/043, 1997/003 | **529** | 18 fichiers, aucun échec, 0 page vide |
 
-Registre : `data/processed/ocr_report_v2.csv` (10 lignes : pages, caractères, statut, durée). Sorties : `data/raw/joradp/text_v2/` (10 fichiers `.txt`, un par PDF). Empreintes : `ocr_manifest_v2.csv` (SHA-256 par fichier `.txt`).
+Registre : `data/processed/ocr_report_v2.csv` (18 lignes : pages, caractères, statut, durée). Sorties : `data/raw/joradp/text_v2/` (18 fichiers `.txt`, un par PDF). Empreintes : `ocr_manifest_v2.csv` (SHA-256 par fichier `.txt`).
 
 ## 2. Défaut v1 et correction v2
 
@@ -19,17 +19,19 @@ Défaut : pages imprimées sur **deux colonnes** ; l'OCR v1 lisait la page enti�
 
 Correction (`ocr_columns.py`) :
 - français : segmentation normale puis reconstruction de l'ordre de lecture à partir des coordonnées (titre pleine largeur → colonne gauche → colonne droite → pied) ;
-- arabe : détection du blanc de gouttière, puis OCR de chaque moitié d'image, colonne de droite d'abord ;
-- détection de la gouttière limitée au corps de page (20–85 % de la hauteur) pour ignorer les bandeaux.
+- arabe : détection du blanc de gouttière, puis OCR de chaque moitié d'image avec padding 1 %, colonne de droite d'abord ;
+- détection de la gouttière limitée au corps de page (20–85 % de la hauteur) pour ignorer les bandeaux ;
+- correction 20/11 (`15ceed1`) : attribution des lignes par centre (`cx`) au lieu de marges chevauchantes — élimine les lignes dupliquées près de la gouttière.
 
 | Mesure (v2) | Valeur |
 |---|---|
-| Fichiers / pages | 10 / **258** |
-| Caractères produits | **656 444** |
-| Pages reconnues sur deux colonnes (`cols = 2`) | **191 / 258** |
-| Durée totale | 24,4 min |
+| Fichiers / pages | 18 / **529** |
+| Caractères produits | **~1 491 000** (FR ~849 000, AR ~643 000) |
+| Pages vides | **0** |
+| Pipes FR (F1991068) | 114 (v1 : 403) |
+| Pipes AR (A1991068) | 151 |
 
-Preuve : `data/processed/ocr_pages_v2.csv` (258 lignes, colonne `cols`).
+Preuve : `data/processed/ocr_pages_v2.csv` (529 lignes, colonne `cols`).
 Les chiffres de la v1 ne sont pas cités : le texte v1 n'est pas versionné (`data/raw/joradp/text/` est ignoré par Git).
 
 ## 3. Contrôle manuel sur 3 pages
@@ -59,41 +61,45 @@ Comparaison avec l'image du PDF, consignée dans la version 1 du rapport :
 
 | Mesure | Valeur |
 |---|---|
-| Fichiers / pages conservées | 5 / 110 |
-| Caractères avant → après | 365 600 → 361 146 |
-| Textes extraits (`kept`) | **71** (37 numérotés) |
-| Blocs supprimés (sommaire + décrets de nomination sans article) | **126** |
-| Caractères des textes retenus | 277 270 |
+| Fichiers nettoyés | 5 (texte v1 ; v2 en attente de merge) |
+| Textes extraits (`kept`) | **126** (43 numérotés, 83 non numérotés) |
+| Pipes dans les titres | **0** |
+| Textes contaminés (colonnes entrelacées) | 52 (signalés, conservés) |
 
-Preuves : `clean_report.csv`, `extract_report.csv`, `data/processed/texts/index.csv` (71 lignes + en-tête).
+Corrections du 20/11 (`997db23`) : qualificatif `législatif` ajouté au BOUNDARY ; découpage des en-têtes mid-line (`MID_LINE_HEADING`) ; nettoyage des pipes dans `clean_title()` ; détection de contamination par pipes dans le corps (≥3 lignes).
+
+Textes clés retrouvés : loi-91-29, ordonnance-97-02/03/04, décret-94-03.
+
+Preuves : `extract_report.csv`, `data/processed/texts/index.csv` (126 lignes + en-tête).
 
 ### 5.2 Arabe
 
 | Mesure | Valeur |
 |---|---|
-| Fichiers / pages | 5 / 148 |
-| Caractères avant → après | 290 093 → **284 668** (98,1 %) |
-| Textes extraits | **67** (39 numérotés, 38 numéros lisibles) |
-| Blocs supprimés (sommaire + décrets de nomination sans article) | **111** |
-| Doublons | 0 |
+| Fichiers nettoyés | 5 (texte v1 ; v2 en attente de merge) |
+| Textes extraits | **57** (31 numérotés) |
+| Pipes dans les titres | **0** |
+| Titres vides | **0** |
 
-Preuves : `clean_report_ar.csv`, `extract_report_ar.csv`, `data/processed/texts_ar/index_ar.csv` (67 lignes + en-tête).
+Corrections du 20/11 (`eaa0b96`) : qualificatifs `تشريعي` (législatif) et `عضوي` (organique) ajoutés ; `+` comme variante OCR du tiret ; `clean_title()` étendu à 4 lignes avec nettoyage pipes/accolades.
 
-Les nombres **126 / 111** sont des **chunks supprimés**, pas des textes juridiques : ils incluent le sommaire et les décrets de nomination sans article. Dans le numéro 1997/003, **19 décrets de nomination français et 12 arabes** sont de vrais décrets (sans article), comptés dans ces chunks.
+Textes clés retrouvés : ordonnance-97-02/03, décret-94-05. Manquants (OCR v1 trop garbled) : décret-94-03, loi-91-29 — à récupérer après merge du texte v2.
 
-Règles de nettoyage : aucun chiffre supprimé (les lignes de chiffres seuls sont conservées), aucune jointure de mots, en-têtes retirés seulement dans les 3 premières lignes et en l'absence de `المادة`/`ينشر`/`في الجريدة` (garde ajoutée après un cas limite : l'article 5 de `A1994020` p.24 contenait `ينشر هذا القرار فى الجريدة الرسمية`).
+Preuves : `extract_report_ar.csv`, `data/processed/texts_ar/index_ar.csv` (57 lignes + en-tête).
+
+Règles de nettoyage : aucun chiffre supprimé, aucune jointure de mots, en-têtes retirés avec garde (`المادة`/`ينشر`/`في الجريدة`).
 Règles d'extraction : en-têtes tolérants aux diacritiques (`مؤرّخ`, `مؤدخ`, `موؤخر`) et aux numéros coupés/renversés (`7 9- 02` → `97-02`) ; numéro jamais corrigé (`num_raw` conservé, `num_ok` explicite).
 
 ## 6. Croisement AR/FR
 
-Sur les **33** identifiants numérotés présents dans les deux index : longueur médiane AR/FR = **0,814** ; **21 / 33** textes à ±30 %. Calcul reproductible depuis `data/processed/texts/index.csv` et `data/processed/texts_ar/index_ar.csv`.
-
-Écarts identifiés : `ordonnance-97-02`, `loi-91-27`, `loi-91-31`, `decret-93-06` et `decret-91-510` existent en AR mais pas en extraction FR ; `decret-91-514/518/521` et `decret-94-77` ont des numéros illisibles en AR.
+Croisement à refaire après merge du texte v2 dans les deux pipelines. L'ordonnance 97-02, absente en FR dans la version précédente, est maintenant extraite dans les deux langues.
 
 ## 7. Limites
 
 - Échantillon manuel : **3 pages** FR et **1 extrait de 520 caractères** en AR. Aucune généralisation n'est possible.
 - La mesure CER arabe est à refaire (§4).
-- Le fichier `decret-1997-p18-1` est contaminé (12 530 caractères) ; `decret-1997-p03-1` l'est aussi : il contient également le texte de l'ordonnance 97-01.
-- L'ordonnance 97-02 n'est pas extraite comme texte indépendant : son texte FR est dans `decret-1997-p03-1` (contaminé), son texte AR dans `ordonnance-97-02`. L'ordonnance 97-01 n'est extraite dans aucune des deux langues.
+- 52 textes FR signalés comme contaminés (colonnes entrelacées dans le corps) — conservés mais à vérifier manuellement pour les textes clés.
+- Décret 94-03 (AR) : heading OCR encore bruité (`مرسوم " تشزيعي`) — à récupérer après merge du texte v2.
+- L'ordonnance 97-01 n'est extraite dans aucune des deux langues (heading mid-line non récupéré).
+- Les 6 PDF « texte » (2015, 2017, 2022) nécessitent un extracteur `pymupdf.get_text()`, pas de Tesseract.
 - Les tableaux et les décimales restent non fiables : vérification à la source obligatoire.
