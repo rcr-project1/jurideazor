@@ -1,11 +1,13 @@
-# Expérience LLM sans RAG — tableau des erreurs
+# LLM sans RAG — tableau des erreurs
 
 - **Modèle** : `openai/gpt-oss-120b` (via Groq), temperature 0, seed 42
 - **Date de génération** : 2026-11-19 — 10 appels réels, 0 en cache
 - **Source de vérification** : Loi n° 90-11 du 21 avril 1990, texte consolidé jusqu'en 1997 (WIPO Lex, DZ039) ; Ordonnance 97-03 du 11 janvier 1997 (ILO NATLEX, DZA-1997-L-46293)
 - **Limite** : ce texte consolidé s'arrête en 1997. Les modifications postérieures (ex. LFC 2015 sur les art. 140 et 149) sont à vérifier sur la version du Ministère du Travail avant de conclure à l'absence d'une modification.
 
-Constat général : les 10 réponses affichent un niveau de confiance « élevé » (★★★★★ ou ★★★★☆) alors que presque toutes les références sont fausses.
+**Constat général** : les 10 réponses affichent un niveau de confiance « élevé » (★★★★★ ou ★★★★☆) alors que presque toutes les références sont fausses.
+
+## Tableau des erreurs — Questions 1 à 16
 
 | # | Question | Réponse du LLM (abrégée) | Article cité par le LLM | Erreur (vérifiée) | Type d'erreur |
 |---|---|---|---|---|---|
@@ -19,14 +21,39 @@ Constat général : les 10 réponses affichent un niveau de confiance « élevé
 | 8 | Recours au CDD | CDD limité à des cas ; max 12 mois renouvelable une fois (24 mois) ; formalisme art. 14 | « Art. 12, 13, 14 » ; loi 04-08 « du 23 janvier 2004 » | Art. 12 est le bon article, mais la liste est inexacte (le texte vise : travaux ou prestations non renouvelables, remplacement d'un titulaire absent, travaux périodiques discontinus, surcroît de travail ou motifs saisonniers, activités temporaires par nature). Le plafond de 12/24 mois ne figure pas dans le texte consulté. Art. 12 bis (contrôle de l'inspecteur), art. 14 (CDD irrégulier requalifié en CDI) et art. 146 bis (amende) sont omis ; l'art. 13 traite du temps partiel. | Article partiellement exact + contenu inventé |
 | 9 | Congé annuel rémunéré ; durée et période de référence | 30 jours ouvrables après 1 an ; 1 jour pour 22 jours travaillés ; période = 12 mois civils | « Art. 119 à 122 » ; loi 04-03 | Les art. 119 à 122 portent sur les conventions collectives. Texte applicable : art. 39 (droit au congé), art. 40 (période de référence du 1er juillet au 30 juin), art. 41 (2,5 jours par mois, plafond de 30 jours calendaires), art. 43 et 44 (équivalences), art. 52 (indemnité). Durée, calcul et période de référence sont inexacts. | Numéro erroné + règle inexacte |
 | 10 | Modification unilatérale du contrat | Interdite ; l'art. 13 exige un accord écrit ; l'art. 14 annule la modification ; rupture aux torts de l'employeur (art. 15) | « Art. 12 à 17 » avec citations entre guillemets | Art. 62 : modification quand la loi ou la convention est plus favorable. Art. 63 : modification par la volonté commune des parties. Art. 136 et 137 : clauses contraires nulles. Les citations entre guillemets attribuées aux art. 13 à 15 sont fabriquées. La conclusion (pas de modification unilatérale) est conforme à l'art. 63, mais les références sont fausses. | Citations fabriquées + numéro erroné |
+| 11 | القانون الأساسي الذي ينظم علاقات العمل في الجزائر وتاريخ صدوره | ذكر النموذج أن القانون 90-11 صدر في 21 جويلية 1990، ودخل حيز التنفيذ في 1 أوت 1990، ووصفه أحيانًا بأنه مرسوم بقانون | القانون 90-11 بتاريخ 21 جويلية 1990 | التاريخ الصحيح هو 21 أفريل 1990، ونُشر في الجريدة الرسمية رقم 17 بتاريخ 25 أفريل 1990. القانون 90-11 هو قانون وليس مرسومًا بقانون. | خطأ في التاريخ + وصف قانوني خاطئ |
+| 12 | التعديلات التي أدخلها القانون 91-29 على القانون 90-11 | نسب النموذج تعديلات إلى المواد 5 و12 و18 و22، وأحكامًا عن المرأة الحامل والتقاعد | القانون 91-29، المواد 5 و12 و18 و22 | القانون 91-29 المؤرخ في 21 ديسمبر 1991 يعدّل ويتمّم القانون 90-11، ويركز على المادة 73 ويضيف المواد 73-1 إلى 73-6 المتعلقة بالتسريح التأديبي بسبب الخطأ الجسيم والضمانات الإجرائية. | هلوسة قانونية + أرقام مواد خاطئة + خلط بين نصوص |
+| 13 | أثر الأمر 97-03 على مدة العمل الأسبوعية والمواد 22 إلى 26 | قال النموذج إن الأمر عدّل المواد 22 إلى 26، وحدد 40 ساعة من الاثنين إلى الجمعة، وزيادة 100% يوم السبت | الأمر 97-03 المؤرخ في 11 جانفي 1997؛ المواد 22 إلى 26 | الأمر 97-03 يحدد المدة القانونية للعمل بـ40 ساعة أسبوعيًا، لكنه ألغى المواد 22 إلى 26 ولم يعدّلها. كما أن تحديد أيام الاثنين إلى الجمعة أو زيادة 100% يوم السبت لا يثبت من هذا الأمر وحده. | خلط بين الإلغاء والتعديل + أحكام غير مثبتة |
+| 14 | المواد التي أضافها القانون 22-16 وموضوعها | ذكر النموذج أن القانون أضاف المواد 5 مكرر، وتناول الوساطة والتحكيم والمحامين | القانون 22-16 والمواد 5 مكرر | القانون 22-16 المؤرخ في 20 جويلية 2022 أضاف المواد 56 مكرر إلى 56 مكرر 6 إلى القانون 90-11، وتتعلق بالعطلة غير مدفوعة الأجر أو العمل بالتوقيت الجزئي لإنشاء مؤسسة، وشروط الاستفادة والتغطية الاجتماعية وإعادة الإدماج. كما تمّم المادة 64. | معلومات مخترعة + تاريخ خاطئ + أرقام مواد خاطئة |
+| 15 | Objectif de l'assurance automobile obligatoire | Le modèle affirme que l'assurance couvre les dommages corporels et matériels causés aux tiers, en citant la loi 90-08 et le décret 90-124 | Loi 90-08 ; décret 90-124 | Le principe général est correct : l'assurance obligatoire vise notamment à garantir l'indemnisation des victimes des accidents de la circulation pour les dommages couverts par la législation. Le texte de référence est l'art. 1 de l'ordonnance 74-15 du 30 janvier 1974, modifiée notamment par la loi 88-31 du 19 juillet 1988. L'expression « sans délai » est trop catégorique sans disposition précise. | Références juridiques erronées + réponse globalement correcte + affirmation excessive |
+| 16 | Âge minimum légal du mariage en Algérie | Le modèle indique 18 ans pour les deux sexes et évoque une dispense judiciaire pouvant aller jusqu'à 16 ans | Loi 75-05 ; loi 04-08 ; article 7 | Le texte applicable est le Code de la famille, loi 84-11 du 9 juin 1984, modifiée notamment par l'ordonnance 05-02 du 27 février 2005. Selon l'art. 7, l'âge légal est de 19 ans révolus pour l'homme et la femme. Le juge peut accorder une dispense pour un intérêt ou une nécessité si l'aptitude au mariage est établie. | Âge légal incorrect + références juridiques erronées + information non étayée |
 
 ## Synthèse
 
 | Type d'erreur | Questions concernées |
 |---|---|
-| Numéro d'article erroné (article réel d'une autre matière) | 1, 2, 4, 5, 6, 7, 9, 10 |
-| Texte ou loi inventé / mauvais texte | 1, 3, 4, 6 |
-| Règle ou chiffre inventé | 1, 2, 4, 7, 8, 9 |
+| Numéro d'article erroné | 1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14 |
+| Texte ou loi inventé / mauvais texte | 1, 3, 4, 6, 11, 15, 16 |
+| Règle ou chiffre inventé ou inexact | 1, 2, 4, 7, 8, 9, 13, 14, 16 |
 | Citation fabriquée entre guillemets | 1, 3, 10 |
-| Conclusion générale correcte malgré des références fausses | 1 (40 h), 7, 10 |
+| Date erronée | 11, 12, 14 |
+| Confusion entre modification et abrogation | 13 |
+| Confusion entre plusieurs textes ou domaines juridiques | 12, 14, 15, 16 |
+| Conclusion générale correcte malgré des références fausses | 1 (40 h), 7, 10, 15 |
+| Réponse partiellement correcte, mais références ou détails incorrects | 1, 2, 5, 8, 10, 15 |
 
+## Conclusion générale
+
+L'analyse met en évidence une faiblesse importante du modèle dans la restitution des références juridiques algériennes. Même lorsque la conclusion générale est correcte, les numéros d'articles, les dates ou les textes cités peuvent être erronés.
+
+Les erreurs ne concernent donc pas uniquement le contenu des réponses : elles touchent également la traçabilité juridique et la capacité du modèle à rattacher une règle à sa source exacte.
+
+Les questions 11 à 16 montrent notamment trois problèmes supplémentaires :
+
+1. **Erreurs de dates et de qualification juridique** : le modèle confond la date de promulgation et la nature du texte juridique.
+2. **Hallucination de références** : il attribue à certaines lois des articles et des dispositions qui ne correspondent pas à leur véritable objet.
+3. **Confusion entre textes juridiques** : il mélange des dispositions appartenant à différents domaines du droit ou à différentes lois.
+
+Le niveau de confiance affiché par le modèle ne constitue donc pas une garantie de fiabilité. Une réponse juridiquement plausible peut contenir des références fausses ou des règles inventées.
+
+**Conclusion finale :** le modèle produit parfois des réponses plausibles, mais sa fiabilité juridique est limitée par les erreurs de références, les dates incorrectes et les dispositions inventées. Une vérification systématique des sources officielles reste indispensable.
