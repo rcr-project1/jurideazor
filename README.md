@@ -82,8 +82,8 @@ bougoffa malak
 ### 3. Évaluation du LLM sans RAG
 - [Analyse des réponses d'un LLM sans RAG](docs/week1/evaluation/Analyse%20des%20réponses%20du%20LLM%20sans%20RAG.md)
 - [Réponses avec sources et références](docs/week1/evaluation/Réponses%20avec%20sources%20et%20références.csv)
-- [Réponses de LLM sans RAG](docs/week1/evaluation/réponses%20de%20LLM%20sans%20RAG)
-
+- [experimentation_LLM_sans_RAG (3).ipynb](docs/week1/evaluation/experimentation%20de%20LLM%20sans%20RAG/experimentation_LLM_sans_RAG%20(3).ipynb)
+  
 ### 4. Semaine 2 — collecte automatisée
 - [Rapport de la semaine 2](docs/week2/rapport_semaine2.md)
 - [Sources et conditions d'utilisation](docs/week2/sources_et_conditions.md)
