@@ -20,7 +20,8 @@
 **Focus:** Fix OCR errors, Collect amending texts, Test 10 questions on LLM, BM25 vs Embeddings.
 
 - **Nouha HAROUDI:** 
-- **Hadil BOUKHALFA:** 
+- **Hadil BOUKHALFA:**I completed and corrected the corpus plan, source register, corpus index, and relevance sample, including the legal-text metadata, relationships, and target articles, and add a rapport_hadil
+I checked the source links, verified the legal-text details.
 - **Rania Halima BENZERAFA:** 
 - **Malak BOUGOFFA:** 
 - **Malak ALIOUAT:** 
