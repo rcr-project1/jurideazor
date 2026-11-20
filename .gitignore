@@ -45,5 +45,7 @@ data/processed/download_failures.log
 
 # 9. Auto-generated (can be re-generated from code)
 data/processed/text_clean
+data/processed/texts
+data/processed/texts_ar
 data/raw/joradp/text
 data/raw/joradp/text_v2

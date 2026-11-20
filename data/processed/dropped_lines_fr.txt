@@ -1,115 +1,300 @@
 file	page	line	rule	text
-F1991068.txt	2	1	header_jo	2162 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE \ 68 25 décembre 1991
-F1991068.txt	3	1	header_jo	25 décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 . 2163
-F1991068.txt	4	1	header_jo	2164 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 25 décembre 1991
-F1991068.txt	5	2	header_jo	25 décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 _ 2165
-F1991068.txt	5	37	orphan	——((} —
-F1991068.txt	6	5	orphan	. \
-F1991068.txt	7	1	orphan	|
-F1991068.txt	7	3	orphan	|
-F1991068.txt	7	8	header_jo	25 décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 2167
-F1991068.txt	8	1	orphan	| :
-F1991068.txt	9	1	header_jo	25 décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 2169
-F1991068.txt	9	2	leaders	a ——_—————— ——....—...— — ——...—— — ...—...—...—......—
-F1991068.txt	10	1	header_jo	2170 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 25 décembre 1991
-F1991068.txt	11	1	header_jo	25 décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 2171
-F1991068.txt	12	1	header_jo	2172 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 25 décembre 1991:
-F1991068.txt	13	5	header_jo	25 décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 2173
+F1988004.txt	1	9	masthead	DIRECTION ET REDACTION :
+F1988004.txt	1	11	masthead	ETRANGER
+F1988004.txt	1	23	leaders	et sa traduction.....,.,.... 290 DA.
+F1988004.txt	2	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE |
+F1988004.txt	2	2	header_date	| 27 Janvier 1988
+F1988004.txt	3	1	header_jo	SCURNAL OFFICIEL DE LA REPUBLIQUE. ALGERIENNE 85
+F1988004.txt	3	2	header_date	27 janvier 1988
+F1988004.txt	4	1	header_jo	86 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE
+F1988004.txt	5	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE 87
+F1988004.txt	5	2	header_date	27-janvier 1988
+F1988004.txt	6	1	header_jo	88 JOURNAL OFFICIEL. DE LA REPUBLIQUE ALGERIENNE
+F1988004.txt	7	2	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE 89
+F1988004.txt	7	3	header_date	27 janvier .1988
+F1988004.txt	8	1	header_jo	90 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE
+F1988004.txt	9	2	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE ‘
+F1988004.txt	9	3	header_date	27 janvier 1988
+F1988004.txt	10	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE
+F1988004.txt	11	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE 93
+F1988004.txt	11	2	header_date	27 janvier 1988
+F1988004.txt	12	2	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERTENNE
+F1988004.txt	12	3	header_date	27 janvier 1988
+F1988004.txt	14	1	header_jo	96 | JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIE
+F1988004.txt	15	1	header_date	‘27 janvier 1988
+F1988004.txt	16	1	header_jo	98 un JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE |
+F1988004.txt	17	2	header_date	27: janvier. 1988
+F1988004.txt	18	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE
+F1988004.txt	19	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE
+F1988004.txt	19	2	header_date	27 janvier 1988
+F1988004.txt	20	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE
+F1988004.txt	21	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE
+F1988004.txt	21	2	header_date	- 27 janvier 1988
+F1988004.txt	22	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE
+F1988004.txt	23	1	header_jo	JOURNAL OFFICIEL DE : LA | REPUBLIQUE ALGERIENNE
+F1988004.txt	23	2	header_date	27 Janvier 1988
+F1988004.txt	24	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE
+F1988004.txt	25	2	header_date	27 Janvier 1988 1
+F1988004.txt	26	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERI£NNE
+F1988004.txt	27	2	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE
+F1988004.txt	27	3	header_date	27 janvier 1988
+F1988004.txt	28	1	header_date	27 janvier 1988
+F1988004.txt	29	1	header_jo	JOURNAL OFFICIEL vs: LA REPUBLIQUE ALORRIENNE
+F1988004.txt	30	3	header_jo	112 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE 27 janvier 1988
+F1988004.txt	31	1	header_jo	JOURNAL OFFICIEL DE LA RÉPUBLIQUE ALGÉRIENNE
+F1988004.txt	31	3	header_date	27 janvier 1988.
+F1988004.txt	32	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE
+F1990006.txt	1	13	masthead	SECRETARIAT GENERAL
+F1990006.txt	2	3	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 06.
+F1990006.txt	3	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 06
+F1990006.txt	3	2	header_date	7 février 1990
+F1990006.txt	3	29	leaders	serre le reste sans changement ........ ».
+F1990006.txt	4	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N- 06
+F1990006.txt	5	2	header_date	7 février 1990
+F1990006.txt	6	1	header_jo	JOURNAL OFFICIEL DÉ LA REPUBLIQUE ALGÉRIENNE N° 06 7
+F1990006.txt	7	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 06
+F1990006.txt	7	3	header_date	7 février 1990
+F1990006.txt	8	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N: 06
+F1990006.txt	10	1	header_jo	JOURNAL OFFICIEL DÉ LU REPUBLIQUE ALGÉRIENNE N°08
+F1990006.txt	13	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 06
+F1990006.txt	13	2	header_date	7 février 1990
+F1990006.txt	14	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 06
+F1990006.txt	15	1	header_jo	JOURNAL OFFICIEL DE LA: REPUBLIQUE ALGERIENNE. Nt 06
+F1990006.txt	15	2	header_date	7 février 1990
+F1990006.txt	16	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N- 06
+F1990006.txt	16	92	orphan	:
+F1990006.txt	17	1	header_jo	JOURNAL OFFICIEL DE LA à REPUBLIQUE 4 ALGERIENNE N° 06
+F1990006.txt	17	2	header_date	7 février 1990
+F1990006.txt	18	1	header_jo	“JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N- 06
+F1990006.txt	19	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNEÉ N° 06
+F1990006.txt	19	2	header_date	7 février 1990
+F1990006.txt	20	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 06
+F1990006.txt	21	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 06
+F1990006.txt	21	2	header_date	7 février 1990
+F1990006.txt	22	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 06
+F1990006.txt	23	2	header_date	7 février 1990'
+F1990006.txt	24	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE AEGERIENNE N°06
+F1990006.txt	25	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 06
+F1990006.txt	25	2	header_date	7 février 1990
+F1990006.txt	26	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 06
+F1990006.txt	27	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 06
+F1990006.txt	27	2	header_date	7 février 1990
+F1990006.txt	28	1	header_jo	222 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 06 7 février 1990
+F1990006.txt	30	1	header_jo	JOURNAL OFFICIEL DE'LA REPUBLIQUE ALGERIENNE N° 06
+F1990006.txt	30	76	orphan	/
+F1990006.txt	31	1	header_jo	JOURNAL OFFICIEL DE LA'REPUBLIQUE ALGERIENNE N- 06
+F1990006.txt	31	2	header_date	7 février 1990
+F1990006.txt	32	1	header_jo	_ JOURNAL OFFICIEL DE LAï REPUBLIQUE ALGERIENNE Ne 06
+F1990006.txt	33	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 06
+F1990006.txt	33	2	header_date	7 février 1990
+F1990006.txt	34	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 06
+F1990006.txt	35	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE 4 N° 06
+F1990006.txt	35	2	header_date	7 février 1990
+F1990006.txt	36	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 06
+F1990006.txt	37	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 66 _
+F1990006.txt	37	2	header_date	7 février 1990
+F1990006.txt	38	1	header_jo	| JOURNAL OFFICIEL DE LA | REPUBLIQUE ALGERIENNE N° 06
+F1990006.txt	39	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 06
+F1990006.txt	39	2	header_date	7 février 1990
+F1990006.txt	40	2	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N- 06
+F1990006.txt	41	1	header_jo	© JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 06
+F1990006.txt	41	2	header_date	7 février 1990
+F1990006.txt	42	1	header_jo	JOURNAL OFFICIEL DE LAFREPUBLIQUETALGERIENNE N- 06
+F1990006.txt	43	1	header_jo	JOURNAL OFFICIELDE LA REPUBLIQUE AL ALGERIENNE N° 06
+F1990006.txt	43	2	header_date	7 février 1990 237
+F1990006.txt	44	1	header_jo	‘238 JOURNAL OFFICIEL DE LA RÉPUBLIQUE ALGÉRIENNE N°06 7 février 1990
+F1990006.txt	45	1	header_jo	7 février 1990 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 06 239
+F1990006.txt	46	2	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 06
+F1990006.txt	47	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 08
+F1990006.txt	47	2	header_date	7 février 1990
+F1990006.txt	48	1	header_jo	JOURNAL OFFICIEL DE LA RÉPUBLIQUE ALGERIENNE N° 06
+F1990006.txt	49	2	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 06
+F1990006.txt	49	4	header_date	7-février 1990
+F1990006.txt	50	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 06
+F1990006.txt	51	1	header_jo	7 février 1990 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 06 245
+F1990017.txt	2	1	header_jo	JOURNAL OFFICIEL DE LA RÉPUBLIQUE ALGERIENNE N° 17
+F1990017.txt	3	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 17
+F1990017.txt	3	2	header_date	25 avril 1990
+F1990017.txt	4	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 17
+F1990017.txt	5	2	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 17
+F1990017.txt	5	4	header_date	25 avril 1990
+F1990017.txt	6	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 17
+F1990017.txt	7	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 17
+F1990017.txt	7	2	header_date	25 avril 1990
+F1990017.txt	8	1	header_jo	“44 "JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 17
+F1990017.txt	10	1	header_jo	JOURNAL OFFICIEL DE LA | REPUBLIQUE ALGERIENNE N° 17
+F1990017.txt	11	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 17
+F1990017.txt	11	2	header_date	25 avril 1990
+F1990017.txt	12	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 17
+F1990017.txt	13	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N°17
+F1990017.txt	13	3	header_date	25 avril 1990
+F1990017.txt	14	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 17
+F1990017.txt	15	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE À N° 17
+F1990017.txt	15	2	header_date	25 avril 1990
+F1991068.txt	1	31	orphan	—————————
+F1991068.txt	2	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE
+F1991068.txt	3	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
+F1991068.txt	3	2	header_date	25 décembre 1991
+F1991068.txt	4	2	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
+F1991068.txt	5	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
+F1991068.txt	5	3	header_date	25 décembre 1991
+F1991068.txt	5	25	orphan	——((} —
+F1991068.txt	6	56	orphan	+
+F1991068.txt	7	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
+F1991068.txt	7	2	header_date	25 décembre 1991
+F1991068.txt	8	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
+F1991068.txt	9	2	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE AELGERIENNE N° 68
+F1991068.txt	9	3	header_date	25 décembre 1991
+F1991068.txt	10	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
+F1991068.txt	11	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
+F1991068.txt	11	3	header_date	25 décembre 1991
+F1991068.txt	12	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE
+F1991068.txt	12	2	header_date	25 décembre 1991
+F1991068.txt	13	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
+F1991068.txt	13	2	header_date	25 décembre 1991
 F1991068.txt	14	2	orphan	\
 F1991068.txt	14	3	orphan	|
-F1991068.txt	14	5	header_jo	2174 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 25 décembre 1991
-F1991068.txt	15	1	header_jo	25 décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 2175
+F1991068.txt	14	4	header_jo	2174 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 25 décembre 1991
+F1991068.txt	15	2	header_jo	25 décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 2175
 F1991068.txt	16	1	header_jo	2176 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 25 décembre 1991
 F1991068.txt	17	1	header_jo	25 décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 2177
-F1991068.txt	18	1	header_jo	2178 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 25 décembre 1991
-F1991068.txt	19	1	header_jo	25 décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 : 2179
-F1991068.txt	20	1	orphan	:*
-F1991068.txt	20	3	header_jo	2180 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 25 décembre 1991
-F1991068.txt	22	1	header_jo	2182 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 25 décembre 1991
-F1991068.txt	24	1	orphan	...*
-F1991068.txt	24	6	header_jo	2184 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 25 décembre 1991
-F1991068.txt	25	1	header_jo	25 décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 2185
-F1991068.txt	26	1	header_jo	2186 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 25 décembre 1991
-F1991068.txt	27	1	header_jo	25 décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 2187
-F1991068.txt	29	2	orphan	|
-F1991068.txt	29	6	header_jo	-25: décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 2189
-F1991068.txt	30	3	header_jo	2190 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 25 décembre 1991
-F1991068.txt	31	1	header_jo	25-décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 2191
-F1991068.txt	31	5	orphan	—
-F1991068.txt	31	17	orphan	-
-F1991068.txt	32	3	header_jo	2192 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 25 décembre 1991
-F1991068.txt	32	15	orphan	———————(( ——————
-F1991068.txt	33	1	header_jo	#5 décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 2193
-F1991068.txt	34	1	header_jo	2194 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 25 décembre 1991
-F1991068.txt	34	39	orphan	\
-F1991068.txt	35	1	header_jo	‘25 décembre 1991 JOURNAL OFFICIEL DE LA RÉPUBLIQUE ALGERIENNE N° 68 2195
-F1991068.txt	36	4	header_jo	2196 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 25 décembre 1991
-F1991068.txt	37	7	header_jo	25 décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 2197
-F1991068.txt	39	3	header_jo	25 décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 2199
-F1991068.txt	39	10	leaders	— Gros-oeuvre...... .. 1,806 Pour 1985, le coefficient des charges sociales s’établit
-F1991068.txt	39	11	leaders	— Plomberie-Chauffage............ 1,983 comme suit :
-F1991068.txt	39	15	leaders	— Peinture-Vitrerie.................... 2,003 1982). |
+F1991068.txt	18	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
+F1991068.txt	19	1	header_jo	25 décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 2179
+F1991068.txt	20	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
+F1991068.txt	20	69	orphan	————————(( —————
+F1991068.txt	22	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
+F1991068.txt	23	2	header_date	25 décembre 1991
+F1991068.txt	24	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
+F1991068.txt	24	47	orphan	...* .
+F1991068.txt	25	1	header_jo	25 décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ‘ALGERIENNE N°
+F1991068.txt	26	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
+F1991068.txt	26	2	orphan	\
+F1991068.txt	27	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
+F1991068.txt	27	2	header_date	. 25 décembre 1991
+F1991068.txt	28	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
+F1991068.txt	29	1	header_jo	JOURNAL GFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
+F1991068.txt	29	2	header_date	“26 décembre 1991
+F1991068.txt	30	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
+F1991068.txt	31	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
+F1991068.txt	31	2	header_date	25-décembre 1991
+F1991068.txt	31	51	orphan	-
+F1991068.txt	32	2	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
+F1991068.txt	33	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
+F1991068.txt	33	2	header_date	25 décembre 1991 2193
+F1991068.txt	33	52	orphan	-
+F1991068.txt	34	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
+F1991068.txt	34	23	orphan	\
+F1991068.txt	35	1	header_jo	JOURNAL OFFICIEL DE LA RÉPUBLIQUE ALGERIENNE N° 68
+F1991068.txt	36	1	header_jo	2196 JOURNAE OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 25 décembre 1991
+F1991068.txt	37	1	header_jo	25 décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 2197
+F1991068.txt	38	1	orphan	\
+F1991068.txt	38	4	header_date	__ 25 décembre 1991:
+F1991068.txt	39	1	header_jo	25 décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 2199
+F1991068.txt	39	2	leaders	— Gros-oeuvre...... .. 1,806 Pour 1985, le coefficient des charges sociales s’établit
+F1991068.txt	39	3	leaders	— Piomberie-Chauffage............ 1,983 comme suit :
+F1991068.txt	39	6	leaders	— Peinture-Vitrerie..................... 2,003 1982). |
 F1991068.txt	40	1	header_jo	2200 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 25 décembre 1991
 F1991068.txt	41	1	orphan	/
-F1991068.txt	41	3	header_jo	25 décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 2201
+F1991068.txt	41	2	header_jo	25 décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 2201
 F1991068.txt	42	1	orphan	|
 F1991068.txt	42	2	orphan	.. |
-F1991068.txt	42	5	header_jo	2202 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 25 décembre 1994:
-F1991068.txt	44	1	header_jo	2204 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 25 décembre 1991
-F1991068.txt	45	1	orphan	\
-F1991068.txt	45	4	header_jo	25 décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
-F1991068.txt	45	79	orphan	—— (} ———
-F1993001.txt	1	12	orphan	>
-F1993001.txt	8	98	orphan	+
-F1993002.txt	2	17	leaders	détermination des modalités de leur organisation et de leur fonctionnement (O.P.G.T)...... 11
-F1994020.txt	5	58	orphan	*
-F1994020.txt	6	1	header_jo	NAL OFFICIEL DE LA REPUBLIQE q
-F1994020.txt	6	74	orphan	+
-F1994020.txt	10	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 2
-F1994020.txt	13	1	header_jo	2 Dhou El Kaada 1414 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGE
-F1994020.txt	13	97	orphan	—
-F1994020.txt	14	1	header_date	2 Dhou El Kaada 1414
-F1994020.txt	14	2	header_date	13 avril 1994 .
-F1994020.txt	14	4	header_jo_tail	ALGERIENNE N° 20
-F1994020.txt	14	24	orphan	. | *
-F1994020.txt	14	42	orphan	\
+F1991068.txt	42	4	header_jo	2202 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 25 décembre 1994:
+F1991068.txt	44	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68
+F1991068.txt	45	1	header_jo	25 décembre 1991 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 68 2205
+F1991068.txt	45	85	orphan	—— (} ———
+F1993001.txt	1	7	orphan	>
+F1993001.txt	7	14	orphan	——————————
+F1993002.txt	2	12	leaders	détermination des modalités de leur organisation et de leur fonctionnement (O.P.G.T)...... 11
+F1993002.txt	8	50	orphan	;
+F1993002.txt	8	55	orphan	|
+F1993002.txt	16	20	orphan	—————
+F1994020.txt	5	1	orphan	\
+F1994020.txt	5	49	orphan	+
+F1994020.txt	6	1	header_jo	NAL OFFICIEL DE LA REPUBLIQE
+F1994020.txt	6	28	orphan	——
+F1994020.txt	6	32	orphan	+
+F1994020.txt	8	12	orphan	>.
+F1994020.txt	8	35	orphan	;
+F1994020.txt	9	61	orphan	*
+F1994020.txt	10	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 20
+F1994020.txt	13	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGE
+F1994020.txt	13	2	header_date	2 Dhou El Kaada 1414
+F1994020.txt	13	3	header_date	43 avril 1994
+F1994020.txt	13	95	orphan	—
+F1994020.txt	14	15	orphan	\
 F1994020.txt	15	1	header_jo_tail	PUBLIQUE ALGERIENNE N° 20
-F1994020.txt	17	1	header_date	2 Dhouùu El Kaada 1414
-F1994020.txt	17	2	header_date	13. avril: 1994
-F1994020.txt	17	4	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 20 17
+F1994020.txt	17	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 20
+F1994020.txt	17	2	header_date	2 Dhouùu El Kaada 1414
+F1994020.txt	17	3	header_date	13. avril: 1994
 F1994020.txt	18	1	header_date	2:Dhou EI Kaada 1414
-F1994020.txt	18	2	header_date	13 avril. 1994
-F1994020.txt	18	4	header_jo	18 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 20
+F1994020.txt	18	2	header_jo	18 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 20
+F1994020.txt	18	3	header_date	13 avril. 1994
+F1996043.txt	1	3	orphan	\
+F1996043.txt	2	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQI
+F1996043.txt	3	2	leaders	à la wilaya de Naâma........... dennninsess ess seeeceennnnnnnneene sens eee enneneneseséeneseseeeneeneeneneseseseseeeeseeneneeseeenense ere
+F1996043.txt	4	5	leaders	construction à la wilaya de Laghôüat...................
+F1996043.txt	4	8	leaders	wilaya d'Annaba.......................... Désenndeens sense ee senn nes eneseeneeeen seen es enessean ee eneceeies en ee eneranenérecueceneceenceeneee
+F1996043.txt	4	11	leaders	de la jeunesse et des sports.................................................................. pennesteseseseseeeeesseenneseenesseeneesssens
+F1996043.txt	4	14	leaders	des sports de wilayas.............. sant erereenenreneeerennnse nessreesenses jee hérssrrn airstsésesssesneeeeenieeeneniessss
+F1996043.txt	4	35	leaders	moudjahidine.................................. ss iiiiicitecenececeerneaeeecenececaraneecceenerecenerene
+F1996043.txt	4	45	leaders	l'éducation  nationale...............................iiiiiiiiuiiiiiiiiididccceceececececeeccerrrrrr
+F1996043.txt	7	55	orphan	/
+F1996043.txt	8	82	orphan	*
+F1996043.txt	10	62	orphan	<
+F1996043.txt	10	81	orphan	+
+F1996043.txt	11	1	header_jo	OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 43
+F1996043.txt	14	1	header_jo	14 . JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 43 :
+F1996043.txt	14	70	orphan	*
+F1996043.txt	15	3	header_date	le prix du ler Novembre 1954.
+F1996043.txt	16	1	header_jo	16 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N°43 24 Sa
+F1996043.txt	17	1	header_jo	AL OFFICIEL DE LA REPUBLIQUE. ALGERIENNE N° 43
+F1996043.txt	17	2	header_date	24 Safar 1417.
+F1996043.txt	17	4	header_date	19 _ juillet 1996 :.
+F1996043.txt	18	66	orphan	*
+F1996043.txt	20	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 43
+F1996043.txt	20	69	orphan	*
+F1996043.txt	20	80	orphan	+ :
+F1996043.txt	20	88	orphan	*
+F1996043.txt	21	1	header_jo	24 Safar 1417 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 43 21
+F1996043.txt	23	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 43
+F1996043.txt	23	76	orphan	*
+F1996043.txt	24	33	orphan	\
 F1997003.txt	1	1	header_number	N° 3
-F1997003.txt	1	6	masthead_date	correspondant au 12 janvier 1997
-F1997003.txt	1	15	masthead	DIRECTION ET REDACTION:
-F1997003.txt	1	16	masthead	SECRETARIAT GENERAL
-F1997003.txt	1	18	masthead	ETRANGER
-F1997003.txt	2	9	leaders	relative aux relations de travail..................................,.. ss 5
-F1997003.txt	2	23	leaders	Décret exécutif du 20 Rajab 1417 correspondant au 1er décembre 1996 mettant fin aux fonctions d'un chef de daïra............. + 13
-F1997003.txt	2	27	leaders	ministère des finances................................................ ésseenseseseseeeenemneeseeerennense ressens se eenenesseeennsssenses 13
-F1997003.txt	2	29	leaders	impôts à Béchar.......................,,....... ss ssssussssssssessesesesessesesseceneeseseseeneneneeeeeneseneeeeeseesses 14
-F1997003.txt	3	4	leaders	normale supérieure d'enseignement technique ‘à Laghouat.....:................ Press soveosanenons sense esse enpesseoreeresesnnese 14
-F1997003.txt	3	16	leaders	promotion, de soutien et du suivi des investissements" A.P.S.["..................,.............................. 15
-F1997003.txt	3	22	leaders	supérieure d'enseignement technique de Laghouat................................... ii eee 15
-F1997003.txt	3	26	leaders	formation à la wilaya de Souk Ahras......... Lee asesrseresersnntnnee EE PRES neseesesssessesosenssee 15
-F1997003.txt	3	28	leaders	télécommunications à la wilaya de Biskra............... be... Lanseseesssssesensereseseseneesenenenns 15
+F1997003.txt	1	4	masthead_date	correspondant au 12 janvier 1997
+F1997003.txt	1	9	masthead	DIRECTION ET REDACTION:
+F1997003.txt	1	10	masthead	ETRANGER
+F1997003.txt	1	11	masthead	SECRETARIAT GENERAL
+F1997003.txt	2	21	leaders	Décret exécutif du 20 Rajab 1417 correspondant au 1er décembre 1996 mettant fin aux fonctions d'un chef de daïra............. .
+F1997003.txt	2	27	leaders	ministère des finances................................................ ésseenseseseseeeenemneeseeerennense ressens se eenenesseeennsssenses
+F1997003.txt	2	30	leaders	impôts à Béchar.......................,,....... ss ssssussssssssessesesesessesesseceneeseseseeneneneeeeeneseneeeeeseesses
+F1997003.txt	3	3	leaders	normale supérieure d'enseignement technique ‘à Laghouat.....:................ Press soveosanenons sense esse enpesseoreeresesnnese
+F1997003.txt	3	35	leaders	formation à la wilaya de Souk Ahras......... Lee asesrseresersnntnnee EE PRES neseesesssessesosenssee
+F1997003.txt	3	38	leaders	télécommunications à la wilaya de Biskra........................... be... ÉEOUESLTEEEPEEEEEENETE EEE EEEEEEE
+F1997003.txt	3	45	leaders	du  COMMEFCE...............,...,.. need ÉTREEEE TEE SE ET TEE ET EEE E SEE EEE EEE EEE
 F1997003.txt	5	1	header_date	3 Ramadhan 1417.
-F1997003.txt	6	1	header_jo	! 6 - | JOURNAL. OFFICIEL DE LA REPUBLIÇ
-F1997003.txt	6	138	orphan	:
-F1997003.txt	7	2	header_date	12 janvier 1997
-F1997003.txt	7	4	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N°3 7
-F1997003.txt	8	1	header_date	73 Ramadhan 1417
+F1997003.txt	5	2	header_date	12: janvier 1997
+F1997003.txt	6	1	header_jo	! 6 - | JOURNAL. OFFICIEL DE LA REPUBLI
+F1997003.txt	6	97	orphan	:
+F1997003.txt	7	3	header_date	12 janvier 1997
+F1997003.txt	8	1	header_jo	8 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 3 .
 F1997003.txt	9	1	header_date	3 Ramadhan 1417
-F1997003.txt	9	2	header_date	42 janvier 1997.
-F1997003.txt	9	4	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 3
-F1997003.txt	10	1	header_date	‘3 Ramadhan 1417.
-F1997003.txt	12	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° FR
-F1997003.txt	12	3	header_date	12 janvier 1997 .
-F1997003.txt	13	3	header_jo	3 Ramadhan 1417 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 3 13
-F1997003.txt	13	4	header_date	12 janvier 1997 |
-F1997003.txt	14	26	orphan	* *
-F1997003.txt	15	3	header_jo	3 Ramadhan 1417 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N°3 15.
-F1997003.txt	16	1	header_jo	| 16 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 3 © Ramadhan 1417
-F1997003.txt	16	2	header_date	| 12 janvier 1997...
-F1997003.txt	18	2	header_jo	18 ou JOBRNAE OFFICIEL DE Lx REPUBLIQUE ALGERIENNE N°3 | 12 janvier. 1997
+F1997003.txt	9	2	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 3
+F1997003.txt	9	3	header_date	42 janvier 1997.
+F1997003.txt	13	3	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 3
+F1997003.txt	13	4	header_date	3 Ramadhan 1417
+F1997003.txt	13	5	header_date	:12 janvier 1997
+F1997003.txt	13	57	orphan	*
+F1997003.txt	13	78	orphan	*
+F1997003.txt	14	1	header_jo	JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 3 .
+F1997003.txt	14	5	orphan	*
+F1997003.txt	14	15	orphan	*
+F1997003.txt	14	26	orphan	*
+F1997003.txt	14	39	orphan	*
+F1997003.txt	14	64	orphan	*
+F1997003.txt	14	87	orphan	*
+F1997003.txt	15	2	header_date	3 Ramadhan 1417
+F1997003.txt	15	3	header_date	12 janvier 1997
+F1997003.txt	15	42	orphan	*
+F1997003.txt	15	80	orphan	*
+F1997003.txt	16	2	header_jo	| 16 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 3 12 janvier 1997.
+F1997003.txt	18	1	header_jo	18 JOURNAL OFFICIEL DE LA REPUBLIQUE ALGERIENNE N° 3
