@@ -67,7 +67,20 @@ Cette analyse permet d'évaluer la capacité du LLM à répondre aux questions j
 
 Enfin, j'ai rectifié et mis à jour le fichier README.md afin de refléter les modifications apportées, les nouveaux fichiers ajoutés et les différentes étapes de l'expérimentation.
 - **Malak BOUGOFFA:** 
-- **Malak ALIOUAT:** Généralisation du découpage des textes juridiques en français et en arabe (Splitting), génération des chunks, gestion des métadonnées et des identifiants uniques, ainsi que tests et vérification des résultats.
+- **Malak ALIOUAT:**
+
+    **Contribution :**
+    - **Phase 0 :** Correction des erreurs de découpage des articles, amélioration du nettoyage OCR, ajout de tests et vérification des métadonnées (`version`, `date_debut`).
+    - **Splitting :** Généralisation du découpage des textes juridiques en français et en arabe.
+    - **Chunking :** Création des chunks à partir des articles et gestion des métadonnées.
+    - **Améliorations techniques :** Gestion des identifiants uniques des chunks et vérification des résultats.
+    
+    **Fichiers principaux :**
+    - `src/structure/split_articles.py`
+    - `src/structure/chunk_texts.py`
+    - `tests/test_split.py`
+    - `src/structure/ocr_fix_map.csv`
+    - `docs/week2/rapport_malak.md`
 
 ---
 
