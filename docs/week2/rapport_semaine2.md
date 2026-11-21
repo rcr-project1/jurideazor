@@ -124,7 +124,6 @@
 **Résultat :** Q1–Q10 (FR), Q11–Q14 (AR), Q15–Q16 (hors-contexte). Analyse des hallucinations (articles inventés, confusions entre lois). Notebook d'expérimentation. Ces 16 questions sont réutilisées dans la comparaison BM25 vs E5 (§3.9).  
 **Où :** `docs/week1/evaluation/` (7 fichiers : questions, réponses attendues CSV, analyse, notebooks, réponses brutes LLM).  
 **Branches :** fusionnées (PR #24, #25, #26).  
-**Limite :** pas de cache, pas de table d'erreurs structurée par question.  
 
 ## 6. Contributions
 
@@ -138,9 +137,8 @@
 
 ## 7. Limites
 
-1. **Pas de recherche hybride** — BM25 et E5 testés séparément, pas encore combinés (fusion des scores).
-2. **Pas de cache LLM** — les appels Groq ne sont pas mis en cache, pas de table d'erreurs par question.
-3. **Q12 et Q14 échouent** — Q12 (تعديلات 91-29) : question méta non couverte par le contenu ; Q14 (loi 22-16) : absente du corpus.
+1. **Pas de cache LLM** — les appels Groq ne sont pas mis en cache, pas de table d'erreurs structurée par question.
+2. **Q12 et Q14 échouent** — Q12 (تعديلات 91-29) : question méta non couverte par le contenu ; Q14 (loi 22-16) : absente du corpus.
 
 ## 8. Calendrier
 
