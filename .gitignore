@@ -45,27 +45,8 @@ data/processed/download_failures.log
 
 # 9. Auto-generated (can be re-generated from code)
 data/processed/text_clean
+data/processed/texts
+data/processed/texts_ar
 data/raw/joradp/text
-data/processed/texts_ar/
-
-@'
-
-# Generated processed data
-data/processed/articles_all.json
-data/processed/articles_test_ar.json
-data/processed/articles_test_fr.json
-data/processed/chunks.json
-data/processed/*_report.csv
-data/processed/downloads_manifest.csv
-data/processed/dropped_lines_fr.txt
-data/processed/issues_selected.csv
-data/processed/texts/
-
-# Generated raw data
-data/raw/joradp/index/
-data/raw/joradp/text/
-data/raw/joradp/text_v2/
-'@ | Add-Content .gitignore
-
-# Arabic generated reports
-data/processed/*report*.csv
+data/raw/joradp/text_v2
+data/search
