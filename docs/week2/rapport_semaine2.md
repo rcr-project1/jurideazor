@@ -1,6 +1,6 @@
 # Rapport de la semaine 2
 
-**Date :** 20/11/2026. **Dépôt :** `rcr-project1/jurideazor`. **Branche :** `main` = `3ff61d5`.
+**Date :** 21/11/2026. **Dépôt :** `rcr-project1/jurideazor`. **Branche :** `main` = `93ccc39`.
 
 ## 1. Résumé
 
@@ -12,11 +12,14 @@
 | Extraction FR | 126 textes (43 numérotés) |
 | Extraction AR | 57 textes (31 numérotés) |
 | Découpage loi 90-11 | 178 articles (172 + 6 Constitution) |
-| Extracteur PDF texte | Script prêt, non exécuté |
+| Découpage généralisé (tous textes) | 2 894 records (1 669 FR + 1 225 AR) |
+| Chunking pour embeddings | 2 903 chunks prêts |
+| Extracteur PDF texte | Exécuté — 36 fichiers (18 FR + 18 AR) |
 | Plan de corpus | 12 textes indexés |
 | Évaluation LLM sans RAG | 16 questions (Q1–Q16) |
+| Comparaison BM25 vs E5 | Hit@3 : E5 69 %, BM25 75 % (16 questions) |
 
-**Non fait :** BM25 vs E5, Hit@3, filtrage Precision/Recall, cache LLM.
+**Non fait :** recherche hybride (BM25+E5), filtrage Precision/Recall, cache LLM.
 
 ## 2. Corrections de la semaine 1
 
@@ -66,8 +69,8 @@
 
 **Quoi :** extraction directe du texte des 18 PDF numériques (2005–2022) via `pymupdf.get_text()`.  
 **Pourquoi :** ces PDF ont du texte intégré — pas besoin d'OCR ni de nettoyage.  
-**Statut :** script prêt sur `main` (`3ff61d5`), **non encore exécuté**.  
-**Où :** sortie vers `data/raw/joradp/text_v2/`, puis extraction directe.
+**Statut :** exécuté — 36 fichiers produits (18 FR + 18 AR).  
+**Où :** `data/raw/joradp/text_v2/` (gitignored — régénérable).
 
 ### 3.6 Découpage loi 90-11 (`src/structure/split_loi_90_11.py`)
 
@@ -78,6 +81,33 @@
 **Limite :** source = WIPO Lex (temporaire), pas la sortie OCR JORADP. Script spécifique à la loi 90-11, pas généralisé.  
 **Où :** `data/processed/articles.json`.  
 **Branche :** fusionnée (PR #11).
+
+### 3.7 Découpage généralisé (`src/structure/split_articles.py`)
+
+**Quoi :** découpage de tous les textes FR et AR en articles individuels, pas seulement la loi 90-11.  
+**Pourquoi :** le RAG doit chercher dans tous les textes du corpus, pas un seul.  
+**Comment :** regex générique FR (`Art. N. —`) et AR (`المادة N :`), avec réutilisation de la sortie validée de `split_loi_90_11.py` pour la loi 90-11.  
+**Résultat :** 2 894 records (1 669 FR + 1 225 AR).  
+**Où :** `data/processed/articles_all.json`, `data/processed/split_report.csv` (gitignored).  
+**Branche :** `feat/semantic-search` → fusionnée (PR #27).
+
+### 3.8 Chunking (`src/structure/chunk_texts.py`)
+
+**Quoi :** découpage des articles en passages courts (~500 mots max) pour le calcul d'embeddings.  
+**Pourquoi :** les modèles d'embeddings et le LLM ont une limite de tokens — les passages courts améliorent la recherche.  
+**Comment :** les articles numérotés restent intacts (contexte juridique), les textes longs sans articles sont découpés par paragraphes.  
+**Résultat :** 2 903 chunks prêts pour embeddings.  
+**Où :** `data/processed/chunks.json`, `data/processed/chunk_report.csv` (gitignored).  
+**Branche :** `feat/semantic-search` → fusionnée (PR #27).
+
+### 3.9 Comparaison BM25 vs E5 (`src/search/`)
+
+**Quoi :** construction des indices de recherche (FAISS + BM25) et comparaison des deux méthodes sur 16 questions.  
+**Pourquoi :** mesurer la qualité de la recherche sémantique vs mots-clés avant d'intégrer au RAG.  
+**Comment :** `build_index.py` encode les 2 902 chunks avec E5 multilingual (FAISS IndexFlatIP) et construit un index BM25. `search_compare.py` interroge les deux et calcule Hit@3.  
+**Résultat :** E5 = 69 % (11/16), BM25 = 75 % (12/16). Les méthodes sont complémentaires — E5 gagne sur les questions sémantiques, BM25 sur les références explicites. Détail dans `comparaison_bm25_e5.md`.  
+**Où :** `src/search/build_index.py`, `src/search/search_compare.py`, `eval/test_questions.json`, `data/search/` (gitignored).  
+**Branche :** `feat/search-compare` (PR en cours).
 
 ## 4. Plan de corpus (Hadil BOUKHALFA)
 
@@ -100,19 +130,17 @@
 
 | Membre | Rôle | Livrable principal | Statut |
 |--------|------|-------------------|--------|
-| Nouha HAROUDI | Collecte, OCR, nettoyage, extraction FR/AR, rapport | `src/collect/`, `src/structure/`, rapports | Fusionné |
+| Nouha HAROUDI | Collecte, OCR, nettoyage, extraction FR/AR, recherche BM25/E5, rapport | `src/collect/`, `src/structure/`, `src/search/`, rapports | Fusionné |
 | Hadil BOUKHALFA | Plan de corpus, index, échantillon | `corpus_index.csv`, `corpus_plan.md` | Fusionné |
-| Malak ALIOUAT | Découpage loi 90-11, corrections OCR | `split_loi_90_11.py`, `ocr_fix_map.csv` | Fusionné |
+| Malak ALIOUAT | Découpage loi 90-11, découpage généralisé, chunking | `split_loi_90_11.py`, `split_articles.py`, `chunk_texts.py` | Fusionné (PR #27) |
 | Rania Halima BENZERAFA | Questions 11–16, analyse hallucinations | `docs/week1/evaluation/` | Fusionné |
 | Malak BOUGOFFA | Retirée du groupe (18/11/2026) | — | Retrait confirmé par l'enseignant |
 
 ## 7. Limites
 
-1. **9 gazettes exploitées sur 18** — les 9 scannées (1988–1997) sont traitées ; les 9 numériques (2005–2022) ont le script prêt mais non exécuté.
-2. **Découpage limité à 90-11** — le script ne traite que la loi 90-11 (source WIPO), pas les 183 autres textes extraits.
-3. **Pas de recherche sémantique** — BM25, embeddings (E5) et FAISS ne sont pas commencés.
-4. **Pas de cache LLM** — les appels Groq ne sont pas mis en cache, pas de table d'erreurs par question.
-5. **CER arabe non reproductible** — 0,0250 (13/520 caractères), échantillon trop petit, non utilisé comme preuve.
+1. **Pas de recherche hybride** — BM25 et E5 testés séparément, pas encore combinés (fusion des scores).
+2. **Pas de cache LLM** — les appels Groq ne sont pas mis en cache, pas de table d'erreurs par question.
+3. **Q12 et Q14 échouent** — Q12 (تعديلات 91-29) : question méta non couverte par le contenu ; Q14 (loi 22-16) : absente du corpus.
 
 ## 8. Calendrier
 
@@ -126,7 +154,7 @@ Scripts écrits avec un agent de code (Claude Code), relus et testés par l'équ
 
 | Qui | Quoi |
 |-----|------|
-| Nouha HAROUDI | Exécuter `extract_text_pdfs.py` (PDF 2005–2022), re-extraction FR/AR, fusion finale |
-| Malak ALIOUAT | Généraliser le découpage à tous les textes, chunking pour embeddings, BM25 vs E5 |
-| Hadil BOUKHALFA | Vérification corpus après fusion, embeddings |
-| Rania Halima BENZERAFA | Cache LLM, table d'erreurs structurée, 5+ questions arabes obligatoires |
+| Nouha HAROUDI | Recherche hybride (BM25+E5), intégration RAG, interface Streamlit |
+| Malak ALIOUAT | Améliorer le découpage (regex edge cases), augmenter les chunks |
+| Hadil BOUKHALFA | Vérification corpus après fusion, ontologie minimale |
+| Rania Halima BENZERAFA | Cache LLM, table d'erreurs structurée, 5+ questions arabes (obligatoire) |
