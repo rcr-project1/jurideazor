@@ -146,13 +146,6 @@ La plateforme place la recherche sémantique en semaine 2. Notre choix : la sema
 
 ## 9. Usage de l'IA
 
-Scripts écrits avec un agent de code (Claude Code), relus et testés par l'équipe. Décisions juridiques et chiffres vérifiés manuellement.
+Scripts écrits avec un agent de code (open code),llm chatgpt et claude, relus et testés par l'équipe. Décisions juridiques et chiffres vérifiés manuellement.
 
-## 10. Prochaines étapes (semaine 3)
 
-| Qui | Quoi |
-|-----|------|
-| Nouha HAROUDI | Recherche hybride (BM25+E5), intégration RAG, interface Streamlit |
-| Malak ALIOUAT | Améliorer le découpage (regex edge cases), augmenter les chunks |
-| Hadil BOUKHALFA | Vérification corpus après fusion, ontologie minimale |
-| Rania Halima BENZERAFA | Cache LLM, table d'erreurs structurée, 5+ questions arabes (obligatoire) |
