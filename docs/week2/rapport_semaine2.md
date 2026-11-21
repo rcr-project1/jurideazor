@@ -121,10 +121,10 @@
 
 **Quoi :** test du modèle (gpt-oss-120b via Groq) sur 16 questions de droit du travail, sans contexte RAG.  
 **Pourquoi :** établir le baseline — mesurer les erreurs du LLM seul pour comparer après ajout du RAG.  
-**Résultat :** Q1–Q10 (FR), Q11–Q16 (AR + cross-domain). Analyse des hallucinations (articles inventés, confusions entre lois). Notebook d'expérimentation.  
-**Où :** `docs/week1/evaluation/` (3 fichiers).  
+**Résultat :** Q1–Q10 (FR), Q11–Q14 (AR), Q15–Q16 (hors-contexte). Analyse des hallucinations (articles inventés, confusions entre lois). Notebook d'expérimentation. Ces 16 questions sont réutilisées dans la comparaison BM25 vs E5 (§3.9).  
+**Où :** `docs/week1/evaluation/` (7 fichiers : questions, réponses attendues CSV, analyse, notebooks, réponses brutes LLM).  
 **Branches :** fusionnées (PR #24, #25, #26).  
-**Limite :** pas de cache, pas de table d'erreurs structurée, pas de Hit@3.
+**Limite :** pas de cache, pas de table d'erreurs structurée par question.  
 
 ## 6. Contributions
 
