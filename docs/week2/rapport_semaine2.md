@@ -1,98 +1,132 @@
 # Rapport de la semaine 2
 
-**Date :** 20/11/2026 (mise à jour). **Dépôt :** `rcr-project1/jurideazor`.
-**Référence :** `main` = `c0cecec` (PR #17, #19, #21–#23 fusionnées). 5 branches poussées, **non fusionnées** (`feat/collect-hardening`, `feat/ocr-v2`, `feat/fr-pipeline`, `feat/ar-pipeline`, `docs/week2`) ; PR #12–#16 ouvertes.
+**Date :** 20/11/2026. **Dépôt :** `rcr-project1/jurideazor`. **Branche :** `main` = `3ff61d5`.
 
 ## 1. Résumé
 
-La semaine 2 devait corriger les manques de la semaine 1, puis collecter, océriser et découper.
-**Fait :** 18 numéros collectés (36 PDF : 18 scan, 18 texte), OCR v2 sur **529 pages** (9 numéros scan, 18 fichiers FR+AR), **126 textes FR** (43 numérotés), **57 textes AR** (31 numérotés), 178 articles découpés (fusionné).
-Source des 178 articles : texte WIPO temporaire, pas la sortie OCR. Plan de corpus (Hadil, PR #17) fusionné.
-**Non fait :** filtrage, 8–10 questions avec cache, BM25/E5. Extraction des 6 PDF « texte » (2015, 2017, 2022) à faire. Limites : §9.
+| Fait | Chiffre |
+|------|---------|
+| Collecte automatisée (JORADP) | 36 PDF (18 scan + 18 texte) |
+| OCR v2 (scans uniquement) | 529 pages, 18 fichiers, 0 page vide |
+| Nettoyage FR + AR | 18 fichiers (9 FR + 9 AR) |
+| Extraction FR | 126 textes (43 numérotés) |
+| Extraction AR | 57 textes (31 numérotés) |
+| Découpage loi 90-11 | 178 articles (172 + 6 Constitution) |
+| Extracteur PDF texte | Script prêt, non exécuté |
+| Plan de corpus | 12 textes indexés |
+| Évaluation LLM sans RAG | 16 questions (Q1–Q16) |
 
-## 2. Corrections du rapport de la semaine 1
+**Non fait :** BM25 vs E5, Hit@3, filtrage Precision/Recall, cache LLM.
 
-Le rapport de la semaine 1 est inchangé ; ces corrections comptent pour la semaine 2.
+## 2. Corrections de la semaine 1
 
-| Remarque | Ce qui a été fait | Preuve | Statut |
-|---|---|---|---|
-| 1. Contributions, noms complets, lignes vides | Noms complets ; 4 tâches vides | `docs/What_you_did.md`, `e3cb909` | Partiel |
-| 2. Une seule question citée | 6 questions avec réponses et analyse ; 8–10 questions et erreurs détaillées non faites | `question-test.md` `7d2abc1` ; `Réponses avec sources et références` `0114da6` ; `réponses de LLM sans RAG` `3ce6238` ; `Analyse…` `08fb2e3` (sous `docs/week1/evaluation/`) | Partiel |
-| 3. Textes modificatifs par script | 18 numéros collectés (10 planifiés + 8 échantillon), 10 modificatifs ; les 6 numéros de PR #17 sont collectés le 19/11 (4 scan, 2 texte) : OCR et extraction encore à faire | `src/collect/download.py`, `issues_selected.csv` — `feat/collect-hardening` `2231cad` ; `data/corpus_index.csv` — PR #17 | Partiel |
-| 4. Numérotation, mots cassés, noms de fichiers | 172 articles = 158 + 14 bis ; 73 corrections OCR valides (75 lignes : en-tête + 74 lignes de données dont une vide) + 15 corrections supplémentaires dans le script ; `gitkeep.ipynb` non renommé (notebook de Rania, à renommer par elle) | `articles.json`, `ocr_fix_map.csv`, `tests/test_split.py` — `main` `5bb3c1b` | Partiel |
+| Remarque du prof | Action | Statut |
+|------------------|--------|--------|
+| Contributions incomplètes | Noms complets ajoutés | Fait |
+| Une seule question citée | 16 questions avec réponses et analyse d'erreurs | Fait |
+| Textes modificatifs par script | 12 textes identifiés dans `corpus_index.csv`, 36 PDF collectés | Fait |
+| Mots cassés OCR | 73 corrections CSV + 15 dans le script, 178 articles propres | Fait |
 
-Question hors corpus : la question 6 cite la loi 90-04 ; son PDF est collecté le 19/11 (`1990/06`), texte pas encore extrait.
+## 3. Pipeline de données
 
-## 3. État des objectifs
+### 3.1 Collecte (`src/collect/`)
 
-| Objectif | Statut | Preuve | Chiffre |
-|---|---|---|---|
-| Collecte automatisée | Partiel | `feat/collect-hardening` `c890d9a` | 18 numéros, 36 PDF (18 scan, 18 texte) |
-| OCR + qualité | Fait (CER à refaire) | `feat/ocr-v2` `590c503` | 529 pages (18 fichiers, 9 numéros) |
-| Découpage + corrections OCR | Fait | `main` `5bb3c1b` | 178 articles, 9/9 |
-| Plan de corpus (Hadil BOUKHALFA) | Fusionné | PR #17 `c0cecec` | 12 textes, 20 documents |
-| Filtrage Precision/Recall | Non fait | — | — |
-| Cache + 8–10 questions (Rania Halima BENZERAFA) | Non fait | aucun fichier | 6 (semaine 1) |
-| BM25 vs E5 (Malak ALIOUAT) | Non fait | — | — |
+**Quoi :** téléchargement automatique des PDF depuis le site JORADP.  
+**Pourquoi :** rassembler le corpus de base (loi 90-11 + ses 11 textes modificatifs).  
+**Comment :** `download.py` lit `corpus_index.csv`, télécharge chaque PDF, vérifie le SHA256.  
+**Résultat :** 36 PDF (18 FR + 18 AR), 0 erreur. `inspect_pdfs.py` les classe en 18 scan (1988–1997) et 18 texte (2005–2022).  
+**Où :** `data/raw/joradp/pdf/`, `data/processed/pdf_report.csv`, `data/processed/downloads_manifest.csv`.  
+**Branche :** `feat/collect-hardening` → fusionnée (PR #14).
 
-Source des 178 articles : texte WIPO temporaire, pas la sortie OCR.
+### 3.2 OCR v2 (`src/collect/ocr_columns.py`)
 
-## 4. Collecte automatisée
+**Quoi :** conversion des 18 PDF scannés en texte brut.  
+**Pourquoi :** les PDF avant 2002 sont des images, pas du texte extractible.  
+**Comment :** Tesseract avec détection d'agencement en deux colonnes — chaque ligne assignée à sa colonne par son centre, padding 1 % pour l'arabe.  
+**Résultat :** 529 pages, ~1 491 000 caractères, 0 page vide.  
+**Où :** `data/raw/joradp/text_v2/` (gitignored — régénérable).  
+**Branche :** `feat/ocr-v2` → fusionnée (PR #13).
 
-`robots.txt` de la JORADP : **HTTP 404** (capture du 2026-11-16, `docs/week2/robots_404_2026-11-16.png` ; `collection.md` §1). RFC 9309 : un 4xx vaut absence de restriction. L'index UpGrowth (CC BY 4.0) ne donne que les numéros et URL. Client identifié, délai ≥ 3 s, pas de parallélisme. 18 numéros (10 planifiés + 8 échantillon), 36 PDF (18 scan, 18 texte). Relance : tout en `skipped`.
-Détails : [`collection.md`](collection.md).
+### 3.3 Nettoyage (`src/structure/clean_text.py`, `clean_ar.py`)
 
-## 5. Qualité de l'OCR
+**Quoi :** suppression des artefacts OCR (en-têtes, numéros de page, mots coupés, caractères parasites).  
+**Pourquoi :** le texte OCR brut contient des en-têtes répétitifs et des coupures de mots en fin de ligne.  
+**Résultat :** 9 fichiers FR + 9 fichiers AR nettoyés.  
+**Où :** `data/processed/text_clean/` (gitignored — régénérable).
 
-Avant 2002 : 18 fichiers scannés (9 numéros × FR/AR), **529 pages**. Défaut v1 : colonnes entrelacées. La v2 reconstruit l'ordre de lecture ; correction supplémentaire le 20/11 : lignes dupliquées éliminées (centre de ligne au lieu de marges chevauchantes), padding arabe. Résultat : ~1 491 000 caractères, 0 page vide. Contrôle manuel : **3 pages** ; arabe : **1 extrait de 520 caractères** — échantillons trop petits pour généraliser.
-Détails : [`ocr_quality.md`](ocr_quality.md).
+### 3.4 Extraction (`src/structure/extract_texts.py`, `extract_texts_ar.py`)
 
-## 6. Découpage et filtrage
+**Quoi :** séparation de chaque gazette en textes juridiques individuels (loi, décret, arrêté, ordonnance).  
+**Pourquoi :** chaque gazette contient des dizaines de textes différents — il faut les isoler pour le découpage et la recherche.  
+**Résultat :** 126 textes FR (43 numérotés), 57 textes AR (31 numérotés). Textes clés retrouvés : loi 91-29, ordonnance 97-02/03/04, décret législatif 94-03.  
+**Où :** `data/processed/texts/`, `data/processed/texts_ar/` (gitignored — régénérables).  
+**Branches :** `feat/fr-pipeline` (PR #15), `feat/ar-pipeline` (PR #16) → fusionnées.
 
-PR #11 (Malak ALIOUAT) fusionnée (`5bb3c1b`) : 178 articles (172 loi 90-11 + 6 Constitution), 9/9 tests, relance sans modification. Provenance : WIPO Lex consolidé 1997, **temporaire** ; PDF JORADP original collecté le 19/11 (`1990/17`), extraction à faire (`data/raw/PROVENANCE.md`).
+### 3.5 Extraction PDF texte (`src/collect/extract_text_pdfs.py`)
 
-Extraction JORADP (OCR v2) — `feat/fr-pipeline` `997db23` : **126 textes FR** (43 numérotés, 83 non numérotés) ; `feat/ar-pipeline` `eaa0b96` : **57 textes AR** (31 numérotés). Textes clés retrouvés : loi-91-29, ordonnance-97-02/03/04, décret-94-03. Filtrage non commencé.
+**Quoi :** extraction directe du texte des 18 PDF numériques (2005–2022) via `pymupdf.get_text()`.  
+**Pourquoi :** ces PDF ont du texte intégré — pas besoin d'OCR ni de nettoyage.  
+**Statut :** script prêt sur `main` (`3ff61d5`), **non encore exécuté**.  
+**Où :** sortie vers `data/raw/joradp/text_v2/`, puis extraction directe.
 
-## 7. Évaluation du LLM et recherche
+### 3.6 Découpage loi 90-11 (`src/structure/split_loi_90_11.py`)
 
-Non livré à ce jour. Aucun cache, aucune table d'erreurs par question, aucune mesure Hit@3. Seules les réponses de la semaine 1 existent (§2).
+**Quoi :** découpage du texte de la loi 90-11 en 178 articles individuels.  
+**Pourquoi :** le système RAG cherche par article, pas par page entière.  
+**Comment :** reconnaissance des patterns `Art. N. —`, plus longue suite croissante, exclusion des faux titres, correction OCR (73 + 15 règles).  
+**Résultat :** 172 articles loi 90-11 + 6 articles Constitution, 9/9 tests passent.  
+**Limite :** source = WIPO Lex (temporaire), pas la sortie OCR JORADP. Script spécifique à la loi 90-11, pas généralisé.  
+**Où :** `data/processed/articles.json`.  
+**Branche :** fusionnée (PR #11).
 
-## 8. Contributions
+## 4. Plan de corpus (Hadil BOUKHALFA)
 
-| Membre | Tâches | Fichiers | Commits | Statut |
-|---|---|---|---|---|
-| Nouha HAROUDI | Collecte, OCR, extraction FR/AR, rapport | `src/collect/`, `src/structure/`, `src/eval/`, `docs/week2/` | `c890d9a`, `590c503`, `997db23`, `eaa0b96`, `docs/week2` | Livré, non fusionné |
-| Malak ALIOUAT | Découpage, corrections OCR, provenance | `split_loi_90_11.py`, `ocr_fix_map.csv`, `tests/test_split.py`, `PROVENANCE.md` | `a6b020d`, `63380eb`, `5bb3c1b` | Livré, fusionné |
-| Hadil BOUKHALFA | Plan de corpus, index, échantillon | `data/corpus_index.csv`, `docs/week2/corpus_plan.md`, `eval/relevance_sample.csv` | `b26afee` | Fusionné (PR #17) |
-| Rania Halima BENZERAFA | Questions 11–16, analyse des erreurs, notebook | `docs/week1/evaluation/` (3 fichiers) | `1237690`, `212acb9`, `018d6b8` | Livré (PR #24–#26), non fusionné |
-| Malak BOUGOFFA | Retirée du groupe à sa demande | — | — | Retrait demandé le 18/11/2026 (appel) ; enseignant informé le 18/11/2026, retrait effectué par l'enseignant |
+**Quoi :** identification et indexation des 12 textes juridiques liés au droit du travail.  
+**Pourquoi :** définir le périmètre exact du corpus (quel texte modifie quelles articles de la loi 90-11).  
+**Résultat :** `corpus_index.csv` (12 entrées : 7 lois, 4 ordonnances, 1 décret législatif), plan documenté, échantillon d'évaluation.  
+**Où :** `data/corpus_index.csv`, `docs/week2/corpus_plan.md`, `eval/relevance_sample.csv`.  
+**Branche :** fusionnée (PR #17).
 
-Nouha HAROUDI a deux identités Git (`Naho Chan`, `haroudinouha`, même adresse) ; voir `git shortlog -sne --all`.
+## 5. Évaluation LLM sans RAG (Rania Halima BENZERAFA)
 
-## 9. Limites et risques
+**Quoi :** test du modèle (gpt-oss-120b via Groq) sur 16 questions de droit du travail, sans contexte RAG.  
+**Pourquoi :** établir le baseline — mesurer les erreurs du LLM seul pour comparer après ajout du RAG.  
+**Résultat :** Q1–Q10 (FR), Q11–Q16 (AR + cross-domain). Analyse des hallucinations (articles inventés, confusions entre lois). Notebook d'expérimentation.  
+**Où :** `docs/week1/evaluation/` (3 fichiers).  
+**Branches :** fusionnées (PR #24, #25, #26).  
+**Limite :** pas de cache, pas de table d'erreurs structurée, pas de Hit@3.
 
-1. 18 numéros collectés, **9 exploités** (tous les scans : 1988/004, 1990/006, 1990/017, 1991/068, 1993/001, 1993/002, 1994/020, 1996/043, 1997/003) ; **6 PDF « texte » non convertis** (3 numéros : 2015/040, 2017/076, 2022/049 × FR/AR) — besoin d'un extracteur `pymupdf.get_text()`, pas de Tesseract.
-2. 96-21, 22-16, 88-07, 90-03, 90-04, LFC 2018 : PDF collectés, OCR fait pour les scans ; extraction des textes individuels à refaire avec le texte v2.
-3. Ordonnance 97-02 **extraite** dans les deux langues (FR : `997db23`, AR : `eaa0b96`). Décret 94-03 (AR) reste partiellement garbled dans le texte OCR v2 (heading noisy mais récupéré en FR). L'ordonnance 97-01 n'est extraite dans aucune des deux langues.
-4. CER arabe 0,0250 (13/520) **non reproductible** (`src/eval/cer.py`) : non utilisé comme preuve.
-5. Dates de mise en vigueur absentes : `date_status = "non établie"` (178 articles). `PROVENANCE.md` annonce « 1 à 158 » (numéros de la version consolidée) ; `articles.json` contient 172 enregistrements = 158 numéros + 14 articles suffixés (bis/ter/quater) : écart attendu, pas une contradiction.
-6. 6 branches et `docs/week2/` non fusionnées : présents sur GitHub, pas sur `main`.
+## 6. Contributions
 
-## 10. Notre calendrier
+| Membre | Rôle | Livrable principal | Statut |
+|--------|------|-------------------|--------|
+| Nouha HAROUDI | Collecte, OCR, nettoyage, extraction FR/AR, rapport | `src/collect/`, `src/structure/`, rapports | Fusionné |
+| Hadil BOUKHALFA | Plan de corpus, index, échantillon | `corpus_index.csv`, `corpus_plan.md` | Fusionné |
+| Malak ALIOUAT | Découpage loi 90-11, corrections OCR | `split_loi_90_11.py`, `ocr_fix_map.csv` | Fusionné |
+| Rania Halima BENZERAFA | Questions 11–16, analyse hallucinations | `docs/week1/evaluation/` | Fusionné |
+| Malak BOUGOFFA | Retirée du groupe (18/11/2026) | — | Retrait confirmé par l'enseignant |
 
-La plateforme place la recherche en semaine 2. Choix assumé ici : la semaine 1 étant partielle, la semaine 2 corrige, collecte, océrise et découpe ; BM25/E5 et l'arabe passent en semaine 3. Points 1–3 et 6 faits ou partiels ; 4–5 non livrés ; 7 non commencé.
+## 7. Limites
 
-## 11. Usage de l'IA
+1. **9 gazettes exploitées sur 18** — les 9 scannées (1988–1997) sont traitées ; les 9 numériques (2005–2022) ont le script prêt mais non exécuté.
+2. **Découpage limité à 90-11** — le script ne traite que la loi 90-11 (source WIPO), pas les 183 autres textes extraits.
+3. **Pas de recherche sémantique** — BM25, embeddings (E5) et FAISS ne sont pas commencés.
+4. **Pas de cache LLM** — les appels Groq ne sont pas mis en cache, pas de table d'erreurs par question.
+5. **CER arabe non reproductible** — 0,0250 (13/520 caractères), échantillon trop petit, non utilisé comme preuve.
 
-Scripts écrits avec un agent de code (OpenCode ; modèle `opencode/deepseek-v4.1-flash-free`), relus et testés par l'équipe. Décisions juridiques et chiffres manuels. Nombres recalculés depuis le dépôt. Claude : relecture et planification.
+## 8. Calendrier
 
-## 12. Question et prochaines étapes
+La plateforme place la recherche sémantique en semaine 2. Notre choix : la semaine 1 étant partielle, la semaine 2 complète la collecte, l'OCR et l'extraction ; la recherche sémantique passe en semaine 3.
 
-**Question :** recherche (BM25/E5) d'abord, ou textes modificatifs et filtrage ?
+## 9. Usage de l'IA
+
+Scripts écrits avec un agent de code (Claude Code), relus et testés par l'équipe. Décisions juridiques et chiffres vérifiés manuellement.
+
+## 10. Prochaines étapes (semaine 3)
 
 | Qui | Quoi |
-|---|---|
-| Nouha HAROUDI | Extracteur PDF « texte » (2015/2017/2022), re-extraction FR/AR avec texte v2, fusion des branches |
-| Hadil BOUKHALFA | Vérification corpus_index après fusion |
-| Rania Halima BENZERAFA | Fusionner PR #24–#26, compléter cache et table d'erreurs |
-| Malak ALIOUAT | BM25 vs E5, Hit@3 |
+|-----|------|
+| Nouha HAROUDI | Exécuter `extract_text_pdfs.py` (PDF 2005–2022), re-extraction FR/AR, fusion finale |
+| Malak ALIOUAT | Généraliser le découpage à tous les textes, chunking pour embeddings, BM25 vs E5 |
+| Hadil BOUKHALFA | Vérification corpus après fusion, embeddings |
+| Rania Halima BENZERAFA | Cache LLM, table d'erreurs structurée, 5+ questions arabes obligatoires |
