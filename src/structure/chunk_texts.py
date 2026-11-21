@@ -57,15 +57,19 @@ def split_long_text(content: str, max_words: int = MAX_WORDS) -> list[str]:
     return chunks
 
 
+
 def make_chunks(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
     chunks: list[dict[str, Any]] = []
+    used_ids: set[str] = set()
+
     for record in records:
         content = str(record.get("content") or "").strip()
         if not content:
             continue
 
         article = record.get("article")
-        # Numbered articles remain intact: legal context must not be separated.
+
+        # Numbered articles remain intact.
         if article not in (None, "", "preambule"):
             pieces = [content]
         elif len(content.split()) <= MAX_WORDS:
@@ -73,11 +77,29 @@ def make_chunks(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
         else:
             pieces = split_long_text(content)
 
-        source_stem = Path(str(record.get("source_file", "text"))).stem
-        article_part = slug(article) if article not in (None, "") else "full"
+        source_stem = Path(
+            str(record.get("source_file", "text"))
+        ).stem
+
+        lang = str(record.get("lang") or "xx").strip().lower()
+        article_part = (
+            slug(article) if article not in (None, "") else "full"
+        )
+
         for index, piece in enumerate(pieces, start=1):
             suffix = f"_part_{index}" if len(pieces) > 1 else ""
-            chunk_id = f"{slug(source_stem)}_{article_part}{suffix}"
+
+            base_id = f"{lang}_{slug(source_stem)}_{article_part}{suffix}"
+            chunk_id = base_id
+
+            # Guarantee global uniqueness, even if an article number repeats.
+            duplicate_index = 2
+            while chunk_id in used_ids:
+                chunk_id = f"{base_id}_dup_{duplicate_index}"
+                duplicate_index += 1
+
+            used_ids.add(chunk_id)
+
             chunks.append({
                 "chunk_id": chunk_id,
                 "source_file": record.get("source_file"),
@@ -88,6 +110,7 @@ def make_chunks(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 "content": piece,
                 "char_count": len(piece),
             })
+
     return chunks
 
 

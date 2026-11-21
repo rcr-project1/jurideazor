@@ -25,15 +25,14 @@ OUT_CSV = DATA / "split_report.csv"
 # treating references such as "l'article 33" inside a paragraph as headings.
 ART_FR = re.compile(
     r"^[ \t]*(Art(?:icle)?\.?[ \t]*)"
-    r"(1er|ler|\d+(?:-\d+)?)"
+    r"(1er|ler|\d+(?:-\d+)?(?:[ \t]*(?:bis|ter|quater))?)"
     r"(?:°|º)?"
-    r"(?:[ \t]*(?:bis|ter|quater))?"
     r"[ \t]*[.:]?[ \t]*[-–—:][ \t]*(.*)$",
     re.IGNORECASE | re.MULTILINE,
 )
 
 AR_NUMBER = (
-    r"\d+(?:-\d+)?|[٠-٩]+(?:-[٠-٩]+)?|"
+    r"\d+(?:\s*-\s*\d+)?|[٠-٩]+(?:\s*-\s*[٠-٩]+)?|"
     r"الأولى|الاولى|الأول|الاول|الثانية|الثالثة|الرابعة|"
     r"الخامسة|السادسة|السابعة|الثامنة|التاسعة|العاشرة"
 )
@@ -54,12 +53,21 @@ AR_ORDINALS = {
 
 def normalize_article_number(number: str, lang: str) -> str:
     number = number.strip()
-    if lang == "fr" and number.lower() in {"1er", "ler"}:
-        return "1"
-    if lang == "ar":
-        return AR_ORDINALS.get(number, number.translate(ARABIC_DIGITS))
-    return number
 
+    if lang == "fr":
+        if number.lower() in {"1er", "ler"}:
+            return "1"
+        return re.sub(r"\s+", "", number).lower()
+
+    if lang == "ar":
+        result = AR_ORDINALS.get(
+            number,
+            number.translate(ARABIC_DIGITS)
+        )
+        result = re.sub(r"\s*-\s*", "-", result)
+        return result
+
+    return number
 
 def split_file(path: Path, lang: str) -> list[dict]:
     """Split one file; preserve full text when no article headings are found."""

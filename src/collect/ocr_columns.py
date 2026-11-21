@@ -31,6 +31,7 @@ import numpy as np
 import pandas as pd
 import pymupdf
 import pytesseract
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[2]
