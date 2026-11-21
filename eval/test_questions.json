@@ -1,0 +1,114 @@
+[
+  {
+    "question": "Quelle est la durée légale normale du travail en Algérie ?",
+    "lang": "fr",
+    "expected_article": "Art. 22",
+    "expected_law": "loi-90-11",
+    "source": "Q1 Rania"
+  },
+  {
+    "question": "Dans quelles conditions l'employeur peut-il recourir aux heures supplémentaires ? Quel est le taux minimal de majoration applicable ?",
+    "lang": "fr",
+    "expected_article": "Art. 26",
+    "expected_law": "loi-90-11",
+    "source": "Q2 Rania"
+  },
+  {
+    "question": "Quelles sont les obligations de l'employeur en matière d'hygiène, de sécurité et de mise à disposition des équipements de protection individuelle ?",
+    "lang": "fr",
+    "expected_article": "Art. 5 / Art. 3",
+    "expected_law": "loi-90-11, loi-88-07",
+    "source": "Q3 Rania"
+  },
+  {
+    "question": "Quelles sont les missions et les pouvoirs de l'inspection du travail lorsqu'un salarié signale des infractions à la législation du travail ?",
+    "lang": "fr",
+    "expected_article": "Art. 136 / Art. 1",
+    "expected_law": "loi-90-11, loi-90-03",
+    "source": "Q4 Rania"
+  },
+  {
+    "question": "Dans quelles conditions un employeur peut-il licencier un salarié pour faute grave ? Quelles garanties et procédures doivent être respectées ?",
+    "lang": "fr",
+    "expected_article": "Art. 73",
+    "expected_law": "loi-90-11",
+    "source": "Q5 Rania"
+  },
+  {
+    "question": "Quelle procédure doit suivre un salarié pour contester son licenciement et résoudre un conflit individuel du travail ?",
+    "lang": "fr",
+    "expected_article": "Art. 20",
+    "expected_law": "loi-90-04",
+    "source": "Q6 Rania"
+  },
+  {
+    "question": "Un contrat de travail est-il valable lorsqu'il n'est pas établi par écrit ?",
+    "lang": "fr",
+    "expected_article": "Art. 8",
+    "expected_law": "loi-90-11",
+    "source": "Q7 Rania"
+  },
+  {
+    "question": "L'employeur peut-il recourir librement au contrat de travail à durée déterminée en Algérie ? Dans quels cas la législation autorise-t-elle le recours à ce type de contrat ?",
+    "lang": "fr",
+    "expected_article": "Art. 12",
+    "expected_law": "loi-90-11",
+    "source": "Q8 Rania"
+  },
+  {
+    "question": "Un salarié peut-il bénéficier d'un congé annuel rémunéré en Algérie, et comment sa durée est-elle calculée selon la législation du travail ?",
+    "lang": "fr",
+    "expected_article": "Art. 40",
+    "expected_law": "loi-90-11",
+    "source": "Q9 Rania"
+  },
+  {
+    "question": "L'employeur peut-il modifier unilatéralement les clauses essentielles du contrat de travail ? Quelles sont les limites juridiques de son pouvoir de modification et quels sont les droits du salarié ?",
+    "lang": "fr",
+    "expected_article": "Art. 63",
+    "expected_law": "loi-90-11",
+    "source": "Q10 Rania"
+  },
+  {
+    "question": "ما هو القانون الأساسي الذي ينظم علاقات العمل في الجزائر، ومتى صدر؟",
+    "lang": "ar",
+    "expected_article": "المادة 1",
+    "expected_law": "loi-90-11",
+    "source": "Q11 Rania"
+  },
+  {
+    "question": "ما التعديلات التي أدخلها القانون رقم 91-29 على القانون 90-11؟",
+    "lang": "ar",
+    "expected_article": "المادة 73",
+    "expected_law": "loi-91-29",
+    "source": "Q12 Rania"
+  },
+  {
+    "question": "ما أثر الأمر رقم 97-03 على مدة العمل الأسبوعية والمواد من 22 إلى 26 من القانون 90-11؟",
+    "lang": "ar",
+    "expected_article": "المادة 22",
+    "expected_law": "ordonnance-97-03",
+    "source": "Q13 Rania"
+  },
+  {
+    "question": "ما المواد التي أضافها القانون رقم 22-16 إلى القانون 90-11، وما الموضوع الذي تتناوله؟",
+    "lang": "ar",
+    "expected_article": "",
+    "expected_law": "loi-22-16",
+    "source": "Q14 Rania"
+  },
+  {
+    "question": "Quel est l'objectif principal de l'assurance automobile obligatoire ?",
+    "lang": "fr",
+    "expected_article": "",
+    "expected_law": "__HORS_CONTEXTE__",
+    "source": "Q15 Rania (hors contexte)"
+  },
+  {
+    "question": "Quel est l'âge légal minimum pour se marier en Algérie selon le Code de la famille ?",
+    "lang": "fr",
+    "expected_article": "",
+    "expected_law": "__HORS_CONTEXTE__",
+    "source": "Q16 Rania (hors contexte)"
+  }
+]
