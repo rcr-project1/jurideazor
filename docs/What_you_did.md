@@ -67,7 +67,7 @@ Cette analyse permet d'évaluer la capacité du LLM à répondre aux questions j
 
 Enfin, j'ai rectifié et mis à jour le fichier README.md afin de refléter les modifications apportées, les nouveaux fichiers ajoutés et les différentes étapes de l'expérimentation.
 - **Malak BOUGOFFA:** 
-- **Malak ALIOUAT:** 
+- **Malak ALIOUAT:** Généralisation du découpage des textes juridiques en français et en arabe (Splitting), génération des chunks, gestion des métadonnées et des identifiants uniques, ainsi que tests et vérification des résultats.
 
 ---
 
