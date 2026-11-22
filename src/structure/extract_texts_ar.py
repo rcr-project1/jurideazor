@@ -44,7 +44,7 @@ LOOSE = re.compile(
     rf"(?:رقم\s*\d|\d{{1,3}}\s*[-–—]\s*\d{{1,3}}|م[ؤو][^\n]{{0,4}}?خ)",
     re.M,
 )
-ARTICLE = re.compile(r"الماد[ةه]")
+ARTICLE = re.compile(rf"الماد{DIACRITICS}[ةه]")
 TRAILING_JUNK = re.compile(r"[\.\s،؛:—–\-|]{3,}$")
 
 TYPES = {
