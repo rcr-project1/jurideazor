@@ -77,9 +77,9 @@
     "source": "Q11 Rania"
   },
   {
-    "question": "ما الأحكام التي أضافها الأمر رقم 97-02 إلى القانون رقم 90-11 والمتعلقة بتعويض العطلة السنوية؟",
+    "question": "كيف يُحسب تعويض العطلة السنوية المدفوعة الأجر في تشريع العمل الجزائري، وما هي الحالات التي يُستحق فيها؟",
     "lang": "ar",
-    "expected_article": "Articles 52 bis, 52 ter et 52 quater",
+    "expected_article": "Articles 52,52 bis, 52 ter et 52 quater",
     "expected_law": "Loi n° 90-11 du 21 avril 1990, complétée par l’ordonnance n° 97-02 du 11 janvier 1997",
     "source": "Q12 Rania"
   },
