@@ -4,6 +4,11 @@ These PDFs have embedded text — no OCR needed. We call page.get_text()
 and write to text_v2/ in the same layout as ocr_columns.py so the
 cleaning and extraction pipeline picks them up automatically.
 
+For Arabic PDFs, pymupdf extracts digits in descending x-order (RTL)
+instead of ascending (LTR), reversing multi-digit numbers embedded in
+Arabic text.  We detect this per digit-run using character x-positions
+from rawdict mode, and reverse only the corrupted runs.
+
 Outputs:
     data/raw/joradp/text_v2/<lang>/<year>/<stem>.txt
 
@@ -28,6 +33,59 @@ OUT_ROOT = RAW / "text_v2"
 MIN_SKIP_BYTES = 2000
 
 
+def _is_digit(ch: str) -> bool:
+    return ch.isdigit() or "٠" <= ch <= "٩"
+
+
+def _extract_ar_page(page) -> str:
+    """Extract one Arabic page, reversing descending-x digit runs."""
+    raw = page.get_text("rawdict")
+    block_texts: list[str] = []
+
+    for block in raw["blocks"]:
+        if block["type"] != 0:
+            continue
+
+        chars: list[tuple[str, float]] = []
+        for line in block["lines"]:
+            for span in line["spans"]:
+                for ch in span.get("chars", []):
+                    chars.append((ch["c"], ch["bbox"][0]))
+
+        if not chars:
+            continue
+
+        result: list[str] = []
+        i = 0
+        n = len(chars)
+
+        while i < n:
+            c, x = chars[i]
+            if _is_digit(c):
+                run: list[tuple[str, float]] = [(c, x)]
+                i += 1
+                while i < n and _is_digit(chars[i][0]):
+                    run.append(chars[i])
+                    i += 1
+                if len(run) >= 2:
+                    xs = [r[1] for r in run]
+                    if all(xs[j] >= xs[j + 1] for j in range(len(xs) - 1)):
+                        result.extend(c for c, _ in reversed(run))
+                    else:
+                        result.extend(c for c, _ in run)
+                else:
+                    result.append(c)
+            else:
+                result.append(c)
+                i += 1
+
+        text = "".join(result).strip()
+        if text:
+            block_texts.append(text)
+
+    return "\n".join(block_texts)
+
+
 def extract_file(lang: str, year: int, file: str, *,
                  out_root: Path = OUT_ROOT, force: bool = False) -> tuple[int, int, str, float]:
     src = RAW / "pdf" / lang / str(year) / file
@@ -41,7 +99,10 @@ def extract_file(lang: str, year: int, file: str, *,
 
     with pymupdf.open(src) as doc:
         for page in doc:
-            text = page.get_text()
+            if lang == "ar":
+                text = _extract_ar_page(page)
+            else:
+                text = page.get_text()
             pages_text.append(text)
 
     full_text = "\n".join(pages_text)

@@ -70,45 +70,143 @@
     "source": "Q10 Rania"
   },
   {
+    "question": "Dans quelles conditions les travailleurs peuvent-ils déclencher une grève ?",
+    "lang": "fr",
+    "expected_article": "Art. 22-28",
+    "expected_law": "loi-90-02",
+    "source": "Q11 new"
+  },
+  {
+    "question": "Quels services doivent être maintenus pendant une grève dans les services publics essentiels ?",
+    "lang": "fr",
+    "expected_article": "Art. 37-38",
+    "expected_law": "loi-90-02",
+    "source": "Q12 new"
+  },
+  {
+    "question": "Quelles sont les obligations de l'employeur en matière de médecine du travail ?",
+    "lang": "fr",
+    "expected_article": "Art. 12",
+    "expected_law": "loi-88-07",
+    "source": "Q13 new"
+  },
+  {
+    "question": "Quels sont les motifs légaux de cessation de la relation de travail ?",
+    "lang": "fr",
+    "expected_article": "Art. 66",
+    "expected_law": "loi-90-11",
+    "source": "Q14 new"
+  },
+  {
+    "question": "Qu'est-ce qu'une convention collective et quel est son rôle dans la réglementation des conditions de travail ?",
+    "lang": "fr",
+    "expected_article": "Art. 114",
+    "expected_law": "loi-90-11",
+    "source": "Q15 new"
+  },
+  {
+    "question": "Quelles sont les règles régissant les zones franches en Algérie ?",
+    "lang": "fr",
+    "expected_article": "Art. 2",
+    "expected_law": "loi-22-15",
+    "source": "Q16 new"
+  },
+  {
     "question": "ما هو القانون الأساسي الذي ينظم علاقات العمل في الجزائر، ومتى صدر؟",
     "lang": "ar",
     "expected_article": "المادة 1",
     "expected_law": "loi-90-11",
-    "source": "Q11 Rania"
+    "source": "Q17 Rania (was Q11)"
   },
   {
-    "question": "كيف يُحسب تعويض العطلة السنوية المدفوعة الأجر في تشريع العمل الجزائري، وما هي الحالات التي يُستحق فيها؟",
+    "question": "ما التعديلات التي أدخلها القانون رقم 91-29 على القانون 90-11؟",
     "lang": "ar",
-    "expected_article": "Articles 52,52 bis, 52 ter et 52 quater",
-    "expected_law": "Loi n° 90-11 du 21 avril 1990, complétée par l’ordonnance n° 97-02 du 11 janvier 1997",
-    "source": "Q12 Rania"
+    "expected_article": "المادة 73",
+    "expected_law": "loi-91-29",
+    "source": "Q18 Rania (was Q12)"
   },
   {
     "question": "ما أثر الأمر رقم 97-03 على مدة العمل الأسبوعية والمواد من 22 إلى 26 من القانون 90-11؟",
     "lang": "ar",
     "expected_article": "المادة 22",
     "expected_law": "ordonnance-97-03",
-    "source": "Q13 Rania"
+    "source": "Q19 Rania (was Q13)"
   },
   {
     "question": "ما المواد التي أضافها القانون رقم 22-16 إلى القانون 90-11، وما الموضوع الذي تتناوله؟",
     "lang": "ar",
     "expected_article": "",
     "expected_law": "loi-22-16",
-    "source": "Q14 Rania"
+    "source": "Q20 Rania (was Q14)"
+  },
+  {
+    "question": "ما هي حقوق العامل في حالة التسريح التعسفي؟",
+    "lang": "ar",
+    "expected_article": "المادة 73",
+    "expected_law": "loi-90-11",
+    "source": "Q21 new"
+  },
+  {
+    "question": "ما هي شروط ممارسة حق الإضراب في الجزائر؟",
+    "lang": "ar",
+    "expected_article": "المادة 28",
+    "expected_law": "loi-90-02",
+    "source": "Q22 new"
+  },
+  {
+    "question": "ما هي الحقوق الأساسية للعامل في إطار علاقة العمل؟",
+    "lang": "ar",
+    "expected_article": "المادة 6",
+    "expected_law": "loi-90-11",
+    "source": "Q23 new"
+  },
+  {
+    "question": "ما هي مدة العمل القانونية الأسبوعية في الجزائر؟",
+    "lang": "ar",
+    "expected_article": "المادة 22",
+    "expected_law": "loi-90-11",
+    "source": "Q24 new"
+  },
+  {
+    "question": "ما هو القانون الذي ينظم المناطق الحرة في الجزائر؟",
+    "lang": "ar",
+    "expected_article": "",
+    "expected_law": "loi-22-15",
+    "source": "Q25 new"
+  },
+  {
+    "question": "ما هي مهام مفتشية العمل واختصاصاتها؟",
+    "lang": "ar",
+    "expected_article": "المادة 1-2",
+    "expected_law": "loi-90-03",
+    "source": "Q26 new"
   },
   {
     "question": "Quel est l'objectif principal de l'assurance automobile obligatoire ?",
     "lang": "fr",
     "expected_article": "",
     "expected_law": "__HORS_CONTEXTE__",
-    "source": "Q15 Rania (hors contexte)"
+    "source": "Q27 Rania (hors contexte, was Q15)"
   },
   {
     "question": "Quel est l'âge légal minimum pour se marier en Algérie selon le Code de la famille ?",
     "lang": "fr",
     "expected_article": "",
     "expected_law": "__HORS_CONTEXTE__",
-    "source": "Q16 Rania (hors contexte)"
+    "source": "Q28 Rania (hors contexte, was Q16)"
+  },
+  {
+    "question": "ما هي شروط الحصول على الجنسية الجزائرية؟",
+    "lang": "ar",
+    "expected_article": "",
+    "expected_law": "__HORS_CONTEXTE__",
+    "source": "Q29 new (hors contexte)"
+  },
+  {
+    "question": "ما هو الحد الأدنى لرأس المال المطلوب لتأسيس شركة ذات مسؤولية محدودة في الجزائر؟",
+    "lang": "ar",
+    "expected_article": "",
+    "expected_law": "__HORS_CONTEXTE__",
+    "source": "Q30 new (hors contexte)"
   }
 ]

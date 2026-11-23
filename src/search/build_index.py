@@ -67,7 +67,9 @@ def build_e5_index(
 
 def tokenize(text: str) -> list[str]:
     import re
-    return re.findall(r"\w+(?:'\w+)?", text.lower())
+    text = re.sub(r"(\d+)\s*[-–—]\s*(\d+)", r"\1-\2", text.lower())
+    return re.findall(r"\w+(?:[-']\w+)*", text)
+
 
 
 def build_bm25_index(chunks: list[dict]) -> tuple[BM25Okapi, list[list[str]]]:
