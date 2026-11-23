@@ -11,6 +11,7 @@ The full text metadata and links are recorded in `data/corpus_index.csv`.
 - `rank` records the text's level in the legal hierarchy: 1 = Constitution; 2 = law, ordinance, or legislative decree; 3 = decree; 4 = order; 5 = circular. Law 90-11 and Legislative Decree 94-03 are both assigned rank 2 because a legislative decree has the force of law.
 - `status` records whether the text's identity and source have been checked. Use `verified` only after opening the link and checking the text's number, title, and date. Checking whether the provisions relevant to the Ahmed case have been read is a separate task and should be recorded separately.
 - `relation` describes how a text relates to another legal text. Use `standalone` for supporting texts that do not amend Law 90-11, including L-88-07, L-90-03, and L-90-04. Leave `target_articles` empty for these texts.
+
 ## 1. Base law and related texts
 
 | Text ID | Text | Date | Official Gazette | Relationship and target articles | Status |
@@ -34,6 +35,10 @@ The following four texts must be collected into `data/raw` so the system can ret
 | 90-03, Labour Inspection | Law | 1990-02-06 | No. 6, 1990 | https://www.joradp.dz/FTP/Jo-Francais/1990/F1990006.pdf | https://www.joradp.dz/FTP/Jo-Arabe/1990/A1990006.pdf | Standalone supporting law; no amendment relationship to Law 90-11. Relevant provisions for Ahmed still need to be checked in the official text. | verified |
 | 90-04, settlement of individual labour disputes | Law | 1990-02-06 | No. 6, 1990 | https://www.joradp.dz/FTP/Jo-Francais/1990/F1990006.pdf | https://www.joradp.dz/FTP/Jo-Arabe/1990/A1990006.pdf | Standalone supporting law; no amendment relationship to Law 90-11. Relevant provisions for Ahmed still need to be checked in the official text. | verified |
 | 17-11, Finance Law for 2018 | Law | 2017-12-27 | No. 76, 2017 | https://www.joradp.dz/FTP/jo-francais/2017/F2017076.pdf | https://www.joradp.dz/FTP/jo-arabe/2017/A2017076.pdf | Article 98 modifies Articles 37-39 of Law 88-07. Article 99 modifies and completes several penalty articles in Law 90-11, including Articles 143 and 143 bis. | verified |
+
+### Corpus perimeter
+
+The `within_scope` field indicates whether a text belongs to the project's legal corpus on Law 90-11. Use `yes` for Law 90-11 itself and for texts that amend, supplement, repeal, or implement it. Use `no` for supporting labor-law texts that are relevant to the case but do not directly modify or implement Law 90-11.
 
 
 
