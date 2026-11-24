@@ -1,0 +1,1603 @@
+[
+  {
+    "article": "73",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Encadrement du licenciement disciplinaire en cas de faute grave, selon les conditions prévues par la loi et le règlement intérieur.",
+        "summary_ar": "تنظيم التسريح التأديبي في حالة ارتكاب خطأ جسيم وفق الشروط المحددة في القانون والنظام الداخلي."
+      },
+      {
+        "version": 2,
+        "date": "1991-12-21",
+        "source": "loi-91-29",
+        "source_article": "2",
+        "action": "modified",
+        "summary_fr": "Réécriture de l'article : définition du licenciement disciplinaire pour faute grave et énumération de faits pouvant justifier un licenciement sans préavis ni indemnité, notamment le refus injustifié d'exécuter les instructions professionnelles, la divulgation d'informations professionnelles, la participation à un arrêt collectif illégal, la violence, les dégradations intentionnelles, le refus d'une réquisition légale et la consommation d'alcool ou de drogue sur le lieu de travail.",
+        "summary_ar": "إعادة صياغة المادة: تحديد التسريح التأديبي بسبب الخطأ الجسيم وذكر أفعال يمكن أن تبرر التسريح دون مهلة إخطار أو تعويض، مثل رفض تنفيذ التعليمات المهنية دون مبرر، وإفشاء المعلومات المهنية، والمشاركة في توقف جماعي غير قانوني، والعنف، والإضرار المتعمد بالممتلكات، ورفض تنفيذ تسخير قانوني، واستهلاك الكحول أو المخدرات في مكان العمل."
+      }
+    ]
+  },
+  {
+    "article": "73-1",
+    "law": "90-11",
+    "current_status": "in_force",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1991-12-21",
+        "source": "loi-91-29",
+        "source_article": "3",
+        "action": "added",
+        "summary_fr": "La qualification de la faute grave tient notamment compte des circonstances de sa survenance, de son étendue et de sa gravité, du préjudice causé et de la conduite antérieure du travailleur envers le patrimoine de l'organisme employeur.",
+        "summary_ar": "عند تحديد الخطأ الجسيم وتكييفه، تؤخذ بعين الاعتبار ظروف وقوعه ومداه وخطورته والضرر الناتج عنه وسلوك العامل السابق تجاه ممتلكات المؤسسة المستخدمة."
+      }
+    ]
+  },
+  {
+    "article": "73-2",
+    "law": "90-11",
+    "current_status": "in_force",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1991-12-21",
+        "source": "loi-91-29",
+        "source_article": "3",
+        "action": "added",
+        "summary_fr": "Le licenciement disciplinaire doit respecter les procédures du règlement intérieur, notamment la notification écrite de la décision et l'audition du travailleur, qui peut se faire assister par un autre travailleur de son choix appartenant à l'organisme employeur.",
+        "summary_ar": "يجب أن يحترم التسريح التأديبي إجراءات النظام الداخلي، ولا سيما التبليغ الكتابي بقرار التسريح والاستماع إلى العامل، مع حقه في الاستعانة بعامل آخر يختاره من المؤسسة المستخدمة."
+      }
+    ]
+  },
+  {
+    "article": "73-3",
+    "law": "90-11",
+    "current_status": "in_force",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1991-12-21",
+        "source": "loi-91-29",
+        "source_article": "3",
+        "action": "added",
+        "summary_fr": "Tout licenciement individuel intervenu en violation des dispositions de la loi est présumé abusif, à charge pour l'employeur d'apporter la preuve du contraire.",
+        "summary_ar": "يُفترض أن كل تسريح فردي يتم بالمخالفة لأحكام القانون تعسفي، ويقع على عاتق صاحب العمل إثبات العكس."
+      }
+    ]
+  },
+  {
+    "article": "73-4",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1991-12-21",
+        "source": "loi-91-29",
+        "source_article": "3",
+        "action": "added",
+        "summary_fr": "En cas de licenciement présumé abusif ou effectué en violation des procédures légales ou conventionnelles obligatoires, le travailleur peut demander devant la juridiction compétente l'annulation de la décision et/ou des dommages-intérêts.",
+        "summary_ar": "في حالة التسريح المفترض تعسفياً أو المنفذ بالمخالفة للإجراءات القانونية أو الاتفاقية الإلزامية، يمكن للعامل طلب إلغاء قرار التسريح و/أو الحصول على تعويض عن الضرر أمام الجهة القضائية المختصة."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "9",
+        "action": "modified",
+        "summary_fr": "En cas de violation des procédures obligatoires, le tribunal annule la décision, impose à l'employeur d'accomplir la procédure et accorde une compensation au moins égale au salaire que le travailleur aurait perçu s'il avait continué à travailler. Si le licenciement viole l'article 73, il est présumé abusif : le tribunal peut ordonner la réintégration avec maintien des avantages acquis ou, en cas de refus de l'une des parties, une compensation d'au moins six mois de salaire, sans préjudice des dommages-intérêts éventuels.",
+        "summary_ar": "عند مخالفة الإجراءات الإلزامية، تلغي المحكمة قرار التسريح وتلزم صاحب العمل باستكمال الإجراءات، مع تعويض لا يقل عن الأجر الذي كان العامل سيتقاضاه لو استمر في العمل. وإذا خالف التسريح المادة 73، فيُفترض أنه تعسفي؛ ويمكن للمحكمة الحكم بإعادة إدماج العامل مع الاحتفاظ بمزاياه المكتسبة، أو عند رفض أحد الطرفين، بتعويض لا يقل عن أجر ستة أشهر، دون الإخلال بالتعويضات الإضافية المحتملة."
+      }
+    ]
+  },
+  {
+    "article": "73-5",
+    "law": "90-11",
+    "current_status": "in_force",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1991-12-21",
+        "source": "loi-91-29",
+        "source_article": "3",
+        "action": "added",
+        "summary_fr": "Le travailleur licencié qui n'a pas commis de faute grave bénéficie d'un délai-congé dont la durée minimale est fixée par les conventions ou accords collectifs.",
+        "summary_ar": "يستفيد العامل المسرّح الذي لم يرتكب خطأ جسيماً من مهلة إخطار، ويُحدد الحد الأدنى لمدة هذه المهلة في الاتفاقيات أو الاتفاقات الجماعية."
+      }
+    ]
+  },
+  {
+    "article": "73-6",
+    "law": "90-11",
+    "current_status": "in_force",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1991-12-21",
+        "source": "loi-91-29",
+        "source_article": "3",
+        "action": "added",
+        "summary_fr": "Le travailleur licencié a droit, pendant la durée de son délai-congé, à deux heures par jour, cumulables et rémunérées, pour rechercher un autre emploi. L'organisme employeur peut s'acquitter de l'obligation de donner le délai-congé en versant au travailleur licencié une somme égale à la rémunération totale qu'il aurait perçue pendant le même temps. La cessation d'activité ne libère pas l'organisme employeur de son obligation de respecter le délai-congé.",
+        "summary_ar": "للعامل المسرّح الحق طوال مدة مهلة الإخطار في ساعتين يومياً، قابلتين للجمع ومدفوعتي الأجر، للبحث عن عمل آخر. ويمكن للهيئة المستخدمة الوفاء بالتزام منح مهلة الإخطار بدفع مبلغ للعامل المسرّح يعادل مجموع الأجر الذي كان سيتقاضاه خلال المدة نفسها. ولا يعفي توقف النشاط الهيئة المستخدمة من الالتزام باحترام مهلة الإخطار."
+      }
+    ]
+  },
+  {
+    "article": "87 bis",
+    "law": "90-11",
+    "current_status": "repealed",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1994-04-11",
+        "source": "decret-legislatif-94-03",
+        "source_article": "1",
+        "action": "added",
+        "summary_fr": "Le salaire national minimum garanti comprend le salaire de base, les indemnités et les primes de toute nature, à l'exclusion des indemnités versées au titre du remboursement des frais engagés par le travailleur.",
+        "summary_ar": "يشمل الأجر الوطني الأدنى المضمون الأجر الأساسي والتعويضات والمنح بمختلف أنواعها، باستثناء المبالغ المدفوعة لتعويض المصاريف التي يتحملها العامل."
+      },
+      {
+        "version": 2,
+        "date": "2014-12-30",
+        "source": "loi-14-10",
+        "source_article": "90",
+        "action": "repealed",
+        "summary_fr": "L'article 87 bis de la loi n° 90-11 est expressément abrogé par l'article 90 de la loi n° 14-10 du 30 décembre 2014 portant loi de finances pour 2015.",
+        "summary_ar": "أُلغيت المادة 87 مكرر من القانون رقم 90-11 صراحةً بموجب المادة 90 من القانون رقم 14-10 المؤرخ في 30 ديسمبر 2014 والمتضمن قانون المالية لسنة 2015."
+      }
+    ]
+  },
+  {
+    "article": "52 bis",
+    "law": "90-11",
+    "current_status": "in_force",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1997-01-11",
+        "source": "ordonnance-97-02",
+        "source_article": "2",
+        "action": "added",
+        "summary_fr": "L'indemnité de congé annuel due aux travailleurs des professions, branches et secteurs d'activité qui ne sont pas habituellement occupés d'une façon continue par un même organisme employeur au cours de la période retenue pour l'appréciation du droit au congé est payée par une caisse spécifique. Les organismes employeurs concernés doivent obligatoirement s'affilier à cette caisse. Les professions, branches et secteurs d'activité concernés sont fixés par voie réglementaire.",
+        "summary_ar": "تُدفع منحة العطلة السنوية المستحقة للعاملين في المهن والفروع وقطاعات النشاط التي لا يُشغَّل عمالها عادةً بصفة مستمرة لدى الهيئة المستخدمة نفسها خلال الفترة المعتمدة لتقدير الحق في العطلة، عن طريق صندوق خاص. ويجب على الهيئات المستخدمة المعنية الانتساب إلى هذا الصندوق. وتُحدد المهن والفروع وقطاعات النشاط المعنية عن طريق التنظيم."
+      }
+    ]
+  },
+  {
+    "article": "52 ter",
+    "law": "90-11",
+    "current_status": "in_force",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1997-01-11",
+        "source": "ordonnance-97-02",
+        "source_article": "3",
+        "action": "added",
+        "summary_fr": "Les dépenses afférentes au paiement de l'indemnité de congé prévue à l'article 52 bis, ainsi que les frais de gestion, sont couverts par une cotisation à la charge exclusive des organismes employeurs. Le taux et les modalités de recouvrement de cette cotisation sont fixés par voie réglementaire.",
+        "summary_ar": "تُغطى النفقات المتعلقة بدفع منحة العطلة المنصوص عليها في المادة 52 مكرر، إضافةً إلى مصاريف التسيير، باشتراك تتحمله الهيئات المستخدمة حصرياً. ويُحدد معدل هذا الاشتراك وكيفيات تحصيله عن طريق التنظيم."
+      }
+    ]
+  },
+  {
+    "article": "52 quater",
+    "law": "90-11",
+    "current_status": "in_force",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1997-01-11",
+        "source": "ordonnance-97-02",
+        "source_article": "4",
+        "action": "added",
+        "summary_fr": "La création de la caisse spécifique chargée de l'indemnité de congé annuel ainsi que ses conditions et modalités de fonctionnement sont fixées par voie réglementaire.",
+        "summary_ar": "يُحدد عن طريق التنظيم إنشاء الصندوق الخاص المكلف بتعويض العطلة السنوية وشروط وكيفيات عمله."
+      }
+    ]
+  },
+  {
+    "article": "22",
+    "law": "90-11",
+    "current_status": "repealed",
+    "replaced_by": "ordonnance-97-03, article 2",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "La durée légale du travail est fixée à 44 heures par semaine dans les conditions normales et répartie sur au moins cinq jours ouvrables.",
+        "summary_ar": "تُحدد المدة القانونية للعمل بـ44 ساعة أسبوعياً في ظروف العمل العادية، وتوزع على خمسة أيام عمل على الأقل."
+      },
+      {
+        "version": 2,
+        "date": "1997-01-11",
+        "source": "ordonnance-97-03",
+        "source_article": "8",
+        "action": "repealed",
+        "summary_fr": "Abrogé par l'article 8. Le nouveau régime fixe la durée légale hebdomadaire à 40 heures dans les conditions normales, conformément à l'article 2 de l'ordonnance. L'entrée en vigueur de l'ordonnance est différée de deux mois après sa publication.",
+        "summary_ar": "أُلغيت بالمادة 8. ويحدد النظام الجديد المدة القانونية للعمل بـ40 ساعة أسبوعياً في الظروف العادية وفق المادة 2 من الأمر. وقد أُرجئ دخول الأمر حيز التنفيذ إلى شهرين بعد نشره."
+      }
+    ]
+  },
+  {
+    "article": "23",
+    "law": "90-11",
+    "current_status": "repealed",
+    "replaced_by": "ordonnance-97-03, article 4",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "La durée hebdomadaire du travail peut être réduite pour les travaux particulièrement pénibles ou dangereux, ou augmentée pour certains postes comportant des périodes d'inactivité. Les conventions ou accords collectifs déterminent les postes concernés et le niveau de réduction ou d'augmentation.",
+        "summary_ar": "يمكن تخفيض المدة الأسبوعية للعمل بالنسبة إلى الأعمال الشاقة أو الخطيرة بصفة خاصة، أو زيادتها لبعض المناصب التي تتخللها فترات عدم نشاط. وتحدد الاتفاقيات أو الاتفاقات الجماعية المناصب المعنية ومستوى التخفيض أو الزيادة."
+      },
+      {
+        "version": 2,
+        "date": "1997-01-11",
+        "source": "ordonnance-97-03",
+        "source_article": "8",
+        "action": "repealed",
+        "summary_fr": "Abrogé par l'article 8. Le nouveau régime prévoit notamment, à l'article 4 de l'ordonnance 97-03, des possibilités de réduction ou d'augmentation de la durée hebdomadaire dans des situations déterminées.",
+        "summary_ar": "أُلغيت بالمادة 8. وينص النظام الجديد، ولا سيما المادة 4 من الأمر 97-03، على إمكان تخفيض أو زيادة المدة الأسبوعية في حالات محددة."
+      }
+    ]
+  },
+  {
+    "article": "24",
+    "law": "90-11",
+    "current_status": "repealed",
+    "replaced_by": "ordonnance-97-03, article 5",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Dans les exploitations agricoles, la durée légale de travail de référence est fixée à 2.000 heures par année, réparties par périodes selon les nécessités de la région ou de l'activité.",
+        "summary_ar": "في الاستغلالات الزراعية، حُددت المدة المرجعية القانونية للعمل بـ2000 ساعة سنوياً، موزعة على فترات وفقاً لاحتياجات المنطقة أو طبيعة النشاط."
+      },
+      {
+        "version": 2,
+        "date": "1997-01-11",
+        "source": "ordonnance-97-03",
+        "source_article": "8",
+        "action": "repealed",
+        "summary_fr": "Abrogé par l'article 8. Le nouvel article 5 de l'ordonnance 97-03 fixe la durée légale de référence dans les exploitations agricoles à 1.800 heures par année.",
+        "summary_ar": "أُلغيت بالمادة 8. وتحدد المادة 5 الجديدة من الأمر 97-03 المدة المرجعية القانونية للعمل في الاستغلالات الزراعية بـ1800 ساعة سنوياً."
+      }
+    ]
+  },
+  {
+    "article": "25",
+    "law": "90-11",
+    "current_status": "repealed",
+    "replaced_by": "ordonnance-97-03, article 6",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Lorsque les horaires sont effectués en séance continue, l'employeur doit aménager une pause ne dépassant pas une heure, dont une demi-heure est considérée comme temps de travail.",
+        "summary_ar": "عندما يُنظم العمل بنظام الحصة المستمرة، يجب على صاحب العمل توفير فترة استراحة لا تتجاوز ساعة واحدة، تُحسب نصف ساعة منها ضمن وقت العمل."
+      },
+      {
+        "version": 2,
+        "date": "1997-01-11",
+        "source": "ordonnance-97-03",
+        "source_article": "8",
+        "action": "repealed",
+        "summary_fr": "Abrogé par l'article 8. Le nouvel article 6 de l'ordonnance 97-03 prévoit également une pause maximale d'une heure en séance continue, dont une demi-heure est considérée comme temps de travail.",
+        "summary_ar": "أُلغيت بالمادة 8. وتنص المادة 6 الجديدة من الأمر 97-03 كذلك على استراحة لا تتجاوز ساعة في نظام الحصة المستمرة، تُحسب نصف ساعة منها ضمن وقت العمل."
+      }
+    ]
+  },
+  {
+    "article": "26",
+    "law": "90-11",
+    "current_status": "repealed",
+    "replaced_by": "ordonnance-97-03, article 7",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "L'amplitude journalière du travail ne doit en aucune façon dépasser douze heures.",
+        "summary_ar": "يجب ألا يتجاوز الامتداد اليومي للعمل بأي حال اثنتي عشرة ساعة."
+      },
+      {
+        "version": 2,
+        "date": "1997-01-11",
+        "source": "ordonnance-97-03",
+        "source_article": "8",
+        "action": "repealed",
+        "summary_fr": "Abrogé par l'article 8. Le nouvel article 7 de l'ordonnance 97-03 maintient une limite maximale de douze heures pour l'amplitude journalière du travail effectif.",
+        "summary_ar": "أُلغيت بالمادة 8. وتحافظ المادة 7 الجديدة من الأمر 97-03 على حد أقصى قدره اثنتا عشرة ساعة للامتداد اليومي للعمل الفعلي."
+      }
+    ]
+  },
+  {
+    "article": "140",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Disposition pénale relative à l'emploi des jeunes travailleurs.",
+        "summary_ar": "حكم جزائي يتعلق بتشغيل العمال الشباب."
+      },
+      {
+        "version": 2,
+        "date": "2015-07-23",
+        "source": "ordonnance-15-01",
+        "source_article": "54",
+        "action": "modified",
+        "summary_fr": "Le recrutement d'un jeune travailleur n'ayant pas atteint l'âge légal, hors contrat d'apprentissage conforme à la législation, est puni d'une amende de 10.000 à 20.000 DA.",
+        "summary_ar": "يعاقب بغرامة من 10,000 إلى 20,000 دج كل من يشغّل عاملاً شاباً لم يبلغ السن القانونية، باستثناء عقد التمهين المطابق للتشريع."
+      }
+    ]
+  },
+  {
+    "article": "149",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Disposition pénale sanctionnant le paiement d'un salaire inférieur au salaire minimum ou au salaire fixé par convention ou accord collectif.",
+        "summary_ar": "حكم جزائي يعاقب دفع أجر يقل عن الأجر الأدنى أو الأجر المحدد في اتفاقية أو اتفاق جماعي."
+      },
+      {
+        "version": 2,
+        "date": "2015-07-23",
+        "source": "ordonnance-15-01",
+        "source_article": "54",
+        "action": "modified",
+        "summary_fr": "Le paiement d'un salaire inférieur au SNMG ou au salaire fixé par convention ou accord collectif est puni d'une amende de 10.000 à 20.000 DA par infraction. En cas de récidive, l'amende est de 20.000 à 50.000 DA multipliée par le nombre de travailleurs concernés.",
+        "summary_ar": "يعاقب دفع أجر يقل عن الأجر الوطني الأدنى المضمون أو الأجر المحدد في اتفاق جماعي بغرامة من 10,000 إلى 20,000 دج عن كل مخالفة. وفي حالة العود تصبح الغرامة من 20,000 إلى 50,000 دج مضروبة في عدد العمال المعنيين."
+      }
+    ]
+  },
+  {
+    "article": "141",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Sanctions relatives aux infractions aux dispositions concernant les conditions d'emploi des jeunes travailleurs et des femmes.",
+        "summary_ar": "عقوبات المخالفات المتعلقة بشروط تشغيل العمال الشباب والنساء."
+      },
+      {
+        "version": 2,
+        "date": "2017-12-27",
+        "source": "loi-17-11",
+        "source_article": "99",
+        "action": "modified",
+        "summary_fr": "L'infraction est punie d'une amende de 10.000 à 20.000 DA par travailleur concerné. En cas de récidive, l'amende est de 40.000 à 50.000 DA par travailleur concerné.",
+        "summary_ar": "تعاقب المخالفة بغرامة من 10,000 إلى 20,000 دج عن كل عامل معني. وفي حالة العود تصبح الغرامة من 40,000 إلى 50,000 دج عن كل عامل معني."
+      }
+    ]
+  },
+  {
+    "article": "142",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Sanctions applicables au signataire d'une convention collective en cas de violation des obligations légales relatives à la négociation collective.",
+        "summary_ar": "العقوبات المطبقة على موقّع الاتفاقية الجماعية عند مخالفة الالتزامات القانونية المتعلقة بالتفاوض الجماعي."
+      },
+      {
+        "version": 2,
+        "date": "2017-12-27",
+        "source": "loi-17-11",
+        "source_article": "99",
+        "action": "modified",
+        "summary_fr": "Le signataire d'une convention collective ou d'un accord collectif dont les dispositions instaurent une discrimination entre travailleurs en matière d'emploi, de rémunération ou de conditions de travail est puni d'une amende de 100.000 à 200.000 DA. En cas de récidive, l'amende est de 200.000 à 500.000 DA avec un emprisonnement d'un à trois mois, ou l'une de ces deux peines seulement.",
+        "summary_ar": "يعاقب الموقع على اتفاقية جماعية أو اتفاق جماعي تتضمن أحكامه تمييزاً بين العمال في مجال التشغيل أو الأجر أو ظروف العمل بغرامة من 100,000 إلى 200,000 دج. وفي حالة العود تصبح الغرامة من 200,000 إلى 500,000 دج مع الحبس من شهر إلى ثلاثة أشهر، أو بإحدى العقوبتين فقط."
+      }
+    ]
+  },
+  {
+    "article": "143",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Sanction des infractions relatives à la durée légale hebdomadaire du travail.",
+        "summary_ar": "عقوبة المخالفات المتعلقة بالمدة القانونية الأسبوعية للعمل."
+      },
+      {
+        "version": 2,
+        "date": "2017-12-27",
+        "source": "loi-17-11",
+        "source_article": "99",
+        "action": "modified",
+        "summary_fr": "L'infraction à la durée légale hebdomadaire est punie d'une amende de 10.000 à 20.000 DA pour chaque infraction constatée et par travailleur concerné. En cas de récidive, l'amende est de 40.000 à 50.000 DA par travailleur concerné.",
+        "summary_ar": "تعاقب مخالفة المدة القانونية الأسبوعية للعمل بغرامة من 10,000 إلى 20,000 دج عن كل مخالفة مثبتة وعن كل عامل معني. وفي حالة العود تصبح الغرامة من 40,000 إلى 50,000 دج عن كل عامل معني."
+      }
+    ]
+  },
+  {
+    "article": "143 bis",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "20",
+        "action": "added",
+        "summary_fr": "Tout contrevenant aux dispositions de la présente loi relatives au dépassement dérogatoire en matière d'heures supplémentaires, tel que précisé à l'article 31, est puni d'une amende de 1.000 à 2.000 DA, appliquée autant de fois qu'il y a de travailleurs concernés.",
+        "summary_ar": "يعاقب كل من يخالف أحكام هذا القانون المتعلقة بالتجاوز الاستثنائي لحدود الساعات الإضافية، كما تحددها المادة 31، بغرامة من 1,000 إلى 2,000 دج، تطبق بعدد العمال المعنيين."
+      },
+      {
+        "version": 2,
+        "date": "2017-12-27",
+        "source": "loi-17-11",
+        "source_article": "99",
+        "action": "modified",
+        "summary_fr": "Le dépassement dérogatoire en matière d'heures supplémentaires est puni d'une amende de 10.000 à 20.000 DA par travailleur concerné. En cas de récidive, l'amende est de 40.000 à 50.000 DA par travailleur concerné.",
+        "summary_ar": "تعاقب مخالفة الحدود الاستثنائية للساعات الإضافية بغرامة من 10,000 إلى 20,000 دج عن كل عامل معني. وفي حالة العود تصبح الغرامة من 40,000 إلى 50,000 دج عن كل عامل معني."
+      }
+    ]
+  },
+  {
+    "article": "144",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Sanctions relatives aux infractions aux dispositions concernant les repos légaux.",
+        "summary_ar": "عقوبات المخالفات المتعلقة بأحكام الراحة القانونية."
+      },
+      {
+        "version": 2,
+        "date": "2017-12-27",
+        "source": "loi-17-11",
+        "source_article": "99",
+        "action": "modified",
+        "summary_fr": "La violation des dispositions relatives aux repos légaux est punie d'une amende de 10.000 à 20.000 DA par travailleur concerné. En cas de récidive, l'amende est de 40.000 à 50.000 DA par travailleur concerné.",
+        "summary_ar": "تعاقب مخالفة أحكام الراحة القانونية بغرامة من 10,000 إلى 20,000 دج عن كل عامل معني. وفي حالة العود تصبح الغرامة من 40,000 إلى 50,000 دج عن كل عامل معني."
+      }
+    ]
+  },
+  {
+    "article": "145",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Sanctions relatives aux infractions aux dispositions des articles 38 à 52 concernant notamment les congés et les absences.",
+        "summary_ar": "عقوبات المخالفات المتعلقة بأحكام المواد من 38 إلى 52، ومنها أحكام العطل والغيابات."
+      },
+      {
+        "version": 2,
+        "date": "2017-12-27",
+        "source": "loi-17-11",
+        "source_article": "99",
+        "action": "modified",
+        "summary_fr": "Les infractions aux articles 38 à 52 sont punies d'une amende de 10.000 à 20.000 DA pour chaque infraction constatée et par travailleur concerné. En cas de récidive, l'amende est de 40.000 à 50.000 DA par travailleur concerné.",
+        "summary_ar": "تعاقب مخالفات المواد من 38 إلى 52 بغرامة من 10,000 إلى 20,000 دج عن كل مخالفة مثبتة وعن كل عامل معني. وفي حالة العود تصبح الغرامة من 40,000 إلى 50,000 دج عن كل عامل معني."
+      }
+    ]
+  },
+  {
+    "article": "146",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Sanction applicable aux opérations de compression d'effectifs effectuées en violation des dispositions légales.",
+        "summary_ar": "العقوبة المطبقة على عمليات تقليص عدد العمال المنفذة بالمخالفة للأحكام القانونية."
+      },
+      {
+        "version": 2,
+        "date": "2017-12-27",
+        "source": "loi-17-11",
+        "source_article": "99",
+        "action": "modified",
+        "summary_fr": "La compression d'effectifs effectuée en infraction aux dispositions applicables est punie d'une amende de 100.000 à 200.000 DA multipliée par le nombre de travailleurs concernés.",
+        "summary_ar": "يعاقب تقليص عدد العمال بالمخالفة للأحكام المعمول بها بغرامة من 100,000 إلى 200,000 دج مضروبة في عدد العمال المعنيين."
+      }
+    ]
+  },
+  {
+    "article": "146 bis",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "21",
+        "action": "added",
+        "summary_fr": "Toute infraction aux dispositions de la présente loi relatives au recours au contrat à durée déterminée en dehors des cas et conditions expressément prévus aux articles 12 et 12 bis est punie d'une amende de 1.000 à 2.000 DA, appliquée autant de fois qu'il y a d'infractions.",
+        "summary_ar": "تعاقب كل مخالفة لأحكام هذا القانون المتعلقة باللجوء إلى عقد عمل محدد المدة خارج الحالات والشروط المنصوص عليها صراحة في المادتين 12 و12 مكرر، بغرامة من 1,000 إلى 2,000 دج عن كل مخالفة."
+      },
+      {
+        "version": 2,
+        "date": "2017-12-27",
+        "source": "loi-17-11",
+        "source_article": "99",
+        "action": "modified",
+        "summary_fr": "L'infraction aux dispositions relatives au recours au contrat à durée déterminée est punie d'une amende de 10.000 à 20.000 DA par travailleur concerné. En cas de récidive, l'amende est de 40.000 à 50.000 DA par travailleur concerné.",
+        "summary_ar": "تعاقب مخالفة الأحكام المتعلقة باللجوء إلى عقد العمل محدد المدة بغرامة من 10,000 إلى 20,000 دج عن كل عامل معني. وفي حالة العود تصبح الغرامة من 40,000 إلى 50,000 دج عن كل عامل معني."
+      }
+    ]
+  },
+  {
+    "article": "147",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Sanction des infractions relatives à l'obligation de dépôt du règlement intérieur.",
+        "summary_ar": "عقوبة المخالفات المتعلقة بالالتزام بإيداع النظام الداخلي."
+      },
+      {
+        "version": 2,
+        "date": "2017-12-27",
+        "source": "loi-17-11",
+        "source_article": "99",
+        "action": "modified",
+        "summary_fr": "La violation de l'obligation de dépôt du règlement intérieur est punie d'une amende de 10.000 à 20.000 DA.",
+        "summary_ar": "تعاقب مخالفة الالتزام بإيداع النظام الداخلي بغرامة من 10,000 إلى 20,000 دج."
+      }
+    ]
+  },
+  {
+    "article": "148",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Sanction du paiement du salaire sans remise d'une fiche de paie au travailleur.",
+        "summary_ar": "عقوبة دفع الأجر دون تسليم كشف الراتب للعامل."
+      },
+      {
+        "version": 2,
+        "date": "2017-12-27",
+        "source": "loi-17-11",
+        "source_article": "99",
+        "action": "modified",
+        "summary_fr": "Le fait de rémunérer un travailleur sans lui remettre une fiche de paie, ou sans y faire figurer un ou plusieurs éléments de sa rémunération, est puni d'une amende de 10.000 à 20.000 DA par travailleur concerné. En cas de récidive, l'amende est de 40.000 à 50.000 DA par travailleur concerné.",
+        "summary_ar": "يعاقب دفع أجر العامل دون تسليمه كشف الراتب، أو دون إدراج عنصر أو أكثر من عناصر أجره في الكشف، بغرامة من 10,000 إلى 20,000 دج عن كل عامل معني. وفي حالة العود تصبح الغرامة من 40,000 إلى 50,000 دج عن كل عامل معني."
+      }
+    ]
+  },
+  {
+    "article": "150",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Sanction des infractions à l'obligation de versement prévue par la législation du travail.",
+        "summary_ar": "عقوبة المخالفات المتعلقة بالتزام الدفع المنصوص عليه في تشريع العمل."
+      },
+      {
+        "version": 2,
+        "date": "2017-12-27",
+        "source": "loi-17-11",
+        "source_article": "99",
+        "action": "modified",
+        "summary_fr": "Toute infraction à l'obligation de verser la rémunération due à terme échu est punie d'une amende de 10.000 à 20.000 DA par travailleur concerné. En cas de récidive, l'amende est de 40.000 à 50.000 DA par travailleur concerné et un emprisonnement de trois à six mois peut être prononcé, ou l'une de ces deux peines seulement.",
+        "summary_ar": "تعاقب مخالفة الالتزام بدفع الأجر المستحق عند حلول أجله بغرامة من 10,000 إلى 20,000 دج عن كل عامل معني. وفي حالة العود تصبح الغرامة من 40,000 إلى 50,000 دج عن كل عامل معني، ويمكن الحكم بالحبس من ثلاثة إلى ستة أشهر أو بإحدى العقوبتين فقط."
+      }
+    ]
+  },
+  {
+    "article": "151",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Sanction des actes faisant obstacle à la constitution ou au fonctionnement du comité de participation.",
+        "summary_ar": "عقوبة الأفعال التي تعرقل إنشاء لجنة المشاركة أو سير عملها."
+      },
+      {
+        "version": 2,
+        "date": "2017-12-27",
+        "source": "loi-17-11",
+        "source_article": "99",
+        "action": "modified",
+        "summary_fr": "Toute entrave à la constitution ou au fonctionnement du comité de participation, à l'exercice de ses attributions ou de celles des délégués du personnel, ainsi que tout refus d'accorder aux organes de participation les facilités et moyens prévus par la loi, est puni d'une amende de 100.000 à 200.000 DA et d'un emprisonnement d'un à trois mois, ou de l'une de ces deux peines. En cas de récidive, l'amende est de 200.000 à 500.000 DA multipliée par le nombre de travailleurs concernés, avec un emprisonnement de trois à six mois, ou l'une de ces deux peines seulement.",
+        "summary_ar": "يعاقب عرقلة إنشاء لجنة المشاركة أو سيرها، أو عرقلة ممارسة صلاحياتها أو صلاحيات مندوبي العمال، وكذلك رفض منح أجهزة المشاركة التسهيلات والوسائل التي يقرها القانون، بغرامة من 100,000 إلى 200,000 دج وبالحبس من شهر إلى ثلاثة أشهر، أو بإحدى العقوبتين. وفي حالة العود تصبح الغرامة من 200,000 إلى 500,000 دج مضروبة في عدد العمال المعنيين، مع الحبس من ثلاثة إلى ستة أشهر أو بإحدى العقوبتين فقط."
+      }
+    ]
+  },
+  {
+    "article": "152",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Sanction des infractions aux obligations légales de dépôt et d'enregistrement.",
+        "summary_ar": "عقوبة المخالفات المتعلقة بالالتزامات القانونية للإيداع والتسجيل."
+      },
+      {
+        "version": 2,
+        "date": "2017-12-27",
+        "source": "loi-17-11",
+        "source_article": "99",
+        "action": "modified",
+        "summary_fr": "Toute infraction aux obligations relatives au dépôt et à l'enregistrement des conventions et accords collectifs, à leur publicité auprès des travailleurs concernés, ainsi que tout refus de négocier dans les délais légaux, est punie d'une amende de 10.000 à 20.000 DA. En cas de récidive, l'amende est de 40.000 à 50.000 DA.",
+        "summary_ar": "تعاقب مخالفة الالتزامات المتعلقة بإيداع الاتفاقيات والاتفاقات الجماعية وتسجيلها وإشهارها لدى العمال المعنيين، وكذلك رفض التفاوض ضمن الآجال القانونية، بغرامة من 10,000 إلى 20,000 دج. وفي حالة العود تصبح الغرامة من 40,000 إلى 50,000 دج."
+      }
+    ]
+  },
+  {
+    "article": "154",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Sanction des infractions aux obligations de tenue des livres et registres spéciaux.",
+        "summary_ar": "عقوبة المخالفات المتعلقة بالالتزام بمسك الدفاتر والسجلات الخاصة."
+      },
+      {
+        "version": 2,
+        "date": "2017-12-27",
+        "source": "loi-17-11",
+        "source_article": "99",
+        "action": "modified",
+        "summary_fr": "Toute infraction à l'obligation de tenir les livres et registres spéciaux visés à l'article 156, ainsi que le défaut de les présenter au contrôle de l'inspecteur du travail, est puni d'une amende de 10.000 à 20.000 DA. En cas de récidive, l'amende est de 40.000 à 50.000 DA.",
+        "summary_ar": "تعاقب مخالفة الالتزام بمسك الدفاتر والسجلات الخاصة المشار إليها في المادة 156، وكذلك عدم تقديمها لمراقبة مفتش العمل، بغرامة من 10,000 إلى 20,000 دج. وفي حالة العود تصبح الغرامة من 40,000 إلى 50,000 دج."
+      }
+    ]
+  },
+  {
+    "article": "56 bis",
+    "law": "90-11",
+    "current_status": "in_force",
+    "versions": [
+      {
+        "version": 1,
+        "date": "2022-07-20",
+        "source": "loi-22-16",
+        "source_article": "2",
+        "action": "added",
+        "summary_fr": "Le travailleur a droit, une fois durant sa carrière professionnelle, à un congé non rémunéré pour création d'entreprise. Il peut également recourir au travail à temps partiel pour création d'entreprise.",
+        "summary_ar": "يحق للعامل، مرة واحدة خلال مساره المهني، الحصول على عطلة غير مدفوعة الأجر لإنشاء مؤسسة. كما يمكنه اللجوء إلى العمل بدوام جزئي من أجل إنشاء مؤسسة."
+      }
+    ]
+  },
+  {
+    "article": "56 bis 1",
+    "law": "90-11",
+    "current_status": "in_force",
+    "versions": [
+      {
+        "version": 1,
+        "date": "2022-07-20",
+        "source": "loi-22-16",
+        "source_article": "2",
+        "action": "added",
+        "summary_fr": "La durée du congé ou du travail à temps partiel pour création d'entreprise est fixée à une année au maximum. Elle peut être prorogée exceptionnellement pour une durée maximale de six mois sur justification du travailleur.",
+        "summary_ar": "تحدد مدة العطلة أو العمل بدوام جزئي لإنشاء مؤسسة بسنة واحدة كحد أقصى، ويمكن تمديدها استثنائياً لمدة لا تتجاوز ستة أشهر بناءً على مبررات يقدمها العامل."
+      }
+    ]
+  },
+  {
+    "article": "56 bis 2",
+    "law": "90-11",
+    "current_status": "in_force",
+    "versions": [
+      {
+        "version": 1,
+        "date": "2022-07-20",
+        "source": "loi-22-16",
+        "source_article": "2",
+        "action": "added",
+        "summary_fr": "Pour nécessité de service, l'employeur peut, après avis du comité de participation, reporter le départ en congé ou le recours au temps partiel pour création d'entreprise de six mois au maximum lorsque l'absence risque de causer un préjudice majeur à l'entreprise.",
+        "summary_ar": "يمكن لصاحب العمل، لضرورة المصلحة وبعد أخذ رأي لجنة المشاركة، تأجيل بداية العطلة أو العمل بدوام جزئي لإنشاء مؤسسة لمدة لا تتجاوز ستة أشهر إذا كان غياب العامل قد يسبب ضرراً كبيراً للمؤسسة."
+      }
+    ]
+  },
+  {
+    "article": "56 bis 3",
+    "law": "90-11",
+    "current_status": "in_force",
+    "versions": [
+      {
+        "version": 1,
+        "date": "2022-07-20",
+        "source": "loi-22-16",
+        "source_article": "2",
+        "action": "added",
+        "summary_fr": "Le congé pour création d'entreprise suspend la rémunération ainsi que les droits liés à l'ancienneté et à l'avancement, tout en préservant les droits acquis liés au poste. La couverture de sécurité sociale est maintenue selon les modalités réglementaires.",
+        "summary_ar": "تؤدي عطلة إنشاء المؤسسة إلى توقيف الأجر والحقوق المرتبطة بالأقدمية والترقية، مع الحفاظ على الحقوق المكتسبة المرتبطة بمنصب العمل. وتستمر التغطية في مجال الضمان الاجتماعي وفق الكيفيات التنظيمية."
+      }
+    ]
+  },
+  {
+    "article": "56 bis 4",
+    "law": "90-11",
+    "current_status": "in_force",
+    "versions": [
+      {
+        "version": 1,
+        "date": "2022-07-20",
+        "source": "loi-22-16",
+        "source_article": "2",
+        "action": "added",
+        "summary_fr": "Si le projet n'est pas réalisé dans les délais fixés, le travailleur peut demander sa réintégration dans son poste ou son réemploi à temps plein au moins un mois avant l'expiration du congé ou de la période de travail à temps partiel.",
+        "summary_ar": "إذا لم يتحقق المشروع في الآجال المحددة، يمكن للعامل طلب إعادة إدماجه في منصبه أو إعادة تشغيله بدوام كامل، وذلك قبل شهر واحد على الأقل من انتهاء العطلة أو فترة العمل بدوام جزئي."
+      }
+    ]
+  },
+  {
+    "article": "56 bis 5",
+    "law": "90-11",
+    "current_status": "in_force",
+    "versions": [
+      {
+        "version": 1,
+        "date": "2022-07-20",
+        "source": "loi-22-16",
+        "source_article": "2",
+        "action": "added",
+        "summary_fr": "La relation de travail prend fin lorsque le travailleur crée son entreprise et, le cas échéant, n'a pas présenté sa demande de réintégration dans les délais prévus à l'article 56 bis 4.",
+        "summary_ar": "تنتهي علاقة العمل عندما ينشئ العامل مؤسسته، ولا سيما إذا لم يقدم طلب إعادة الإدماج ضمن الآجال المحددة في المادة 56 مكرر 4."
+      }
+    ]
+  },
+  {
+    "article": "56 bis 6",
+    "law": "90-11",
+    "current_status": "in_force",
+    "versions": [
+      {
+        "version": 1,
+        "date": "2022-07-20",
+        "source": "loi-22-16",
+        "source_article": "2",
+        "action": "added",
+        "summary_fr": "Le travailleur qui souhaite créer une entreprise peut bénéficier des avantages et aides accordés dans le cadre des dispositifs publics de création et d'extension d'activités.",
+        "summary_ar": "يمكن للعامل الراغب في إنشاء مؤسسة الاستفادة من الامتيازات والمساعدات الممنوحة في إطار أجهزة الدولة المخصصة لإنشاء الأنشطة وتوسيعها."
+      }
+    ]
+  },
+  {
+    "article": "12",
+    "law": "90-11",
+    "current_status": "completed",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Le contrat de travail à durée déterminée est autorisé dans les cas limitativement prévus par la loi, notamment pour certains travaux non renouvelables, le remplacement temporaire, les travaux périodiques discontinus et le surcroît de travail ou les motifs saisonniers.",
+        "summary_ar": "يسمح بعقد العمل محدد المدة في الحالات التي حددها القانون، ومنها بعض الأعمال غير القابلة للتجديد، وتعويض العامل الغائب مؤقتاً، والأعمال الدورية المتقطعة، وزيادة حجم العمل أو الأسباب الموسمية."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "2",
+        "action": "completed",
+        "summary_fr": "Ajout d'un cinquième cas autorisant le contrat à durée déterminée pour les activités ou emplois à durée limitée ou qui sont par nature temporaires.",
+        "summary_ar": "إضافة حالة خامسة تسمح بعقد محدد المدة عندما يتعلق الأمر بأنشطة أو وظائف محدودة المدة أو مؤقتة بطبيعتها."
+      }
+    ]
+  },
+  {
+    "article": "12 bis",
+    "law": "90-11",
+    "current_status": "in_force",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "3",
+        "action": "added",
+        "summary_fr": "L'inspecteur du travail territorialement compétent vérifie que le contrat à durée déterminée correspond à l'un des cas prévus par l'article 12 et que sa durée correspond à l'activité pour laquelle le travailleur a été recruté.",
+        "summary_ar": "يتحقق مفتش العمل المختص إقليمياً من أن عقد العمل محدد المدة يندرج ضمن إحدى الحالات المنصوص عليها في المادة 12، وأن مدته تتناسب مع النشاط الذي تم توظيف العامل من أجله."
+      }
+    ]
+  },
+  {
+    "article": "13",
+    "law": "90-11",
+    "current_status": "completed",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Le contrat de travail à durée indéterminée peut être conclu à temps partiel lorsque le volume de travail disponible ne justifie pas un emploi à plein temps ou lorsque le travailleur en fait la demande pour des raisons familiales ou personnelles acceptées par l'employeur. Le temps partiel ne peut être inférieur à la moitié de la durée légale.",
+        "summary_ar": "يمكن إبرام عقد عمل غير محدد المدة بدوام جزئي عندما لا يسمح حجم العمل بتوظيف عامل بدوام كامل، أو عندما يطلب العامل ذلك لأسباب عائلية أو شخصية ويوافق صاحب العمل. ولا يجوز أن تقل مدة العمل الجزئي عن نصف المدة القانونية."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "4",
+        "action": "completed",
+        "summary_fr": "Ajout d'un alinéa prévoyant que les modalités d'application de l'article 13 sont fixées par voie réglementaire.",
+        "summary_ar": "إضافة فقرة تنص على أن كيفيات تطبيق المادة 13 تحدد عن طريق التنظيم."
+      }
+    ]
+  },
+  {
+    "article": "31",
+    "law": "90-11",
+    "current_status": "completed",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Encadrement de la durée du travail et des limites applicables au travail supplémentaire.",
+        "summary_ar": "تنظيم مدة العمل والحدود المطبقة على العمل الإضافي."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "5",
+        "action": "completed",
+        "summary_fr": "Des dérogations aux limites de l'alinéa 2 sont admises, dans les conditions prévues par les conventions et accords collectifs, pour prévenir des accidents imminents, réparer les dommages résultant d'accidents ou achever des travaux dont l'interruption risque d'engendrer des dommages. Les représentants des travailleurs doivent être consultés et l'inspecteur du travail informé.",
+        "summary_ar": "يسمح باستثناءات من الحدود الواردة في الفقرة الثانية، وفق شروط الاتفاقيات والاتفاقات الجماعية، للوقاية من حوادث وشيكة أو إصلاح أضرار الحوادث أو إتمام أعمال قد يؤدي توقفها إلى أضرار. ويجب استشارة ممثلي العمال وإعلام مفتش العمل."
+      }
+    ]
+  },
+  {
+    "article": "42",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Droit au congé annuel rémunéré selon les dispositions légales relatives aux congés.",
+        "summary_ar": "الحق في العطلة السنوية مدفوعة الأجر وفق الأحكام القانونية المتعلقة بالعطل."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "6",
+        "action": "modified",
+        "summary_fr": "Un congé supplémentaire d'au moins dix jours par année de travail est accordé aux travailleurs exerçant dans les wilayas du Sud. Les conventions ou accords collectifs fixent les modalités de son octroi.",
+        "summary_ar": "تُمنح عطلة إضافية لا تقل عن عشرة أيام عن كل سنة عمل للعاملين في ولايات الجنوب، وتحدد الاتفاقيات أو الاتفاقات الجماعية كيفيات منحها."
+      }
+    ]
+  },
+  {
+    "article": "44",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Règles de calcul du congé annuel rémunéré en fonction de la période de travail accomplie.",
+        "summary_ar": "قواعد حساب العطلة السنوية مدفوعة الأجر بحسب مدة العمل المنجزة."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "7",
+        "action": "modified",
+        "summary_fr": "La période supérieure à quinze jours ouvrables du premier mois de recrutement est assimilée à un mois de travail pour le calcul du congé annuel rémunéré.",
+        "summary_ar": "تُحسب الفترة التي تتجاوز خمسة عشر يوم عمل من الشهر الأول للتوظيف شهراً كاملاً عند حساب العطلة السنوية مدفوعة الأجر."
+      }
+    ]
+  },
+  {
+    "article": "54",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Droit aux absences rémunérées pour certains événements familiaux, dans les conditions prévues par la loi.",
+        "summary_ar": "الحق في الغياب مدفوع الأجر بمناسبة بعض الأحداث العائلية وفق الشروط المحددة في القانون."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "8",
+        "action": "modified",
+        "summary_fr": "Le travailleur bénéficie de trois jours ouvrables rémunérés à l'occasion de son mariage, de la naissance d'un enfant, du mariage de l'un de ses descendants, du décès d'un ascendant, descendant ou collatéral au premier degré, du décès de son conjoint ou de la circoncision d'un enfant. La justification de la naissance ou du décès peut être fournie ultérieurement.",
+        "summary_ar": "يستفيد العامل من ثلاثة أيام عمل مدفوعة الأجر بمناسبة زواجه أو ولادة طفل له أو زواج أحد أبنائه أو وفاة أحد الأصول أو الفروع أو الأقارب من الدرجة الأولى أو وفاة زوجه أو ختان أحد أطفاله. ويمكن تقديم إثبات الولادة أو الوفاة لاحقاً."
+      }
+    ]
+  },
+  {
+    "article": "91",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Organisation de la participation des travailleurs au sein de l'organisme employeur.",
+        "summary_ar": "تنظيم مشاركة العمال داخل الهيئة المستخدمة."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "10",
+        "action": "modified",
+        "summary_fr": "La participation est assurée par des délégués du personnel au niveau de chaque lieu de travail distinct comprenant au moins vingt travailleurs, et par un comité de participation au niveau du siège de l'organisme employeur.",
+        "summary_ar": "تُضمن مشاركة العمال بواسطة مندوبي العمال على مستوى كل مكان عمل مستقل يضم عشرين عاملاً على الأقل، وبواسطة لجنة المشاركة على مستوى مقر الهيئة المستخدمة."
+      }
+    ]
+  },
+  {
+    "article": "93",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Dispositions relatives à l'élection des représentants des travailleurs participant à la représentation du personnel.",
+        "summary_ar": "أحكام تتعلق بانتخاب ممثلي العمال المشاركين في تمثيل المستخدمين."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "11",
+        "action": "modified",
+        "summary_fr": "Les délégués du personnel élus au sein d'un même organisme employeur élisent en leur sein un comité de participation, dont le nombre de délégués est déterminé selon les conditions de l'article 99.",
+        "summary_ar": "ينتخب مندوبو العمال المنتخبون داخل الهيئة المستخدمة لجنة المشاركة من بينهم، ويحدد عدد مندوبيها وفق الشروط الواردة في المادة 99."
+      }
+    ]
+  },
+  {
+    "article": "93 bis",
+    "law": "90-11",
+    "current_status": "in_force",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "12",
+        "action": "added",
+        "summary_fr": "Lorsque l'organisme employeur ne comprend qu'un seul lieu de travail distinct, le délégué du personnel élu exerce les prérogatives du comité de participation prévues à l'article 94.",
+        "summary_ar": "عندما لا تضم الهيئة المستخدمة سوى مكان عمل مستقل واحد، يمارس مندوب العمال المنتخب صلاحيات لجنة المشاركة المنصوص عليها في المادة 94."
+      }
+    ]
+  },
+  {
+    "article": "97",
+    "law": "90-11",
+    "current_status": "completed",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Fixation des conditions d'éligibilité et notamment de l'ancienneté requise pour les élections des délégués du personnel.",
+        "summary_ar": "تحديد شروط الترشح، ولا سيما شرط الأقدمية المطلوب لانتخابات مندوبي العمال."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "13",
+        "action": "completed",
+        "summary_fr": "La condition d'ancienneté prévue à l'alinéa 3 n'est pas exigée pour un organisme employeur créé depuis moins d'une année.",
+        "summary_ar": "لا يُشترط شرط الأقدمية المنصوص عليه في الفقرة الثالثة بالنسبة إلى الهيئة المستخدمة التي لم يمض على إنشائها سنة واحدة."
+      }
+    ]
+  },
+  {
+    "article": "98",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Règles relatives au scrutin pour l'élection des délégués du personnel.",
+        "summary_ar": "قواعد الاقتراع لانتخاب مندوبي العمال."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "14",
+        "action": "modified",
+        "summary_fr": "Le scrutin se déroule en deux tours. Au premier tour, les candidats sont présentés par les organisations syndicales représentatives. Si le nombre de votants est inférieur à la moitié des électeurs, un second tour est organisé dans un délai maximal de trente jours, auquel peuvent participer tous les travailleurs remplissant les critères d'éligibilité. Des règles particulières s'appliquent en l'absence d'organisations syndicales représentatives.",
+        "summary_ar": "يجري الاقتراع على دورين. في الدور الأول تقدم المنظمات النقابية التمثيلية المترشحين. وإذا كان عدد المصوتين أقل من نصف الناخبين، ينظم دور ثانٍ خلال أجل لا يتجاوز ثلاثين يوماً، ويمكن أن يترشح فيه جميع العمال المستوفين لشروط الأهلية. وتطبق قواعد خاصة عند غياب المنظمات النقابية التمثيلية."
+      }
+    ]
+  },
+  {
+    "article": "100",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Règles relatives à la contestation des opérations électorales des délégués du personnel.",
+        "summary_ar": "قواعد الطعن في عمليات انتخاب مندوبي العمال."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "15",
+        "action": "modified",
+        "summary_fr": "Les contestations relatives aux élections sont introduites dans un délai de trente jours. Le tribunal statue dans les trente jours suivant sa saisine.",
+        "summary_ar": "ترفع الطعون المتعلقة بالانتخابات خلال أجل ثلاثين يوماً، وتفصل المحكمة فيها خلال ثلاثين يوماً من تاريخ رفع الدعوى."
+      }
+    ]
+  },
+  {
+    "article": "102",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Organisation et fonctionnement du comité de participation.",
+        "summary_ar": "تنظيم لجنة المشاركة وكيفية عملها."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "16",
+        "action": "modified",
+        "summary_fr": "Lorsque le comité de participation est composé d'au moins deux délégués du personnel, il établit son règlement intérieur et procède à l'élection en son sein d'un bureau composé d'un président et d'un vice-président.",
+        "summary_ar": "عندما تتكون لجنة المشاركة من مندوبين اثنين على الأقل عن العمال، فإنها تضع نظامها الداخلي وتنتخب من بين أعضائها مكتباً يتكون من رئيس ونائب للرئيس."
+      }
+    ]
+  },
+  {
+    "article": "114",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Définition de la convention collective dans le cadre des relations collectives de travail.",
+        "summary_ar": "تعريف الاتفاقية الجماعية في إطار علاقات العمل الجماعية."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "17",
+        "action": "modified",
+        "summary_fr": "Révision des définitions de la convention collective et de l'accord collectif, ainsi que de leurs parties et de leur champ d'application.",
+        "summary_ar": "مراجعة تعريف الاتفاقية الجماعية والاتفاق الجماعي، وتحديد أطرافهما ومجال تطبيقهما."
+      }
+    ]
+  },
+  {
+    "article": "115",
+    "law": "90-11",
+    "current_status": "completed",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "La convention collective détermine son champ d'application professionnel et territorial; elle peut couvrir une ou plusieurs catégories socioprofessionnelles ou organismes employeurs et avoir une portée locale, régionale ou nationale.",
+        "summary_ar": "تحدد الاتفاقية الجماعية مجال تطبيقها المهني والإقليمي؛ ويمكن أن تشمل فئة مهنية أو عدة فئات، وهيئات مستخدمة واحدة أو عدة هيئات، وأن تكون محلية أو جهوية أو وطنية."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "18",
+        "action": "completed",
+        "summary_fr": "Insertion de la référence aux accords collectifs aux côtés des conventions collectives dans les dispositions de l'article.",
+        "summary_ar": "إضافة الإشارة إلى الاتفاقات الجماعية إلى جانب الاتفاقيات الجماعية ضمن أحكام المادة."
+      }
+    ]
+  },
+  {
+    "article": "116",
+    "law": "90-11",
+    "current_status": "completed",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Lorsqu'une convention collective concerne plusieurs organismes employeurs, elle ne les engage que si les représentants des travailleurs et des employeurs de ces organismes y sont parties ensemble ou y adhèrent d'un commun accord.",
+        "summary_ar": "عندما تتعلق الاتفاقية الجماعية بعدة هيئات مستخدمة، فإنها لا تلزمها إلا إذا كان ممثلو العمال وأصحاب العمل في تلك الهيئات أطرافاً فيها معاً أو انضموا إليها باتفاق مشترك."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "18",
+        "action": "completed",
+        "summary_fr": "Insertion de la référence aux accords collectifs aux côtés des conventions collectives dans les dispositions de l'article.",
+        "summary_ar": "إضافة الإشارة إلى الاتفاقات الجماعية إلى جانب الاتفاقيات الجماعية ضمن أحكام المادة."
+      }
+    ]
+  },
+  {
+    "article": "117",
+    "law": "90-11",
+    "current_status": "completed",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "La convention collective est conclue pour une durée déterminée ou indéterminée; sauf clause contraire, une convention à durée déterminée arrivée à expiration continue de produire ses effets comme une convention à durée indéterminée jusqu'à l'adoption d'une nouvelle convention.",
+        "summary_ar": "تُبرم الاتفاقية الجماعية لمدة محددة أو غير محددة؛ وما لم يوجد شرط مخالف، تستمر الاتفاقية محددة المدة بعد انتهاء أجلها في إنتاج آثار اتفاقية غير محددة المدة إلى غاية إبرام اتفاقية جديدة."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "18",
+        "action": "completed",
+        "summary_fr": "Extension de la référence juridique aux accords collectifs en plus des conventions collectives.",
+        "summary_ar": "توسيع الإشارة القانونية لتشمل الاتفاقات الجماعية إلى جانب الاتفاقيات الجماعية."
+      }
+    ]
+  },
+  {
+    "article": "118",
+    "law": "90-11",
+    "current_status": "completed",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Les dispositions les plus favorables contenues dans les conventions collectives auxquelles l'organisme employeur a souscrit ou adhéré s'imposent à celui-ci et s'appliquent aux travailleurs, sauf dispositions plus favorables prévues dans leurs contrats de travail.",
+        "summary_ar": "تُلزم الأحكام الأكثر فائدة الواردة في الاتفاقيات الجماعية التي انضمت إليها الهيئة المستخدمة أو وقّعت عليها هذه الهيئة، وتطبق على العمال، ما لم تتضمن عقود عملهم أحكاماً أكثر فائدة."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "18",
+        "action": "completed",
+        "summary_fr": "Extension de la référence juridique aux accords collectifs en plus des conventions collectives.",
+        "summary_ar": "توسيع الإشارة القانونية لتشمل الاتفاقات الجماعية إلى جانب الاتفاقيات الجماعية."
+      }
+    ]
+  },
+  {
+    "article": "119",
+    "law": "90-11",
+    "current_status": "completed",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "L'organisme employeur doit assurer une publicité suffisante aux conventions collectives auxquelles il est partie et tenir en permanence un exemplaire à la disposition des travailleurs dans chaque lieu de travail distinct.",
+        "summary_ar": "يجب على الهيئة المستخدمة ضمان نشر وإشهار كافيين للاتفاقيات الجماعية التي تكون طرفاً فيها، ووضع نسخة منها باستمرار تحت تصرف العمال في كل مكان عمل مستقل."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "18",
+        "action": "completed",
+        "summary_fr": "Extension de la référence juridique aux accords collectifs en plus des conventions collectives.",
+        "summary_ar": "توسيع الإشارة القانونية لتشمل الاتفاقات الجماعية إلى جانب الاتفاقيات الجماعية."
+      }
+    ]
+  },
+  {
+    "article": "121",
+    "law": "90-11",
+    "current_status": "completed",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Chaque organisme employeur peut disposer d'une convention collective d'entreprise ou être partie à une convention collective de rang supérieur.",
+        "summary_ar": "يمكن لكل هيئة مستخدمة أن تكون لها اتفاقية جماعية للمؤسسة أو أن تكون طرفاً في اتفاقية جماعية ذات مستوى أعلى."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "18",
+        "action": "completed",
+        "summary_fr": "Extension de la référence juridique aux accords collectifs en plus des conventions collectives.",
+        "summary_ar": "توسيع الإشارة القانونية لتشمل الاتفاقات الجماعية إلى جانب الاتفاقيات الجماعية."
+      }
+    ]
+  },
+  {
+    "article": "122",
+    "law": "90-11",
+    "current_status": "completed",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Les conventions collectives dépassant le cadre d'un organisme employeur sont réputées de rang supérieur lorsqu'elles sont négociées et conclues par des organisations syndicales de travailleurs et d'employeurs reconnues représentatives dans leur champ sectoriel, professionnel ou territorial.",
+        "summary_ar": "تُعد الاتفاقيات الجماعية التي تتجاوز نطاق الهيئة المستخدمة اتفاقيات ذات مستوى أعلى متى تفاوضت بشأنها وأبرمتها منظمات نقابية للعمال وأصحاب العمل معترف بتمثيليتها في المجال القطاعي أو المهني أو الإقليمي المعني."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "18",
+        "action": "completed",
+        "summary_fr": "Extension de la référence juridique aux accords collectifs en plus des conventions collectives.",
+        "summary_ar": "توسيع الإشارة القانونية لتشمل الاتفاقات الجماعية إلى جانب الاتفاقيات الجماعية."
+      }
+    ]
+  },
+  {
+    "article": "123",
+    "law": "90-11",
+    "current_status": "completed",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "À la demande de l'une des parties visées à l'article 114, la négociation collective est menée par des commissions paritaires composées d'un nombre égal de représentants syndicaux des travailleurs et des employeurs dûment mandatés.",
+        "summary_ar": "بناءً على طلب أحد الأطراف المشار إليهم في المادة 114، تتولى التفاوض بشأن الاتفاقيات الجماعية لجانٌ متساوية التمثيل تضم عدداً متساوياً من الممثلين النقابيين للعمال وأصحاب العمل المفوضين قانوناً."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "18",
+        "action": "completed",
+        "summary_fr": "Extension de la référence juridique aux accords collectifs en plus des conventions collectives.",
+        "summary_ar": "توسيع الإشارة القانونية لتشمل الاتفاقات الجماعية إلى جانب الاتفاقيات الجماعية."
+      }
+    ]
+  },
+  {
+    "article": "124",
+    "law": "90-11",
+    "current_status": "completed",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Pour les conventions collectives d'entreprise, chaque partie peut être représentée par trois à sept membres; pour les conventions de rang supérieur, chaque délégation ne peut dépasser onze membres.",
+        "summary_ar": "في الاتفاقيات الجماعية للمؤسسة، يمكن أن يمثل كل طرف ثلاثة إلى سبعة أعضاء؛ أما الاتفاقيات ذات المستوى الأعلى فلا يجوز أن يتجاوز عدد ممثلي كل طرف أحد عشر عضواً."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "18",
+        "action": "completed",
+        "summary_fr": "Extension de la référence juridique aux accords collectifs en plus des conventions collectives.",
+        "summary_ar": "توسيع الإشارة القانونية لتشمل الاتفاقات الجماعية إلى جانب الاتفاقيات الجماعية."
+      }
+    ]
+  },
+  {
+    "article": "126",
+    "law": "90-11",
+    "current_status": "completed",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Dès sa conclusion, la convention collective est présentée aux fins d'enregistrement auprès de l'inspection du travail et du greffe du tribunal compétents, selon son champ territorial et institutionnel.",
+        "summary_ar": "تُقدَّم الاتفاقية الجماعية فور إبرامها، لغرض التسجيل، لدى مفتشية العمل وأمانة ضبط المحكمة المختصتين، بحسب نطاقها الإقليمي والمؤسسي."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "18",
+        "action": "completed",
+        "summary_fr": "Extension de la référence juridique aux accords collectifs en plus des conventions collectives.",
+        "summary_ar": "توسيع الإشارة القانونية لتشمل الاتفاقات الجماعية إلى جانب الاتفاقيات الجماعية."
+      }
+    ]
+  },
+  {
+    "article": "127",
+    "law": "90-11",
+    "current_status": "completed",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "La convention collective oblige tous ceux qui l'ont signée ou qui y ont adhéré après l'accomplissement des formalités d'enregistrement prévues à l'article 126.",
+        "summary_ar": "تلزم الاتفاقية الجماعية جميع من وقّعوا عليها أو انضموا إليها بعد استكمال إجراءات التسجيل المنصوص عليها في المادة 126."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "18",
+        "action": "completed",
+        "summary_fr": "Extension de la référence juridique aux accords collectifs en plus des conventions collectives.",
+        "summary_ar": "توسيع الإشارة القانونية لتشمل الاتفاقات الجماعية إلى جانب الاتفاقيات الجماعية."
+      }
+    ]
+  },
+  {
+    "article": "128",
+    "law": "90-11",
+    "current_status": "completed",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Les personnes liées par une convention collective peuvent engager une action en justice pour obtenir l'exécution des engagements souscrits, sans préjudice des réparations demandées pour sa violation.",
+        "summary_ar": "يجوز للأشخاص المرتبطين باتفاقية جماعية رفع دعوى قضائية للمطالبة بتنفيذ الالتزامات المتعهد بها، دون الإخلال بحقهم في طلب التعويض عن خرق الاتفاقية."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "18",
+        "action": "completed",
+        "summary_fr": "Extension de la référence juridique aux accords collectifs en plus des conventions collectives.",
+        "summary_ar": "توسيع الإشارة القانونية لتشمل الاتفاقات الجماعية إلى جانب الاتفاقيات الجماعية."
+      }
+    ]
+  },
+  {
+    "article": "129",
+    "law": "90-11",
+    "current_status": "completed",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Les organisations syndicales de travailleurs et d'employeurs liées par une convention collective peuvent agir en justice au profit de leurs membres et en leur propre nom pour obtenir l'exécution des engagements contractés.",
+        "summary_ar": "يجوز للمنظمات النقابية للعمال وأصحاب العمل المرتبطة باتفاقية جماعية رفع دعاوى قضائية لصالح أعضائها وباسمها الخاص من أجل الحصول على تنفيذ الالتزامات المتعاقد عليها."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "18",
+        "action": "completed",
+        "summary_fr": "Extension de la référence juridique aux accords collectifs en plus des conventions collectives.",
+        "summary_ar": "توسيع الإشارة القانونية لتشمل الاتفاقات الجماعية إلى جانب الاتفاقيات الجماعية."
+      }
+    ]
+  },
+  {
+    "article": "130",
+    "law": "90-11",
+    "current_status": "completed",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Les inspecteurs du travail veillent à l'exécution des conventions collectives et sont saisis de tout différend concernant leur application.",
+        "summary_ar": "يسهر مفتشو العمل على تنفيذ الاتفاقيات الجماعية، ويُخطرون بكل نزاع يتعلق بتطبيقها."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "18",
+        "action": "completed",
+        "summary_fr": "Extension de la référence juridique aux accords collectifs en plus des conventions collectives.",
+        "summary_ar": "توسيع الإشارة القانونية لتشمل الاتفاقات الجماعية إلى جانب الاتفاقيات الجماعية."
+      }
+    ]
+  },
+  {
+    "article": "131",
+    "law": "90-11",
+    "current_status": "completed",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "La convention collective peut être dénoncée en partie ou en totalité par les parties signataires; cette dénonciation ne peut intervenir dans les douze mois suivant son enregistrement.",
+        "summary_ar": "يجوز للأطراف الموقعة إنهاء الاتفاقية الجماعية جزئياً أو كلياً، غير أن هذا الإنهاء لا يجوز أن يتم خلال الاثني عشر شهراً التالية لتسجيلها."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "18",
+        "action": "completed",
+        "summary_fr": "Extension de la référence juridique aux accords collectifs en plus des conventions collectives.",
+        "summary_ar": "توسيع الإشارة القانونية لتشمل الاتفاقات الجماعية إلى جانب الاتفاقيات الجماعية."
+      }
+    ]
+  },
+  {
+    "article": "132",
+    "law": "90-11",
+    "current_status": "completed",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "La dénonciation est notifiée à l'autre partie signataire par lettre recommandée, avec copie à l'inspection du travail qui enregistre la dénonciation et la dépose auprès du greffe du tribunal compétent.",
+        "summary_ar": "يُبلّغ إنهاء الاتفاقية إلى الطرف الموقع الآخر برسالة موصى عليها، مع إرسال نسخة إلى مفتشية العمل التي تسجل الإنهاء وتودع نسخة منه لدى أمانة ضبط المحكمة المختصة."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "18",
+        "action": "completed",
+        "summary_fr": "Extension de la référence juridique aux accords collectifs en plus des conventions collectives.",
+        "summary_ar": "توسيع الإشارة القانونية لتشمل الاتفاقات الجماعية إلى جانب الاتفاقيات الجماعية."
+      }
+    ]
+  },
+  {
+    "article": "133",
+    "law": "90-11",
+    "current_status": "completed",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "La notification de la dénonciation oblige les parties à engager, dans les trente jours, des négociations en vue d'une nouvelle convention; la dénonciation ne modifie pas les contrats de travail en cours, qui restent régis par les dispositions applicables jusqu'à la conclusion de la nouvelle convention.",
+        "summary_ar": "يترتب على تبليغ إنهاء الاتفاقية التزام الأطراف ببدء مفاوضات خلال ثلاثين يوماً لإبرام اتفاقية جديدة؛ ولا يؤثر الإنهاء في عقود العمل السارية، التي تظل خاضعة للأحكام المعمول بها إلى حين إبرام الاتفاقية الجديدة."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "18",
+        "action": "completed",
+        "summary_fr": "Extension de la référence juridique aux accords collectifs en plus des conventions collectives.",
+        "summary_ar": "توسيع الإشارة القانونية لتشمل الاتفاقات الجماعية إلى جانب الاتفاقيات الجماعية."
+      }
+    ]
+  },
+  {
+    "article": "134",
+    "law": "90-11",
+    "current_status": "modified",
+    "versions": [
+      {
+        "version": 1,
+        "date": "1990-04-21",
+        "source": "loi-90-11",
+        "action": "original",
+        "summary_fr": "Dispositions relatives au contrôle de la conformité des conventions collectives à la législation.",
+        "summary_ar": "أحكام تتعلق بمراقبة مطابقة الاتفاقيات الجماعية للتشريع."
+      },
+      {
+        "version": 2,
+        "date": "1996-07-09",
+        "source": "ordonnance-96-21",
+        "source_article": "19",
+        "action": "modified",
+        "summary_fr": "L'inspecteur du travail saisit d'office le tribunal compétent lorsqu'une convention collective ou un accord collectif contient des dispositions contraires à la législation et à la réglementation en vigueur.",
+        "summary_ar": "يقوم مفتش العمل بإخطار المحكمة المختصة تلقائياً عندما تتضمن اتفاقية جماعية أو اتفاق جماعي أحكاماً مخالفة للتشريع والتنظيم المعمول بهما."
+      }
+    ]
+  }
+]
