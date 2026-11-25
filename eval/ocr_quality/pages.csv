@@ -1,0 +1,6 @@
+doc,page,gold,ocr
+loi_90_11,490,eval/ocr_quality/gold/loi_90_11_p490.txt,eval/ocr_quality/ocr_pages/loi_90_11_p490.txt
+loi_90_11,491,eval/ocr_quality/gold/loi_90_11_p491.txt,eval/ocr_quality/ocr_pages/loi_90_11_p491.txt
+loi_90_11,492,eval/ocr_quality/gold/loi_90_11_p492.txt,eval/ocr_quality/ocr_pages/loi_90_11_p492.txt
+loi_90_11,493,eval/ocr_quality/gold/loi_90_11_p493.txt,eval/ocr_quality/ocr_pages/loi_90_11_p493.txt
+loi_90_11,494,eval/ocr_quality/gold/loi_90_11_p494.txt,eval/ocr_quality/ocr_pages/loi_90_11_p494.txt
