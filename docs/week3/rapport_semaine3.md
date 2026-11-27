@@ -288,7 +288,7 @@ Le script affiche maintenant les résultats sur deux niveaux :
 
 | Composant | Détail |
 |-----------|--------|
-| Types d'entités | 3 : Law (12), Article (~527), Version (127) |
+| Types d'entités | 3 : Law (12), Article (527), Version (127) |
 | Types de relations | 6 : CONTAINS, MODIFIES, COMPLETES, REPEALS, HAS_VERSION, SUPERSEDES |
 | Table de mapping des identifiants | corpus_index.csv, articles_all.json, article_versions.json → IDs canoniques |
 | Règle de fusion FR/AR | Un nœud Article par article, fusion sur (law_id, article_number) |
