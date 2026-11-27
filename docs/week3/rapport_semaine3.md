@@ -1,6 +1,6 @@
 # Rapport de la semaine 3
 
-**Date :** 27/11/2026. **Dépôt :** `rcr-project1/jurideazor`. **Branches :** `feat/hybrid-search`, `fix/article-versions`, `feat/knowledge-graph`, `feat/extract-relations`, `docs/week3-report`.
+**Date :** 28/11/2026. **Dépôt :** `rcr-project1/jurideazor`. **Branches :** `feat/hybrid-search`, `fix/article-versions`, `feat/knowledge-graph`, `feat/extract-relations`, `structure/build-graph`, `docs/week3-report`.
 
 ## 1. Résumé
 
@@ -31,6 +31,8 @@
 | Ontologie Knowledge Graph (Nouha) | 3 types d'entités, 6 types de relations, 527 nœuds Article |
 | Extraction de relations juridiques (Hadil) | 297 relations extraites (165 modifies, 115 completes, 17 repeals), 88 lois |
 | Évaluation relations (Hadil) | Précision 96,9 % (93/96), Rappel 89,4 % (93/104) sur 104 références |
+| Knowledge Graph construit (Malak) | 763 nœuds (12 Law, 622 Article, 129 Version), 892 arêtes, 10 règles de validation passées |
+| Correction extraction AR — OCR dégradé (Nouha) | 125 → 134 textes AR, decret-94-03 et ordonnance-15-01 nommés correctement, corps loi-88-07 récupéré (17 578 car.) |
 | Comparaison GraphRAG — prototype (Nouha) | 5 questions testées, GraphRAG améliore 3/5 (Q1, Q18, Q24), Q24 corrigé de 44h → 40h. Évaluation complète prévue semaine 4 |
 
 
@@ -367,6 +369,110 @@ Pour chaque question, le script :
 
 **Où :** `src/search/graph_rag_compare.py`, résultats dans `data/search/graphrag_results.json`.
 
+### 3.19 Construction du Knowledge Graph — Malak ALIOUAT
+
+**Quoi :** script `src/structure/build_graph.py` (916 lignes) qui construit le graphe de connaissances juridiques sous forme de `MultiDiGraph` NetworkX, sauvegardé en `data/processed/knowledge_graph.graphml`.
+
+**Entrées (4 fichiers) :**
+
+| Fichier source | Utilisation |
+|---|---|
+| `data/corpus_index.csv` | 12 nœuds `Law` |
+| `data/processed/articles_all.json` | Nœuds `Article` + arêtes `CONTAINS`, fusion FR/AR |
+| `data/processed/article_versions.json` | Nœuds `Version`, `HAS_VERSION`, `SUPERSEDES`, relations d'amendement |
+| `data/processed/relations.json` | Relations d'amendement complémentaires |
+
+**Choix de conception :**
+
+- **Une clé par article : `(law_id, article_number)`.** Un article existant en FR et en AR est un seul nœud, avec `content_fr` et `content_ar`.
+- **Numéros d'article = chaînes** (`"73-1"`, `"52 bis"`), jamais des entiers.
+- **Dépliage des références groupées** (`expand_article_refs`) : `"140 et 149"` → 140, 149 ; `"22 à 26"` → 22…26. Sans cela, la chaîne `"140 et 149"` créait un faux article.
+- **Une seule relation d'amendement par paire article→article.** Quand `article_versions.json` et `relations.json` se contredisent (ex. MODIFIES vs COMPLETES), l'historique des versions gagne ; le conflit est compté (31 conflits).
+- **Nettoyage XML** (`clean_string`) : les caractères interdits en XML 1.0 (notamment `\x0c`, saut de page PDF) sont remplacés par un espace. Sans cela, `read_graphml` échoue.
+- **`has_text`** (`"true"`/`"false"`) sur chaque article : permet à la recherche d'ignorer les articles sans texte.
+- Arêtes d'amendement de **l'article amendant vers l'article amendé** (conformément à `ontology.md`).
+
+**Corrections après relecture PR :**
+
+1. Chemins relatifs → `ROOT = Path(__file__).resolve().parents[2]` (le script marche depuis n'importe quel dossier).
+2. Code encapsulé dans `build_graph()` avec `if __name__ == "__main__":` guard — fonctions importables.
+3. Message « Unmatched » clarifié (articles de textes absents de `corpus_index.csv`).
+4. Ajout du champ `source_ref` sur les nœuds `Version`.
+
+**Résultats mesurés :**
+
+| Élément | Valeur |
+|---|---|
+| Nœuds `Law` | 12 |
+| Nœuds `Article` | 622 |
+| Nœuds `Version` | 129 |
+| **Total nœuds** | **763** |
+| `CONTAINS` | 622 |
+| `HAS_VERSION` | 129 |
+| `SUPERSEDES` | 56 |
+| `MODIFIES` | 35 |
+| `COMPLETES` | 45 |
+| `REPEALS` | 5 |
+| **Total arêtes** | **892** |
+| Articles sans texte | 10 |
+| Conflits MODIFIES/COMPLETES résolus | 31 |
+| Références non interprétables | 0 |
+
+**Validation (10 règles, toutes passées) :**
+
+1. Chaque article appartient à une seule loi (`CONTAINS`)
+2. Un amendement relie deux lois différentes (pas d'auto-modification)
+3. Les versions sont numérotées 1…n sans trou
+4. Aucune version après une abrogation
+5. Chaque article versionné a au moins une version
+6. `SUPERSEDES` relie uniquement des versions du même article
+7. Ordre chronologique des dates
+8. Cohérence du statut « abrogé »
+9. Intégrité `HAS_VERSION` (une seule arête entrante par version)
+10. Pas d'identifiant d'article factice (`et`, `à`, virgule)
+
+**Vérification indépendante du fichier GraphML :** ouverture avec `nx.read_graphml`, 0 caractère `\x0c`, 0 erreur de propriété, 0 paire avec deux relations, 0 nœud isolé, 73 articles versionnés en ordre chronologique.
+
+**Preuve :** `python src/structure/build_graph.py` → `All implemented validation checks passed.`, `python -c "import networkx as nx; G=nx.read_graphml('data/processed/knowledge_graph.graphml'); print(G.number_of_nodes(), G.number_of_edges())"` → `763 892`.
+
+**Où :** `src/structure/build_graph.py`, branche `structure/build-graph` (PR #43).
+
+### 3.20 Correction extraction AR — OCR dégradé (issue #44) — Nouha HAROUDI
+
+**Problème :** 3 textes juridiques (loi 88-07, décret 94-03, ordonnance 15-01) manquaient dans `texts_ar/` malgré la présence des fichiers OCR bruts. Le script `extract_texts_ar.py` ne les trouvait pas à cause de dégradations OCR spécifiques.
+
+**Causes racines diagnostiquées :**
+
+| Texte | Dégradation OCR | Conséquence |
+|---|---|---|
+| decret-94-03 | Qualificatif `تشريعي` → `تشزيعي` (ز au lieu de ر), numéro `94-:.03` (ponctuation parasite) | BOUNDARY regex échoue, numéro non parsé |
+| ordonnance-15-01 | Pas de sauts de page, texte intégralement dupliqué, kashida (ـ) dans les mots-clés, caractères latins isolés (H, r, Y), numéro inversé par bidi (`01-15 أمر رقم` au lieu de `أمر رقم 15-01`) | Aucun match BOUNDARY ni LOOSE |
+| loi-88-07 | Numéro `هه ©` au lieu de `88-07` (aucun chiffre), en-tête coupé par une frontière parasite (قرار) → corps de 537 car. sans المادة → toc_dropped | Corps absorbé dans le texte suivant |
+
+**Corrections apportées à `extract_texts_ar.py` :**
+
+1. **`strip_ocr_noise()`** — supprime le tatweel (ـ) et les caractères latins isolés avant le matching regex.
+2. **QUALIFIER élargi** — ajout des fautes OCR courantes (`تشزيعي`, `تنفيدي`, `عصوي`).
+3. **`parse_number()` nettoyé** — supprime la ponctuation OCR parasite (`:`, `.`, `,`) avant l'extraction des chiffres. `94-:.03` → `94-03`.
+4. **`extract_number_from_heading()`** — quand LOOSE matche sans capturer de numéro, scanne les 200 premiers caractères du corps pour `رقم XX-YY`.
+5. **Fusion des fragments toc** — quand un texte sans المادة est suivi d'un autre texte, fusionne si le corps combiné contient المادة. Récupère loi 88-07.
+6. **Fallback OCR dégradé** — pour les fichiers catastrophiques (0 match BOUNDARY/LOOSE mais المادة présent) : déduplique les phrases répétées, cherche le motif bidi inversé `\d-\d TYPE_WORD رقم`. Récupère ordonnance 15-01.
+
+**Résultats mesurés :**
+
+| Texte | Avant | Après |
+|---|---|---|
+| decret-94-03 | `decret-1994-p05-1` (nom fallback) | `decret-94-03` (nom correct), 2 989 car. |
+| ordonnance-15-01 | Absent | `ordonnance-15-01`, 113 965 car. |
+| loi-88-07 | Absent | `loi-1988-p03-1` (numéro irrécupérable), 17 578 car. |
+| Total textes AR | 125 | 134 (+9) |
+
+**Limite :** le numéro de la loi 88-07 (`هه ©`) ne contient aucun chiffre — le script ne peut pas reconstruire `88-07`. Le texte est extrait avec un nom fallback basé sur la page. C'est une limite de l'OCR, pas du script.
+
+**Preuve :** `python src/structure/extract_texts_ar.py` → `134 نصًّا`. `grep decret-94-03 data/processed/texts_ar/index_ar.csv` → présent. `grep ordonnance-15-01 data/processed/texts_ar/index_ar.csv` → présent.
+
+**Où :** `src/structure/extract_texts_ar.py`, branche `docs/week3-report`.
+
 ## 4. Démarche expérimentale : normalisation alef
 
 Cette section documente une tentative d'amélioration qui a échoué et les leçons tirées.
@@ -515,13 +621,17 @@ Première comparaison sur 5 questions sélectionnées (prototype). Exécution de
 3. **Sensibilité aux embeddings** — les scores E5 sont sensibles au texte exact des chunks. Un changement mineur du corpus (normalisation alef) a provoqué une régression de 2 questions sur le Hybrid. Cette fragilité est compensée par un alpha élevé (0.8) qui réduit le poids d'E5 pour l'arabe.
 4. **Article-level MRR (Hybrid 0.59)** — le bon article est trouvé dans le top-3 pour 77 % des questions, mais pas toujours au rang 1. Les articles voisins (même loi, numéros proches) ont une forte similarité sémantique, ce qui dilue le classement.
 
+5. **loi-88-07 : numéro OCR irrécupérable** — l'OCR a produit `هه ©` au lieu de `88-07` (aucun chiffre). Le corps est extrait (17 578 car.) sous le nom `loi-1988-p03-1` mais ne peut pas être relié au graphe via `corpus_index.csv`. Seule une ré-OCR du PDF source ou un mapping manuel peut corriger cela.
+6. **12 nœuds `preambule`** comptés comme `Article` dans le graphe — à typer autrement ou exclure des comptes.
+7. **2 630 articles non rattachés** dans `articles_all.json` — articles de textes absents de `corpus_index.csv` (arrêtés, décrets hors périmètre). Limite des données, pas du script.
+
 ## 8. Contributions
 
 | Membre | Rôle | Livrable principal | Statut |
 |--------|------|-------------------|--------|
-| Nouha HAROUDI | Correction chiffres arabes, extraction AR, liaison FR↔AR, recherche hybride, auto-alpha, normalisation alef, extension 30 questions, calibration alpha, correction ground truth (20 questions), scoring article-level, préfixe métadonnées, correction shadda split, ontologie KG, comparaison GraphRAG (5 questions, 3/5 améliorées), rapport | `extract_text_pdfs.py`, `extract_texts_ar.py`, `link_ar_to_fr.py`, `search_compare.py`, `graph_rag_compare.py`, `build_index.py`, `test_questions.json`, `notebooks/kaggle_build_e5.py`, `docs/week3/ontology.md` | PR #33, #38 |
+| Nouha HAROUDI | Correction chiffres arabes, extraction AR, liaison FR↔AR, recherche hybride, auto-alpha, normalisation alef, extension 30 questions, calibration alpha, correction ground truth (20 questions), scoring article-level, préfixe métadonnées, correction shadda split, ontologie KG, correction extraction AR OCR dégradé (125→134 textes, issue #44), comparaison GraphRAG (5 questions, 3/5 améliorées), rapport | `extract_text_pdfs.py`, `extract_texts_ar.py`, `link_ar_to_fr.py`, `search_compare.py`, `graph_rag_compare.py`, `build_index.py`, `test_questions.json`, `notebooks/kaggle_build_e5.py`, `docs/week3/ontology.md` | PR #33, #38 |
 | Hadil BOUKHALFA | Extraction de relations juridiques (297 relations, 3 types, bilingue), évaluation sur 104 références (précision 96,9 %, rappel 89,4 %) | `src/structure/extract_relations.py`, `data/processed/relations.json`, `eval/relation_gold.csv` | PR #41 |
-| Malak ALIOUAT | — | — | Absente semaine 3 |
+| Malak ALIOUAT | Construction du Knowledge Graph (763 nœuds, 892 arêtes, 10 règles de validation), dépliage des références groupées, nettoyage XML, résolution de 31 conflits MODIFIES/COMPLETES | `src/structure/build_graph.py`, `data/processed/knowledge_graph.graphml` | PR #43 |
 | Rania Halima BENZERAFA | Suivi des versions d'articles (73 articles, 129 versions, 9 lois), évaluation qualité OCR (5 pages, WER 1,05 %, CER 0,46 %) | `data/processed/article_versions.json`, `eval/ocr_quality/ocr_eval.py`, `eval/ocr_quality/ocr_quality_check.md` | PR #40 |
 
 ## 9. Pipeline complet (semaine 3)
@@ -533,7 +643,7 @@ PDF → extract_text_pdfs.py (digit reversal fix pour AR)
   ↓
 clean_text.py / clean_ar.py
   ↓
-extract_texts.py / extract_texts_ar.py (shadda diacritics fix)
+extract_texts.py / extract_texts_ar.py (shadda diacritics fix + OCR degradation fix)
   ↓
 link_ar_to_fr.py
   ↓
@@ -546,9 +656,9 @@ search_compare.py --auto-alpha (alef norm, article-level scoring)
 graph_rag_compare.py (RAG vs GraphRAG sur 5 questions, via Groq)
 
 Pipeline parallèle (Knowledge Graph) :
-  corpus_index.csv + articles_all.json + article_versions.json
+  corpus_index.csv + articles_all.json + article_versions.json + relations.json
     ↓
-  ontology.md → build_graph.py (en cours) → knowledge_graph.graphml
+  ontology.md → build_graph.py → knowledge_graph.graphml (763 nœuds, 892 arêtes)
 
 Pipeline parallèle (Extraction de relations) :
   articles_all.json
