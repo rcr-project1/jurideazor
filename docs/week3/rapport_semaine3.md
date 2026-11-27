@@ -506,7 +506,7 @@ Première comparaison sur 5 questions sélectionnées (prototype). Exécution de
 
 - **Q11 (contrôle) :** comme attendu, le graphe n'apporte pas d'amélioration significative sur une question factuelle simple où tous les articles sont en vigueur.
 
-**Score prototype : GraphRAG 3/5, RAG 0/5, Égalité 1/5, Échec double 1/5.** L'évaluation complète (30 questions, critères de scoring systématiques) est prévue en semaine 4.
+**Bilan prototype (5 questions) :** GraphRAG donne une meilleure réponse que RAG sur 3 questions (Q1, Q18, Q24). RAG n'est meilleur sur aucune. 1 égalité (Q11, contrôle). 1 double échec (Q20). L'évaluation complète (30 questions, critères de scoring systématiques) est prévue en semaine 4.
 
 ## 7. Limites
 
