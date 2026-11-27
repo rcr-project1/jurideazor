@@ -45,7 +45,7 @@ def build_e5_index(
     print(f"Loading model: {E5_MODEL}")
     model = SentenceTransformer(E5_MODEL)
 
-    texts = [f"passage: {c['content']}" for c in chunks]
+    texts = [f"passage: [{c['source_file'].split('/')[-1].replace('.txt','')}] {c['content']}" for c in chunks]
 
     print(f"Encoding {len(texts)} chunks (batch_size={batch_size}, CPU)...")
     t0 = time.time()
@@ -74,7 +74,7 @@ def tokenize(text: str) -> list[str]:
 
 def build_bm25_index(chunks: list[dict]) -> tuple[BM25Okapi, list[list[str]]]:
     print("Building BM25 index...")
-    tokenized = [tokenize(c["content"]) for c in chunks]
+    tokenized = [tokenize(f"[{c['source_file'].split('/')[-1].replace('.txt','')}] {c['content']}") for c in chunks]
     bm25 = BM25Okapi(tokenized)
     print(f"BM25 index: {len(tokenized)} documents")
     return bm25, tokenized

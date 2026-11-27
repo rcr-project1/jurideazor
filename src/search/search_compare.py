@@ -213,6 +213,59 @@ def check_hit(results: list[tuple[int, float]], chunks: list[dict], expected_law
     return False
 
 
+ART_NUM_RE = re.compile(r"(?:Art\.?|المادة|المادّة)\s*", re.IGNORECASE)
+
+
+def parse_expected_articles(expected_article: str) -> list[str]:
+    if not expected_article:
+        return []
+    parts = re.split(r"[,/]", expected_article)
+    nums = []
+    for part in parts:
+        num = ART_NUM_RE.sub("", part).strip()
+        if num:
+            nums.append(num)
+    return nums
+
+
+def find_article_rank(
+    results: list[tuple[int, float]], chunks: list[dict],
+    expected_law: str, expected_article: str,
+) -> int | None:
+    if not expected_law or expected_law.startswith("__"):
+        return None
+    laws = [l.strip() for l in expected_law.split(",")]
+    art_nums = parse_expected_articles(expected_article)
+    if not art_nums:
+        return None
+    for rank, (idx, _) in enumerate(results, 1):
+        chunk = chunks[idx]
+        source = chunk.get("source_file", "")
+        article = chunk.get("article", "")
+        if any(law in source for law in laws) and article in art_nums:
+            return rank
+    return None
+
+
+def check_article_hit(
+    results: list[tuple[int, float]], chunks: list[dict],
+    expected_law: str, expected_article: str,
+) -> bool:
+    if not expected_law or expected_law.startswith("__"):
+        return False
+    laws = [l.strip() for l in expected_law.split(",")]
+    art_nums = parse_expected_articles(expected_article)
+    if not art_nums:
+        return False
+    for idx, _ in results:
+        chunk = chunks[idx]
+        source = chunk.get("source_file", "")
+        article = chunk.get("article", "")
+        if any(law in source for law in laws) and article in art_nums:
+            return True
+    return False
+
+
 def run_comparison(questions: list[dict], k: int, alpha: float,
                    auto_alpha: bool = False) -> dict:
     chunks = load_chunks()
@@ -235,6 +288,13 @@ def run_comparison(questions: list[dict], k: int, alpha: float,
     e5_ranks = []
     bm25_ranks = []
     hybrid_ranks = []
+    e5_art_hits = 0
+    bm25_art_hits = 0
+    hybrid_art_hits = 0
+    e5_art_ranks = []
+    bm25_art_ranks = []
+    hybrid_art_ranks = []
+    n_art_scorable = 0
     results = []
     n_inscope = 0
     oos_scores: list[dict] = []
@@ -284,6 +344,22 @@ def run_comparison(questions: list[dict], k: int, alpha: float,
             if bm25_rank: bm25_ranks.append(bm25_rank)
             if hybrid_rank: hybrid_ranks.append(hybrid_rank)
 
+            expected_article = q.get("expected_article", "")
+            if parse_expected_articles(expected_article):
+                n_art_scorable += 1
+                e5_art_hit = check_article_hit(e5_results[:k], chunks, expected_law, expected_article)
+                bm25_art_hit = check_article_hit(bm25_results[:k], chunks, expected_law, expected_article)
+                hybrid_art_hit = check_article_hit(hybrid_results[:k], chunks, expected_law, expected_article)
+                e5_art_rank = find_article_rank(e5_results, chunks, expected_law, expected_article)
+                bm25_art_rank = find_article_rank(bm25_results, chunks, expected_law, expected_article)
+                hybrid_art_rank = find_article_rank(hybrid_results, chunks, expected_law, expected_article)
+                e5_art_hits += e5_art_hit
+                bm25_art_hits += bm25_art_hit
+                hybrid_art_hits += hybrid_art_hit
+                if e5_art_rank: e5_art_ranks.append(e5_art_rank)
+                if bm25_art_rank: bm25_art_ranks.append(bm25_art_rank)
+                if hybrid_art_rank: hybrid_art_ranks.append(hybrid_art_rank)
+
         e5_r = str(e5_rank) if e5_rank else "—"
         bm25_r = str(bm25_rank) if bm25_rank else "—"
         hyb_r = str(hybrid_rank) if hybrid_rank else "—"
@@ -331,16 +407,21 @@ def run_comparison(questions: list[dict], k: int, alpha: float,
     e5_mrr = sum(1 / r for r in e5_ranks) / n_inscope if e5_ranks else 0
     bm25_mrr = sum(1 / r for r in bm25_ranks) / n_inscope if bm25_ranks else 0
     hybrid_mrr = sum(1 / r for r in hybrid_ranks) / n_inscope if hybrid_ranks else 0
+    e5_art_mrr = sum(1 / r for r in e5_art_ranks) / n_art_scorable if e5_art_ranks else 0
+    bm25_art_mrr = sum(1 / r for r in bm25_art_ranks) / n_art_scorable if bm25_art_ranks else 0
+    hybrid_art_mrr = sum(1 / r for r in hybrid_art_ranks) / n_art_scorable if hybrid_art_ranks else 0
 
     print(f"\n{'='*80}")
     print(f"  SUMMARY  Hit@{k} — in-scope only ({n_inscope} questions, alpha={alpha_label}):")
-    print(f"    E5 (semantic):  {e5_hits:>2}/{n_inscope} ({100*e5_hits/n_inscope:.0f}%)")
-    print(f"    BM25 (keyword): {bm25_hits:>2}/{n_inscope} ({100*bm25_hits/n_inscope:.0f}%)")
-    print(f"    Hybrid (RRF):   {hybrid_hits:>2}/{n_inscope} ({100*hybrid_hits/n_inscope:.0f}%)")
+    print(f"    {'':30s} {'Law-level':>12s}  {'Article-level':>14s}")
+    print(f"    E5 (semantic):  {e5_hits:>2}/{n_inscope} ({100*e5_hits/n_inscope:.0f}%)       {e5_art_hits:>2}/{n_art_scorable} ({100*e5_art_hits/n_art_scorable:.0f}%)")
+    print(f"    BM25 (keyword): {bm25_hits:>2}/{n_inscope} ({100*bm25_hits/n_inscope:.0f}%)       {bm25_art_hits:>2}/{n_art_scorable} ({100*bm25_art_hits/n_art_scorable:.0f}%)")
+    print(f"    Hybrid (RRF):   {hybrid_hits:>2}/{n_inscope} ({100*hybrid_hits/n_inscope:.0f}%)       {hybrid_art_hits:>2}/{n_art_scorable} ({100*hybrid_art_hits/n_art_scorable:.0f}%)")
     print(f"\n  MRR (Mean Reciprocal Rank) — in-scope only:")
-    print(f"    E5:     {e5_mrr:.4f}")
-    print(f"    BM25:   {bm25_mrr:.4f}")
-    print(f"    Hybrid: {hybrid_mrr:.4f}")
+    print(f"    {'':22s} {'Law':>8s}  {'Article':>8s}")
+    print(f"    E5:     {e5_mrr:.4f}    {e5_art_mrr:.4f}")
+    print(f"    BM25:   {bm25_mrr:.4f}    {bm25_art_mrr:.4f}")
+    print(f"    Hybrid: {hybrid_mrr:.4f}    {hybrid_art_mrr:.4f}")
     if oos_scores:
         avg_e5_oos = sum(s["e5"] for s in oos_scores) / n_oos
         avg_bm25_oos = sum(s["bm25"] for s in oos_scores) / n_oos
@@ -367,6 +448,16 @@ def run_comparison(questions: list[dict], k: int, alpha: float,
         "e5_mrr": round(e5_mrr, 4),
         "bm25_mrr": round(bm25_mrr, 4),
         "hybrid_mrr": round(hybrid_mrr, 4),
+        "num_art_scorable": n_art_scorable,
+        "e5_art_hits": e5_art_hits,
+        "bm25_art_hits": bm25_art_hits,
+        "hybrid_art_hits": hybrid_art_hits,
+        "e5_art_hit_rate": round(e5_art_hits / n_art_scorable, 3) if n_art_scorable else 0,
+        "bm25_art_hit_rate": round(bm25_art_hits / n_art_scorable, 3) if n_art_scorable else 0,
+        "hybrid_art_hit_rate": round(hybrid_art_hits / n_art_scorable, 3) if n_art_scorable else 0,
+        "e5_art_mrr": round(e5_art_mrr, 4),
+        "bm25_art_mrr": round(bm25_art_mrr, 4),
+        "hybrid_art_mrr": round(hybrid_art_mrr, 4),
         "oos_avg_scores": {
             "e5": round(sum(s["e5"] for s in oos_scores) / n_oos, 4),
             "bm25": round(sum(s["bm25"] for s in oos_scores) / n_oos, 4),

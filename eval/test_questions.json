@@ -2,49 +2,49 @@
   {
     "question": "Quelle est la durée légale normale du travail en Algérie ?",
     "lang": "fr",
-    "expected_article": "Art. 22",
-    "expected_law": "loi-90-11",
+    "expected_article": "Art. 2",
+    "expected_law": "ordonnance-97-03",
     "source": "Q1 Rania"
   },
   {
     "question": "Dans quelles conditions l'employeur peut-il recourir aux heures supplémentaires ? Quel est le taux minimal de majoration applicable ?",
     "lang": "fr",
-    "expected_article": "Art. 26",
+    "expected_article": "Art. 31, Art. 32",
     "expected_law": "loi-90-11",
     "source": "Q2 Rania"
   },
   {
     "question": "Quelles sont les obligations de l'employeur en matière d'hygiène, de sécurité et de mise à disposition des équipements de protection individuelle ?",
     "lang": "fr",
-    "expected_article": "Art. 5 / Art. 3",
-    "expected_law": "loi-90-11, loi-88-07",
+    "expected_article": "Art. 4, Art. 6",
+    "expected_law": "loi-88-07",
     "source": "Q3 Rania"
   },
   {
     "question": "Quelles sont les missions et les pouvoirs de l'inspection du travail lorsqu'un salarié signale des infractions à la législation du travail ?",
     "lang": "fr",
-    "expected_article": "Art. 136 / Art. 1",
-    "expected_law": "loi-90-11, loi-90-03",
+    "expected_article": "Art. 2 / Art. 138",
+    "expected_law": "loi-90-03, loi-90-11",
     "source": "Q4 Rania"
   },
   {
     "question": "Dans quelles conditions un employeur peut-il licencier un salarié pour faute grave ? Quelles garanties et procédures doivent être respectées ?",
     "lang": "fr",
-    "expected_article": "Art. 73",
+    "expected_article": "Art. 73, Art. 73-1, Art. 73-2",
     "expected_law": "loi-90-11",
     "source": "Q5 Rania"
   },
   {
     "question": "Quelle procédure doit suivre un salarié pour contester son licenciement et résoudre un conflit individuel du travail ?",
     "lang": "fr",
-    "expected_article": "Art. 20",
+    "expected_article": "Art. 4, Art. 5",
     "expected_law": "loi-90-04",
     "source": "Q6 Rania"
   },
   {
     "question": "Un contrat de travail est-il valable lorsqu'il n'est pas établi par écrit ?",
     "lang": "fr",
-    "expected_article": "Art. 8",
+    "expected_article": "Art. 8, Art. 11",
     "expected_law": "loi-90-11",
     "source": "Q7 Rania"
   },
@@ -58,7 +58,7 @@
   {
     "question": "Un salarié peut-il bénéficier d'un congé annuel rémunéré en Algérie, et comment sa durée est-elle calculée selon la législation du travail ?",
     "lang": "fr",
-    "expected_article": "Art. 40",
+    "expected_article": "Art. 39, Art. 40, Art. 41",
     "expected_law": "loi-90-11",
     "source": "Q9 Rania"
   },
@@ -72,21 +72,21 @@
   {
     "question": "Dans quelles conditions les travailleurs peuvent-ils déclencher une grève ?",
     "lang": "fr",
-    "expected_article": "Art. 22-28",
+    "expected_article": "Art. 24, Art. 27, Art. 28",
     "expected_law": "loi-90-02",
     "source": "Q11 new"
   },
   {
     "question": "Quels services doivent être maintenus pendant une grève dans les services publics essentiels ?",
     "lang": "fr",
-    "expected_article": "Art. 37-38",
+    "expected_article": "Art. 37, Art. 38",
     "expected_law": "loi-90-02",
     "source": "Q12 new"
   },
   {
     "question": "Quelles sont les obligations de l'employeur en matière de médecine du travail ?",
     "lang": "fr",
-    "expected_article": "Art. 12",
+    "expected_article": "Art. 13, Art. 14",
     "expected_law": "loi-88-07",
     "source": "Q13 new"
   },
@@ -116,68 +116,69 @@
     "lang": "ar",
     "expected_article": "المادة 1",
     "expected_law": "loi-90-11",
+    "note": "preambule also acceptable",
     "source": "Q17 Rania (was Q11)"
   },
   {
     "question": "ما التعديلات التي أدخلها القانون رقم 91-29 على القانون 90-11؟",
     "lang": "ar",
-    "expected_article": "المادة 73",
+    "expected_article": "المادة 2, المادة 3",
     "expected_law": "loi-91-29",
     "source": "Q18 Rania (was Q12)"
   },
   {
     "question": "ما أثر الأمر رقم 97-03 على مدة العمل الأسبوعية والمواد من 22 إلى 26 من القانون 90-11؟",
     "lang": "ar",
-    "expected_article": "المادة 22",
+    "expected_article": "المادة 2, المادة 8",
     "expected_law": "ordonnance-97-03",
     "source": "Q19 Rania (was Q13)"
   },
   {
     "question": "ما المواد التي أضافها القانون رقم 22-16 إلى القانون 90-11، وما الموضوع الذي تتناوله؟",
     "lang": "ar",
-    "expected_article": "",
+    "expected_article": "المادة 1, المادة 2",
     "expected_law": "loi-22-16",
     "source": "Q20 Rania (was Q14)"
   },
   {
     "question": "ما هي حقوق العامل في حالة التسريح التعسفي؟",
     "lang": "ar",
-    "expected_article": "المادة 73",
-    "expected_law": "loi-90-11",
+    "expected_article": "المادة 73-3, المادة 73-4",
+    "expected_law": "loi-90-11, loi-91-29",
     "source": "Q21 new"
   },
   {
     "question": "ما هي شروط ممارسة حق الإضراب في الجزائر؟",
     "lang": "ar",
-    "expected_article": "المادة 28",
+    "expected_article": "المادة 24, المادة 27, المادة 28",
     "expected_law": "loi-90-02",
     "source": "Q22 new"
   },
   {
     "question": "ما هي الحقوق الأساسية للعامل في إطار علاقة العمل؟",
     "lang": "ar",
-    "expected_article": "المادة 6",
+    "expected_article": "المادة 5, المادة 6",
     "expected_law": "loi-90-11",
     "source": "Q23 new"
   },
   {
     "question": "ما هي مدة العمل القانونية الأسبوعية في الجزائر؟",
     "lang": "ar",
-    "expected_article": "المادة 22",
-    "expected_law": "loi-90-11",
+    "expected_article": "المادة 2",
+    "expected_law": "ordonnance-97-03",
     "source": "Q24 new"
   },
   {
     "question": "ما هو القانون الذي ينظم المناطق الحرة في الجزائر؟",
     "lang": "ar",
-    "expected_article": "",
+    "expected_article": "المادة 1",
     "expected_law": "loi-22-15",
     "source": "Q25 new"
   },
   {
     "question": "ما هي مهام مفتشية العمل واختصاصاتها؟",
     "lang": "ar",
-    "expected_article": "المادة 1-2",
+    "expected_article": "المادة 1, المادة 2",
     "expected_law": "loi-90-03",
     "source": "Q26 new"
   },
