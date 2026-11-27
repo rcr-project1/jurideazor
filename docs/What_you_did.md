@@ -30,7 +30,7 @@
 **Focus:** Define minimal ontology, extract entities and relations, track article versions.
 
 - **Nouha HAROUDI:**
-- **Hadil BOUKHALFA:**
+- **Hadil BOUKHALFA:** Implemented legal-relation extraction in `src/structure/extract_relations.py` and generated 297 candidate relations in `data/processed/relations.json`; evaluation against 104 mapped reference relations scored 96 predictions, with 96.9% precision and 89.4% recall. The scores apply only to relations covered by the reference set.
 - **Rania Halima BENZERAFA:**
 - **Malak ALIOUAT:**
 
