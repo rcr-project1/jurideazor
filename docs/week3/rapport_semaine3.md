@@ -1,6 +1,6 @@
 # Rapport de la semaine 3
 
-**Date :** 27/11/2026. **Dépôt :** `rcr-project1/jurideazor`. **Branches :** `feat/hybrid-search`, `fix/article-versions`, `feat/knowledge-graph`.
+**Date :** 27/11/2026. **Dépôt :** `rcr-project1/jurideazor`. **Branches :** `feat/hybrid-search`, `fix/article-versions`, `feat/knowledge-graph`, `feat/extract-relations`.
 
 ## 1. Résumé
 
@@ -29,6 +29,8 @@
 | Suivi des versions d'articles (Rania) | 73 articles de loi 90-11, 129 versions, 9 lois d'amendement |
 | Évaluation qualité OCR (Rania) | 5 pages pilotes FR : WER 1,05 %, CER 0,46 % |
 | Ontologie Knowledge Graph (Nouha) | 3 types d'entités, 6 types de relations, 527 nœuds Article |
+| Extraction de relations juridiques (Hadil) | 297 relations extraites (165 modifies, 115 completes, 17 repeals), 88 lois |
+| Évaluation relations (Hadil) | Précision 96,9 % (93/96), Rappel 89,4 % (93/104) sur 104 références |
 
 
 ## 2. Corrections de la semaine 2
@@ -300,6 +302,43 @@ Le script affiche maintenant les résultats sur deux niveaux :
 
 **Où :** `docs/week3/ontology.md`, branche `feat/knowledge-graph` (PR #38).
 
+### 3.17 Extraction de relations juridiques — Hadil BOUKHALFA
+
+**Quoi :** script `src/structure/extract_relations.py` qui parcourt les articles du corpus et extrait les relations inter-lois (modification, complétion, abrogation) avec le texte source comme preuve.
+
+**Méthode :** le script utilise des regex bilingues (FR et AR) pour détecter trois types de relations :
+1. **modifies** — article d'une loi qui modifie un article d'une autre loi
+2. **completes** — article qui complète une autre loi (insertion, ajout)
+3. **repeals** — article qui abroge un article ou des dispositions d'une autre loi
+
+Deux patterns de détection : (1) article cible puis citation de la loi (`L'article 73 de la loi n° 90-11 est modifié...`), (2) citation de la loi puis article cible (`la loi n° 90-11 est complétée par un article 73 bis...`).
+
+**Chiffres mesurés :**
+
+| Élément | Valeur |
+|---------|--------|
+| Articles lus | 2 624 |
+| Relations candidates extraites | 297 |
+| Répartition par type | modifies : 165, completes : 115, repeals : 17 |
+| Répartition par langue | FR : 199, AR : 98 |
+| Lois impliquées | 88 |
+
+**Évaluation :** comparaison avec 104 relations de référence explicitement mappées dans `eval/relation_gold.csv`. Le script a scoré 96 relations extraites parmi ces paires : 93 correspondent à la référence, 11 relations de référence sont manquées, 3 relations extraites ne correspondent pas.
+
+| Métrique | Valeur |
+|----------|--------|
+| Relations de référence | 104 |
+| Relations scorées | 96 |
+| Correspondances correctes | 93 |
+| Précision | 96,9 % (93/96) |
+| Rappel | 89,4 % (93/104) |
+
+**Amélioration du rappel :** le rappel est passé de 73,1 % à 89,4 % après ajustement du clause splitter pour ignorer les points OCR parasites en début de ligne.
+
+**Limites :** les scores s'appliquent aux 104 relations mappées ; ils ne mesurent pas la justesse des 297 candidates dans le corpus complet. Les erreurs résiduelles concernent surtout l'ordonnance 96-21 et nécessitent une revue manuelle.
+
+**Où :** `src/structure/extract_relations.py`, `data/processed/relations.json`, branche `feat/extract-relations` (PR #41).
+
 ## 4. Démarche expérimentale : normalisation alef
 
 Cette section documente une tentative d'amélioration qui a échoué et les leçons tirées.
@@ -427,7 +466,7 @@ Hors-contexte (4 questions) — score moyen top-1 (plus bas = meilleur rejet) :
 | Membre | Rôle | Livrable principal | Statut |
 |--------|------|-------------------|--------|
 | Nouha HAROUDI | Correction chiffres arabes, extraction AR, liaison FR↔AR, recherche hybride, auto-alpha, normalisation alef, extension 30 questions, calibration alpha, correction ground truth (20 questions), scoring article-level, préfixe métadonnées, correction shadda split, ontologie KG, rapport | `extract_text_pdfs.py`, `extract_texts_ar.py`, `link_ar_to_fr.py`, `search_compare.py`, `build_index.py`, `test_questions.json`, `notebooks/kaggle_build_e5.py`, `docs/week3/ontology.md` | PR #33, #38 |
-| Hadil BOUKHALFA | Ajout du champ `within_scope` au corpus index (correction semaine 2) | `data/corpus_index.csv`, `docs/week2/corpus_plan.md` (commit `02ee03b`) | Fait |
+| Hadil BOUKHALFA | Extraction de relations juridiques (297 relations, 3 types, bilingue), évaluation sur 104 références (précision 96,9 %, rappel 89,4 %) | `src/structure/extract_relations.py`, `data/processed/relations.json`, `eval/relation_gold.csv` | PR #41 |
 | Malak ALIOUAT | — | — | Absente semaine 3 |
 | Rania Halima BENZERAFA | Suivi des versions d'articles (73 articles, 129 versions, 9 lois), évaluation qualité OCR (5 pages, WER 1,05 %, CER 0,46 %) | `data/processed/article_versions.json`, `eval/ocr_quality/ocr_eval.py`, `eval/ocr_quality/ocr_quality_check.md` | PR #40 |
 
@@ -454,6 +493,13 @@ Pipeline parallèle (Knowledge Graph) :
   corpus_index.csv + articles_all.json + article_versions.json
     ↓
   ontology.md → build_graph.py (en cours) → knowledge_graph.graphml
+
+Pipeline parallèle (Extraction de relations) :
+  articles_all.json
+    ↓
+  extract_relations.py → relations.json (297 relations)
+    ↓
+  évaluation vs relation_gold.csv (104 références → P=96,9 %, R=89,4 %)
 ```
 
 ## 9. Usage de l'IA
