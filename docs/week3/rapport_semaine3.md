@@ -1,6 +1,6 @@
 # Rapport de la semaine 3
 
-**Date :** 23/11/2026. **Dépôt :** `rcr-project1/jurideazor`. **Branche :** `feat/hybrid-search`.
+**Date :** 27/11/2026. **Dépôt :** `rcr-project1/jurideazor`. **Branches :** `feat/hybrid-search`, `fix/article-versions`, `feat/knowledge-graph`.
 
 ## 1. Résumé
 
@@ -26,6 +26,9 @@
 | MRR Hybrid (article) | 0.5865 |
 | Hors-contexte | 4/4 rejetées (score top-1 Hybrid : 0.016) |
 | Index E5 (Kaggle GPU) | 3 410 vecteurs, 768 dim |
+| Suivi des versions d'articles (Rania) | 73 articles de loi 90-11, 129 versions, 9 lois d'amendement |
+| Évaluation qualité OCR (Rania) | 5 pages pilotes FR : WER 1,05 %, CER 0,46 % |
+| Ontologie Knowledge Graph (Nouha) | 3 types d'entités, 6 types de relations, 527 nœuds Article |
 
 
 ## 2. Corrections de la semaine 2
@@ -224,6 +227,79 @@ Le script affiche maintenant les résultats sur deux niveaux :
 **Preuve :** `git diff -- src/search/search_compare.py` (+103 lignes). Sortie §5 avec les deux colonnes.
 
 
+### 3.14 Suivi des versions d'articles — Rania Halima BENZERAFA
+
+**Quoi :** fichier `data/processed/article_versions.json` qui retrace l'historique de chaque article de la loi 90-11 affecté par les 9 lois d'amendement.
+
+**Chiffres mesurés :**
+
+| Élément | Valeur |
+|---------|--------|
+| Articles suivis | 73 |
+| Versions totales | 129 |
+| Lois d'amendement couvertes | 9 (loi-91-29, décret-94-03, ord-96-21, ord-97-02, ord-97-03, ord-15-01, loi-17-11, loi-22-16, loi-14-10) |
+| Statuts : modifié | 28 |
+| Statuts : en vigueur | 17 |
+| Statuts : complété | 22 |
+| Statuts : abrogé | 6 |
+
+**Structure par entrée :** `{article, law, current_status, versions: [{version, date, source, source_article, action, summary_fr, summary_ar}]}`.
+
+**Vérification :** chaque entrée a été vérifiée contre les textes FR du corpus (`data/processed/articles_all.json`). 7 lois sur 9 vérifiées intégralement sans erreur factuelle. L'ordonnance 15-01 et la loi 14-10 n'ont pas de texte dans le corpus ; leurs références sont confirmées par renvois dans d'autres lois (loi-17-11 art. 132 confirme loi-14-10).
+
+**Lacune corrigée :** Art. 64 manquait dans la version initiale. L'article 3 de la loi 22-16 complète l'article 64 de la loi 90-11 en ajoutant le congé pour création d'entreprise comme cas de suspension de la relation de travail. Ajouté dans la version corrigée.
+
+**Où :** `data/processed/article_versions.json`, branche `fix/article-versions` (PR #40).
+
+### 3.15 Évaluation de la qualité OCR — Rania Halima BENZERAFA
+
+**Quoi :** évaluation pilote de la qualité OCR sur 5 pages françaises de la loi 90-11 (pages 490–494 du JORADP 1990, n° 17).
+
+**Méthode :** transcription manuelle de 5 pages (gold standard) comparée au texte OCR `text_v2` via un script Python (`eval/ocr_quality/ocr_eval.py`) qui calcule WER, CER, erreurs numériques et erreurs de numéros d'articles.
+
+**Résultats mesurés :**
+
+| Métrique | Valeur |
+|----------|--------|
+| Mots gold | 3 231 |
+| Erreurs de mots | 34 |
+| WER | 1,05 % (34/3 231) |
+| Caractères gold | 21 143 |
+| Erreurs de caractères | 97 |
+| CER | 0,46 % (97/21 143) |
+| Erreurs numériques | 2/100 tokens numériques |
+| Erreurs numéros d'articles | 1/68 (label « Art. » lu « Ârt. », le numéro 30 est correct) |
+
+**Limites identifiées :**
+
+- 5 pages de prose française d'un seul document (0,95 % du corpus, 0 pages arabes).
+- Pas de tableaux, décimales, ni mises en page complexes dans l'échantillon.
+- Le script ne gère pas l'arabe (pas de normalisation des diacritiques, pas de détection d'articles arabes).
+- L'erreur OCR `Ârt. 30` empêche le splitter générique de détecter l'article 30 dans les textes basés sur l'OCR.
+- Résultats valides comme pilote mais non généralisables à l'ensemble du corpus.
+
+**Où :** `eval/ocr_quality/` (branche `week3`, mergée via PR #32).
+
+### 3.16 Ontologie du Knowledge Graph — Nouha HAROUDI
+
+**Quoi :** spécification du schéma du Knowledge Graph dans `docs/week3/ontology.md`.
+
+**Contenu :**
+
+| Composant | Détail |
+|-----------|--------|
+| Types d'entités | 3 : Law (12), Article (~527), Version (127) |
+| Types de relations | 6 : CONTAINS, MODIFIES, COMPLETES, REPEALS, HAS_VERSION, SUPERSEDES |
+| Table de mapping des identifiants | corpus_index.csv, articles_all.json, article_versions.json → IDs canoniques |
+| Règle de fusion FR/AR | Un nœud Article par article, fusion sur (law_id, article_number) |
+| Contraintes | 6 règles de validité (appartenance unique, amendement inter-lois, séquence des versions, etc.) |
+| Sous-graphes exemples | 3 : Art. 73 (modification), Art. 22 (abrogation), Art. 56 bis (ajout) |
+| Statistiques mesurées | 527 nœuds Article, 787 arêtes totales, script de dérivation inclus |
+
+**Décisions de conception :** pas de type LegalConcept (pas d'annotations thématiques dans les données sources), NetworkX (graphe en mémoire, pas de serveur), Version comme nœud distinct (et non propriété d'arête).
+
+**Où :** `docs/week3/ontology.md`, branche `feat/knowledge-graph` (PR #38).
+
 ## 4. Démarche expérimentale : normalisation alef
 
 Cette section documente une tentative d'amélioration qui a échoué et les leçons tirées.
@@ -350,10 +426,10 @@ Hors-contexte (4 questions) — score moyen top-1 (plus bas = meilleur rejet) :
 
 | Membre | Rôle | Livrable principal | Statut |
 |--------|------|-------------------|--------|
-| Nouha HAROUDI | Correction chiffres arabes, extraction AR, liaison FR↔AR, recherche hybride, auto-alpha, normalisation alef, extension 30 questions, calibration alpha, correction ground truth (20 questions), scoring article-level, préfixe métadonnées, correction shadda split, rapport | `extract_text_pdfs.py`, `extract_texts_ar.py`, `link_ar_to_fr.py`, `search_compare.py`, `build_index.py`, `test_questions.json`, `notebooks/kaggle_build_e5.py` | Fait |
+| Nouha HAROUDI | Correction chiffres arabes, extraction AR, liaison FR↔AR, recherche hybride, auto-alpha, normalisation alef, extension 30 questions, calibration alpha, correction ground truth (20 questions), scoring article-level, préfixe métadonnées, correction shadda split, ontologie KG, rapport | `extract_text_pdfs.py`, `extract_texts_ar.py`, `link_ar_to_fr.py`, `search_compare.py`, `build_index.py`, `test_questions.json`, `notebooks/kaggle_build_e5.py`, `docs/week3/ontology.md` | PR #33, #38 |
 | Hadil BOUKHALFA | Ajout du champ `within_scope` au corpus index (correction semaine 2) | `data/corpus_index.csv`, `docs/week2/corpus_plan.md` (commit `02ee03b`) | Fait |
-| Malak ALIOUAT | — | — | Absente |
-| Rania Halima BENZERAFA | — | — | — |
+| Malak ALIOUAT | — | — | Absente semaine 3 |
+| Rania Halima BENZERAFA | Suivi des versions d'articles (73 articles, 129 versions, 9 lois), évaluation qualité OCR (5 pages, WER 1,05 %, CER 0,46 %) | `data/processed/article_versions.json`, `eval/ocr_quality/ocr_eval.py`, `eval/ocr_quality/ocr_quality_check.md` | PR #40 |
 
 ## 8. Pipeline complet (semaine 3)
 
@@ -368,11 +444,16 @@ extract_texts.py / extract_texts_ar.py (shadda diacritics fix)
   ↓
 link_ar_to_fr.py
   ↓
-split_articles.py (shadda المادّة fix) → chunk_texts.py
+split_articles.py (shadda المادّة fix) → chunk_texts.py → 3 410 chunks
   ↓
 build_index.py (BM25 + E5/FAISS, avec préfixe [loi-XX-YY])
   ↓
 search_compare.py --auto-alpha (alef norm, article-level scoring)
+
+Pipeline parallèle (Knowledge Graph) :
+  corpus_index.csv + articles_all.json + article_versions.json
+    ↓
+  ontology.md → build_graph.py (en cours) → knowledge_graph.graphml
 ```
 
 ## 9. Usage de l'IA
