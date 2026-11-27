@@ -29,10 +29,10 @@
 ## Week 3 (27/11/2026) - Knowledge Graph & Versions
 **Focus:** Define minimal ontology, extract entities and relations, track article versions.
 
-- **Nouha HAROUDI:**
+- **Nouha HAROUDI:** Fixed shadda regex in split_articles.py (+178 AR articles, 3238→3410 chunks). Corrected ground truth for 20/30 evaluation questions (wrong expected_article and expected_law). Added article-level Hit@3 and MRR scoring to search_compare.py. Injected metadata prefix [law-name] into BM25 and E5 chunks in build_index.py — Hybrid law-level 96%, article-level 77%. Built Kaggle E5 notebook (kaggle_build_e5.py). Wrote rapport semaine 3.
 - **Hadil BOUKHALFA:**
 - **Rania Halima BENZERAFA:**
-- **Malak ALIOUAT:**
+- **Malak ALIOUAT:** Absente.
 
 ---
 

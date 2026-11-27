@@ -30,9 +30,11 @@ data/raw/joradp/text/
 data/processed/downloads.sqlite
 data/processed/llm_cache.sqlite
 
-# 6. Search Vectors (Generated embeddings)
+# 6. Search Vectors & Models (Generated/downloaded — large binaries)
 *.npy
 *.faiss
+models/
+FETCH_HEAD
 
 # 7. Runtime artefacts & Logs
 *.log
