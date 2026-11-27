@@ -31,7 +31,7 @@
 
 - **Nouha HAROUDI:** Fixed shadda regex in split_articles.py (+178 AR articles, 3238→3410 chunks). Corrected ground truth for 20/30 evaluation questions (wrong expected_article and expected_law). Added article-level Hit@3 and MRR scoring to search_compare.py. Injected metadata prefix [law-name] into BM25 and E5 chunks in build_index.py — Hybrid law-level 96%, article-level 77%. Built Kaggle E5 notebook (kaggle_build_e5.py). Wrote rapport semaine 3.
 - **Hadil BOUKHALFA:**
-- **Rania Halima BENZERAFA:**
+- **Rania Halima BENZERAFA:** Fixed question 12. Evaluated OCR quality on 5 scanned pages of Law 90-11 (JORADP No. 17, pp. 490–494; 3,231 words) against a manual reference transcription, Results: WER 1.05%, CER 0.46%, Documented OCR errors and evaluation results. Created data/processed/article_versions.json to track the version history of 73 articles of Law 90-11 (129 dated versions), identifying which articles were original, added, modified, supplemented, or repealed, Each version includes its date, source text, and summaries in French and Arabic.
 - **Malak ALIOUAT:** Absente.
 
 ---
