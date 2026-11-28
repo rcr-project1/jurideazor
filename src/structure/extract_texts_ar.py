@@ -27,10 +27,40 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
-TYPE_WORD = r"(?:أمر|قانون|مرسوم|قرار|مقرر|منشور|نظام|ملحق)"
-QUALIFIER = r"(?:تنفيذي|رئاسي|وزاري|مشترك|داخلي|تكميلي|تشريعي|عضوي)"
+# ---------------------------------------------------------------------------
+# OCR noise removal — applied before boundary detection
+# ---------------------------------------------------------------------------
 
-DIACRITICS = r"[\u064B-\u0652\u0640]{0,3}"          # harakat / tatweel
+_TATWEEL = re.compile(r"ـ")
+_LATIN_ISOLATED = re.compile(r"(?<=[^\x00-\x7F])[A-Za-z]{1,3}(?=[^\x00-\x7F\x00-\x20])")
+_DEDUP = re.compile(r"((?:\S+[ \t]+){0,4}\S+)([ \t]+)\1")
+
+def strip_ocr_noise(text: str) -> str:
+    """Remove tatweel and isolated Latin chars that break boundary regex."""
+    text = _TATWEEL.sub("", text)
+    text = _LATIN_ISOLATED.sub("", text)
+    return text
+
+
+# ---------------------------------------------------------------------------
+# Boundary patterns
+# ---------------------------------------------------------------------------
+
+TYPE_WORD_RAW = r"(?:أمر|قانون|مرسوم|قرار|مقرر|منشور|نظام|ملحق)"
+TYPE_WORD = TYPE_WORD_RAW
+
+# Degraded-OCR heading: number appears BEFORE type word due to bidi garbling
+_DEGRADED_HEADING = re.compile(
+    rf"(?P<num>\d{{1,3}}[-–—]\d{{1,3}})\s+(?P<type>{TYPE_WORD_RAW})\s*رقم",
+)
+QUALIFIER = (
+    r"(?:"
+    r"تنفيذي|رئاسي|وزاري|مشترك|داخلي|تكميلي|تشريعي|عضوي"
+    r"|تنفيدي|تشزيعي|عصوي"  # common OCR misspellings
+    r")"
+)
+
+DIACRITICS = r"[ً-ْـ]{0,3}"          # harakat / tatweel
 BOUNDARY = re.compile(
     rf"^\s*[|:—–>*·.،؛\s]{{0,3}}(?P<type>{TYPE_WORD}){DIACRITICS}"
     rf"(?:\s+{QUALIFIER}{DIACRITICS})?\s+"
@@ -44,8 +74,19 @@ LOOSE = re.compile(
     rf"(?:رقم\s*\d|\d{{1,3}}\s*[-–—]\s*\d{{1,3}}|م[ؤو][^\n]{{0,4}}?خ)",
     re.M,
 )
-ARTICLE = re.compile(rf"الماد{DIACRITICS}[ةه]")
+ARTICLE = re.compile(
+    rf"(?:الماد{DIACRITICS}[ةه]"
+    r"|(?:^|\s)ادة\s)"  # OCR-corrupted المادة (prefix lost)
+)
 TRAILING_JUNK = re.compile(r"[\.\s،؛:—–\-|]{3,}$")
+
+# Pattern to extract a number from a heading line (fallback for LOOSE matches)
+_HEADING_NUM = re.compile(
+    r"رقم\s*"
+    r"(?P<num>"
+    r"\d{1,3}(?:[\s.:,;]*[-–—+][\s.:,;]*\d{1,3})?"  # tolerates OCR punctuation noise
+    r")"
+)
 
 TYPES = {
     "أمر": "ordonnance",
@@ -79,7 +120,8 @@ def parse_number(raw: str | None, issue_year: str) -> tuple[bool, str | None]:
     """Return (num_ok, clean 'YY-N') from a possibly damaged heading number."""
     if not raw:
         return False, None
-    parts = re.findall(r"\d+", raw)
+    cleaned = re.sub(r"[^0-9\s\-–—+]", "", raw)
+    parts = re.findall(r"\d+", cleaned)
     yy = issue_year[-2:]
     if len(parts) == 3:
         a, b, nn = parts
@@ -100,6 +142,14 @@ def parse_number(raw: str | None, issue_year: str) -> tuple[bool, str | None]:
     return True, f"{yy}-{int(nn):02d}"
 
 
+def extract_number_from_heading(heading_text: str) -> str | None:
+    """Try to pull a 'رقم XX-YY' number from a heading even when LOOSE matched."""
+    m = _HEADING_NUM.search(heading_text)
+    if m:
+        return m.group("num")
+    return None
+
+
 def clean_title(lines: list[str]) -> str:
     title = " ".join(lines[:4])
     title = " ".join(title.split())
@@ -109,26 +159,58 @@ def clean_title(lines: list[str]) -> str:
     return TRAILING_JUNK.sub("", title).strip()[:300]
 
 
-def find_texts(text: str, issue_year: str, min_chars: int) -> list[Found]:
+def _collect_marks(cleaned: str) -> list[re.Match]:
     marks: list[re.Match] = []
-    for m in sorted(list(BOUNDARY.finditer(text)) + list(LOOSE.finditer(text)),
+    for m in sorted(list(BOUNDARY.finditer(cleaned)) + list(LOOSE.finditer(cleaned)),
                     key=lambda x: x.start()):
         if marks and m.start() < marks[-1].end():
             if m.start() >= marks[-1].end() - 1 and len(m.group(0)) > len(marks[-1].group(0)):
                 marks[-1] = m
             continue
         marks.append(m)
-    out: list[Found] = []
+    return marks
+
+
+def find_texts(text: str, issue_year: str, min_chars: int) -> list[Found]:
+    cleaned = strip_ocr_noise(text)
+    marks = _collect_marks(cleaned)
+
+    # Fallback for severely degraded OCR where headings are unrecognizable:
+    # dedup consecutive repeated phrases, then search with _DEGRADED_HEADING.
+    if not marks and ARTICLE.search(cleaned):
+        deduped = _DEDUP.sub(r"\1", cleaned)
+        deg_matches = list(_DEGRADED_HEADING.finditer(deduped))
+        if deg_matches:
+            first_art = ARTICLE.search(deduped)
+            body_start = deg_matches[0].start()
+            body = deduped[body_start:].strip()
+            raw_num = deg_matches[0].group("num")
+            kind = TYPES[deg_matches[0].group("type")]
+            ok, clean_num = parse_number(raw_num, issue_year)
+            return [Found(
+                kind=kind,
+                num_raw=raw_num,
+                num_ok=ok,
+                num_clean=clean_num,
+                title=clean_title([ln.strip() for ln in body.splitlines()[:4] if ln.strip()]),
+                body=body,
+                page=1,
+                numbered=True,
+            )]
+
+    raw_items: list[Found] = []
     for i, m in enumerate(marks):
-        end = marks[i + 1].start() if i + 1 < len(marks) else len(text)
-        body = text[m.start() : end].strip()
+        end = marks[i + 1].start() if i + 1 < len(marks) else len(cleaned)
+        body = cleaned[m.start() : end].strip()
         body = TRAILING_JUNK.sub("", body).strip()
         if len(body) < min_chars:
             continue
         kind = TYPES[m.group("type")]
         raw = m.groupdict().get("num")
+        if raw is None:
+            raw = extract_number_from_heading(body[:200])
         ok, clean = parse_number(raw, issue_year)
-        out.append(
+        raw_items.append(
             Found(
                 kind=kind,
                 num_raw=" ".join(raw.split()) if raw else None,
@@ -136,10 +218,38 @@ def find_texts(text: str, issue_year: str, min_chars: int) -> list[Found]:
                 num_clean=clean,
                 title=clean_title([ln.strip() for ln in body.splitlines() if ln.strip()]),
                 body=body,
-                page=page_of(text, m.start()),
+                page=page_of(cleaned, m.start()),
                 numbered=raw is not None,
             )
         )
+
+    # Merge toc-dropped fragments into the following text when the combined
+    # body contains articles.  This recovers law headings that were split from
+    # their body by an intervening spurious boundary (e.g. gazette headers).
+    out: list[Found] = []
+    skip_next = False
+    for i, item in enumerate(raw_items):
+        if skip_next:
+            skip_next = False
+            continue
+        has_article = bool(ARTICLE.search(item.body))
+        if not has_article and i + 1 < len(raw_items):
+            merged_body = item.body + "\n" + raw_items[i + 1].body
+            if ARTICLE.search(merged_body):
+                merged = Found(
+                    kind=item.kind,
+                    num_raw=item.num_raw or raw_items[i + 1].num_raw,
+                    num_ok=item.num_ok or raw_items[i + 1].num_ok,
+                    num_clean=item.num_clean or raw_items[i + 1].num_clean,
+                    title=item.title,
+                    body=merged_body,
+                    page=item.page,
+                    numbered=item.numbered or raw_items[i + 1].numbered,
+                )
+                out.append(merged)
+                skip_next = True
+                continue
+        out.append(item)
     return out
 
 
